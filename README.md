@@ -1,21 +1,10 @@
----
-layout: page
-title: Docs
-permalink: /docs/
-weight: 5
----
 
 # About portfolYOU <small class="text-muted">{{ site.github.latest_release.tag_name }}</small>
-{:.no_toc}
 
-{%- assign partials_dir = "partials" -%}
-{%- assign docs = site.static_files | where_exp: "file", "file.path contains partials_dir" -%}
+[![GitHub stars](https://img.shields.io/github/stars/n7729697/n7729697.github.io.svg?style=social)](https://github.com/n7729697/n7729697.github.io/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/n7729697/n7729697.github.io.svg?style=social)](https://github.com/n7729697/n7729697.github.io/network/members)
+[![GitHub downloads](https://img.shields.io/github/downloads/n7729697/n7729697.github.io/total.svg)](https://github.com/n7729697/n7729697.github.io/releases)
 
-[![GitHub stars](https://img.shields.io/github/stars/your-username/your-repository.svg?style=social)](https://github.com/your-username/your-repository/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/your-repository.svg?style=social)](https://github.com/your-username/your-repository/network/members)
-[![GitHub downloads](https://img.shields.io/github/downloads/your-username/your-repository/total.svg)](https://github.com/your-username/your-repository/releases)
-
-{% include elements/github-edit-footer.html %}
 
 ## Features
 

@@ -33,7 +33,7 @@ weight: 5
 - Skills progress bars and education/experience timeline.
 - Support large number of **social networks**.
 - Quick including for various [elements][elements] as videos, lists, figures, buttons and many more.
-- Attractive [404 page](../404.html).
+- Attractive [404 page](https://n7729697.github.io/404.html).
 - Well Documented.
 
 [repo-meta]: https://help.github.com/en/articles/repository-metadata-on-github-pages

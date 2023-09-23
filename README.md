@@ -11,11 +11,9 @@ weight: 5
 {%- assign partials_dir = "partials" -%}
 {%- assign docs = site.static_files | where_exp: "file", "file.path contains partials_dir" -%}
 
-{% for doc in docs %}
-{% assign parent_dir = doc.path | split: partials_dir | first %}
-{% assign relative_path = doc.path | remove: parent_dir %}
-{% include_relative {{ relative_path }} %}
-{% endfor %}
+[![GitHub stars](https://img.shields.io/github/stars/your-username/your-repository.svg?style=social)](https://github.com/your-username/your-repository/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/your-username/your-repository.svg?style=social)](https://github.com/your-username/your-repository/network/members)
+[![GitHub downloads](https://img.shields.io/github/downloads/your-username/your-repository/total.svg)](https://github.com/your-username/your-repository/releases)
 
 {% include elements/github-edit-footer.html %}
 

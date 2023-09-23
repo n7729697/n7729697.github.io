@@ -6,11 +6,12 @@
 [![GitHub downloads](https://img.shields.io/github/downloads/n7729697/n7729697.github.io/total.svg)](https://github.com/n7729697/n7729697.github.io/releases)
 
 # Table of Contents
-- [Features](##Features)
-- [Installation](##Installation)
-- [Customization](##Customization)
-- [Adding Content](##AddingContent)
-
+- Features
+- Installation
+- Customization
+- Adding Content
+- Dependencies
+- Credits
 
 <a name="Features"></a>
 ## Features
@@ -18,7 +19,7 @@
 - Works 100% with **GitHub Pages** as a remote theme.
 - Minimal design and animations.
 - **Responsive** design using [Bootstrap](https://getbootstrap.com/).
-- Support [Repository metadata](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll), [FontAwesome](https://fontawesome.com/), [GitHub Buttons](https://buttons.github.io/) and many more in Dependencies.
+- Support [Repository metadata](https://help.github.com/en/articles/repository-metadata-on-github-pages), [FontAwesome](https://fontawesome.com/), [GitHub Buttons](https://buttons.github.io/) and many more in Dependencies.
 - Support **all image orientations** _(landscape, portrait or square)_ as a landing image.
 - **Automatic** importing for **GitHub Repositories** as Projects.
 - **Search** posts by title, tags or descriptions.
@@ -26,18 +27,15 @@
 - Disqus support for blog posts.
 - Skills progress bars and education/experience timeline.
 - Support large number of **social networks**.
-- Quick including for various [elements][elements] as videos, lists, figures, buttons and many more.
+- Quick including for various [elements](https://github.com/n7729697/n7729697.github.io/tree/master/_includes/elements) as videos, lists, figures, buttons and many more.
 - Attractive [404 page](https://n7729697.github.io/404.html).
 - Well Documented.
-
-[repo-meta]: https://help.github.com/en/articles/repository-metadata-on-github-pages
-[elements]: {{ site.github.repository_url }}/tree/master/_includes/elements
 
 ## Installation
 
 The following steps demonstrate how to use portfolYOU as **GitHub Pages remote theme**.
 
-1. [Download][download] portfolYOU as .zip from official [repo][repo] then extract it.
+1. [Download](https://github.com/YoussefRaafatNasry/portfolYOU/zipball/master) this template as .zip from official [repo](https://github.com/YoussefRaafatNasry/portfolYOU) then extract it.
 1. Rename **`portfolYOU-master/`** to **`<your-username>.github.io/`**
 1. Remove everything **except** the **`docs/`** directory.
 1. Lift up the **`docs/`** directory's content to the root directory _(i.e move them to **`<your-username>.github.io/`**)_.
@@ -61,19 +59,12 @@ The following steps demonstrate how to use portfolYOU as **GitHub Pages remote t
 
 1. Update **`_config.yml`** with your data _(follow the comments for more help)_.
 1. Update your site content (posts, projects and about page).
-1. Finally, test portfolYOU [locally][locally] then [publish][publish] it to [GitHub Pages][gh-pages].
-1. _[Optional]_ To use a specific [version][versions] of portfolYOU _(defaults to latest version)_:
+1. Finally, test portfolYOU [locally](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/) then [publish](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) it to [GitHub Pages](https://pages.github.com/).
+1. _[Optional]_ To use a specific [version](https://github.com/YoussefRaafatNasry/portfolYOU/releases) of portfolYOU _(defaults to latest version)_:
 
     ```yml
     remote_theme: YoussefRaafatNasry/portfolYOU@v1.0.0
     ```
-
-[repo]: {{ site.github.repository_url }}
-[download]: {{ site.github.zip_url }}
-[versions]: {{ site.github.releases_url }}
-[locally]: https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
-[publish]: https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/
-[gh-pages]: https://pages.github.com/
 
 ## Customization
 
@@ -110,8 +101,8 @@ Simply **override** the file you want to change by matching the **same file name
     ---
     ```
 
-1. Add project body in markdown or html. Check available [elements]({{ '/elements' | relative_url }}) to enjoy extra customization.
-1. Check more projects templates from [here]({{ site.github.repository_url }}/tree/master/docs/_projects).
+1. Add project body in markdown or html. Check available [elements](https://youssefraafatnasry.github.io/portfolYOU/elements/) to enjoy extra customization.
+1. Check more projects templates from [here](https://github.com/YoussefRaafatNasry/portfolYOU/tree/master/docs/_projects).
 
 #### Remote Projects
 
@@ -140,8 +131,8 @@ remote_projects:
     ```
 
 1. If you left both the style and color empty, the post's style is set to default style.
-1. Add post body in markdown or html. Check available [elements]({{ '/elements' | relative_url }}) to enjoy extra customization.
-1. Check more posts templates from [here]({{ site.github.repository_url }}/tree/master/docs/_posts).
+1. Add post body in markdown or html. Check available [elements](https://youssefraafatnasry.github.io/portfolYOU/elements/ to enjoy extra customization.
+1. Check more posts templates from [here](https://github.com/YoussefRaafatNasry/portfolYOU/tree/master/docs/_posts).
 
 #### Pages
 
@@ -158,7 +149,7 @@ remote_projects:
     ```
 
 1. The new page will be added to the navigation bar automatically.
-1. Check more pages templates from [here]({{ site.github.repository_url }}/tree/master/docs/pages).
+1. Check more pages templates from [here](https://github.com/YoussefRaafatNasry/portfolYOU/tree/master/docs/pages).
 
 #### External Content
 
@@ -227,3 +218,42 @@ portfolYOU provides a good number of social networks, but if you want to add you
 
 1. The new network will be added to your footer automatically.
 
+## Dependencies
+
+Here is a list of dependencies required to run this project:
+
+| Dependency                                           | Version |
+| :--------------------------------------------------- | :-----: |
+| [Animate.css][animate]                               | v3.7.0  |
+| [Bootstrap][bootstrap]                               | v4.3.1  |
+| [FontAwesome][font-awesome]                          | v5.6.3  |
+| [GitHub Buttons][gh-btns]                            | v2.2.9  |
+| [jQuery][jquery]                                     | v3.3.1  |
+| [Popper.js][popper]                                  | v1.14.6 |
+| [pygments-css][pygments-css]                         | autumn  |
+| [Simple Jekyll Search][simple-search]                | v1.7.2  |
+| [wow.js][wow]                                        | v1.1.2  |
+
+Please make sure to have these dependencies installed before proceeding with the installation and usage of this project.
+
+[animate]: https://daneden.github.io/animate.css/
+[bootstrap]: https://getbootstrap.com/
+[font-awesome]: https://fontawesome.com/
+[gh-btns]: https://buttons.github.io
+[jquery]: https://jquery.com/
+[popper]: https://popper.js.org/
+[pygments-css]: https://github.com/richleland/pygments-css
+[simple-search]: https://github.com/christian-fei/Simple-Jekyll-Search
+[wow]: https://wowjs.uk/
+
+## Credits
+
+1. [404 svg animated page][404-page] _A pen by Vladimir Gashenko._
+1. [CSS3 Animated Skill Progress bar][skills-progress-bar] _A pen by Shah Zobayer Ahmed._
+1. [How to Create Bootstrap Card Hover Effect (jQuery)][cards-hover] _A video by Daily Tuition._
+1. [Vertical Timeline (HTML-SCSS-CSS)][vertical-timeline] _A video by DevPen._
+
+[404-page]: https://codepen.io/gxash/pen/rrJYwm
+[skills-progress-bar]: https://codepen.io/speeedsam/pen/VeOGEq
+[cards-hover]: https://www.youtube.com/watch?v=2qQxwT-Qm5E
+[vertical-timeline]: https://www.youtube.com/watch?v=TP4THzsAa3M&t=2s

@@ -3,7 +3,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/n7729697/n7729697.github.io.svg?style=social)](https://github.com/n7729697/n7729697.github.io/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/n7729697/n7729697.github.io.svg?style=social)](https://github.com/n7729697/n7729697.github.io/network/members)
-[![GitHub downloads](https://img.shields.io/github/downloads/n7729697/n7729697.github.io/total.svg)](https://github.com/n7729697/n7729697.github.io/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/n7729697/n7729697.github.io/total.svg)](https://github.com/YoussefRaafatNasry/portfolYOU/zipball/master)
 
 # Table of Contents
 - Features

@@ -1,0 +1,106 @@
+### Site Settings ###
+title               : NIU Xuezhi
+description         : |
+                      Robotics Ph.D. Student <br>
+                      Cyber-physical Systems Lab  <br>
+                      Uppsala University <br><br>
+                      Msc. Mechatronics KTH<br>
+                      BEng. Mechanical Engineering CityU<br><br>
+                      Active Learning. Synthesis Pop. League of Legends :D <br>
+
+
+baseurl             : ""                                # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+repository          : n7729697/n7729697.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+remote_theme        : YoussefRaafatNasry/portfolYOU
+open_new_tab        : True                             # Opens external URLs in new tab (works for posts, projects and navbar only)
+landing_vertical    : False                             # Set the front page to be vertical (true) or horizontal (false)
+
+### Plugins ###
+plugins:
+  - jemoji
+
+
+### Navbar Settings ###
+nav_exclude:                                            # The following paths are excluded from navbar
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
+
+
+### Author Info ###
+author:
+  name              : NIU Xuezhi
+  image             : https://raw.githubusercontent.com/n7729697/n7729697.github.io/master/files/photo.jpg
+# behance           : your_username
+# dribbble          : your_username
+  email             : n7729697@gmail.com
+# facebook          : your_username
+  github            : n7729697
+# gitlab            : your_username
+# instagram         : your_username
+# kaggle            : your_username
+  linkedin          : xuezhi-niu
+# medium            : your_username
+# soundcloud        : your_username
+# spotify           : your_username
+# stackoverflow     : your_user_id
+# tumblr            : your_username.tumblr.com
+# twitch            : your_username
+# twitter           : meghshukla
+# vimeo             : your_username
+# youtube           : your_channel_name
+# keybase           : your_username
+
+
+### Posts ###
+permalink: /posts/:title
+
+
+### Collections ###
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+  CV:
+    output: true
+    permalink: /CV/:name
+
+
+### Disqus ###
+# disqus:
+#   shortname: XuezhiN                     # Your website Shortname on disqus
+
+
+### Analytics ###
+# analytics:
+#  enabled: true                                        # Set true to enable analytics
+#  google:
+#    tracking_id: UA-213349132-1                        #your-google-tracking-id
+
+
+### Defaults for collections ###
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+  - scope:
+      path: ""
+      type: "CV"
+    values:
+      layout: "page"
+  #  values:
+  #    comments: false                                   # Set to true to enable disqus comments
+
+
+### Exclude from processing ###
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"

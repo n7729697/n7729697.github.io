@@ -11,13 +11,14 @@
 - [Customization](##Customization)
 - [Adding Content](##AddingContent)
 
- 
+
+<a name="Features"></a>
 ## Features
 
 - Works 100% with **GitHub Pages** as a remote theme.
 - Minimal design and animations.
-- **Responsive** design using [Bootstrap][bootstrap].
-- Support [Repository metadata][repo-meta], [FontAwesome][font-awesome], [GitHub Buttons][gh-btns] and many [more](#dependencies).
+- **Responsive** design using [Bootstrap](https://getbootstrap.com/).
+- Support [Repository metadata](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll), [FontAwesome](https://fontawesome.com/), [GitHub Buttons](https://buttons.github.io/) and many more in Dependencies.
 - Support **all image orientations** _(landscape, portrait or square)_ as a landing image.
 - **Automatic** importing for **GitHub Repositories** as Projects.
 - **Search** posts by title, tags or descriptions.

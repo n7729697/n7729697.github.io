@@ -2,8 +2,8 @@
   <div class="timeline-body bg-themed">
     {% for item in site.data.timeline %}
       <div class="timeline-item">
-        <!-- Float the image to the right -->
-        <img src="{{ item.image }}" alt="{{ item.title }}" class="timeline-image float-right">
+        <!-- Float the image to the right and set its size -->
+        <img src="{{ item.image }}" alt="{{ item.title }}" class="timeline-image float-right" style="width: 100px; height: auto;">
 
         <div class="content">
           <h2>{{ item.title }}</h2>

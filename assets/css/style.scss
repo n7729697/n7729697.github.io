@@ -3,7 +3,34 @@
 @import "portfolYOU";
 
 .hover {
-          position: relative;
-          display: inline-block;
-          border-bottom: 1px dotted black;
-        }
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  /* Uncomment the following lines if needed */
+  /* max-width: 230px; */
+  /* top: 50px; */
+  /* left: 50px; */
+}
+
+.tooltip {
+  /* Tooltip styling */
+  top: 5px;
+  left: 193px;
+  background-color: yellow;
+  color: black;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  position: absolute;
+  /* Uncomment the following lines for a smooth opacity transition */
+  /* -webkit-transition: opacity 0.5s; */
+  /* -moz-transition: opacity 0.5s; */
+  /* -ms-transition: opacity 0.5s; */
+  /* -o-transition: opacity 0.5s; */
+  /* transition: opacity 0.5s; */
+}
+
+/* Display tooltip on hover */
+.hover:hover .tooltip {
+  opacity: 1;
+}

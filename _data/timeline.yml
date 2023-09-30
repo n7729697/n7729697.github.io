@@ -1,15 +1,17 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-- title: Software Engineer, Google, UK
-  from: 2018
+- title: <small> Uppsala University </small> 
+  from: 2023
   to: present
+  description: <it>Ph.D. Student</it>, Computer Science in Cyber Physical Systems <br> Doctoral Student, Cyber Physical Systems Lab
+
+- title: <small> KTH Royal Institute of Technology </small>
+  from: 2023
+  to: 2021
+  description: I wrote my Master's thesis on Optimal Gait Control of Soft Quadruped Robot by Model-based Reinforcement Learning 
+               under the guidance of Prof. Lei Feng 
+
+- title: <small> City University of Hong Kong </small>
+  from: 2021
+  to: 2017
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

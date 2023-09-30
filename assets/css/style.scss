@@ -1,3 +1,24 @@
 ---
 ---
 @import "portfolYOU";
+
+<style>
+  span[title]:hover::after {
+    content: attr(title);
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    display: none;
+  }
+
+  span[title]:hover::after {
+    display: block;
+  }
+</style>

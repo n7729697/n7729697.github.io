@@ -14,17 +14,6 @@
       <i class="{{ service_data.icon }} fa-1x"></i>
     </a>
     {%- endif -%}
-    
+  
     {% endfor %}
-
-    <!-- Add Google Scholar Link -->
-    {%- assign google_scholar_account = site.author.google_scholar -%}
-    {%- if google_scholar_account -%}
-    <a class="social mx-1" href="{{ google_scholar_account[0] }}"
-       style="color: #{{ unfocused_color }}"
-       onMouseOver="this.style.color='#{{ unfocused_color }}'"
-       onMouseOut="this.style.color='#{{ unfocused_color }}'">
-      <i class="fa-google-scholar fa-1x"></i>
-    </a>
-    {%- endif -%}
 </div>

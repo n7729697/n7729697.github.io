@@ -13,18 +13,18 @@
        onMouseOut="this.style.color='#{{ unfocused_color }}'">
       <i class="{{ service_data.icon }} fa-1x"></i>
     </a>
-      {%- if service_data == "google_scholar" -%}
-       <a class="social mx-1"  href="https://scholar.google.com/{{ account[1] }}"
-         style="color: #{{ unfocused_color }}"
-         onMouseOver="this.style.color='#{{ service_data.color }}'"
-         onMouseOut="this.style.color='#{{ unfocused_color }}'">
-          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-              <image href="https://github.com/n7729697/n7729697.github.io/tree/master/assets/icons8-google-scholar.svg" width="24" height="24"/>
-          </svg>
-        </a>
-      {%- endif -%}
     {%- endif -%}
     
     {% endfor %}
 
+    <!-- Add Google Scholar Link -->
+    {%- assign google_scholar_account = site.author.google_scholar -%}
+    {%- if google_scholar_account -%}
+    <a class="social mx-1" href="{{ google_scholar_account[0] }}"
+       style="color: #{{ unfocused_color }}"
+       onMouseOver="this.style.color='#{{ unfocused_color }}'"
+       onMouseOut="this.style.color='#{{ unfocused_color }}'">
+      <i class="fa-google-scholar fa-1x"></i>
+    </a>
+    {%- endif -%}
 </div>

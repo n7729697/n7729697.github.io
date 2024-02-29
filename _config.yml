@@ -2,10 +2,10 @@
 title               : NIU Xuezhi
 description         : |
                       Ph.D. Student in Embedded Systems <br>
-                      <a href="https://www.it.uu.se/research/group/CPS-Lab" target="_blank"> Cyber-physical Systems Lab </a> @ Uppsala University <br><br>
-                      Msc. Mechatronics KTH<br>
-                      BEng. Mechanical Engineering CityU<br><br>
-                      Active Learning. Synthesis Pop. League of Legends :D <br><br><br>
+                      <a href="https://www.it.uu.se/research/group/CPS-Lab" target="_blank"> Cyber-physical Systems Lab </a> at Uppsala University <br><br>
+                      Msc. Mechatronics at KTH<br>
+                      BEng. Mechanical Engineering at CityU<br><br>
+                      Active Learning. Synthesis Pop. League of Legends :D <br><br><br><br>
                       This website is being constructed inactively<s> because the owner is very lazy</s>.
 
 
@@ -13,7 +13,7 @@ baseurl             : ""                                # Change to empty quotes
 repository          : n7729697/n7729697.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : YoussefRaafatNasry/portfolYOU
 open_new_tab        : True                             # Opens external URLs in new tab (works for posts, projects and navbar only)
-landing_vertical    : False                             # Set the front page to be vertical (true) or horizontal (false)
+landing_vertical    : True                             # Set the front page to be vertical (true) or horizontal (false)
 
 ### Plugins ###
 plugins:
@@ -33,7 +33,7 @@ author:
   image             : https://raw.githubusercontent.com/n7729697/n7729697.github.io/master/files/Profile_photo.jpg
 # behance           : your_username
 # dribbble          : your_username
-  email             : n7729697@gmail.com
+  email             : xuezhi.niu@it.uu.se
 # facebook          : your_username
   github            : n7729697
 # gitlab            : your_username

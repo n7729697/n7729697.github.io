@@ -1,14 +1,14 @@
 - title: <small> Uppsala University </small> 
-  from: 2023
+  from: 2024
   to: present
-  description: <it>Ph.D. Student</it>, Computer Science in Cyber Physical Systems <br> Doctoral Student, Cyber Physical Systems Lab
+  description: <it>Ph.D. Student</it>, Embedded Systems in Division of Computer Systems <br> Doctoral Student, Cyber Physical Systems Lab
   image: /files/UU_logo.png
 
 - title: <small> KTH Royal Institute of Technology </small>
   from: 2023
   to: 2021
   description: I wrote my Master's thesis on Optimal Gait Control of Soft Quadruped Robot by Model-based Reinforcement Learning 
-               under the guidance of Prof. Lei Feng
+               under the guidance of <a href="https://www.kth.se/profile/lfeng" target="_blank"> Prof. Lei Feng </a>
   image: /files/KTH_logo.png
 
 - title: <small> City University of Hong Kong </small>
@@ -19,4 +19,4 @@
                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-  image: /files/CityU_LOGO.png
+  image: /files/CityU_logo.png

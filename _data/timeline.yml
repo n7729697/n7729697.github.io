@@ -8,7 +8,8 @@
   from: 2023
   to: 2021
   description: I wrote my Master's thesis on Optimal Gait Control of Soft Quadruped Robot by Model-based Reinforcement Learning 
-               under the guidance of <a href="https://www.kth.se/profile/lfeng" target="_blank"> Prof. Lei Feng </a> and supervised by <a href="https://www.kth.se/profile/kaiget" target="_blank"> Kaige Tan </a>
+               under the guidance of <a href="https://www.kth.se/profile/lfeng" target="_blank"> Prof. Lei Feng </a> and 
+               supervised by <a href="https://www.kth.se/profile/kaiget" target="_blank"> Kaige Tan </a>
   image: /files/KTH_logo.png
 
 - title: <small> City University of Hong Kong </small>

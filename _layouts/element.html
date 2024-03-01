@@ -3,7 +3,7 @@
 
 {%- assign code = content | strip -%}
 
-{%- if code contains '{% ' -%}
+{%- if code contains '{% ' -%}}
 
     {%- assign code = code | newline_to_br | split: '<br />' -%}
 
@@ -14,15 +14,15 @@
 
     {%- for line in code -%}
 
-        {%- if line contains '{% endcapture' -%}
+        {%- if line contains '{% endcapture' -%}}
             {%- assign start_capture = false -%}
         {%- elsif start_capture == true -%}
             {%- assign captured_text = captured_text | append: line -%}
-        {%- elsif line contains '{% capture' -%}
+        {%- elsif line contains '{% capture' -%}}
             {%- assign temp = line | split: ' ' -%}
             {%- assign captured_var  = temp[2] -%}
             {%- assign start_capture = true -%}
-        {%- elsif line contains '{% include' -%}
+        {%- elsif line contains '{% include' -%}}
             {%- assign includes = includes | push: line -%}
         {%- endif -%}
 

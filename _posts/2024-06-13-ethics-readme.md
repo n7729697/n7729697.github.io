@@ -62,7 +62,7 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 
 <details>
   <summary>Data Usage</summary>
-  <div class="tip" markdown="1">
+  <div class="tip" markdown="1"> 
   Use collected data strictly within the terms agreed upon at the point of collection and in compliance with GDPR. This includes ensuring that data processing is lawful, fair, and transparent. Maintain records of processing activities to demonstrate compliance with [GDPR](https://gdpr-info.eu/). This includes documenting the legal basis for processing, data sharing, and retention practices.
   </div>
 </details>
@@ -115,7 +115,7 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
   - Follow Emergency Procedures: Recognize the situation that requires an immediate stop (e.g., unexpected robot behavior, physical danger to personnel). Press the emergency stop button or use the remote stop control. Alert all personnel in the lab that might be affected.
   - Assess the Situation: Quickly assess the reason for the stop and ensure the area is safe before taking further action.
   - Secure Area: Ensure the area is safe and secure from any hazards. Log the shutdown events afterwards.
-  
+  </div>
 </details>
 
 
@@ -153,58 +153,65 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 
 <details>
   <summary>Documentation and Reporting</summary>
-
+  <div class="tip" markdown="1">
   Keep comprehensive records of all research activities, including experimental setups, data collection methods, analysis techniques, and results. This documentation is crucial for reproducibility, auditing, and historical reference. Follow ethical standards in publishing and sharing research findings. Ensure that all contributions are accurately credited and that any conflicts of interest are declared.
-
+  </div>
   <blockquote>
   <details>
     <summary>Examples</summary>
-    
+    <div class="tip" markdown="1">
   * The lab maintains a digital lab notebook that logs all experiments conducted on the lab equipment. 
   * The one who carrys out the experiments should detail the experiment’s purpose, setup, execution, results, and any anomalies, ensuring that the work can be replicated or audited in the future.
+    </div>
   </blockquote></details>
 </details>
 
 <details>
   <summary>Publishing Protocol</summary>
-
+  <div class="tip" markdown="1">
   * Verify that the work is original, properly cites previous work, and does not plagiarize any content. Utilize plagiarism detection software as required by the journal. 
   * Avoid submitting the same manuscript to more than one journal simultaneously. This practice is considered unethical as it can lead to duplicate publication. 
   * Be prepared to correct any inaccuracies or errors discovered after publication. In cases of significant errors or ethical breaches, retract the publication. 
   * Ensure ongoing access to the published research, including maintaining any data repositories and addressing any copyright or licensing issues that arise post-publication. 
   * Maintain records of all communications with the journal, peer review comments and responses, and revisions to the manuscript. This documentation can be crucial in addressing any questions about the research process or findings.
+  </div>
   <blockquote>
   <details>
     <summary>Preparing for Publication</summary>
-    
+    <div class="tip" markdown="1">
   * Determine who qualifies for authorship based on significant contributions to the conception, design, execution, or interpretation of the research reported. 
   * All contributors who meet these criteria should be listed as authors. Identify and disclose any potential conflicts of interest that might be perceived as influencing the research results or interpretations. 
   * Ensure that the data supporting the research findings is accessible and reproducible, where applicable. This includes making data available in a public repository and providing necessary code or algorithms under suitable licenses.
+    </div>
   </details>
 
   <details>
     <summary>Submission Process</summary>
-  
+    <div class="tip" markdown="1">
   * Choose a publication that aligns with the research field, has a rigorous peer review process, and is recognized for ethical publishing practices. 
   * Follow the specific formatting and submission guidelines provided by the chosen journal. This includes structuring the manuscript with a clear abstract, introduction, methodology, results, discussion, and references.
+    </div>
   </blockquote></details>
 </details>
 
 **Want to know more?**
 <details>
   <summary>The Uppsala Code of Ethics for Scientists</summary>
-
+  <div class="tip" markdown="1">
   Tibell, Gunnar; Lars Rydén; Peter Wallensteen & Bengt Gustafsson (1984) The Uppsala Code of Ethics for Scientists, Journal of Peace Research 21 (4): 311–316. [links](https://phsj.org/wp-content/uploads/2007/10/Uppsala-Code-of-Ethics-for-Scientists.pdf)
+  </div>
 </details>
 
 <details>
   <summary>Research ethics and good research practice</summary>
-
+  <div class="tip" markdown="1">
   Research ethics and good research practice from uppsala: [https://www.uu.se/en/research/ethics/](https://www.uu.se/en/research/ethics/)
+  </div>
 </details>
 
 <details>
   <summary>Good Research Practicee</summary>
-
+  <div class="tip" markdown="1">
   Good Research Practice from Vetenskapsrådets (VR): [book online](https://www.vr.se/english/analysis/reports/our-reports/2017-08-31-good-research-practice.html)
+  </div>
 </details>

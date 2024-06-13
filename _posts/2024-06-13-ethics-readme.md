@@ -8,6 +8,8 @@ description: Ethics fetched from the lab manual by deleting the confidential inf
 
 The "[Research Ethics for Science and Technology](https://www.uu.se/en/staff/faculty/science-and-technology/education-and-teaching/doctoral-studies/doctoral-student/courses/faculty-courses/research-ethics-for-science-and-technology-2-credits)" course aimed to equip students with the ability to recognize and critically discuss ethical issues in research. For the course's examination component, I chose to undertake an A project, focusing on returning what I learned to my institution by creating a comprehensive README file for research groups. This file addresses various ethical issues encountered in scientific research, providing guidelines to ensure ethical compliance and integrity in our research practices.
 
+<script src="https://rawcdn.githack.com/oscarmorrison/md-page/232e97938de9f4d79f4110f6cfd637e186b63317/md-page.js"></script><noscript>
+
 **Confidential information is deleted to share**
 
 ## Ethical Principles

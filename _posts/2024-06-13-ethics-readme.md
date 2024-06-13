@@ -125,36 +125,35 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 
 
 ### Compliance with Ethical Research Practices
-<div class="mdshow" markdown="1">
-- <details>
-  <summary>AI Ethics</summary>
-  <div class="mdshow" markdown="1">
+
+<details markdown=1>
+  <summary markdown="span">AI Ethics</summary>
+
   Follow ethical guidelines specifically designed for AI research to prevent biases and ensure fairness in algorithms. Maintain transparency of algorithms used in research to enable peer reviews and ethical audits. Document the design, decision-making processes, and criteria used by any AI systems. 
-  </div>
-  <div class="mdshow" markdown="1">
-  - <details>
-    <summary>Examples</summary>
+  
+  <details markdown=1>
+    <summary markdown="span">Examples</summary>
     
     If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable.
-    
-    </details>
-  </div>
+  
   </details>
 
-- <details>
-  <summary>Legal Compliance</summary>
+</details>
+
+<details markdown=1>
+  <summary markdown="span">Legal Compliance</summary>
    
   Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
     
 
-  - <details>
+  <details>
     <summary>Examples</summary>
 
     - If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
     - If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
   
-    </details>
   </details>
+</details>
 
 - <details>
   <summary>Documentation and Reporting</summary>
@@ -198,7 +197,7 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
     </details>
   
   </details>
-</div>
+
 **Want to know more?**
 <details>
   <summary>The Uppsala Code of Ethics for Scientists</summary>

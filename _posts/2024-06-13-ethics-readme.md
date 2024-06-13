@@ -140,20 +140,20 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 
   </details>
 
-<details markdown="1">
+- <details markdown="1">
   <summary>Legal Compliance</summary>
    
   Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
-    
 
-  <details markdown="1">
+  - <details markdown="1">
     <summary>Examples</summary>
 
     - If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
     - If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
   
+    </details>
+  
   </details>
-</details>
 
 - <details markdown="1">
   <summary>Documentation and Reporting</summary>

@@ -151,10 +151,7 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   - * If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
   
   </details>
-
 </details>
-
-
 
 <details>
   <summary>Documentation and Reporting</summary>

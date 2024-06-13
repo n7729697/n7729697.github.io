@@ -143,6 +143,7 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   > * If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
   >  </div>
   > </details>
+
 </details>
 
 
@@ -160,6 +161,7 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   > * The one who carrys out the experiments should detail the experiment’s purpose, setup, execution, results, and any anomalies, ensuring that the work can be replicated or audited in the future.
   >   </div>
   > </details>
+
 </details>
 
 <details>
@@ -188,6 +190,7 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   > * Follow the specific formatting and submission guidelines provided by the chosen journal. This includes structuring the manuscript with a clear abstract, introduction, methodology, results, discussion, and references.
   >   </div>
   > </details>
+  
 </details>
 
 **Want to know more?**

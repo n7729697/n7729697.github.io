@@ -8,8 +8,6 @@ description: Ethics fetched from the lab manual by deleting the confidential inf
 
 The "[Research Ethics for Science and Technology](https://www.uu.se/en/staff/faculty/science-and-technology/education-and-teaching/doctoral-studies/doctoral-student/courses/faculty-courses/research-ethics-for-science-and-technology-2-credits)" course aimed to equip students with the ability to recognize and critically discuss ethical issues in research. For the course's examination component, I chose to undertake an A project, focusing on returning what I learned to my institution by creating a comprehensive README file for research groups. This file addresses various ethical issues encountered in scientific research, providing guidelines to ensure ethical compliance and integrity in our research practices.
 
-<script src="https://rawcdn.githack.com/oscarmorrison/md-page/232e97938de9f4d79f4110f6cfd637e186b63317/md-page.js"></script><noscript>
-
 **Confidential information is deleted to share**
 
 ## Ethical Principles
@@ -133,11 +131,11 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 Follow ethical guidelines specifically designed for AI research to prevent biases and ensure fairness in algorithms. Maintain transparency of algorithms used in research to enable peer reviews and ethical audits. Document the design, decision-making processes, and criteria used by any AI systems. 
   
   > <details>
-  > <summary>Examples</summary>
-  >
+  <summary>Examples</summary>
+  
   > * If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable.
-  >
-  > </details>
+  
+  </details>
 
 </details>
 
@@ -146,13 +144,13 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
    Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
     
 
-  > <details>
-  >  <summary>Examples</summary>
-  >
-  > * If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
-  > * If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
-  >
-  > </details>
+  - <details>
+    <summary>Examples</summary>
+
+  - * If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
+  - * If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
+  
+  </details>
 
 </details>
 
@@ -164,12 +162,12 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   Keep comprehensive records of all research activities, including experimental setups, data collection methods, analysis techniques, and results. This documentation is crucial for reproducibility, auditing, and historical reference. Follow ethical standards in publishing and sharing research findings. Ensure that all contributions are accurately credited and that any conflicts of interest are declared.
   
   > <details>
-  > <summary>Examples</summary>
-  >
+  <summary>Examples</summary>
+  
   > * The lab maintains a digital lab notebook that logs all experiments conducted on the lab equipment. 
   > * The one who carrys out the experiments should detail the experiment’s purpose, setup, execution, results, and any anomalies, ensuring that the work can be replicated or audited in the future.
-  >
-  > </details>
+
+  </details>
 
 </details>
 
@@ -183,21 +181,21 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   * Maintain records of all communications with the journal, peer review comments and responses, and revisions to the manuscript. This documentation can be crucial in addressing any questions about the research process or findings.
   
   > <details>
-  > <summary>Preparing for Publication</summary>
-  >
+  <summary>Preparing for Publication</summary>
+  
   > * Determine who qualifies for authorship based on significant contributions to the conception, design, execution, or interpretation of the research reported. 
   > * All contributors who meet these criteria should be listed as authors. Identify and disclose any potential conflicts of interest that might be perceived as influencing the research results or interpretations. 
   > * Ensure that the data supporting the research findings is accessible and reproducible, where applicable. This includes making data available in a public repository and providing necessary code or algorithms under suitable licenses.
-  >
-  > </details>
+
+  </details>
 
   > <details>
-  > <summary>Submission Process</summary>
-  >
+  <summary>Submission Process</summary>
+  
   > * Choose a publication that aligns with the research field, has a rigorous peer review process, and is recognized for ethical publishing practices. 
   > * Follow the specific formatting and submission guidelines provided by the chosen journal. This includes structuring the manuscript with a clear abstract, introduction, methodology, results, discussion, and references. 
-  >
-  > </details>
+
+  </details>
   
 </details>
 

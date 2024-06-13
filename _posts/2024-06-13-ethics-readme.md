@@ -125,15 +125,14 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
   <div class="tip" markdown="1">
   Follow ethical guidelines specifically designed for AI research to prevent biases and ensure fairness in algorithms. Maintain transparency of algorithms used in research to enable peer reviews and ethical audits. Document the design, decision-making processes, and criteria used by any AI systems. 
   </div>
-<blockquote>
-  <details>
-    <summary>Examples</summary>
-    <div class="tip" markdown="1">
-  - If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable. 
-    </div>
-  </details>
-</blockquote> 
-  
+  <blockquote>
+    <details>
+      <summary>Examples</summary>
+      <div class="tip" markdown="1">
+    * If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable. 
+      </div>
+    </details>
+  </blockquote>
 </details>
 
 <details>

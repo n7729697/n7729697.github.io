@@ -127,17 +127,14 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
   </div>
   
   <details>
-  <summary>Examples</summary>
-    <div class="tip" markdown="1">
-    * If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable. 
-    </div>
+    <summary>Examples</summary>
+    <div class="tip" markdown="1">* If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable.</div>
   </details>
 </details>
 
 <details>
   <summary>Legal Compliance</summary>
-  <div class="tip" markdown="1">
-  Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
+  <div class="tip" markdown="1">Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
   </div>
 <blockquote>
   <details>
@@ -146,8 +143,9 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
   * If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
   * If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
     </div>
-</blockquote> </details>
+  </details>
 </details>
+</blockquote>
 
 <details>
   <summary>Documentation and Reporting</summary>

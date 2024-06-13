@@ -113,8 +113,8 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
   </div>
 </details>
 
-<details>
-  <summary markdown="1">Emergency Shutdown</summary>
+<details markdown="1">
+  <summary>Emergency Shutdown</summary>
   
   - Initiate Emergency Stop: If an emergency shutdown is required, activate the emergency stop button.
   - Follow Emergency Procedures: Recognize the situation that requires an immediate stop (e.g., unexpected robot behavior, physical danger to personnel). Press the emergency stop button or use the remote stop control. Alert all personnel in the lab that might be affected.

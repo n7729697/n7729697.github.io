@@ -48,95 +48,106 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 ### Respect for Privacy
 <details>
   <summary>Data Collection</summary>
-
+  <div class="tip" markdown="1">
   Prior informed consent must be obtained explicitly detailing how the data will be used, stored, and eventually disposed of. Consent forms should comply with [GDPR](https://gdpr-info.eu/) standards, clearly stating the purpose and scope of data collection. Provide participants with clear information about the data processing activities and their rights under [GDPR](https://gdpr-info.eu/), including the right to access, rectify, and erase their data. 
+  </div>
 </details>
 
 <details>
   <summary>Data Handling</summary>
-
+  <div class="tip" markdown="1">
   Implement rigorous data anonymization and pseudonymization techniques to protect personal information. Ensure these techniques conform to [GDPR](https://gdpr-info.eu/) requirements to prevent data re-identification. Adopt robust security measures to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage. This includes encryption, access control, and regular security assessments.
+  </div>
 </details>
 
 <details>
   <summary>Data Usage</summary>
-
-  Use collected data strictly within the terms agreed upon at the point of collection and in compliance with GDPR. This includes ensuring that data processing is lawful, fair, and transparent. Maintain records of processing activities to demonstrate compliance with [GDPR](https://gdpr-info.eu/). This includes documenting the legal basis for processing, data sharing, and retention practices. 
+  <div class="tip" markdown="1">
+  Use collected data strictly within the terms agreed upon at the point of collection and in compliance with GDPR. This includes ensuring that data processing is lawful, fair, and transparent. Maintain records of processing activities to demonstrate compliance with [GDPR](https://gdpr-info.eu/). This includes documenting the legal basis for processing, data sharing, and retention practices.
+  </div>
 </details>
 
 ### Safety and Security
 <details>
   <summary>Physical Safety</summary>
-
+  <div class="tip" markdown="1">
   - All personnel should complete comprehensive safety training specific to the lab environment, including emergency procedures, proper handling of equipment, and awareness of potential hazards. Record the incident details, including the time, cause, and personnel involved, once it happens.
   - Maintain at least a 0.1-meter distance from operating robots unless performing specific tasks that require closer proximity. Clearly mark all exits, safety equipment like fire extinguishers and first aid kits, and provide easy access to emergency shutdown buttons for all critical equipment.
   - Under no circumstances should any robotic operation be manually interrupted by hand. When actuating ideas on the robots, your presence is required at all times.
+  </div>
 </details>
 
 <details>
   <summary>Cybersecurity</summary>
-    
+  <div class="tip" markdown="1">
   - Ensure that all connections to robotic systems are made strictly through the lab’s secure network. External access should be disabled to prevent unauthorized control from outside networks. 
   - Always shut down robots completely before leaving the lab to prevent unauthorized access or manipulation. This includes turning off the robots' power and disconnecting any network connections. Implement routine checks upon startup to ensure that no unauthorized modifications were made while systems were inactive. This can include verifying software checksums and conducting a quick operational test cycle.
   - Firewalls should remain active at all times to protect against external threats and to manage data flow to and from the robots. Any deactivation of firewalls must be strictly controlled. Deactivation of firewalls is only permissible under the direct authorization of the lab manager for specific, controlled experiments where firewall activity might interfere with necessary communications. Immediately after the completion of experiments requiring firewall deactivation, the firewalls must be reactivated. This process should be documented, including the duration of deactivation, the reasons, and the person responsible for the operation.
+  </div>
 </details>
 
 <details>
   <summary>Data Security</summary>
-    
+  <div class="tip" markdown="1">
   - Use strong encryption protocols for storing and transmitting data, particularly data that is sensitive or proprietary.There are several encryption protocols that provide strong security measures. Some of these include SSL/TLS, AES, RSA, HotP, IPSec, and GPG.
   - Where applicable, anonymize data collected during research to prevent the identification of individual subjects or sensitive characteristics. To anonymize data, you can remove or mask personally identifiable information (PII) such as names, addresses, and social security numbers. One common method is to use k-anonymity, which involves replacing values with a range of possible values that would still maintain anonymity. Other methods include differential privacy, which adds noise to the data, and homomorphic encryption, which allows for calculations to be performed on encrypted data without decryption.
   - Implement robust data backup procedures to ensure data integrity and availability. Regularly test disaster recovery plans to ensure they are effective in the event of data loss or system failure.
+  </div>
 </details>
 
 #### Shutdown Protocols
 <details>
   <summary>Routine Shutdown</summary>
-
+  <div class="tip" markdown="1">
   - Complete Current Task: Ensure all current tasks and operations are completed or safely halted.
   - Robots Shutdown: Turn off the main power switch and disconnect from the network.
   - Controllers Shutdown: Shut down the controllers according to the manufacturer’s instructions.
   - Peripheral Devices Shutdown: Power down all peripheral devices such as sensors, cameras, and actuators.
   - Disconnect Power: Unplug the main power source if necessary.
   - Confirm Shutdown: Verify that all systems are completely powered down and no residual power remains.
+  </div>
 </details>
 
 <details>
   <summary>Emergency Shutdown</summary>
-
+  <div class="tip" markdown="1">
   - Initiate Emergency Stop: If an emergency shutdown is required, activate the emergency stop button.
   - Follow Emergency Procedures: Recognize the situation that requires an immediate stop (e.g., unexpected robot behavior, physical danger to personnel). Press the emergency stop button or use the remote stop control. Alert all personnel in the lab that might be affected.
   - Assess the Situation: Quickly assess the reason for the stop and ensure the area is safe before taking further action.
   - Secure Area: Ensure the area is safe and secure from any hazards. Log the shutdown events afterwards.
+  
 </details>
 
-Secure Area: Ensure the area is safe and secure from any hazards.
 
 ### Compliance with Ethical Research Practices
 <details>
   <summary>AI Ethics</summary>
-
+  <div class="tip" markdown="1">
   Follow ethical guidelines specifically designed for AI research to prevent biases and ensure fairness in algorithms. Maintain transparency of algorithms used in research to enable peer reviews and ethical audits. Document the design, decision-making processes, and criteria used by any AI systems. 
-
+  </div>
 <blockquote>
   <details>
     <summary>Examples</summary>
-
+    <div class="tip" markdown="1">
   - If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable. 
-  </blockquote> </details>
+    </div>
+  </details>
+</blockquote> 
   
 </details>
 
 <details>
   <summary>Legal Compliance</summary>
-
+  <div class="tip" markdown="1">
   Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
+  </div>
 <blockquote>
   <details>
     <summary>Examples</summary>
-    
+    <div class="tip" markdown="1">
   * If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
   * If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
+    </div>
   </blockquote> </details>
 </details>
 

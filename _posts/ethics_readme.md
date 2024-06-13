@@ -1,5 +1,14 @@
-# Manual of Cyber-physical Systems Lab at Uppsala University
-**Confidential information are deleted to share**
+---
+title: Ethical Principles 
+tags: [Ethics, Lab]
+style: 
+color: 
+description: Ethics fetched from the lab manual by deleting the confidential information. It serves as an examination of the doctoral course "Research Ethics for Science and Technology," which I took in the year 2024.
+---
+
+The "[Research Ethics for Science and Technology](https://www.uu.se/en/staff/faculty/science-and-technology/education-and-teaching/doctoral-studies/doctoral-student/courses/faculty-courses/research-ethics-for-science-and-technology-2-credits)" course aimed to equip students with the ability to recognize and critically discuss ethical issues in research. For the course's examination component, I chose to undertake an A project, focusing on returning what I learned to my institution by creating a comprehensive README file for research groups. This file addresses various ethical issues encountered in scientific research, providing guidelines to ensure ethical compliance and integrity in our research practices.
+
+**Confidential information is deleted to share**
 
 ## Ethical Principles
 

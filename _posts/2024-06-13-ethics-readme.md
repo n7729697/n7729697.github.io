@@ -53,16 +53,16 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 ### Respect for Privacy
 <details>
   <summary>Data Collection</summary>
-  
+  <div class="mdshow" markdown="1">
   Prior informed consent must be obtained explicitly detailing how the data will be used, stored, and eventually disposed of. Consent forms should comply with [GDPR](https://gdpr-info.eu/) standards, clearly stating the purpose and scope of data collection. Provide participants with clear information about the data processing activities and their rights under [GDPR](https://gdpr-info.eu/), including the right to access, rectify, and erase their data. 
-  
+  </div>
 </details>
 
 <details>
   <summary>Data Handling</summary>
-  
+  <div class="mdshow" markdown="1">
   Implement rigorous data anonymization and pseudonymization techniques to protect personal information. Ensure these techniques conform to [GDPR](https://gdpr-info.eu/) requirements to prevent data re-identification. Adopt robust security measures to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage. This includes encryption, access control, and regular security assessments.
-  
+  </div>
 </details>
 
 <details>
@@ -125,7 +125,7 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 
 
 ### Compliance with Ethical Research Practices
-
+<div class="mdshow" markdown="1">
 - <details>
   <summary>AI Ethics</summary>
 
@@ -197,7 +197,7 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
     </details>
   
   </details>
-
+</div>
 **Want to know more?**
 <details>
   <summary>The Uppsala Code of Ethics for Scientists</summary>

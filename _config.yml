@@ -18,6 +18,8 @@ landing_vertical    : False                             # Set the front page to 
 ### Plugins ###
 plugins:
   - jemoji
+  - jekyll-include-cache
+  - gemfile
 
 
 ### Navbar Settings ###

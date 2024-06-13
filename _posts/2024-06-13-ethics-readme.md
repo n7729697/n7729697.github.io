@@ -17,52 +17,52 @@ The "[Research Ethics for Science and Technology](https://www.uu.se/en/staff/fac
 Before we dive into the exciting world of robotics and cyber-physical systems, we must ensure that every lab member is equipped with the knowledge and respect for safety protocols that govern our operations. This commitment to maintaining a secure environment is not just about adhering to rules but about fostering a culture of mindfulness and responsibility towards oneself and others in the lab. 
 <details>
   <summary>Under no circumstances should any robotic operation be manually interrupted by hand</summary>
-  <div class="mdshow" markdown="1">
+  
   Direct physical interaction with moving parts or operational machinery presents a significant risk of injury and can damage the equipment. If there is a need to halt a robot's operation, the first course of action should always be an attempt to interrupt the process via command through the controlling software. If the software fails to respond or an immediate stop is necessary, the next step is to safely power off the equipment. Only after these measures are taken should new operations be initiated.
-  </div>
+  
 </details>
 
 <details>
   <summary>No unattended robotic operations</summary>
-  <div class="mdshow" markdown="1">
+  
   It is imperative that robotic operations are not left unattended. When actuating ideas on the robots, your presence is required at all times. This rule ensures that any unexpected issues can be addressed promptly and reduces the risk of accidents or damage to the lab equipment. Unattended operations increase the likelihood of unforeseen incidents, which can lead to potential harm to both the individual and the workspace.
-  </div>
+  
 </details>
 
 <details>
   <summary>Pre-Operation Inspection</summary>
-  <div class="mdshow" markdown="1">
+  
   Before initiating any experiment or operation with robotic systems, perform a thorough pre-operation inspection. This includes checking for any signs of wear and tear, ensuring all parts are secured and in their correct positions, and verifying that the software and hardware communication is functioning correctly. Regular inspections help prevent accidents caused by equipment malfunction or failure.
-  </div>
+  
 </details>
 
 <details>
   <summary>Shutdown Before Leaving</summary>
-  <div class="mdshow" markdown="1">
+  
   All robotic systems must be properly shut down before leaving the lab. This rule is crucial to prevent any accidental activation or continuation of operations that could occur in the absence of supervision. A powered-down state ensures that the equipment remains safe and secure until it is next used under direct supervision.
-  </div>
+  
 </details>
 
 <details>
   <summary>Also take care of robots</summary>
-  <div class="mdshow" markdown="1">
+  
   When working with robots, consider not only your safety but also the well-being of the robots. Abrupt shutdowns or erratic operational commands can lead to wear and tear or even permanent damage to sensitive components. Always shut down the robots gently and as per the recommended procedures when you are done or if you are leaving the lab, even for a short period. This practice extends the lifespan of the robots and maintains their readiness for future experiments.
-  </div>
+  
 </details>
 
 ### Respect for Privacy
 <details>
   <summary>Data Collection</summary>
-  <div class="mdshow" markdown="1">
+  
   Prior informed consent must be obtained explicitly detailing how the data will be used, stored, and eventually disposed of. Consent forms should comply with [GDPR](https://gdpr-info.eu/) standards, clearly stating the purpose and scope of data collection. Provide participants with clear information about the data processing activities and their rights under [GDPR](https://gdpr-info.eu/), including the right to access, rectify, and erase their data. 
-  </div>
+  
 </details>
 
 <details>
   <summary>Data Handling</summary>
-  <div class="mdshow" markdown="1">
+  
   Implement rigorous data anonymization and pseudonymization techniques to protect personal information. Ensure these techniques conform to [GDPR](https://gdpr-info.eu/) requirements to prevent data re-identification. Adopt robust security measures to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage. This includes encryption, access control, and regular security assessments.
-  </div>
+  
 </details>
 
 <details>
@@ -125,50 +125,52 @@ Before we dive into the exciting world of robotics and cyber-physical systems, w
 
 
 ### Compliance with Ethical Research Practices
-- <details>
-<summary>AI Ethics</summary>
 
-Follow ethical guidelines specifically designed for AI research to prevent biases and ensure fairness in algorithms. Maintain transparency of algorithms used in research to enable peer reviews and ethical audits. Document the design, decision-making processes, and criteria used by any AI systems. 
+- <details>
+  <summary>AI Ethics</summary>
+
+  Follow ethical guidelines specifically designed for AI research to prevent biases and ensure fairness in algorithms. Maintain transparency of algorithms used in research to enable peer reviews and ethical audits. Document the design, decision-making processes, and criteria used by any AI systems. 
   
   - <details>
     <summary>Examples</summary>
     
-    - If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable.
+    If developing an AI that predicts machinery maintenance needs, the lab documents how the algorithm makes predictions, the data it analyzes (like machine operation hours and error logs), and the logic behind its decision-making processes. This documentation is available for peer review to ensure the algorithm’s decisions are understandable and justifiable.
   
-  </details>
+    </details>
 
-</details>
+  </details>
 
 - <details>
   <summary>Legal Compliance</summary>
-   Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
+   
+  Ensure all research activities comply with national and international laws and regulations applicable to cyber-physical systems, including data protection laws such as GDPR. Secure appropriate licenses for software, datasets, and other intellectual properties used in research, adhering to copyright and patent laws.
     
 
   - <details>
     <summary>Examples</summary>
 
-  - If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
-  - If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
+    - If a project involves developing drones for monitoring. The team should ensure compliance with both local aviation regulations and international data protection laws by registering the drones with aviation authorities and encrypting the data collected to protect the proprietary information. 
+    - If the lab uses proprietary software, the lab should ensure that the software license permits academic use and that any findings published based on this software credit the software's creators appropriately.
   
+    </details>
   </details>
-</details>
 
-<details>
+- <details>
   <summary>Documentation and Reporting</summary>
   
   Keep comprehensive records of all research activities, including experimental setups, data collection methods, analysis techniques, and results. This documentation is crucial for reproducibility, auditing, and historical reference. Follow ethical standards in publishing and sharing research findings. Ensure that all contributions are accurately credited and that any conflicts of interest are declared.
   
   - <details>
-  <summary>Examples</summary>
+    <summary>Examples</summary>
   
-  - The lab maintains a digital lab notebook that logs all experiments conducted on the lab equipment. 
-  - The one who carrys out the experiments should detail the experiment’s purpose, setup, execution, results, and any anomalies, ensuring that the work can be replicated or audited in the future.
+    - The lab maintains a digital lab notebook that logs all experiments conducted on the lab equipment. 
+    - The one who carrys out the experiments should detail the experiment’s purpose, setup, execution, results, and any anomalies, ensuring that the work can be replicated or audited in the future.
+
+    </details>
 
   </details>
 
-</details>
-
-<details>
+- <details>
   <summary>Publishing Protocol</summary>
    
   * Verify that the work is original, properly cites previous work, and does not plagiarize any content. Utilize plagiarism detection software as required by the journal. 
@@ -177,43 +179,43 @@ Follow ethical guidelines specifically designed for AI research to prevent biase
   * Ensure ongoing access to the published research, including maintaining any data repositories and addressing any copyright or licensing issues that arise post-publication. 
   * Maintain records of all communications with the journal, peer review comments and responses, and revisions to the manuscript. This documentation can be crucial in addressing any questions about the research process or findings.
   
-  > <details>
-  <summary>Preparing for Publication</summary>
+  - <details>
+    <summary>Preparing for Publication</summary>
   
-  > * Determine who qualifies for authorship based on significant contributions to the conception, design, execution, or interpretation of the research reported. 
-  > * All contributors who meet these criteria should be listed as authors. Identify and disclose any potential conflicts of interest that might be perceived as influencing the research results or interpretations. 
-  > * Ensure that the data supporting the research findings is accessible and reproducible, where applicable. This includes making data available in a public repository and providing necessary code or algorithms under suitable licenses.
+    * Determine who qualifies for authorship based on significant contributions to the conception, design, execution, or interpretation of the research reported. 
+    * All contributors who meet these criteria should be listed as authors. Identify and disclose any potential conflicts of interest that might be perceived as influencing the research results or interpretations. 
+    * Ensure that the data supporting the research findings is accessible and reproducible, where applicable. This includes making data available in a public repository and providing necessary code or algorithms under suitable licenses.
 
+    </details>
+
+  - <details>
+    <summary>Submission Process</summary>
+  
+    * Choose a publication that aligns with the research field, has a rigorous peer review process, and is recognized for ethical publishing practices. 
+    * Follow the specific formatting and submission guidelines provided by the chosen journal. This includes structuring the manuscript with a clear abstract, introduction, methodology, results, discussion, and references. 
+
+    </details>
+  
   </details>
-
-  > <details>
-  <summary>Submission Process</summary>
-  
-  > * Choose a publication that aligns with the research field, has a rigorous peer review process, and is recognized for ethical publishing practices. 
-  > * Follow the specific formatting and submission guidelines provided by the chosen journal. This includes structuring the manuscript with a clear abstract, introduction, methodology, results, discussion, and references. 
-
-  </details>
-  
-</details>
 
 **Want to know more?**
 <details>
   <summary>The Uppsala Code of Ethics for Scientists</summary>
-   
+  <div class="mdshow" markdown="1">
   Tibell, Gunnar; Lars Rydén; Peter Wallensteen & Bengt Gustafsson (1984) The Uppsala Code of Ethics for Scientists, Journal of Peace Research 21 (4): 311–316. [links](https://phsj.org/wp-content/uploads/2007/10/Uppsala-Code-of-Ethics-for-Scientists.pdf)
-    
+  </div>
 </details>
 
 <details>
   <summary>Research ethics and good research practice</summary>
-   
+  <div class="mdshow" markdown="1">
   Research ethics and good research practice from uppsala: [https://www.uu.se/en/research/ethics/](https://www.uu.se/en/research/ethics/)
-    
+  </div>
 </details>
 
 <details>
   <summary>Good Research Practicee</summary>
-  
+  <div class="mdshow" markdown="1">
   Good Research Practice from Vetenskapsrådets (VR): [book online](https://www.vr.se/english/analysis/reports/our-reports/2017-08-31-good-research-practice.html)
-    
+  </div>
 </details>

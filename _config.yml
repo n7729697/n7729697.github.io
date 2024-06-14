@@ -11,7 +11,7 @@ description         : |
 
 baseurl             : ""                                # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : n7729697/n7729697.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
-remote_theme        : YoussefRaafatNasry/portfolYOU
+remote_theme        : YoussefRaafatNasry/portfolYOU@v2.3.0
 open_new_tab        : True                             # Opens external URLs in new tab (works for posts, projects and navbar only)
 landing_vertical    : False                             # Set the front page to be vertical (true) or horizontal (false)
 
@@ -92,13 +92,14 @@ defaults:
   - scope:
       path: ""
       type: "posts"
+    values:
+     comments: true                                   # Set to true to enable disqus comments
   - scope:
       path: ""
       type: "CV"
     values:
       layout: "page"
-  #  values:
-  #    comments: false                                   # Set to true to enable disqus comments
+   
 
 
 ### Exclude from processing ###

@@ -10,3 +10,6 @@
 
 # gems lock
 Gemfile.lock
+
+# Generated sites
+/_site

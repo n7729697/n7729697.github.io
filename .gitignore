@@ -7,3 +7,6 @@
 
 # IntelliJ
 .idea
+
+# gems lock
+Gemfile.lock

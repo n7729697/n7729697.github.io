@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Indentation of Nested Expendable Sections">
+  <meta property="og:description" content="Implementation of nested collapsable sections with indentation, which I try to make the nested lists in posts look great.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/n7729697/n7729697.github.io/master/files/Profile_photo.jpg">
+
+  <title>Indentation of Nested Expendable Sections</title>
+  <meta name="description" content="Implementation of nested collapsable sections with indentation, which I try to make the nested lists in posts look great.">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/"><h5><b>NIU Xuezhi</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/blog/">Blog</a>
+
+      <a class="nav-item nav-link " href="/about/">About</a>
+
+      <a class="nav-item nav-link " href="/CV/">CV</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <h1><b>Indentation of Nested Expendable Sections</b></h1>
+
+<p class="post-metadata text-muted">
+  13 June 2024 -  
+  <b>3 mins read time</b>
+
+  <br>Tags: 
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#markdown">
+      <span class="tag badge badge-pill text-primary border border-primary">Markdown</span>
+    </a>
+    
+    <a class="text-decoration-none no-underline" href="/blog/tags#html">
+      <span class="tag badge badge-pill text-primary border border-primary">HTML</span>
+    </a>
+    </p>
+
+<p>To make the nested collapsable sections with proper indentation, the HTML tag <code class="language-plaintext highlighter-rouge">&lt;details&gt;</code> is need to create a collapsable sections, but the content inside should be written in HTML, and I do want to write the content in Markdown to make advantages of the ease of intentaion.</p>
+
+<p>The HTML tag <code class="language-plaintext highlighter-rouge">&lt;details&gt;</code> should be also followed by <code class="language-plaintext highlighter-rouge">&lt;summary&gt;</code> tag to specify a visible heading for the details. If I nest a few <code class="language-plaintext highlighter-rouge">&lt;details&gt;</code>, how do I indent the whole section body? Where should I put my closing details tag on the closing line? <code class="language-plaintext highlighter-rouge">&lt;/details&gt;</code> tag must be indented as if it was part of the “body” of the <code class="language-plaintext highlighter-rouge">&lt;detail&gt;</code> tag. After two hours researching, I found a way to solve it by following <a href="https://stackoverflow.com/questions/77822788/nested-indented-lists-with-collapsable-sections">this thread</a>.</p>
+
+<h2 id="solution-to-my-page">Solution to my page</h2>
+<p>The whole contents are not markdown anymore, it’s “just” pure - yet valid - HTML. Each section can have it’s own re-indented lists with collapsable items, and regular markdown content. The tricky part is how GitHub-flavored Markdown reacts to spaces and such. You have to indent your whole section in a specific way, and your closing <code class="language-plaintext highlighter-rouge">&lt;/details&gt;</code> tag must be indented as if it were part of the body. Another syntax <code class="language-plaintext highlighter-rouge">&lt;details markdown="1"&gt;</code> is used to parse Markdown. <code class="language-plaintext highlighter-rouge">markdown="1"</code> is a common, albeit non-standard, method to alter the behavior of a Markdown parser. Specifically, standard Markdown ignores Markdown syntax wrapped inside block-level HTML tags. With an appropriate extension enabled, adding <code class="language-plaintext highlighter-rouge">markdown="1"</code> as an attribute to the wrapping HTML tag will instruct the Markdown parser to not ignore Markdown syntax within the tag. However, you need to be using a Markdown implementation which includes support for the feature and enable the feature if it is not enabled by default.</p>
+
+<p>This is how it looks like:</p>
+<ul>
+  <li>
+    <details open="">
+      <summary>Section 1</summary>
+
+      <ul>
+        <li>
+          <details>
+            <summary>subsection 1</summary>
+
+            <ul>
+              <li>a list</li>
+              <li>with some stuff</li>
+            </ul>
+
+            <blockquote>
+              <p>and other things</p>
+            </blockquote>
+
+            <ul class="task-list">
+              <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />like</li>
+              <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />a task list</li>
+            </ul>
+
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary><b>another subsection</b></summary>
+
+            <p>a. with another list</p>
+
+            <p>b. and some other stuff</p>
+
+            <p>d. <a href="">and</a>,</p>
+
+            <p><a href="">more</a>,</p>
+
+            <p><a href="">classic</a>,</p>
+
+            <p>[md]</p>
+
+            <p>e. <em>no need</em> <strong>of html</strong></p>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>last sub-section</summary>
+
+            <p>blablabla</p>
+
+            <div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">some_code</span>
+  <span class="nb">puts</span> <span class="s2">"Rails is so cool"</span>
+<span class="k">end</span>
+</code></pre></div>            </div>
+          </details>
+        </li>
+        <li>a random not collapsable section
+          <blockquote>
+            <p>legacy. Should be restructured.</p>
+          </blockquote>
+        </li>
+        <li>
+          <details>
+            <summary>and another collapsable section</summary>
+
+            <p>…</p>
+          </details>
+        </li>
+      </ul>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>section 2</summary>
+
+      <p>some parent content</p>
+
+      <p>and another list</p>
+
+      <ul>
+        <li>
+          <details>
+            <summary>section 2.1</summary>
+
+            <p>and some content</p>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>section 2.2</summary>
+
+            <p>and some content</p>
+          </details>
+        </li>
+        <li>section 2.3
+and some no collapsed content</li>
+      </ul>
+
+    </details>
+  </li>
+</ul>
+
+<details>
+  <summary>The code and <a href="https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab?permalink_comment_id=4832563#gistcomment-4832563">example rendered in github</a></summary>
+
+  <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> <span class="nt">&lt;details</span> <span class="na">open</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;summary&gt;</span>Section 1<span class="nt">&lt;/summary&gt;</span>
+<span class="p">
+  -</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;summary&gt;</span>subsection 1<span class="nt">&lt;/summary&gt;</span><span class="sb">
+
+    - a list
+    - with some stuff
+
+    &gt; and other things
+
+    - [x] like
+    - [ ] a task list 
+
+    &lt;/details&gt;
+
+</span><span class="p">  -</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;summary&gt;&lt;b&gt;</span>another subsection<span class="nt">&lt;/b&gt;&lt;/summary&gt;</span><span class="sb">
+
+    a. with another list
+
+    b. and some other stuff
+
+    d. [and](),
+
+      [more](),
+
+      [classic](),
+
+      [md]
+    
+    e. _no need_ __of html__
+    &lt;/details&gt;
+
+</span><span class="p">  -</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;summary&gt;</span>last sub-section<span class="nt">&lt;/summary&gt;</span><span class="sb">
+
+    blablabla
+
+    ```rb
+    def some_code
+      puts "Rails is so cool"
+    end
+    ```
+    &lt;/details&gt;
+
+</span><span class="p">  -</span> a random not collapsable section
+<span class="gt">    &gt; legacy. Should be restructured.</span>
+<span class="p">
+  -</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;summary&gt;</span>and another collapsable section<span class="nt">&lt;/summary&gt;</span><span class="sb">
+
+    ...
+</span>  <span class="nt">&lt;/details&gt;</span>
+<span class="p">
+-</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;summary&gt;</span>section 2<span class="nt">&lt;/summary&gt;</span>
+      
+  some parent content
+
+  and another list
+<span class="p">
+  -</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;summary&gt;</span>section 2.1<span class="nt">&lt;/summary&gt;</span><span class="sb">
+
+      and some content
+    &lt;/details&gt;
+
+</span><span class="p">  -</span> <span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;summary&gt;</span>section 2.2<span class="nt">&lt;/summary&gt;</span><span class="sb">
+
+      and some content
+    &lt;/details&gt;
+</span><span class="p">  
+  -</span> section 2.3
+    and some no collapsed content
+
+  <span class="nt">&lt;/details&gt;</span>
+</code></pre></div>  </div>
+
+</details>
+
+
+
+</div>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>NIU Xuezhi</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:xuezhi.niu@it.uu.se"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/n7729697"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/xuezhi-niu-17b85014b"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a><a class="social mx-1"  href="https://scholar.google.com/citations?user=6F1iihMAAAAJ"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#4285f4'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-graduation-cap fa-1x"></i>
+    </a>
+</div>
+<small id="attribution">
+    theme <a href="https://github.com/YoussefRaafatNasry/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+
+</body>
+
+</html>

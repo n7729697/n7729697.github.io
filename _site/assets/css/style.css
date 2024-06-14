@@ -469,3 +469,5 @@ body { font-family: "Poppins", sans-serif; }
 
 /* Display tooltip on hover */
 .hover:hover .tooltip { opacity: 1; }
+
+blockquote { display: block; margin-top: 1em; margin-bottom: 1em; margin-left: 40px; margin-right: 40px; }

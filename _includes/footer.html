@@ -18,30 +18,4 @@
     Total visits to this site: <strong><span id="busuanzi_site_pv"></span></strong> times from 2024 by <strong><span id="busuanzi_site_uv"></span></strong> visitors.
   </small>
 
-  <script>
-    // URL of the Busuanzi API
-    const apiUrl = 'https://busuanzi.9420.ltd/api';
-
-    // Function to fetch and display the data
-    async function fetchBusuanziData() {
-      try {
-          const response = await fetch(apiUrl);
-          const result = await response.json();
-
-          if (result.success) {
-            document.getElementById('busuanzi_site_pv').textContent = result.data.site_pv;
-            document.getElementById('busuanzi_site_uv').textContent = result.data.site_uv;
-          } else {
-            console.error('API Error:', result.message);
-          }
-      } catch (error) {
-          console.error('Fetch Error:', error);
-          document.getElementById('busuanzi_site_pv').textContent = 'N/A';
-          document.getElementById('busuanzi_site_uv').textContent = 'N/A';
-      }
-    }
-
-    // Fetch the data when the page loads
-    fetchBusuanziData();
-  </script>
 </footer>

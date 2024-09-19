@@ -1,8 +1,8 @@
 ---
 title: Ethical Principles 
 tags: [Ethics, Lab]
-style: 
-color: 
+style: fill
+color: primary
 description: Ethics fetched from the lab manual by deleting the confidential information. It serves as an examination of the doctoral course "Research Ethics for Science and Technology," which I took in the year 2024.
 ---
 

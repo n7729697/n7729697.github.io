@@ -1,8 +1,8 @@
 ---
 title: Forwarding Graphics to SSH Client in WSL2 with VcXsrv Success!
 tags: [SSH, WSL2]
-style: 
-color: 
+style: fill
+color: success
 description: Forward the graphical output from ssh server to wsl2 in windows 10
 ---
 
@@ -60,8 +60,6 @@ sudo apt install python3-tk # please igore this if you do not use Tkinter
 
 ### Conclusion:
 By combining **VcXsrv** on Windows with **xfce4** in WSL2, I was able to create a functional Linux GUI environment, making it possible to run Tkinter and other X11-based applications seamlessly on my Windows machine. This setup provides a great balance between the power of WSL2 and the flexibility of graphical Linux tools!
-
----
 
 ### Remarks
 

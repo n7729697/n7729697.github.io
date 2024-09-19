@@ -1,5 +1,5 @@
 ---
-title: Forwarding Graphics to SSH Client in WSL2 with VcXsrv: Success!
+title: Forwarding Graphics to SSH Client in WSL2 with VcXsrv Success!
 tags: [SSH, WSL2]
 style: 
 color: 
@@ -13,13 +13,13 @@ After encountering issues forwarding graphical applications from Linux server by
 #### 1. Installed VcXsrv on Windows
 I installed [VcXsrv](https://sourceforge.net/projects/vcxsrv/), a lightweight X server for Windows, which allowed me to display graphical applications from WSL2:
 - During setup in Xlaunch (installed VcXsrv), I chose **Multiple Windows** mode and set the display num to 0 (you can also set it to 1 or some other number, but it is not possible to set it to -1 in vcxsrv-64.1.20.14.0 since the GUI only accept number input in Display number field)
-![image](https://github.com/n7729697/n7729697.github.io/tree/master/files/Xlaunch1.PNG)
+![image](https://github.com/n7729697/n7729697.github.io/blob/master/files/Xlaunch1.png)
 
 - Toggle **Start no client** then Next
-![image](https://github.com/n7729697/n7729697.github.io/tree/master/files/Xlaunch2.PNG)
+![image](https://github.com/n7729697/n7729697.github.io/blob/master/files/Xlaunch1.png)
 
 - Ensured **access control was disabled** for easier testing.
-![image](https://github.com/n7729697/n7729697.github.io/tree/master/files/Xlaunch3.PNG)
+![image](https://github.com/n7729697/n7729697.github.io/blob/master/files/Xlaunch1.png)
 
 P.S> If you set the Xlaunch to **One window** and **Display number** to 1 with correct `$DISPLAY=<your IP>:1`, you should be able to have wsl2 with GUI in windows and you have to keep the extra window alive.
 

@@ -16,10 +16,10 @@ I installed [VcXsrv](https://sourceforge.net/projects/vcxsrv/), a lightweight X 
 ![image](https://n7729697.github.io/files/Xlaunch1.PNG)
 
 - Toggle **Start no client** then Next
-![image](https://n7729697.github.io/files/Xlaunch1.PNG)
+![image](https://n7729697.github.io/files/Xlaunch2.PNG)
 
 - Ensured **access control was disabled** for easier testing.
-![image](https://n7729697.github.io/files/Xlaunch1.PNG)
+![image](https://n7729697.github.io/files/Xlaunch3.PNG)
 
 P.S> If you set the Xlaunch to **One window** and **Display number** to 1 with correct `$DISPLAY=<your IP>:1`, you should be able to have wsl2 with GUI in windows and you have to keep the extra window alive.
 

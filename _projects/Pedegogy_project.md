@@ -9,95 +9,205 @@ The findings reveal that Swedish universities like KTH and Uppsala University pr
 
 Sentiment analysis shows overall support for AI adoption, with positive scores in engagement (KTH at 0.75) and access (Swedish University of Agricultural Sciences at 0.80). However, sentiments regarding privacy and teaching vary; KTH has a negative privacy sentiment of -0.03166, while The University of Melbourne reflects caution in teaching sentiment (-0.17008). These results highlight the need for tailored policies that address specific institutional contexts. As AI technologies evolve, collaboration and best practice sharing will be crucial for maximizing their educational potential. Future research should focus on factors influencing institutional attitudes toward AI, especially concerning pedagogical practices and data privacy.
 
+*Jump to the figures:*
+- [Wordcloud of Sweden Universities](#wordcloud-of-sweden-universities)
+  - [Chalmers University of Technology wordcloud](#chalmers-university-of-technology-wordcloud)
+  - [Karlstad University wordcloud](#karlstad-university-wordcloud)
+  - [Karolinska Institute wordcloud](#karolinska-institute-wordcloud)
+  - [KTH Royal Institute of Technology wordcloud](#kth-royal-institute-of-technology-wordcloud)
+  - [Linköping University wordcloud](#linköping-university-wordcloud)
+  - [Linnaeus University wordcloud](#linnaeus-university-wordcloud)
+  - [Lund University wordcloud](#lund-university-wordcloud)
+  - [Mid Sweden University wordcloud](#mid-sweden-university-wordcloud)
+  - [Örebro University wordcloud](#örebro-university-wordcloud)
+  - [Stockholm University wordcloud](#stockholm-university-wordcloud)
+  - [Swedish University of Agricultural Sciences wordcloud](#swedish-university-of-agricultural-sciences-wordcloud)
+  - [Umeå University wordcloud](#umeå-university-wordcloud)
+  - [University of Gothenburg wordcloud](#university-of-gothenburg-wordcloud)
+  - [Uppsala University wordcloud](#uppsala-university-wordcloud)
+- [Wordcloud of Global Universities](#wordcloud-of-global-universities)
+  - [Charles Sturt University wordcloud](#charles-sturt-university-wordcloud)
+  - [Cairo University wordcloud](#cairo-university-wordcloud)
+  - [Eidgenössische Technische Hochschule Zürich wordcloud](#eidgenössische-technische-hochschule-zürich-wordcloud)
+  - [Glasgow Caledonian University wordcloud](#glasgow-caledonian-university-wordcloud)
+  - [Imperial College London wordcloud](#imperial-college-london-wordcloud)
+  - [Ludwig-Maximilians-Universität München wordcloud](#ludwig-maximilians-universität-münchen-wordcloud)
+  - [Massachusetts Institute of Technology wordcloud](#massachusetts-institute-of-technology-wordcloud)
+  - [Rochester Institute of Technology wordcloud](#rochester-institute-of-technology-wordcloud)
+  - [University of Twente wordcloud](#university-of-twente-wordcloud)
+  - [University College London wordcloud](#university-college-london-wordcloud)
+  - [Universidade de São Paulo wordcloud](#universidade-de-são-paulo-wordcloud)
+  - [University of Cape Town wordcloud](#university-of-cape-town-wordcloud)
+  - [University of Michigan-Ann Arbor wordcloud](#university-of-michigan-ann-arbor-wordcloud)
+  - [The University of Melbourne wordcloud](#the-university-of-melbourne-wordcloud)
+  - [University of Washington wordcloud](#university-of-washington-wordcloud)
+  - [York University wordcloud](#york-university-wordcloud)
+
 ### Wordcloud of Sweden Universities
-![Chalmers University of Technology wordcloud](https://n7729697.github.io/files/wordcloud/CTH_wordcloud.png)
-*Figure 1: Chalmers University of Technology wordcloud*
 
-![Karlstad University wordcloud](https://n7729697.github.io/files/wordcloud/KAU_wordcloud.png)
-*Figure 2: Karlstad University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/CTH_wordcloud.png" alt="Chalmers University of Technology wordcloud" width="100%">
+    <p><em>Figure 1: Chalmers University of Technology wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/KAU_wordcloud.png" alt="Karlstad University wordcloud" width="100%">
+    <p><em>Figure 2: Karlstad University wordcloud</em></p>
+  </div>
+</div>
 
-![Karolinska Institute wordcloud](https://n7729697.github.io/files/wordcloud/KI_wordcloud.png)
-*Figure 3: Karolinska Institute wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/KI_wordcloud.png" alt="Karolinska Institute wordcloud" width="100%">
+    <p><em>Figure 3: Karolinska Institute wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/KTH_wordcloud.png" alt="KTH Royal Institute of Technology wordcloud" width="100%">
+    <p><em>Figure 4: KTH Royal Institute of Technology wordcloud</em></p>
+  </div>
+</div>
 
-![KTH Royal Institute of Technology wordcloud](https://n7729697.github.io/files/wordcloud/KTH_wordcloud.png)
-*Figure 4: KTH Royal Institute of Technology wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/LiU_wordcloud.png" alt="Linköping University wordcloud" width="100%">
+    <p><em>Figure 5: Linköping University wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/LNU_wordcloud.png" alt="Linnaeus University wordcloud" width="100%">
+    <p><em>Figure 6: Linnaeus University wordcloud</em></p>
+  </div>
+</div>
 
-![Linköping University wordcloud](https://n7729697.github.io/files/wordcloud/LiU_wordcloud.png)
-*Figure 5: Linköping University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/Lund_wordcloud.png" alt="Lund University wordcloud" width="100%">
+    <p><em>Figure 7: Lund University wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/MIUN_wordcloud.png" alt="Mid Sweden University wordcloud" width="100%">
+    <p><em>Figure 8: Mid Sweden University wordcloud</em></p>
+  </div>
+</div>
 
-![Linnaeus University wordcloud](https://n7729697.github.io/files/wordcloud/LNU_wordcloud.png)
-*Figure 6: Linnaeus University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/ORU_wordcloud.png" alt="Örebro University wordcloud" width="100%">
+    <p><em>Figure 9: Örebro University wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/SU_wordcloud.png" alt="Stockholm University wordcloud" width="100%">
+    <p><em>Figure 10: Stockholm University wordcloud</em></p>
+  </div>
+</div>
 
-![Lund University wordcloud](https://n7729697.github.io/files/wordcloud/Lund_wordcloud.png)
-*Figure 7: Lund University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/SLU_wordcloud.png" alt="Swedish University of Agricultural Sciences wordcloud" width="100%">
+    <p><em>Figure 11: Swedish University of Agricultural Sciences wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/Umu.png" alt="Umeå University wordcloud" width="100%">
+    <p><em>Figure 12: Umeå University wordcloud</em></p>
+  </div>
+</div>
 
-![Mid Sweden University wordcloud](https://n7729697.github.io/files/wordcloud/MIUN_wordcloud.png)
-*Figure 8: Mid Sweden University wordcloud*
-
-![Örebro University wordcloud](https://n7729697.github.io/files/wordcloud/ORU_wordcloud.png)
-*Figure 9: Örebro University wordcloud*
-
-![Swedish University of Agricultural Sciences wordcloud](https://n7729697.github.io/files/wordcloud/SLU_wordcloud.png)
-*Figure 11: Swedish University of Agricultural Sciences wordcloud*
-
-![Stockholm University wordcloud](https://n7729697.github.io/files/wordcloud/SU_wordcloud.png)
-*Figure 10: Stockholm University wordcloud*
-
-
-![Umeå University wordcloud](https://n7729697.github.io/files/wordcloud/Umu.png)
-*Figure 12: Umeå University wordcloud*
-
-![University of Gothenburg wordcloud](https://n7729697.github.io/files/wordcloud/GU_wordcloud.png)
-*Figure 13: University of Gothenburg wordcloud*
-
-![Uppsala University wordcloud](https://n7729697.github.io/files/wordcloud/UU_wordcloud.png)
-*Figure 14: Uppsala University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/GU_wordcloud.png" alt="University of Gothenburg wordcloud" width="100%">
+    <p><em>Figure 13: University of Gothenburg wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UU_wordcloud.png" alt="Uppsala University wordcloud" width="100%">
+    <p><em>Figure 14: Uppsala University wordcloud</em></p>
+  </div>
+</div>
 
 ### Wordcloud of Global Universities
-![Charles Sturt University wordcloud](https://n7729697.github.io/files/wordcloud/CSU_wordcloud.png)
-*Figure 15: Charles Sturt University wordcloud*
 
-![Cairo University wordcloud](https://n7729697.github.io/files/wordcloud/CU_wordcloud.png)
-*Figure 16: Cairo University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/CSU_wordcloud.png" alt="Charles Sturt University wordcloud" width="100%">
+    <p><em>Figure 15: Charles Sturt University wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/CU_wordcloud.png" alt="Cairo University wordcloud" width="100%">
+    <p><em>Figure 16: Cairo University wordcloud</em></p>
+  </div>
+</div>
 
-![Eidgenössische Technische Hochschule Zürich wordcloud](https://n7729697.github.io/files/wordcloud/ETH_wordcloud.png)
-*Figure 17: Eidgenössische Technische Hochschule Zürich wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/ETH_wordcloud.png" alt="Eidgenössische Technische Hochschule Zürich wordcloud" width="100%">
+    <p><em>Figure 17: Eidgenössische Technische Hochschule Zürich wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/GCU_wordcloud.png" alt="Glasgow Caledonian University wordcloud" width="100%">
+    <p><em>Figure 18: Glasgow Caledonian University wordcloud</em></p>
+  </div>
+</div>
 
-![Glasgow Caledonian University wordcloud](https://n7729697.github.io/files/wordcloud/GCU_wordcloud.png)
-*Figure 18: Glasgow Caledonian University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/IC_wordcloud.png" alt="Imperial College London wordcloud" width="100%">
+    <p><em>Figure 19: Imperial College London wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/LMU_wordcloud.png" alt="Ludwig-Maximilians-Universität München wordcloud" width="100%">
+    <p><em>Figure 20: Ludwig-Maximilians-Universität München wordcloud</em></p>
+  </div>
+</div>
 
-![Imperial College London wordcloud](https://n7729697.github.io/files/wordcloud/IC_wordcloud.png)
-*Figure 19: Imperial College London wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/MIT_wordcloud.png" alt="Massachusetts Institute of Technology wordcloud" width="100%">
+    <p><em>Figure 21: Massachusetts Institute of Technology wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/RIT_wordcloud.png" alt="Rochester Institute of Technology wordcloud" width="100%">
+    <p><em>Figure 22: Rochester Institute of Technology wordcloud</em></p>
+  </div>
+</div>
 
-![Ludwig-Maximilians-Universität München wordcloud](https://n7729697.github.io/files/wordcloud/LMU_wordcloud.png)
-*Figure 20: Ludwig-Maximilians-Universität München wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/Twente_wordcloud.png" alt="University of Twente wordcloud" width="100%">
+    <p><em>Figure 23: University of Twente wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UCL_wordcloud.png" alt="University College London wordcloud" width="100%">
+    <p><em>Figure 24: University College London wordcloud</em></p>
+  </div>
+</div>
 
-![Massachusetts Institute of Technology wordcloud](https://n7729697.github.io/files/wordcloud/MIT_wordcloud.png)
-*Figure 21: Massachusetts Institute of Technology wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UCP_wordcloud.png" alt="Universidade de São Paulo wordcloud" width="100%">
+    <p><em>Figure 25: Universidade de São Paulo wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UCT_wordcloud.png" alt="University of Cape Town wordcloud" width="100%">
+    <p><em>Figure 26: University of Cape Town wordcloud</em></p>
+  </div>
+</div>
 
-![Rochester Institute of Technology wordcloud](https://n7729697.github.io/files/wordcloud/RIT_wordcloud.png)
-*Figure 22: Rochester Institute of Technology wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UM_wordcloud.png" alt="University of Michigan-Ann Arbor wordcloud" width="100%">
+    <p><em>Figure 27: University of Michigan-Ann Arbor wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UniMelb_wordcloud.png" alt="The University of Melbourne wordcloud" width="100%">
+    <p><em>Figure 28: The University of Melbourne wordcloud</em></p>
+  </div>
+</div>
 
-![University of Twente wordcloud](https://n7729697.github.io/files/wordcloud/Twente_wordcloud.png)
-*Figure 23: University of Twente wordcloud*
-
-![University College London wordcloud](https://n7729697.github.io/files/wordcloud/UCL_wordcloud.png)
-*Figure 24: University College London wordcloud*
-
-![Universidade de São Paulo wordcloud](https://n7729697.github.io/files/wordcloud/UCP_wordcloud.png)
-*Figure 25: Universidade de São Paulo wordcloud*
-
-![University of Cape Town wordcloud](https://n7729697.github.io/files/wordcloud/UCT_wordcloud.png)
-*Figure 26: University of Cape Town wordcloud*
-
-![University of Michigan-Ann Arbor wordcloud](https://n7729697.github.io/files/wordcloud/UM_wordcloud.png)
-*Figure 27: University of Michigan-Ann Arbor wordcloud*
-
-![The University of Melbourne wordcloud](https://n7729697.github.io/files/wordcloud/UniMelb_wordcloud.png)
-*Figure 28: The University of Melbourne wordcloud*
-
-![University of Washington wordcloud](https://n7729697.github.io/files/wordcloud/UW_wordcloud.png)
-*Figure 29: University of Washington wordcloud*
-
-![York University wordcloud](https://n7729697.github.io/files/wordcloud/YorkU_wordcloud.png)
-*Figure 30: York University wordcloud*
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/UW_wordcloud.png" alt="University of Washington wordcloud" width="100%">
+    <p><em>Figure 29: University of Washington wordcloud</em></p>
+  </div>
+  <div style="text-align: center; width: 48%;">
+    <img src="https://n7729697.github.io/files/wordcloud/YorkU_wordcloud.png" alt="York University wordcloud" width="100%">
+    <p><em>Figure 30: York University wordcloud</em></p>
+  </div>
+</div>

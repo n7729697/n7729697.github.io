@@ -1,7 +1,7 @@
 ---
 name: Artificial intelligence is Beneficial to Teaching and Learning in Higher Education (ATTC1 2024)
 tools: [Python, nltk, sklearn, VADER]
-image: https://www.sketchappsources.com/resources/source-image/coo-app-concept-subgaurav.jpg
+image: https://n7729697.github.io/files/wordcloud/UU_wordcloud.png
 description: This Pedagogy project was involved in the Academic Teaching Training Course at Uppsala University, explores the integration of AI tools, such as ChatGPT, in teaching and learning activities across 43 universities in Sweden and other global institutions. By analyzing publicly available information from university websites—including policy statements, press releases, and course descriptions—this study employs semantic and word-frequency analysis to identify key themes and linguistic patterns that reflect institutional attitudes toward AI adoption. Only wordcloud images are posted here.
 ---
 

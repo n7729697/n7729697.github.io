@@ -6,5 +6,6 @@ gem "jekyll-include-cache", group: :jekyll_plugins
 gem "github-pages", "~> 231", group: :jekyll_plugins
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'jekyll-katex', '~> 1.0'
+gem 'public_suffix', '< 6.0'
 
 gem "webrick", "~> 1.8"

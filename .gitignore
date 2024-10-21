@@ -8,6 +8,8 @@
 # IntelliJ
 .idea
 
+# vscode setting
+.vscode/
 # gems lock
 Gemfile.lock
 

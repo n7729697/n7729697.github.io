@@ -279,7 +279,6 @@ DEPENDENCIES
   github-pages
   jekyll-include-cache
   jekyll-katex (~> 1.0)
-  public_suffix (< 6.0)
   webrick (~> 1.8)
 
 BUNDLED WITH

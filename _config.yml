@@ -101,6 +101,8 @@ defaults:
       layout: "page"
    
 
+### UTF-8 encoding###
+encoding: "utf-8"
 
 ### Exclude from processing ###
 exclude:

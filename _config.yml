@@ -32,7 +32,7 @@ nav_exclude:                                            # The following paths ar
 ### Author Info ###
 author:
   name              : NIU Xuezhi
-  image             : https://raw.githubusercontent.com/n7729697/n7729697.github.io/master/files/Profile_photo.jpg
+  image             : /files/Profile_photo.jpg
 # behance           : your_username
 # dribbble          : your_username
   email             : xuezhi.niu@it.uu.se
@@ -99,7 +99,18 @@ defaults:
       type: "CV"
     values:
       layout: "page"
-   
+  - scope:                                              # For Documentation Only
+      path: ""                                          # For Documentation Only
+      type: "teaching"                                  # For Documentation Only
+    values:                                             # For Documentation Only
+      layout: "element"                                 # For Documentation Only
+      comments: false
+  - scope:                                              # For Documentation Only
+      path: ""                                          # For Documentation Only
+      type: "publication"                                  # For Documentation Only
+    values:                                             # For Documentation Only
+      layout: "element"                                 # For Documentation Only
+      comments: false
 
 ### UTF-8 encoding###
 encoding: "utf-8"

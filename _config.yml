@@ -1,18 +1,23 @@
 ### Site Settings ###
 title               : NIU Xuezhi
 description         : |
-                      Ph.D. Student in Embedded Systems <br>
+                      Ph.D. Student in Embedded Systems<br>
+                      Supervisor: <a href="https://www.uu.se/en/contact-and-organisation/staff?query=N22-649"> 
+                      Didem Gürdür Broo </a> & 
+                      <a href="https://www.uu.se/en/contact-and-organisation/staff?query=N14-947"> 
+                      Ginevra Castellano</a> <br>
                       <a href="https://www.it.uu.se/research/group/CPS-Lab" target="_blank"> Cyber-physical Systems Lab </a> at Uppsala University <br><br>
                       Msc. Mechatronics at KTH<br>
                       BEng. Mechanical Engineering at CityU<br><br>
+
                       Active Learning. Synthesis Pop. League of Legends :D <br><br><br><br>
                       This website is being constructed inactively<s> because the owner is very lazy</s>.
 
 
 baseurl             : ""                                # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
-repository          : n7729697/n7729697.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+repository          : n7729697/n7729697.github.io       # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : yousinix/portfolYOU@v2.3.0
-open_new_tab        : True                             # Opens external URLs in new tab (works for posts, projects and navbar only)
+open_new_tab        : True                              # Opens external URLs in new tab (works for posts, projects and navbar only)
 landing_vertical    : False                             # Set the front page to be vertical (true) or horizontal (false)
 
 ### Plugins ###
@@ -84,11 +89,24 @@ analytics:
 
 ### Defaults for collections ###
 defaults:
+  - scope: 
+      path: ""                                             
+      type: "publication"                                  
+    values:                                             
+      layout: "page"                                
+      comments: false
   - scope:
       path: ""
       type: "projects"
     values:
       layout: "page"
+  - scope:                                              
+      path: ""                                          
+      type: "teaching"                                  
+    values:                                             
+      layout: "page"                                 
+      comments: false
+      path: "" 
   - scope:
       path: ""
       type: "posts"
@@ -98,19 +116,7 @@ defaults:
       path: ""
       type: "CV"
     values:
-      layout: "page"
-  - scope:                                              # For Documentation Only
-      path: ""                                          # For Documentation Only
-      type: "teaching"                                  # For Documentation Only
-    values:                                             # For Documentation Only
-      layout: "element"                                 # For Documentation Only
-      comments: false
-  - scope:                                              # For Documentation Only
-      path: ""                                          # For Documentation Only
-      type: "publication"                                  # For Documentation Only
-    values:                                             # For Documentation Only
-      layout: "element"                                 # For Documentation Only
-      comments: false
+      layout: "page"                                    
 
 ### UTF-8 encoding###
 encoding: "utf-8"

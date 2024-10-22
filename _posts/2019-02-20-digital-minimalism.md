@@ -1,7 +1,7 @@
 ---
-title: Digital Minimalism
-tags: [Social Media, Minimalism, Technology]
-style: fill
+title: Dummy Posts
+tags: [ignore me]
+style: fill #
 color: light # primary / secondary / success / danger / warning / info / light / dark
 description: Minimalism is the art of knowing how much is just enough. Digital minimalism applies this idea to our personal technology. It’s the key to living a focused life in an increasingly noisy world.
 ---

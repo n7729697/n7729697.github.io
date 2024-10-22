@@ -1,23 +1,29 @@
 - title: <small> Uppsala University </small> 
   from: 2024
-  to: present
-  description: <it>Ph.D. Student</it>, Embedded Systems in Division of Computer Systems <br> Doctoral Student, Cyber Physical Systems Lab
+  to: 2028 (est.)
+  description: Research topics in <u>heterogeneous robotics collabration</u><br> 
+               Doctoral Student, Cyber Physical Systems Lab in Department of Information Technology <br> 
+               Co-supervised by Dr. <a href="https://www.uu.se/en/contact-and-organisation/staff?query=N22-649"> 
+               Didem Gürdür Broo </a> 
+               and Dr. <a href="https://www.uu.se/en/contact-and-organisation/staff?query=N14-947"> 
+               Ginevra Castellano </a> <br>
   image: /files/UU_logo.png
-
 - title: <small> KTH Royal Institute of Technology </small>
-  from: 2023
-  to: 2021
-  description: I wrote my Master's thesis on Optimal Gait Control of Soft Quadruped Robot by Model-based Reinforcement Learning 
-               under the guidance of <a href="https://www.kth.se/profile/lfeng" target="_blank"> Prof. Lei Feng </a> and 
-               supervised by <a href="https://www.kth.se/profile/kaiget" target="_blank"> Kaige Tan </a>
+  from: 2021
+  to: 2023
+  description: I wrote my Master's thesis on <u>Optimal gait control of soft quadruped robot by 
+               model-based reinforcement learning</u>
+               under the guidance of Dr. <a href="https://www.kth.se/profile/lfeng" target="_blank"> Lei Feng </a> and 
+               supervised by <a href="https://kaigetan.github.io/" target="_blank"> Kaige Tan </a>
   image: /files/KTH_logo.png
 
 - title: <small> City University of Hong Kong </small>
-  from: 2021
-  to: 2017
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  from: 2017
+  to: 2021
+  description: I did research in <u>seed-assisted synthesis of ZnOH battery</u>
+               with Dr. <a href= "https://www.cityu.edu.hk/mne/people/academic-staff/prof-zhang-kaili"> Kaili Zhang </a>
+               and Dr. <a href= "https://scholars.cityu.edu.hk/en/persons/shaoran-yang(534dcea7-16b5-4fb5-8c3d-a48d74189577).html"> Shaoran Yang </a>
+               , and I wrote my Bachelor's thesis on <u>Bubble Energy Liquid-based Electronic Generator</u> under 
+               the guidance of Dr. <a href="https://www.polyu.edu.hk/me/people/academic-teaching-staff/wang-zuankai-prof/"> Zuaikai Wang </a> and 
+               supervised by Dr. <a href="https://scholars.cityu.edu.hk/en/persons/xiantong-yan(ccc3059f-e0df-4406-b402-38990c9d25f4).html"> Xiantong Yan</a>
   image: /files/CityU_LOGO.png

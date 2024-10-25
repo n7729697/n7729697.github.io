@@ -13,16 +13,18 @@ Source: [Isaac Sim RMPflow controller](https://docs.omniverse.nvidia.com/isaacsi
 
 * For my case, installation with workstation and ROS 2, details from [official repositories](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_workstation.html).
 
-* For a smoother workflow, it's best to implement urdf model and set up the basic simulation early on in the GUI. This approach tends to be more stable with the [USD stages](https://docs.omniverse.nvidia.com/isaacsim/latest/gui_tutorials/tutorial_intro_usd.html) implementation, especially compared to the hassle of importing and adjusting models through scripts in Isaac Sim, which can be quite frustrating.
+* For a smoother [workflow](https://docs.omniverse.nvidia.com/isaacsim/latest/introductory_tutorials/tutorial_intro_workflows.html), it's best to implement urdf model and set up the basic simulation early on in the GUI. This approach tends to be more stable with the [USD stages](https://docs.omniverse.nvidia.com/isaacsim/latest/gui_tutorials/tutorial_intro_usd.html) implementation, especially compared to the hassle of importing and adjusting models through scripts in Isaac Sim, which can be quite frustrating.
 
 
 ## Implement URDF description and add controllers
+NVIDIA provides a tutorial for Turlebot [URDF import](https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_turtlebot.html). You could implement the Robotiq 2F85 gripper by this URDF, or just use the usd file from NVIDIA, PATH: `omniverse://localhost/NVIDIA/Assets/Isaac/4.2/Isaac/Robots/Robotiq/2F-85/`, if you are installing the server on local machine. [Here](https://medium.com/@joolab/how-to-assemble-a-gripper-on-a-robot-manipulator-in-isaac-sim-f7ba8e6f18fc) is a guideline of **assembling the gripper** to a 6-joint arm. You might be aware that the gripper is hard to control, you could follow [this tutorial](https://medium.com/@joolab/how-to-set-up-closed-loop-gripper-with-robotiq-2f-85-f7aac12936b2) for a **closed-loop setting up**.
 
+Or you could use my urdf for dobot nova5 with robotiq 2f85 gripper.
 
 ## TO DO
-- [ ] **Import Nova5 arm model**
+- [x] **Import Nova5 arm model**
 
-- [ ] **Integrate Robotiq 2F85 gripper**
+- [x] **Integrate Robotiq 2F85 gripper**
 
 - [ ] **Set up control framework**
 

@@ -5,8 +5,10 @@ permalink: /
 
 {% include landing.html %}
 
+<br><br><br>
 ## Updates
-<div class="updates" style="height: 10em; overflow-y: scroll;">
+
+<div class="updates" style="height: 15em; overflow-y: scroll;">
 <ul>
 <li>[Oct, 2024] - TBC </li>
 <li>[Dec, 2023] - Graduated from KTH Royal Institute of Technology. </li>

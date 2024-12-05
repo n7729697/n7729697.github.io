@@ -10,8 +10,7 @@ permalink: /
 
 <div class="updates" style="height: 15em; overflow-y: scroll;">
 <ul>
-<li>[Dec, 2024] - Our paper on <a href="https://doi.org/10.1016/j.asoc.2024.112568">optimal gait design for a soft quadruped robot via multi-fidelity Bayesian optimization</a> is accepted for publishing in J-ASOC. <a href="https://github.com/KaigeTan/MFBO_KTH" target="_blank" title="View on GitHub">
-                <i class="fab fa-github"></i> </li>
+<li>[Dec, 2024] - Our paper on <a href="https://doi.org/10.1016/j.asoc.2024.112568">optimal gait design for a soft quadruped robot via multi-fidelity Bayesian optimization</a> is accepted for publishing in J-ASOC. <a href="https://github.com/KaigeTan/MFBO_KTH" target="_blank" title="View on GitHub"> <i class="fab fa-github"></i></a> </li>
 <li>[Dec, 2023] - Graduated from KTH Royal Institute of Technology. </li>
 <li>[Jul, 2021] - Graduated from City University of Hong Kong during Covid-19. </li>
 <li>[Jun, 2020] - Finished academic exchange in National University of Singapore. </li>

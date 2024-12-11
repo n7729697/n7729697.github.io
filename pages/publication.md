@@ -11,18 +11,18 @@ weight: 1
 **Please feel free to contact me if you are interested in any of the following works.**
 
 ### Journal Publications
-* [Learning-enhanced Optimal Gait Design for a Tendon-driven Soft Quadruped Robot via Multi-fidelity Bayesian Optimization](https://arxiv.org/abs/2406.07065) <br>
+* [Learning-enhanced Optimal Gait Design for a Tendon-driven Soft Quadruped Robot via Multi-fidelity Bayesian Optimization](https://doi.org/10.1016/j.asoc.2024.112568) <br>
 Kaige Tan, **Xuezhi Niu**, Qinglei Ji, Lei Feng & Martin Törngren<br>
-*under review at Applied Soft Computing*<br>
+*Applied Soft Computing*, 2024<br>
 
 ### Conference Publications
-* Symbiotic Design in Multi-Robot Ecosystems<br>
+<!-- * Enabling Symbiosis through Multi-Agent Reinforcement Learning<br>
 **Xuezhi Niu**, Natalia Calvo Barajas & Didem Gürdür Broo<br>
-*under review at International Conference on Human-Robot Interaction (HRI)*<br>
+*under review at International Conference on Human-Robot Interaction (HRI)*<br> -->
 
 * [Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning](https://arxiv.org/abs/2406.07069)<br>
 **Xuezhi Niu\***, Kaige Tan\*, Didem Gürdür Broo & Lei Feng<br>
-*under review at International Conference on Robotics and Automation (ICRA)*<br>
+*under review at International Conference on Robotics and Automation (ICRA) 2025*<br>
 
 
 ### Thesis

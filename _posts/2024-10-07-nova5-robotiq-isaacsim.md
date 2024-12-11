@@ -32,8 +32,15 @@ You should keep the root should be either to:
 
 ![Articulation root filter](/files/IsaacSim/ArticulationRootFilter1.png)
 
-Then we add the articulation robot controllers to the robot.
+Then we add the articulation robot controllers to the robot. Before running the simulation, it is wise to determine the damping, stiffness, max force etc, [here](https://docs.omniverse.nvidia.com/isaacsim/latest/features/robots_simulation/ext_omni_isaac_gain_tuner.html) is a helpful extension for tuning them.
 
+$\tau = \text{stiffness} * (q - q_{\text{target}}) + \text{damping} * (\dot{q} - \dot{q}_{\text{target}})$ 
+
+where $q$ and $\dot{q}$ are the joint position and velocity, respectively. Note that when $\dot{q}_{\text{target}} = 0$, the system reduces to a conventional PD controller on the joint position.
+
+This formula applies for both revolute and prismatic joints.
+
+The joint max force will act as a clamp for $\tau$, and finally, the drive type will dictate if the effort will be applied directly as a torque/force or if it will be converted into an acceleration applied to the bodies connected to the joint.
 
 ## TO DO
 - [x] **Import Nova5 arm model**

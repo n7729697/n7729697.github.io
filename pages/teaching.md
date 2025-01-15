@@ -15,8 +15,8 @@ weight: 3
 * [Fall 2024] TA, [1DT104 Project in Computer Systems](https://www.uu.se/en/study/course?query=1DT104), Uppsala University
 * [Fall 2024] TA, [1RT495 Automatic Control II](https://www.uu.se/en/study/course?query=1RT495), Uppsala University
 * [Fall 2024] TA, [1DT054 Project CS](https://www.uu.se/en/study/course?query=1DT054), Uppsala University
-* [Spring 2024] TA, [1DT108 Programming Embedded Systems, Project](https://www.uu.se/en/study/course?query=1DT108), Uppsala University
-* [Spring 2024] TA, [1DT106 Programming Embedded Systems](https://www.uu.se/en/study/course?query=1DT106), Uppsala University
+* [Spring 2024, 2025] TA, [1DT108 Programming Embedded Systems, Project](https://www.uu.se/en/study/course?query=1DT108), Uppsala University
+* [Spring 2024, 2025] TA, [1DT106 Programming Embedded Systems](https://www.uu.se/en/study/course?query=1DT106), Uppsala University
 * [Fall 2022] TA, [MF2007 Dynamics and Motion Control](https://www.kth.se/student/kurser/kurs/MF2007), KTH Royal Institute of Technology
 
 ### Teaching Philosophy: Learning by Doing

@@ -22,7 +22,7 @@ Kaige Tan, **Xuezhi Niu**, Qinglei Ji, Lei Feng & Martin Törngren<br>
 
 * [Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning](https://arxiv.org/abs/2406.07069)<br>
 **Xuezhi Niu\***, Kaige Tan\*, Didem Gürdür Broo & Lei Feng<br>
-*International Conference on Robotics and Automation (ICRA) 2025*<br>
+*International Conference on Robotics and Automation (ICRA)* 2025<br>
 
 
 ### Thesis

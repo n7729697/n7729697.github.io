@@ -42,7 +42,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if [ -n "$(git status --porcelain)" ]; then
-            git add path/to/your_file.txt
+            git add files/CV_NIU_Xuezhi.pdf
             git commit -m "Update synced file"
             git push
           else

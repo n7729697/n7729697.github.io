@@ -44,11 +44,14 @@ jobs:
           if [ -n "$(git status --porcelain)" ]; then
             git add files/CV_NIU_Xuezhi.pdf
             git commit -m "Update synced file"
-            git push
           else
             echo "No changes detected."
           fi
-
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
+          branch: ${{ github.head_ref }}
   # Deployment job
   deploy:
     environment:

@@ -15,3 +15,5 @@ Gemfile.lock
 
 # Generated sites
 /_site
+
+.jekyll-metadata

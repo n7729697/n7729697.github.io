@@ -43,7 +43,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           if [ -n "$(git status --porcelain)" ]; then
             git add files/CV_NIU_Xuezhi.pdf
-            git commit -m "Update synced file"
+            git commit -m "Update synced CV file"
           else
             echo "No changes detected."
           fi

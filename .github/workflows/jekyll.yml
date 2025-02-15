@@ -39,8 +39,8 @@ jobs:
           curl -o files/CV_NIU_Xuezhi.pdf https://github.com/n7729697/CV_NIU_Xuezhi/blob/main/CV_NIU_Xuezhi.pdf
       - name: Commit changes if any
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           if [ -n "$(git status --porcelain)" ]; then
             git add files/CV_NIU_Xuezhi.pdf
             git commit -m "Update synced file"

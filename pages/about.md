@@ -15,7 +15,7 @@ I am a first year Ph.D. student in Division of Computer Systems at Uppsala Unive
 Link to my [CV](https://n7729697.github.io/files/CV_NIU_Xuezhi.pdf).
 
 
-**Visiting address:** Room [ÅNG 105281](https://use.mazemap.com/#v=1&config=uu&zlevel=6&center=17.646873,59.839473&zoom=18&campusid=49&sharepoitype=poi&sharepoi=1000825043), Hus 10, Lägerhyddsvägen 1 <br>
+**Visiting address:** Room [ÅNG 105281](https://use.mazemap.com/#v=1&config=uu&zlevel=6&center=17.646873,59.839473&zoom=18&campusid=49&sharepoitype=poi&sharepoi=1000825043), Hus 10, Regementsvägen 10 <br>
 **Postal address:** Box 337 <br>
 <span style="margin-left: 115px;">751 05 UPPSALA, Sweden</span>
 

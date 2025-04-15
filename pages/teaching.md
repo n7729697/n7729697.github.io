@@ -12,6 +12,7 @@ weight: 3
 * TBD
 
 ### Courses Taught (Graduate Level)
+* [Fall 2025] TA, [1DT059 Model-Based Design of Embedded Software](https://www.uu.se/en/study/course?query=1DT059), Uppsala University
 * [Fall 2024] TA, [1DT104 Project in Computer Systems](https://www.uu.se/en/study/course?query=1DT104), Uppsala University
 * [Fall 2024] TA, [1RT495 Automatic Control II](https://www.uu.se/en/study/course?query=1RT495), Uppsala University
 * [Fall 2024] TA, [1DT054 Project CS](https://www.uu.se/en/study/course?query=1DT054), Uppsala University
@@ -20,7 +21,7 @@ weight: 3
 * [Fall 2022] TA, [MF2007 Dynamics and Motion Control](https://www.kth.se/student/kurser/kurs/MF2007), KTH Royal Institute of Technology
 
 ### Teaching Philosophy: Learning by Doing
-I believe that students learn best through Project-Based Learning (PBL) and hands-on experiences, where they apply theoretical concepts to real-world challenges. This approach fosters active engagement, critical thinking, and the development of both technical and soft skills, such as teamwork and adaptability. By working on meaningful projects, students not only deepen their understanding but also gain valuable industry-relevant skills. I emphasize reflection and iterative improvement, guiding students to take ownership of their learning while providing constructive feedback. PBL also offers flexibility, accommodating diverse interests and learning styles, making it an inclusive and effective method for preparing students for academic and professional success.
+I believe students learn best through project-based and hands-on experiences, particularly in science and engineering, where applying theory to real-world problems promotes deeper understanding and skill development. This approach supports active engagement, critical thinking, and collaboration, while also helping students build confidence and adaptability. However, I also recognize that such education can be resource-intensive—it requires time, space for failure, experienced teaching, and often access to hardware or specialized tools. Despite these constraints, I try to incorporate this philosophy where possible, even in small-scale or simulated settings, to foster a mindset of exploration, reflection, and ownership in learning.
 
 ### Pedagogy Training
 * [Fall 2024] 5 weeks full-time work, [Academic Teacher Training Course](https://www.uu.se/en/staff/employment/continuing-professional-development/courses-for-employees/academic-teacher-training-course), Uppsala University

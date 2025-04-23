@@ -16,14 +16,17 @@ Kaige Tan, **Xuezhi Niu**, Qinglei Ji, Lei Feng & Martin Törngren<br>
 *Applied Soft Computing*, 2024<br>
 
 ### Conference Publications
+* Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping<br>
+**Xuezhi Niu** & Didem Gürdür Broo<br>
+*2025 9th International Conference on Robotics and Automation Sciences (ICRAS)* <br>
+
 * Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning<br>
 **Xuezhi Niu**, Natalia Calvo Barajas & Didem Gürdür Broo<br>
-2025 IEEE 7th International Conference on Industrial Cyber-Physical Systems (ICPS) <br>
+*2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)* <br>
 
 * [Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning](https://arxiv.org/abs/2406.07069)<br>
 **Xuezhi Niu\***, Kaige Tan\*, Didem Gürdür Broo & Lei Feng<br>
 *International Conference on Robotics and Automation (ICRA)* 2025<br>
-
 
 ### Thesis
 * [Optimal Gait Control of Soft Quadruped Robot by Model-based Reinforcement Learning](https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-339056)<br>

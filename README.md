@@ -225,7 +225,7 @@ Here is a list of dependencies required to run this project:
 | Dependency                                           | Version |
 | :--------------------------------------------------- | :-----: |
 | [Animate.css][animate]                               | v3.7.0  |
-| [Bootstrap][bootstrap]                               | v5.3.0  |
+| [Bootstrap][bootstrap]                               | v4.3.1  |
 | [FontAwesome][font-awesome]                          | v6.7.2  |
 | [GitHub Buttons][gh-btns]                            | v2.2.9  |
 | [jQuery][jquery]                                     | v3.3.1  |

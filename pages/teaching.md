@@ -13,7 +13,7 @@ weight: 3
 
 ### Courses Taught (Graduate Level)
 * [Fall 2025] TA, [1DT059 Model-Based Design of Embedded Software](https://www.uu.se/en/study/course?query=1DT059), Uppsala University
-* [Fall 2024] TA, [1DT104 Project in Computer Systems](https://www.uu.se/en/study/course?query=1DT104), Uppsala University
+* [Fall 2024, 2025] TA, [1DT104 Project in Computer Systems](https://www.uu.se/en/study/course?query=1DT104), Uppsala University
 * [Fall 2024] TA, [1RT495 Automatic Control II](https://www.uu.se/en/study/course?query=1RT495), Uppsala University
 * [Fall 2024] TA, [1DT054 Project CS](https://www.uu.se/en/study/course?query=1DT054), Uppsala University
 * [Spring 2024, 2025] TA, [1DT108 Programming Embedded Systems, Project](https://www.uu.se/en/study/course?query=1DT108), Uppsala University

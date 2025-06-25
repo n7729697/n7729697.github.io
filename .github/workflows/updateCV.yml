@@ -18,6 +18,14 @@ jobs:
           # Replace the URL and path as needed
           curl -o files/CV_NIU_Xuezhi.pdf https://raw.githubusercontent.com/n7729697/CV_NIU_Xuezhi/main/CV_NIU_Xuezhi.pdf
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'  # or the version your project requires
+
+      - name: Install Bundler
+        run: gem install bundler
+        
       - name: Install dependencies and build site
         run: |
           bundle install --jobs 4
@@ -31,10 +39,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain)" ]; then
+          if git diff --quiet --exit-code files/CV_NIU_Xuezhi.pdf; then
+            echo "No changes detected."
+          else
             git add files/CV_NIU_Xuezhi.pdf
             git commit -m "Update file from source repository"
             git push origin master
-          else
-            echo "No changes detected."
           fi

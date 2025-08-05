@@ -39,4 +39,4 @@ Carl Egenäs\*, Felix Ekman\*, Chenqi Ma\*, Tim Naser\*, **Xuezhi Niu\***, Axel 
 *H.K. Project, KTH Royal Institute of Technology, Stockholm, Sweden,* 2023<br>
 
 ### Reviewer
-IEEE-RAS International Conference on Humanoid Robots (Humanoids)<br>
+IEEE-RAS International Conference on Humanoid Robots (Humanoids), IEEE International Conference on Industrial Cyber-Physical Systems (ICPS), IEEE International Conference on Robot and Human Interactive Communication (ROMAN) <br>

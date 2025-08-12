@@ -20,7 +20,7 @@ Kaige Tan, **Xuezhi Niu**, Qinglei Ji, Lei Feng & Martin Törngren<br>
 **Xuezhi Niu** & Didem Gürdür Broo<br>
 *2025 9th International Conference on Robotics and Automation Sciences (ICRAS)* <br>
 
-* Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning<br>
+* [Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning](https://doi.org/10.1109/ICPS65515.2025.11087893)<br>
 **Xuezhi Niu**, Natalia Calvo Barajas & Didem Gürdür Broo<br>
 *2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)* <br>
 

@@ -11,7 +11,7 @@ permalink: /
 <div class="updates" style="height: 15em; overflow-y: scroll;">
 <ul>
 <li>[Apr, 2025] - Our paper on Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping is accepted at ICRAS. <a href="https://github.com/n7729697/RewMARL" target="_blank" title="View on GitHub"> <i class="fab fa-github"></i></a> </li>
-<li>[Mar, 2025] - Our paper on Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning is accepted at ICPS. </li>
+<li>[Mar, 2025] - Our paper on <a href="https://doi.org/10.1109/ICPS65515.2025.11087893">Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning</a> is accepted at ICPS. </li>
 <li>[Mar, 2025] - I was invited to give a talk on Reinforcement Learning for Robotic Control in SysCon@ITUU weekly seminar. <a href="files/SysCon_Seminar250326.pdf" target="_blank" title="View Presentation"> <i class="fas fa-file-powerpoint"></i></a> </li>
 <li>[Mar, 2025] - I am selected as a IEEE RAS Travel Grant Awardee for the IEEE ICRA 2025. </li>
 <li>[Jan, 2025] - Our paper on <a href="https://arxiv.org/abs/2406.07069">Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning</a> is accepted at ICRA. <a href="https://github.com/n7729697/KTH-MasterThesis" target="_blank" title="View on GitHub"> <i class="fab fa-github"></i></a> </li>

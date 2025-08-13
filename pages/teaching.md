@@ -9,7 +9,8 @@ weight: 3
 **Please feel free to contact me if you want to discuss pedagogy with me**
 
 ### Thesis Supervision
-* TBD
+* Ibrahim Bala, [Building modular Open-SourceAutonomous Vehicle ResearchPlatform](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-562947), Master Thesis, 2025
+* Jonathan Näslund, [A Centralized Autonomous Vehicle Platform for Indoor Navigation Using ArUco Markers](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-564141), Bachelor Thesis, 2025
 
 ### Courses Taught (Graduate Level)
 * [Fall 2025] TA, [1DT059 Model-Based Design of Embedded Software](https://www.uu.se/en/study/course?query=1DT059), Uppsala University

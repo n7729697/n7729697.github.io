@@ -33,7 +33,6 @@ nav_exclude:                                            # The following paths ar
   - pages/404.html
   - pages/index.md
 
-
 ### Author Info ###
 author:
   name              : NIU Xuezhi
@@ -58,6 +57,7 @@ author:
 # youtube           : your_channel_name
 # keybase           : your_username
   google_scholar    : citations?user=6F1iihMAAAAJ
+  ORCID             : 0009-0003-2381-1850
 
 
 ### Posts ###
@@ -123,7 +123,15 @@ encoding: "utf-8"
 
 ### Exclude from processing ###
 exclude:
-  - README.md
   - CONTRIBUTING.md
+  - vendor/
+  - vendor/bundle/
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
   - LICENSE
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
   - "*.log"

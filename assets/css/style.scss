@@ -43,3 +43,114 @@ blockquote {
   margin-left: 40px;
   margin-right: 40px;
 }
+
+.pub-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+}
+
+.pub-thumb {
+  width: 250px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  cursor: zoom-in;
+}
+
+.pub-text {
+  flex: 1; /* takes remaining width */
+}
+
+.pub-links a {
+  margin-right: 0.6rem;
+  white-space: nowrap;
+}
+
+.pub-abs-body,
+.pub-bib-body {
+  line-height: 1.55;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+  color: #111;
+  font-size: 0.95rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.pub-toggle-container,
+.toggle-target {
+  width: 100%;
+  max-width: 100%;
+}
+
+.pub-bib-body pre {
+  margin: 0 !important;          /* override theme margins */
+  padding: 0 !important;         /* avoid double padding */
+  background: transparent !important;
+  color: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* handle long lines without widening the box */
+  white-space: pre-wrap;         /* wrap long lines */
+  word-break: break-word;        /* break long tokens if needed */
+  overflow-x: auto;              /* still allow horizontal scroll if necessary */
+  tab-size: 4;               /* shrink tab characters */
+}
+
+/* 4) If you use a floating copy icon, keep it inside the same box */
+.pub-bib-body { position: relative; }
+.copy-bib {
+  position: absolute; top: 8px; right: 8px;   /* or bottom: 8px */
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #fff; border: 1px solid #ccc; border-radius: 4px;
+  cursor: pointer; opacity: 0.85;
+}
+.copy-bib:hover { opacity: 1; background: #f0f0f0; }
+
+/* Backdrop & centering */
+.lb-backdrop[hidden] { display: none !important; }
+.lb-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: grid; place-items: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+/* Image box */
+#lb-image {
+  max-width: min(95vw, 1200px);
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  background: #fff;
+}
+
+/* Caption (optional) */
+.lb-caption {
+  margin-top: 0.75rem;
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: min(95vw, 1200px);
+}
+
+/* Close button */
+.lb-close {
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: 2rem; line-height: 1;
+  border: none; background: transparent; color: #fff;
+  cursor: pointer;
+}

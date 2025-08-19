@@ -100,3 +100,8 @@ google_scholar:
   url   : https://scholar.google.com/
   icon  : fas fa-graduation-cap
   color : 4285f4
+
+ORCID:
+  url   : https://orcid.org/
+  icon  : fab fa-orcid
+  color : A6C229

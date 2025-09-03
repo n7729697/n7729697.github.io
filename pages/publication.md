@@ -43,7 +43,6 @@ weight: 1
   doi = {https://doi.org/10.1016/j.asoc.2024.112568},
   url = {https://www.sciencedirect.com/science/article/pii/S1568494624013425},
   author = {Kaige Tan and Xuezhi Niu and Qinglei Ji and Lei Feng and Martin Törngren},
-  keywords = {Soft quadruped robot, Reality gap, Multi-fidelity Bayesian optimization, Edge computing},
 }</code></pre>
         </div>
       </div>
@@ -60,7 +59,7 @@ weight: 1
     <p><strong>Authors: Xuezhi Niu </strong> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
     <p><em>2025 9th International Conference on Robotics and Automation Sciences (ICRAS)</em></p>
     <p class="pub-links">
-      <a href="https://doi.org/aaa">[PDF pending]</a>
+      <a href="https://doi.org/10.1109/ICRAS65818.2025.11108729">[Paper]</a>
       <a href="https://github.com/Cyber-physical-Systems-Lab/RewMARL">[Code]</a>
       <a href="#" class="toggle" data-target="abs-icras">[Abstract]</a>
       <a href="#" class="toggle" data-target="bib-icras">[BibTeX]</a>
@@ -74,12 +73,13 @@ weight: 1
       <div id="bib-icras" class="toggle-target" hidden>
         <div class="pub-bib-body">
             <button class="copy-bib" data-copy="#bib-text-icras" aria-label="Copy BibTeX">📋</button>
-            <pre><code id="bib-text-icras">@inproceedings{niu2025symbiosis,
-  title={Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping},
-  author    = {Xuezhi Niu and Didem Gürdür Broo},
-  booktitle = {the 2025 9th International Conference on Robotics and Automation Sciences (ICRAS)},
-  year      = {2025},
-  publisher = {IEEE}
+            <pre><code id="bib-text-icras">@INPROCEEDINGS{11108729,
+  author={Niu, Xuezhi and Broo, Didem Gürdür},
+  booktitle={2025 9th International Conference on Robotics and Automation Sciences (ICRAS)}, 
+  title={Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping}, 
+  year={2025},
+  pages={112-117},
+  doi={10.1109/ICRAS65818.2025.11108729}
 }</code></pre>
         </div>
       </div>
@@ -113,10 +113,7 @@ weight: 1
   booktitle={2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)}, 
   title={Enabling Symbiosis in Multi-Robot Systems Through Multi-Agent Reinforcement Learning}, 
   year={2025},
-  volume={},
-  number={},
   pages={1-7},
-  keywords={Symbiosis;Training;Navigation;System performance;Reinforcement learning;Cyber-physical systems;Multi-robot systems;Resource management;Sustainable development;Resilience;Multi-robot systems;Multi-agent reinforcement learning;Symbiotic design;Energy management;Sustainability;Biomimicry},
   doi={10.1109/ICPS65515.2025.11087893}
 }</code></pre>
         </div>
@@ -132,7 +129,7 @@ weight: 1
     <p><strong>Authors: Xuezhi Niu*</strong>, <a href="https://kaigetan.github.io/">Kaige Tan</a>*, <a href="https://didemgurdur.com/">Didem Gürdür Broo</a> & <a href="https://www.kth.se/profile/lfeng">Lei Feng</a></p>
     <p><em>2025 IEEE International Conference on Robotics and Automation (ICRA)</em></p>
     <p class="pub-links">
-      <a href="https://doi.org/10.48550/arXiv.2406.07069">[PDF]</a>
+      <a href="https://doi.org/10.1109/ICRA55743.2025.11128611">[PDF]</a>
       <a href="https://github.com/n7729697/KTH-MasterThesis">[Code]</a>
       <a href="#" class="toggle" data-target="abs-softq">[Abstract]</a>
       <a href="#" class="toggle" data-target="bib-softq">[BibTeX]</a>
@@ -140,7 +137,7 @@ weight: 1
     <div class="pub-toggle-container">
 			<div id="abs-softq" class="toggle-target" hidden>
         <div class="pub-abs-body">
-          We present a model-based reinforcement learning framework for gait optimization on a tendon-driven soft quadruped (SoftQ). The method combines a surrogate dynamics model with policy improvement and post-training fine-tuning to achieve stable, energy-aware locomotion. Sim-to-real considerations and ablations indicate improved sample efficiency and robustness compared to standard model-free baselines.
+          This study presents an innovative approach to optimal gait control for a soft quadruped robot enabled by four compressible tendon-driven soft actuators. Soft quadruped robots, compared to their rigid counterparts, are widely recognized for offering enhanced safety, lower weight, and simpler fabrication and control mechanisms. However, their highly deformable structure introduces nonlinear dynamics, making precise gait locomotion control complex. To solve this problem, we propose a novel model-based reinforcement learning (MBRL) method. The study employs a multi-stage approach, including state space restriction, data-driven surrogate model training, and MBRL development. Compared to benchmark methods, the proposed approach significantly improves the efficiency and performance of gait control policies. The developed policy is both robust and adaptable to the robot's deformable morphology. The study concludes by highlighting the practical applicability of these findings in real-world scenarios.
         </div>
       </div>
       <div id="bib-softq" class="toggle-target" hidden>
@@ -149,10 +146,11 @@ weight: 1
             <pre><code id="bib-text-softq">@inproceedings{niu2025optimal,
 	title     = {Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning},
 	author    = {Niu, Xuezhi and Tan, Kaige and G{\"u}rd{\"u}r Broo, Didem and Feng, Lei},
-	booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)},
+	booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)}, 
 	year      = {2025},
-	doi       = {10.48550/arXiv.2406.07069},
-	url       = {https://arxiv.org/abs/2406.07069}
+  pages     = {9287-9293},
+	doi       = {10.1109/ICRA55743.2025.11128611},
+	url       = {https://doi.org/10.1109/ICRA55743.2025.11128611}
 }</code></pre>
         </div>
       </div>

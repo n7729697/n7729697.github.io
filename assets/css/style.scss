@@ -126,18 +126,31 @@ blockquote {
   display: grid; place-items: center;
   z-index: 1000;
   padding: 2rem;
+  overflow: auto; /* allow scrolling when zoomed */
 }
 
-/* Image box */
+/* Opened image: fixed default size (but responsive ceiling) */
 #lb-image {
-  max-width: min(95vw, 1200px);
-  max-height: 85vh;
+  width: min(90vw, 900px); /* fixed target width; tweak 900px as you like */
+  height: auto;
+  max-height: 90vh;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   background: #fff;
+  cursor: zoom-in;
+  object-fit: contain;
 }
 
-/* Caption (optional) */
+/* Zoomed state: show at natural resolution */
+#lb-image.zoomed {
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+
+/* Caption */
 .lb-caption {
   margin-top: 0.75rem;
   color: #f0f0f0;

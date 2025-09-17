@@ -165,7 +165,7 @@ weight: 1
     <p><em>2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)</em></p>
     <p class="pub-links">
       <a href="https://doi.org/10.1109/ICPS65515.2025.11087893">[Paper]</a>
-      <a href="https://file.notion.so/f/f/5545e1f6-49ca-45ca-b96d-957713429775/51f981db-9e0a-402b-ae08-2314a84f12b7/ICPS.pdf?table=block&id=24cff393-81aa-80dc-848a-ff435141c55d&spaceId=5545e1f6-49ca-45ca-b96d-957713429775&expirationTimestamp=1755540000000&signature=yOne_zcBiqppKVPdnj_dP1wxnOnG-oeT3kPHgNMmM9I&downloadName=ICPS.pdf">[Slides]</a>
+      <!-- <a href="https://file.notion.so/f/f/5545e1f6-49ca-45ca-b96d-957713429775/51f981db-9e0a-402b-ae08-2314a84f12b7/ICPS.pdf?table=block&id=24cff393-81aa-80dc-848a-ff435141c55d&spaceId=5545e1f6-49ca-45ca-b96d-957713429775&expirationTimestamp=1755540000000&signature=yOne_zcBiqppKVPdnj_dP1wxnOnG-oeT3kPHgNMmM9I&downloadName=ICPS.pdf">[Slides]</a> -->
       <a href="#" class="toggle" data-target="abs-icps2025">[Abstract]</a>
       <a href="#" class="toggle" data-target="bib-icps2025">[BibTeX]</a>
     </p>
@@ -301,6 +301,14 @@ document.addEventListener('click', (e) => {
   const lbImg = document.getElementById('lb-image');
   const lbCaption = document.getElementById('lb-caption');
   const closeBtn = lb.querySelector('.lb-close');
+
+  // click to toggle zoom
+  lbImg.addEventListener('click', () => {
+    lbImg.classList.toggle('zoomed');
+    if (!lbImg.classList.contains('zoomed')) {
+      lb.scrollTo({ top: 0, left: 0 });
+    }
+  });
 
   // Open on any .pub-thumb click (event delegation covers future items)
   document.addEventListener('click', (e) => {

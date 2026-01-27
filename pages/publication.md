@@ -90,9 +90,9 @@ weight: 1
 <div class="pub-entry">
   <img src="../files/Chi.jpg" alt="The figure is a schematic of the collaborative experimental setup in a 4 × 4 m room. A 1.6 × 1.6 m working table sits in the room with the participant seated along the bottom edge facing upward toward the Dobot Nova 5 robotic arm fitted with a Robotiq 2F85 gripper in the near center. Four main areas are marked on the table: an item stack on the right, a central repair area, a small waiting area in the center, and a packaging area on the left. Green cubes indicate functional items moved directly to packaging; red cubes indicate faulty items handed over by the robot for repair and then returned to packaging after participant action. The robot workspace is shaded light blue, the human workspace light green, and the overlapping repair space highlighted between them to show the area of shared interaction. A fixed RGB camera is shown in the southwest corner of the room capturing the entire setup. Arrows in the diagram show the cobot’s movement between these zones and the handover points to the participant." class="pub-thumb">
   <div class="pub-text">
-    <h3>"What am I supposed to do now?": Exploring Unscripted Human Responses During Robot Malfunction in a Collaborative Quality Control and Repair Task</h3>
+    <h3>"What do I do now?": Spontaneous Human Responses to Robot Effectiveness and Efficiency Malfunctions in Collaborative Robotics</h3>
     <p><strong>Authors:</strong> Alexandros Rouchitsas, <strong>Xuezhi Niu </strong>, Ginevra Castellano & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p>Submitted to <em>The ACM Conference on Human Factors in Computing Systems (CHI2026)</em></p>
+    <p>Accepted to <em>The ACM Conference on Human Factors in Computing Systems (CHI2026)</em></p>
     <p class="pub-links">
       <a href="#">[Paper coming soon]</a>
       <!-- <a href="https://github.com/Cyber-physical-Systems-Lab/RewMARL">[Code]</a> -->

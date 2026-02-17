@@ -17,3 +17,6 @@ Gemfile.lock
 /_site
 
 .jekyll-metadata
+
+# Bundler local config
+.bundle/

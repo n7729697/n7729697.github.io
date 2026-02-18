@@ -21,7 +21,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'  # or the version your project requires
+          ruby-version: '3.4'  # or the version your project requires
 
       - name: Install Bundler
         run: gem install bundler

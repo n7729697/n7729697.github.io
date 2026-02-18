@@ -2,7 +2,7 @@
 title: Network Science Notes
 tags: [network science, complex systems, graph theory, epidemic modeling]
 style: fill
-color: warning
+color: light
 description: Personal technical notes on propagation, clustering, inference, temporal graphs, and applications to multi-robot systems.
 ---
 

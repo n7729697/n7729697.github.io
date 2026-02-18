@@ -2,7 +2,7 @@
 title: Parallel Programming Notes (OpenMP, MPI, CUDA)
 tags: [parallel computing, OpenMP, MPI, CUDA, GPU]
 style: fill
-color: dark
+color: light
 description: Personal notes from a full parallel programming lecture sequence, from performance basics to distributed memory and CUDA.
 ---
 

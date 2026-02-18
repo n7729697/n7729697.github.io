@@ -1,5 +1,5 @@
 ---
-title: Reinforcement Learning Notes: From MDP to RLHF and MARL
+title: Reinforcement Learning Notes From MDP to RLHF and MARL
 tags: [reinforcement learning, RLHF, MARL]
 style: fill
 color: light

@@ -2,7 +2,7 @@
 title: Numerical Linear Algebra and Optimization Notes
 tags: [numerical linear algebra, optimization, scientific computing]
 style: fill
-color: primary
+color: light
 description: Structured notes following a full syllabus from mathematical foundations to convergence theory.
 ---
 

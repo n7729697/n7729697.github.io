@@ -1,9 +1,9 @@
 ---
-title: DD2222 Data Mining Notes
+title: Data Mining
 tags: [data mining, graph mining, clustering, recommender systems, representation learning]
 style: fill
-color: secondary
-description: Personal notes synthesized from DD2222 lecture slides: similar items, graph mining, link analysis, clustering, and latent representations.
+color: light
+description: Personal notes synthesized for data mining, graph mining, link analysis, clustering, and latent representations.
 ---
 
 ## 1. Course Lens: Mining Large-Scale Data
@@ -203,7 +203,7 @@ This unifies classical matrix factorization, random-walk context methods, and mo
 
 ## 10. Practical Synthesis
 
-A useful end-to-end workflow inspired by DD2222:
+A useful end-to-end workflow inspired by data mining:
 
 1. choose representation: tabular vs graph vs set/shingles,
 2. define task objective: similarity, ranking, clustering, prediction,

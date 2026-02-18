@@ -2,8 +2,8 @@
 title: Reinforcement Learning Notes: From MDP to RLHF and MARL
 tags: [reinforcement learning, RLHF, MARL]
 style: fill
-color: success
-description: In-depth notes from DD2380 foundations extended to modern deep RL, RLHF, and multi-agent reinforcement learning.
+color: light
+description: In-depth notes from AI foundations extended to modern deep RL, RLHF, and multi-agent reinforcement learning.
 ---
 
 ## 1. MDP Foundations
@@ -367,4 +367,4 @@ Design choices vary by implementation (shared vs per-agent critics, factorized c
 - SAC objective: maximize reward + entropy.
 - RLHF objective: reward-model score with KL penalty to reference policy.
 
-These notes connect classical DD2380 decision-making foundations to modern deep RL and multi-agent practice.
+These notes connect classical decision-making foundations to modern deep RL and multi-agent practice.

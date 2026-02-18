@@ -2,6 +2,22 @@
   text-decoration: none !important;
 }
 
+.visitor-counter {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15rem 0.55rem;
+
+  .counter-item strong {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .counter-sep {
+    opacity: 0.5;
+  }
+}
+
 #attribution {
   opacity: 0.5;
   a {
@@ -28,4 +44,14 @@
   text-align: right;
   margin-top: 4em;
   margin-right: 2em;
+}
+
+@media only screen and (max-width: 576px) {
+  .visitor-counter {
+    gap: 0.2rem 0.4rem;
+
+    .counter-sep {
+      display: none;
+    }
+  }
 }

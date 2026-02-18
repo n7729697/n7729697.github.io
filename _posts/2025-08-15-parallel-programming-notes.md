@@ -6,8 +6,6 @@ color: dark
 description: Personal notes from a full parallel programming lecture sequence, from performance basics to distributed memory and CUDA.
 ---
 
-Source: Slides in `/mnt/d/OneDrive - Uppsala universitet/UU/并行计算` (lecture01_2025 to lecture13_2025).
-
 ## 1. Big Picture
 
 Parallel performance is constrained by three coupled factors:

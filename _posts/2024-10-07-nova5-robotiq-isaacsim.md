@@ -24,6 +24,7 @@ Or you could use [my urdf](https://github.com/Cyber-physical-Systems-Lab/Robots_
 ### Controllers
 Before adding controllers, ensure the [articulation](https://docs.omniverse.nvidia.com/extensions/latest/ext_physics/articulations.html) is correctly set. For my case, I have to correctly set the articulation root to be the fixed manipulator, you could check the articulation root by filtering the properties in stage. 
 ![Articulation root filter](/files/IsaacSim/ArticulationRootFilter.png)
+Source: Author screenshot from Isaac Sim.
 
 You should keep the root should be either to:
 1. the fixed joint that connects the articulation base to the world, or
@@ -31,6 +32,7 @@ You should keep the root should be either to:
 2. an ancestor of the fixed joint in the USD hierarchy. The second option allows creating multiple articulations from a single root component added to the scene: Each descendant fixed joint will be defining an articulation base link. 
 
 ![Articulation root filter](/files/IsaacSim/ArticulationRootFilter1.png)
+Source: Author screenshot from Isaac Sim.
 
 Then we add the articulation robot controllers to the robot. Before running the simulation, it is wise to determine the damping, stiffness, max force etc, [here](https://docs.omniverse.nvidia.com/isaacsim/latest/features/robots_simulation/ext_omni_isaac_gain_tuner.html) is a helpful extension for tuning them.
 

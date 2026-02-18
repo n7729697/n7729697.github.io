@@ -15,14 +15,17 @@ I installed [VcXsrv](https://sourceforge.net/projects/vcxsrv/), a lightweight X 
 - During setup in Xlaunch (installed VcXsrv), I chose **Multiple Windows** mode and set the display num to 0 (you can also set it to 1 or some other number, but it is not possible to set it to -1 in vcxsrv-64.1.20.14.0 since the GUI only accept number input in Display number field)
 
 ![image](/files/Xlaunch1.PNG)
+Source: Author screenshot.
 
 - Toggle **Start no client** then Next
 
 ![image](/files/Xlaunch2.PNG)
+Source: Author screenshot.
 
 - Ensured **access control was disabled** for easier testing.
 
 ![image](/files/Xlaunch3.PNG)
+Source: Author screenshot.
 
 P.S> If you set the Xlaunch to **One window** and **Display number** to 1 with correct `$DISPLAY=<your IP>:1`, you should be able to have wsl2 with GUI in windows and you have to keep the extra window alive.
 

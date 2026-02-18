@@ -51,6 +51,7 @@ In 3D space, rigid body motion can be expressed using two concepts:
 - **Rotation**, which can be represented in multiple ways, each with advantages and drawbacks.
 
 ![Rigid body motion illustration](https://eaglepubs.erau.edu/app/uploads/sites/4/2021/09/Airplane_motion-1-768x501.png)
+Source: [Embry-Riddle Aeronautical University image asset](https://eaglepubs.erau.edu/app/uploads/sites/4/2021/09/Airplane_motion-1-768x501.png)
 
 ---
 
@@ -113,6 +114,7 @@ Rigid body motion preserves vector length and direction, so the transformation c
 - a **translation**.
 
 ![Euclidean transformation between frames](https://motion.cs.illinois.edu/RoboticSystems/figures/modeling/coordinate_axes_3d.svg)
+Source: [University of Illinois Robotic Systems figure](https://motion.cs.illinois.edu/RoboticSystems/figures/modeling/coordinate_axes_3d.svg)
 
 ## 3. Rotation Representations
 ### 3.1 Rotation Matrix
@@ -227,6 +229,7 @@ $$
   $\mathbf{p}' = \mathbf{q}\mathbf{p}\mathbf{q}^{-1}$
 
 ![Quaternion sphere representation](https://leimao.github.io/images/blog/2022-04-20-3D-Rotation-Unit-Quaternion/quaternion.png)
+Source: [Lei Mao blog image](https://leimao.github.io/images/blog/2022-04-20-3D-Rotation-Unit-Quaternion/quaternion.png)
 
 ---
 
@@ -375,6 +378,7 @@ $$
 $$
 
 ![Translation in SE(3)](/files/lie/translation.svg)
+Source: Author-generated figure.
 
 ## 7. Lie Groups
 
@@ -400,7 +404,8 @@ An **$N$-dimensional manifold** $\mathcal{M}$ is a geometric space that is *loca
   An element of $SE(3)$ has 6 degrees of freedom (3 rotation + 3 translation).  
   Although the manifold cannot be visualized, locally it behaves like $\mathbb{R}^6$.  
 
-![manifold](files/lie/manifold.svg)
+![manifold](/files/lie/manifold.svg)
+Source: Author-generated figure.
 
 Smooth: A map $f$ from $U\subset R^m$ to $V \subset R^n$ is smooth if all partial derivatives of $f$, of all orders, exist and are continuous.
 

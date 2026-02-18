@@ -1,0 +1,13 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='430' viewBox='0 0 900 430'>
+  <rect width='100%' height='100%' fill='#f8fafc'/>
+  <text x='40' y='42' font-family='Arial' font-size='24' fill='#1e293b'>SBM Detectability Transition</text>
+  <line x1='90' y1='350' x2='820' y2='350' stroke='#334155' stroke-width='2'/>
+  <line x1='90' y1='350' x2='90' y2='90' stroke='#334155' stroke-width='2'/>
+  <text x='650' y='387' font-family='Arial' font-size='16' fill='#334155'>(cin-cout)^2 / (q(c_in+(q-1)c_out))</text>
+  <text x='26' y='96' font-family='Arial' font-size='16' fill='#334155'>Recovery quality</text>
+  <line x1='360' y1='90' x2='360' y2='350' stroke='#ef4444' stroke-width='3' stroke-dasharray='8 6'/>
+  <text x='292' y='76' font-family='Arial' font-size='16' fill='#ef4444'>KS threshold</text>
+  <path d='M 110 332 C 180 330, 240 328, 330 325 C 390 310, 470 250, 560 190 C 650 140, 730 116, 800 100' fill='none' stroke='#0ea5e9' stroke-width='5'/>
+  <text x='122' y='308' font-family='Arial' font-size='15' fill='#334155'>no better than chance</text>
+  <text x='570' y='182' font-family='Arial' font-size='15' fill='#0ea5e9'>detectable communities</text>
+</svg>

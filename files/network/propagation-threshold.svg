@@ -1,0 +1,13 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='420' viewBox='0 0 900 420'>
+  <rect width='100%' height='100%' fill='#fcfcf8'/>
+  <text x='40' y='40' font-family='Arial' font-size='24' fill='#1e293b'>Spectral Threshold for SIS Propagation</text>
+  <line x1='80' y1='350' x2='820' y2='350' stroke='#334155' stroke-width='2'/>
+  <line x1='80' y1='350' x2='80' y2='80' stroke='#334155' stroke-width='2'/>
+  <text x='760' y='388' font-family='Arial' font-size='16' fill='#334155'>tau = beta/delta</text>
+  <text x='20' y='96' font-family='Arial' font-size='16' fill='#334155'>Prevalence</text>
+  <line x1='300' y1='80' x2='300' y2='350' stroke='#ef4444' stroke-width='3' stroke-dasharray='8 6'/>
+  <text x='250' y='70' font-family='Arial' font-size='16' fill='#ef4444'>tau_c = 1 / lambda_1(A)</text>
+  <path d='M 100 340 C 180 338, 230 336, 290 334 C 330 320, 390 280, 460 230 C 560 165, 660 125, 800 100' fill='none' stroke='#0ea5e9' stroke-width='5'/>
+  <text x='530' y='220' font-family='Arial' font-size='16' fill='#0ea5e9'>Endemic phase</text>
+  <text x='130' y='320' font-family='Arial' font-size='16' fill='#16a34a'>Disease-free (decays)</text>
+</svg>

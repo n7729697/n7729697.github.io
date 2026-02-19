@@ -18,13 +18,50 @@
     class="text-muted mb-2 visitor-counter"
   >
     <span id="busuanzi_container_site_uv" class="counter-item">
-      Visitors: <strong id="busuanzi_value_site_uv">--</strong>
+      Visitors: <strong id="site_uv_total">--</strong>
+      <strong id="busuanzi_value_site_uv" style="display:none;">0</strong>
     </span>
     <span class="counter-sep">|</span>
     <span id="busuanzi_container_site_pv" class="counter-item">
-      Visits: <strong id="busuanzi_value_site_pv">--</strong>
+      Visits: <strong id="site_pv_total">--</strong>
+      <strong id="busuanzi_value_site_pv" style="display:none;">0</strong>
     </span>
     As from 2024
   </small>
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script>
+    (function () {
+      var baseUv = 1642;
+      var basePv = 3876;
+
+      function toInt(text) {
+        var digits = String(text || "").replace(/[^\d]/g, "");
+        var value = parseInt(digits, 10);
+        return isNaN(value) ? 0 : value;
+      }
+
+      function setValue(id, value) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = value.toLocaleString();
+      }
+
+      function updateTotals() {
+        var uvRaw = document.getElementById("busuanzi_value_site_uv");
+        var pvRaw = document.getElementById("busuanzi_value_site_pv");
+        setValue("site_uv_total", baseUv + toInt(uvRaw && uvRaw.textContent));
+        setValue("site_pv_total", basePv + toInt(pvRaw && pvRaw.textContent));
+      }
+
+      updateTotals();
+
+      var target = document.getElementById("busuanzi_container_site_uv");
+      if (target && window.MutationObserver) {
+        var observer = new MutationObserver(updateTotals);
+        observer.observe(document.body, { subtree: true, childList: true, characterData: true });
+      }
+
+      setTimeout(updateTotals, 1200);
+      setTimeout(updateTotals, 2500);
+    })();
+  </script>
 </footer>

@@ -27,8 +27,12 @@ jobs:
         run: gem install bundler
         
       - name: Install dependencies and build site
+        env:
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_DISABLE_SHARED_GEMS: "true"
         run: |
-          bundle install --jobs 4
+          bundle config set path "$BUNDLE_PATH"
+          bundle install --jobs 4 --retry 3
           bundle exec jekyll build
           
       - name: Set remote URL with token

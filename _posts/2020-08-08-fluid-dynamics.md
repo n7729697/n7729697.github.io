@@ -46,10 +46,12 @@ $$
 $$
 
 The left side is the **material acceleration** — the rate of change of velocity experienced by a fluid particle. It has two parts:
+
 - $\partial\mathbf{u}/\partial t$: **local acceleration** (unsteady effects, e.g., a valve opening),
 - $\mathbf{u}\cdot\nabla\mathbf{u}$: **convective acceleration** (a fluid particle speeds up by moving into a faster region, e.g., flow entering a constriction).
 
 The right side contains the forces per unit volume:
+
 - $-\nabla p$: **pressure gradient** force — fluid accelerates from high to low pressure,
 - $\mu\nabla^2\mathbf{u}$: **viscous diffusion** — momentum spreads from fast regions to slow regions, proportional to viscosity $\mu$,
 - $\rho\mathbf{g}$: **gravity** (or other body forces).
@@ -175,6 +177,7 @@ $$
 $$
 
 Each term has the dimension of **head** (length):
+
 - $p/(\rho g)$: **pressure head** — the height of fluid column that would produce pressure $p$,
 - $V^2/(2g)$: **velocity head** — how high a fluid particle could rise if all kinetic energy were converted to potential energy,
 - $z$: **elevation head**.
@@ -250,6 +253,7 @@ $$
 $$
 
 where $f$ is the Darcy friction factor:
+
 - **Laminar:** $f = 64/Re_D$ (exact, from the Hagen–Poiseuille solution).
 - **Turbulent:** given by the **Colebrook equation** (implicit):
 
@@ -292,6 +296,7 @@ Turbulent boundary layers are **thicker** (more mixing spreads momentum further 
 A boundary layer separates when fluid near the wall, decelerating against an **adverse pressure gradient** ($dp/dx > 0$, i.e., pressure increasing downstream), runs out of kinetic energy and reverses direction. Beyond the **separation point**, the flow detaches, forming a recirculation zone and a broad wake.
 
 Separation is devastating for:
+
 - **Airfoils**: causes **stall** — dramatic loss of lift and increase of drag.
 - **Diffusers**: limits the maximum expansion angle to ~7° for attached flow.
 - **Bluff bodies**: creates the large wake responsible for ~90% of drag on cars, buildings, and cylinders.
@@ -305,12 +310,14 @@ This is why **streamlining** works — by shaping bodies to avoid adverse pressu
 ### 6.1 Airfoil Geometry
 
 An airfoil's shape is defined by:
+
 - **Chord** $c$: straight line from leading edge to trailing edge.
 - **Camber line**: the midline between upper and lower surfaces; its maximum deviation from the chord is the **maximum camber**.
 - **Thickness distribution**: the distance between upper and lower surfaces, perpendicular to the camber line; described as a fraction of chord (e.g., NACA 0012 has 12% max thickness).
 - **Angle of attack** $\alpha$: the angle between the chord line and the oncoming freestream.
 
 **NACA naming convention (4-digit):** NACA $MPXX$
+
 - $M$: maximum camber as % of chord,
 - $P$: location of max camber in tenths of chord,
 - $XX$: max thickness as % of chord.
@@ -344,6 +351,7 @@ $$
 ### 6.4 Thin Airfoil Theory
 
 For a thin airfoil at small $\alpha$ in inviscid, incompressible flow, we model the airfoil as a distribution of **vortices** along the camber line. The strength of this vortex sheet $\gamma(x)$ is chosen to satisfy:
+
 1. **Flow tangency** on the camber line (no flow through the surface).
 2. **Kutta condition** at the trailing edge ($\gamma(c) = 0$).
 
@@ -412,6 +420,7 @@ $$
 $$
 
 This result is profound:
+
 - Induced drag increases with $C_L^2$ — high-lift conditions (takeoff, landing, tight turns) have the most induced drag.
 - Induced drag decreases with aspect ratio — this is why gliders and albatrosses have long, narrow wings ($AR \sim 20$–$40$).
 - At cruise, induced drag roughly equals parasitic drag — the minimum total drag condition defines the best cruise speed.
@@ -518,6 +527,7 @@ $$
 $$
 
 For a given $Ma_1$ and $\theta$:
+
 - **Weak shock** (smaller $\beta$): flow remains supersonic downstream — preferred in inlet design.
 - **Strong shock** (larger $\beta$): flow becomes subsonic — rarely occurs in external flows.
 - If $\theta$ exceeds $\theta_{\max}$ for that $Ma_1$, no attached oblique shock is possible — a **detached (bow) shock** forms ahead of the body.
@@ -610,11 +620,13 @@ This correction diverges at $Ma = 1$, signalling the breakdown of linear theory 
 Even when the freestream is subsonic, the flow accelerates over the airfoil (especially on the upper surface), and locally can reach $Ma = 1$. The freestream Mach number at which the first point on the airfoil reaches $Ma = 1$ is the **critical Mach number** $Ma_{\text{cr}}$.
 
 Beyond $Ma_{\text{cr}}$:
+
 - A supersonic pocket forms on the upper surface.
 - A shock wave terminates the supersonic region.
 - The shock causes boundary-layer separation → rapid drag increase.
 
 This rapid drag rise is the **drag divergence** phenomenon that limited propeller aircraft speeds in the 1940s. Modern transonic airfoils (supercritical airfoils) use:
+
 - Flattened upper surface to weaken the shock,
 - Rear camber to recover lift,
 - Resulting in $Ma_{\text{cr}} \approx 0.8$–$0.85$ (vs. $\sim 0.7$ for conventional airfoils).
@@ -788,6 +800,7 @@ AF_{\text{stoich}} = \frac{(8 + 18/4)(32 + 3.76\times28)}{114} \approx 15.1
 $$
 
 This means 15.1 kg of air per kg of fuel for complete combustion. Real engines operate:
+
 - **Rich** ($AF < 15.1$): excess fuel, maximum power, higher emissions (CO, UHC).
 - **Lean** ($AF > 15.1$): excess air, higher efficiency, lower emissions, but risk of misfire and high $NO_x$ at peak temperatures.
 
@@ -808,6 +821,7 @@ For octane–air at stoichiometric and $T_{\text{in}} = 298$ K: $T_{\text{ad}} \
 ### 13.1 Cavitation
 
 When local pressure drops below the **vapour pressure** $p_v$, liquid boils locally — this is **cavitation**. Vapour bubbles form in low-pressure regions and collapse violently when they reach higher-pressure zones, producing:
+
 - Noise (characteristic crackling),
 - Erosion of surfaces (material removal from repeated micro-jet impacts),
 - Performance degradation (loss of lift on hydrofoils, drop in pump head).
@@ -839,6 +853,7 @@ The **critical heat flux (CHF)** is the maximum heat flux before the surface dri
 5. **Check consistency** — do solutions satisfy limiting cases? Do units match? Is entropy non-decreasing?
 
 **Common sanity checks:**
+
 - Does back-of-envelope Bernoulli give the right order of magnitude?
 - Does the Reynolds number justify your laminar/turbulent assumption?
 - Is total pressure conserved where you assumed isentropic flow?
@@ -861,7 +876,7 @@ For advanced fluid/aerodynamics studies, use this compact hierarchy:
 
 **Key principle:** always start at the lowest-cost level that captures the dominant physics. Use higher-fidelity models to validate and refine — never jump to DNS when Bernoulli can answer the question.
 
-### Trust chain for CFD:
+### Trust chain for CFD
 
 1. **Verification:** are the equations solved correctly? (mesh convergence, manufactured solutions)
 2. **Validation:** do the solved equations represent reality? (comparison to experimental data)

@@ -1,389 +1,518 @@
 ---
-title: Adaptive and Optimal Control
-tags: [control theory, adaptive control]
+title: Adaptive, Optimal, Robust, and Learning Control
+tags: [control theory, adaptive control, optimal control, robust control, reinforcement learning, LQR, MPC]
 style: fill
 color: light
-description: PhD-level notes linking Lyapunov-based adaptive control, robustification, optimal control, and reinforcement learning.
+description: An advanced control note organized around lemmas, theorems, proof sketches, and applications, linking adaptive control, optimal control, robust control, and the role of reinforcement learning in feedback systems.
 ---
 
 ## Scope and Reading Map
 
-These notes are organized as a proof-oriented path:
+This note is the advanced end of the control series. It assumes the reader is already comfortable with the classical ideas in [Control Theory Basics]({% post_url 2019-05-18-control-theory-basics %}), the state-space and MIMO viewpoint in [Modern, Multivariable, and Networked Control]({% post_url 2020-08-18-modern-control-foundations %}), and the Lyapunov geometry in [Topics in Nonlinear Systems]({% post_url 2023-03-18-topics-in-nonlinear-systems %}).
 
-1. nonlinear stability tools used repeatedly in adaptive control,
-2. linear and nonlinear adaptive designs with explicit assumptions,
-3. robustness modifications and what guarantees they change,
-4. PMP/HJB optimal control foundations,
-5. RL as approximate dynamic programming and where stability gaps appear.
+The organization is theorem-driven:
 
-The goal is not formula collection; it is to preserve the logic chain from assumptions to guarantees.
+1. Lyapunov and continuation tools used repeatedly in adaptive proofs,
+2. linear and nonlinear adaptive control,
+3. robust modifications and output-feedback issues,
+4. open-loop and feedback optimal control,
+5. robust and disturbance-rejection viewpoints,
+6. reinforcement learning and agentic decision-making inside control loops.
 
----
+The goal is not to collect formulas. It is to keep the logic from assumptions to guarantees visible.
 
-## 1. Mathematical Preliminaries for Adaptive Systems
+## 1. Standing Assumptions and Lyapunov Toolkit
 
 Consider
 
 $$
-\dot x = f(t,x,u), \quad x(t_0)=x_0.
+\dot x = f(t,x,u), \qquad x(t_0)=x_0.
 $$
 
-### 1.1 Existence, uniqueness, continuation
+### 1.1 Existence and continuation
 
-A standard hypothesis set:
+**Lemma 1 (Existence and continuation).** Suppose $f$ is piecewise continuous in $t$ and locally Lipschitz in $x$ uniformly on compact sets. Then the initial-value problem admits a unique maximal solution. If the solution remains bounded on $[t_0,T)$, then it can be continued beyond $T$.
 
-- $f$ piecewise continuous in $t$,
-- locally Lipschitz in $x$ uniformly on compact sets.
+**Proof sketch.** Local existence and uniqueness follow from standard Picard-Lindelof arguments. If the state stays in a compact set, the local-Lipschitz bound and continuity assumptions remain valid, so no finite escape can occur at $T$. Therefore the maximal interval cannot terminate there.
 
-Then the IVP has a unique maximal solution. If $x(t)$ remains bounded on $[t_0,T)$, continuation extends solution beyond $T$ (no finite escape).
+This simple continuation argument is the silent engine behind many adaptive-control proofs: first prove boundedness, then infer global existence.
 
-This continuation argument is central in adaptive proofs: we often first show boundedness of all closed-loop signals and then conclude global existence.
+### 1.2 Lyapunov direct method
 
-### 1.2 Stability notions used later
-
-For equilibrium $x=0$ of autonomous $\dot x=f(x)$:
-
-- Lyapunov stable,
-- asymptotically stable,
-- globally asymptotically stable (GAS),
-- exponentially stable.
-
-For disturbed/adaptive systems, a more realistic notion is **uniform ultimate boundedness (UUB)**.
-
-### 1.3 Lyapunov and invariance tools
-
-Given $V(x) \in C^1$, define
+Let $V(x) \in C^1$ and define
 
 $$
 \dot V = \nabla V^\top f.
 $$
 
-Typical implications:
-
-- $V$ positive definite and $\dot V\le 0$ -> stability and boundedness.
-- $V$ proper and $\dot V\le 0$ -> forward boundedness of $x(t)$.
-- LaSalle (autonomous): convergence to largest invariant set inside $\{\dot V=0\}$.
-- Barbalat (non-autonomous): if $g\in L_\infty$, $\dot g\in L_\infty$, and $g\in L_1$, then $g(t)\to0$.
-
-Adaptive systems are typically non-autonomous because parameters evolve, so Barbalat-type reasoning appears frequently.
-
----
-
-## 2. Linear Parametric Uncertainty and MRAC
-
-### 2.1 Matching structure and control objective
-
-For direct MRAC, one common assumption is exact matching:
+**Lemma 2 (Lyapunov boundedness and convergence template).** If there exist class-$\mathcal{K}_\infty$ functions $\alpha_1,\alpha_2$ such that
 
 $$
-\dot x = A x + Bu, \quad
-\exists\, \theta^*: \; A+ B K_x^{*\top}=A_m,\; BK_r^{*\top}=B_m,
+\alpha_1(\|x\|) \le V(x) \le \alpha_2(\|x\|),
 $$
 
-where $(A_m,B_m)$ define desired reference model
+and
+
+$$
+\dot V \le -W(x)
+$$
+
+for some positive semidefinite function $W$, then trajectories remain bounded and converge to the largest invariant set inside $\{x:W(x)=0\}$.
+
+**Proof sketch.** Properness of $V$ gives bounded sublevel sets, so a nonincreasing $V$ prevents finite escape. LaSalle invariance then identifies the asymptotic limit set.
+
+This is the proof skeleton behind state feedback, backstepping, adaptive laws, and robust modifications.
+
+### 1.3 Barbalat and non-autonomous arguments
+
+When adaptation laws or time-varying references make the system non-autonomous, Barbalat's lemma is often more convenient than LaSalle.
+
+**Lemma 3 (Barbalat).** If $g(t)$ is uniformly continuous and $\int_{t_0}^\infty g(\tau)\, d\tau$ exists, then $g(t)\to 0$.
+
+In control proofs, the usual pattern is:
+
+- show $g \in L_2 \cap L_\infty$,
+- show $\dot g \in L_\infty$,
+- conclude $g(t)\to 0$.
+
+## 2. Linear Adaptive Control: MRAC
+
+### 2.1 Problem setup
+
+Consider the plant
+
+$$
+\dot x = A x + Bu,
+$$
+
+and a reference model
 
 $$
 \dot x_m = A_m x_m + B_m r,
 $$
 
-with $A_m$ Hurwitz.
-
-Control law:
+with $A_m$ Hurwitz. Assume exact matching:
 
 $$
-u = K_x^\top x + K_r^\top r.
+\exists \theta^* \text{ such that the ideal controller yields } A_m,B_m.
 $$
 
-Define $e=x-x_m$, parameter errors $\tilde K_x=K_x-K_x^*$, $\tilde K_r=K_r-K_r^*$.
-
-Then
+Let the tracking error be
 
 $$
-\dot e = A_m e + B\left(\tilde K_x^\top x + \tilde K_r^\top r\right).
+e=x-x_m.
 $$
 
-### 2.2 Lyapunov construction and adaptive law
+### 2.2 Main MRAC theorem
 
-Let $P=P^\top>0$ solve
+**Theorem 1 (Basic MRAC boundedness).** Suppose exact matching holds, $A_m$ is Hurwitz, and the regressor signals are bounded. Then there exists a gradient adaptive law such that all closed-loop signals remain bounded and the tracking error satisfies $e \in L_2 \cap L_\infty$.
+
+One standard construction is:
 
 $$
-A_m^\top P + P A_m = -Q, \quad Q=Q^\top>0.
+u = K_x^\top x + K_r^\top r,
 $$
 
-Choose composite Lyapunov function:
+with parameter errors $\tilde K_x,\tilde K_r$, and composite Lyapunov function
 
 $$
 V = e^\top P e
-+ \mathrm{tr}(\tilde K_x^\top \Gamma_x^{-1}\tilde K_x)
-+ \mathrm{tr}(\tilde K_r^\top \Gamma_r^{-1}\tilde K_r),
++ \operatorname{tr}(\tilde K_x^\top \Gamma_x^{-1}\tilde K_x)
++ \operatorname{tr}(\tilde K_r^\top \Gamma_r^{-1}\tilde K_r),
 $$
 
-with $\Gamma_x,\Gamma_r>0$.
+where $P$ solves
 
-Gradient updates:
+$$
+A_m^\top P + P A_m = -Q, \qquad Q>0.
+$$
+
+Choose
 
 $$
 \dot K_x = -\Gamma_x x e^\top P B, \qquad
 \dot K_r = -\Gamma_r r e^\top P B.
 $$
 
-These cancel cross terms and yield
+Then
 
 $$
 \dot V = -e^\top Q e \le 0.
 $$
 
-Hence $e\in L_2\cap L_\infty$, parameters bounded (with projection or leakage if needed), and all closed-loop signals bounded under standard regressor boundedness assumptions.
+**Proof sketch.** Differentiate $V$ along the closed-loop error dynamics. The adaptive laws cancel the cross terms involving parameter errors. What remains is the negative semidefinite term $-e^\top Q e$. Therefore $V$ is bounded and nonincreasing, so $e$ and the parameter errors remain bounded and $e \in L_2$.
 
-### 2.3 What does not follow automatically
+### 2.3 What MRAC does not give for free
 
-$e\to0$ does not imply $\tilde K_x,\tilde K_r\to0$. Parameter convergence requires excitation.
+Bounded tracking error does **not** imply parameter convergence.
 
-A sufficient condition is persistent excitation (PE):
-
-$$
-\exists \alpha,T>0:\; \int_t^{t+T} \phi(\tau)\phi(\tau)^\top d\tau \ge \alpha I,
-$$
-
-for a regressor $\phi$ built from measured signals (e.g., $[x^\top,r^\top]^\top$). Without PE, parameter drift/plateau can coexist with excellent tracking.
-
-### 2.4 Direct vs indirect MRAC
-
-- Direct: adapt controller parameters directly.
-- Indirect: estimate plant parameters, then synthesize control from estimates.
-
-Indirect designs often expose identifiability assumptions more clearly but can be more sensitive to estimator transients.
-
----
-
-## 3. Robust Adaptive Modifications
-
-Ideal MRAC is fragile under noise, unmodeled dynamics, and actuator limits. Standard fixes:
-
-### 3.1 $\sigma$-modification (leakage)
+**Corollary 1 (Need for excitation).** Parameter convergence requires additional excitation, typically persistent excitation:
 
 $$
-\dot\theta = -\Gamma \phi e - \sigma \theta, \quad \sigma>0.
+\exists \alpha,T>0 \text{ such that }
+\int_t^{t+T} \phi(\tau)\phi(\tau)^\top d\tau \ge \alpha I.
 $$
 
-Effect: prevents parameter drift and ensures UUB-type guarantees; typically sacrifices exact asymptotic tracking.
+Without PE, excellent tracking can coexist with poor parameter identification.
 
-### 3.2 $e$-modification
+### 2.4 Application example
+
+**Application.** Suppose a motion-control loop has uncertain effective inertia. A fixed controller tuned for one inertia may become sluggish or oscillatory as the payload changes. MRAC adapts the feedback law online so the plant keeps imitating a chosen reference model. The guarantee is tracking boundedness under the structural assumptions, not magic immunity to all uncertainty.
+
+## 3. Robust Adaptive Modifications and Output Feedback
+
+Ideal adaptive control is fragile under noise, unmodeled dynamics, saturation, and poor excitation. Several robust modifications exist.
+
+### 3.1 Sigma-modification
 
 $$
-\dot\theta = -\Gamma \phi e - \Gamma_e \|e\|^2 \theta.
+\dot \theta = -\Gamma \phi e - \sigma \theta, \qquad \sigma>0.
 $$
 
-Leakage weakens near origin, stronger during transients.
+The leakage term prevents parameter drift. The typical tradeoff is:
 
-### 3.3 Projection operator
+- better robustness,
+- weaker asymptotic claims,
+- uniform ultimate boundedness instead of exact asymptotic tracking.
 
-Constrain $\hat\theta\in\Omega$ (known compact convex set). Gives bounded estimates by construction while preserving adaptation direction tangentially on boundary.
+### 3.2 e-modification, projection, dead zone, normalization
 
-### 3.4 Dead-zone and normalization
+Useful variants include:
 
-- dead-zone: freeze adaptation for small $|e|$ to avoid noise chasing,
-- normalization: scale update by $1+\|\phi\|^2$ to prevent large steps.
+- `e`-modification: leakage scaled by tracking error,
+- projection: keep estimates inside a known feasible set,
+- dead zone: stop adapting when the error is tiny and mostly noise,
+- normalization: scale updates to avoid exploding parameter motion.
 
-These modifications often change claims from asymptotic tracking to boundedness/UUB with explicit residual sets.
+These are best viewed as guarantee-adjustment tools. They change the theorem being proved, not only the transient behavior.
 
----
+### 3.3 Composite adaptation
 
-## 4. Nonlinear Adaptive Control
+Composite adaptation augments tracking-error learning with prediction-error learning:
 
-### 4.1 Backstepping with parametric uncertainty
+$$
+\dot{\hat \theta} = -\Gamma(Y^\top e + W^\top \epsilon_p).
+$$
 
-For strict-feedback form, define virtual controls recursively, each stage adding a stabilizing term and adaptation law for unknown coefficients. A composite Lyapunov function stacks stage errors and parameter errors.
+The goal is better parameter convergence without requiring large tracking excursions.
 
-Template (two-state case):
+### 3.4 Unknown control direction
+
+When the sign of the control gain is unknown, Nussbaum-gain constructions are often used. They are powerful but more delicate:
+
+- proofs become subtler,
+- transients become harder to interpret,
+- implementation is less forgiving.
+
+### 3.5 Output feedback and observers
+
+If the full state is unavailable, adaptive control must be combined with estimation.
+
+For linear detectable plants:
+
+$$
+\dot{\hat x}=A\hat x+Bu+L(y-C\hat x).
+$$
+
+Unlike standard LQG, separation is not perfectly clean in general adaptive nonlinear settings. Estimation error and parameter adaptation can couple in ways that must be handled inside the Lyapunov proof.
+
+## 4. Nonlinear Adaptive Control and Backstepping
+
+Adaptive backstepping merges nonlinear design with parameter learning.
+
+Consider a strict-feedback structure with uncertain parameters:
 
 $$
 \dot x_1 = f_1(x_1)+g_1(x_1)x_2,
-\qquad
+$$
+
+$$
 \dot x_2 = f_2(x)+g_2(x)u + Y(x)^\top \theta^*.
 $$
 
-Set
+Define
 
 $$
-z_1 = x_1 - x_{1d}, \quad z_2 = x_2 - \alpha_1(x_1,\hat\theta),
+z_1=x_1-x_{1d}, \qquad z_2=x_2-\alpha_1(x_1,\hat \theta).
 $$
 
-choose $u$ and $\dot{\hat\theta}$ so that
+### 4.1 Theorem template
+
+**Theorem 2 (Adaptive backstepping template).** Suppose the plant is in strict-feedback form, the input gain is nonzero, and the uncertain nonlinearities are linearly parameterized. Then there exists a recursive control law and adaptation law such that the tracking and parameter-error states remain bounded, and the tracking errors converge to zero under standard regularity conditions.
+
+**Proof sketch.** Construct the Lyapunov function recursively:
 
 $$
-\dot V \le -c_1 z_1^2 - c_2 z_2^2
+V_1 = \frac{1}{2} z_1^2,
 $$
 
-(up to robust residual terms if uncertainty is unmatched).
-
-### 4.2 Adaptive control with unknown control direction
-
-When sign of control gain is unknown, Nussbaum-gain methods are used. They restore regulation under assumptions but with more delicate proofs and poorer transient predictability.
-
-### 4.3 Composite adaptation
-
-Use both tracking error and prediction error in update law:
+then augment it to
 
 $$
-\dot{\hat\theta} = -\Gamma\left(Y^\top e + W^\top \epsilon_p\right).
+V_2 = V_1 + \frac{1}{2} z_2^2 + \frac{1}{2}\tilde \theta^\top \Gamma^{-1}\tilde \theta.
 $$
 
-Composite adaptation can speed parameter convergence without large tracking transients, especially when filtered regressor models are available.
+Choose the virtual control $\alpha_1$ to stabilize $z_1$, then choose the real input $u$ and adaptation law to cancel cross terms in $\dot V_2$. The resulting derivative becomes negative semidefinite, and boundedness plus convergence follow by LaSalle or Barbalat-type reasoning.
 
----
+### 4.2 Application example
 
-## 5. Observers and Output Feedback
+**Application.** In an underactuated robotic subsystem with uncertain friction or payload parameters, adaptive backstepping lets the controller stabilize the cascaded dynamics while estimating the uncertain coefficients online. This is much more structured than "tune a bigger gain and hope."
 
-If full state is unavailable, adaptive output feedback combines observer and adaptation. For linear detectable plants:
+## 5. Open-Loop and Feedback Optimal Control
 
-$$
-\dot{\hat x}=A\hat x+Bu+L(y-C\hat x),\quad \dot e_o=(A-LC)e_o.
-$$
+The merged open-loop optimal material lives here because it belongs beside adaptive and feedback-optimal design.
 
-Separation is not as clean as LQG in general adaptive nonlinear settings; coupling between estimation and adaptation must be handled in Lyapunov analysis.
-
-Kalman filtering remains optimal (minimum variance) for linear Gaussian models and is often used as an estimation front-end in practical adaptive implementations.
-
----
-
-## 6. Optimal Control Foundations (PMP and HJB)
+### 5.1 Standard finite-horizon problem
 
 Consider
 
 $$
-\min_{u(\cdot)} \; J = \phi(x(t_f)) + \int_{t_0}^{t_f} L(x,u,t)dt,
-\quad \dot x=f(x,u,t).
+\min_{u(\cdot)} J = \phi(x(t_f)) + \int_{t_0}^{t_f} L(x,u,t)\, dt
 $$
 
-### 6.1 PMP (necessary conditions)
-
-Define Hamiltonian:
+subject to
 
 $$
-H(x,u,\lambda,t) = L(x,u,t) + \lambda^\top f(x,u,t).
+\dot x = f(x,u,t), \qquad x(t_0)=x_0.
 $$
 
-Then
+This is the generic optimal-control problem. It can represent:
+
+- minimum energy,
+- minimum time,
+- tracking with effort penalties,
+- constrained trajectory planning.
+
+### 5.2 Pontryagin's minimum principle
+
+Define the Hamiltonian
 
 $$
-\dot x = \frac{\partial H}{\partial \lambda},
-\quad
-\dot\lambda = -\frac{\partial H}{\partial x},
-\quad
-u^*(t)\in\arg\min_u H.
+H(x,u,\lambda,t)=L(x,u,t)+\lambda^\top f(x,u,t).
 $$
 
-PMP is necessary (not generally sufficient).
-
-### 6.2 HJB (sufficient under regularity)
-
-Value function $V(x,t)$ satisfies
+**Theorem 3 (Pontryagin minimum principle).** If $u^*(t)$ is optimal, then there exists a costate $\lambda(t)$ such that
 
 $$
--\partial_t V = \min_u\{L(x,u,t)+\nabla_x V^\top f(x,u,t)\},
-\quad V(x,t_f)=\phi(x).
+\dot x = \frac{\partial H}{\partial \lambda}, \qquad
+\dot \lambda = -\frac{\partial H}{\partial x},
 $$
 
-If a smooth solution exists and minimizer is well-defined, derived policy is optimal.
-
-### 6.3 LQR as the tractable bridge
-
-For linear dynamics and quadratic costs,
+and
 
 $$
-\dot x=Ax+Bu,
-\quad
-J=\int_0^\infty (x^\top Qx + u^\top Ru)dt,
+u^*(t) \in \arg\min_u H(x,u,\lambda,t),
 $$
 
-optimal $u^*=-Kx$, with
+with terminal condition determined by the terminal cost.
+
+**Proof sketch.** The argument comes from first-order variations of the cost functional under admissible input perturbations. Stationarity of the augmented functional introduces the costate and yields the canonical state-costate equations together with the Hamiltonian minimization condition.
+
+Pontryagin gives necessary conditions, not automatic sufficiency.
+
+### 5.3 Bang-bang structure
+
+When the control appears linearly in the Hamiltonian and input bounds are active, the minimizing input often sits at an extreme value:
 
 $$
-K=R^{-1}B^\top P,
+u^*(t) \in \{u_{\min}, u_{\max}\}.
 $$
 
-and $P$ solves ARE:
+This is the mathematical origin of bang-bang optimal control.
+
+**Application.** For a double integrator with bounded input and a minimum-time objective, the optimal policy switches between maximum acceleration and maximum braking. The structure is simple, but the switching surface is what matters.
+
+### 5.4 HJB viewpoint
+
+The value function $V(x,t)$ satisfies
 
 $$
-A^\top P + PA - PBR^{-1}B^\top P + Q = 0.
+-\partial_t V = \min_u \left\{ L(x,u,t) + \nabla_x V^\top f(x,u,t) \right\},
 $$
 
-LQR is often used as a local terminal controller in nonlinear/adaptive architectures.
-
----
-
-## 7. RL Through the Control-Theoretic Lens
-
-### 7.1 Bellman recursion and approximation
-
-In discrete MDPs:
+with terminal condition
 
 $$
-V^*(s)=\max_a\left[r(s,a)+\gamma\sum_{s'}P(s'|s,a)V^*(s')\right].
+V(x,t_f)=\phi(x).
 $$
 
-Q-learning update:
+If a smooth solution exists and the minimizer is well-defined, HJB gives a sufficient route to optimal feedback. Conceptually:
+
+- Pontryagin gives necessary conditions along optimal trajectories,
+- HJB gives a global dynamic-programming view through the value function.
+
+## 6. Tractable Optimal Feedback: LQR, LQG, and MPC
+
+### 6.1 LQR theorem
+
+For linear dynamics
 
 $$
-Q_{k+1}(s,a)=Q_k(s,a)+\alpha\left[r+\gamma\max_{a'}Q_k(s',a')-Q_k(s,a)\right].
+\dot x = Ax + Bu
 $$
 
-This is stochastic approximation to Bellman fixed point.
+and quadratic cost
 
-### 7.2 Continuous-time connection
+$$
+J=\int_0^\infty (x^\top Q x + u^\top R u)\, dt,
+$$
 
-Continuous-time actor-critic approximates HJB solution:
+the optimal control law is
 
-- critic approximates value (or cost-to-go),
-- actor approximates minimizing policy from critic gradient information.
+$$
+u^*=-Kx, \qquad K=R^{-1}B^\top P,
+$$
 
-The key gap vs classical adaptive control: finite-sample function approximation errors can violate Lyapunov monotonicity unless explicitly constrained.
+where $P$ solves
 
-### 7.3 Stability-aware RL ideas
+$$
+A^\top P + P A - P B R^{-1} B^\top P + Q = 0.
+$$
 
-Common strategies to recover guarantees:
+**Theorem 4 (Infinite-horizon LQR).** If $(A,B)$ is stabilizable and $(Q^{1/2},A)$ is detectable with $Q \succeq 0$, $R \succ 0$, then the stabilizing solution of the algebraic Riccati equation yields the optimal state-feedback law.
 
-- Lyapunov-constrained policy updates,
-- CLF/CBF-regularized RL,
-- robust MPC shield around learned policy,
-- two-time-scale adaptation with bounded critic errors.
+**Proof sketch.** Insert the quadratic ansatz $V(x)=x^\top P x$ into the HJB equation. Matching coefficients produces the Riccati equation. The minimizing input is the quadratic-completion solution $u=-R^{-1}B^\top Px$.
 
-These methods push RL closer to adaptive/robust control guarantees, but assumptions are usually stronger than in model-based proofs.
+### 6.2 LQG
 
----
+LQG combines LQR with Kalman filtering. It is the canonical linear Gaussian observer-based optimal controller:
 
-## 8. Comparing Guarantees: Adaptive vs Optimal vs RL
+- LQR solves the control part,
+- the Kalman filter solves the estimation part,
+- separation connects them cleanly in the LTI Gaussian setting.
 
-- Adaptive control: strongest closed-loop stability claims under structural uncertainty assumptions (matching, bounded disturbances, excitation conditions).
-- Optimal control: strongest performance optimality when model is known and HJB/PMP assumptions hold.
-- RL: strongest flexibility under unknown models and rich function classes, but weakest worst-case stability guarantees unless safety/stability structure is imposed.
+### 6.3 MPC
 
-In practice, high-performance systems are hybrid:
+Model Predictive Control repeatedly solves a finite-horizon optimal-control problem online:
 
-1. robust/adaptive inner-loop for guaranteed stability,
-2. optimal/RL outer-loop for performance tuning and long-horizon objectives.
+1. predict over a horizon,
+2. optimize with constraints,
+3. apply the first input only,
+4. shift the horizon and repeat.
 
----
+MPC is best understood as open-loop optimal control wrapped inside a feedback architecture.
 
-## 9. Proof Checklist for Research-Grade Writeups
+## 7. Robust Control Viewpoint and Disturbance Rejection
 
-1. State uncertainty class precisely (matched/unmatched, parametric/nonparametric).
-2. State regularity assumptions (Lipschitz, bounded derivatives, excitation).
-3. Define candidate Lyapunov function with explicit definiteness bounds.
-4. Derive $\dot V$ and isolate negative terms vs residual terms.
-5. Conclude boundedness, convergence, or UUB with exact theorem invoked.
-6. If claiming parameter convergence, prove PE/IE condition explicitly.
-7. Discuss what changes under noise, saturation, and sampling.
+Adaptive control learns uncertain parameters. Robust control guarantees performance against an uncertainty set. They solve related but different problems.
 
----
+### 7.1 Worst-case design and $H_\infty$
 
-## Minimal Formula Reference
+The $H_\infty$ viewpoint asks for a controller that minimizes the worst-case closed-loop gain from disturbances to performance outputs.
 
-- Lyapunov equation: $A_m^\top P+PA_m=-Q$.
-- MRAC gradient law: $\dot K_x=-\Gamma_x x e^\top PB$, $\dot K_r=-\Gamma_r r e^\top PB$.
-- PE: $\int_t^{t+T}\phi\phi^\top d\tau\ge\alpha I$.
-- ARE (LQR): $A^\top P+PA-PBR^{-1}B^\top P+Q=0$.
+High-level interpretation:
+
+- adaptive control says "learn the uncertainty while staying stable,"
+- $H_\infty$ says "protect against the worst uncertainty in the modeled set,"
+- neither dominates the other universally.
+
+### 7.2 Relation to $\mu$-synthesis
+
+$\mu$-synthesis sharpens robust design for structured uncertainty. It is a deeper multivariable robust-control tool and belongs primarily to the modern multivariable note, but conceptually it sits on the same side of the design map: worst-case guarantees under stated uncertainty structure.
+
+### 7.3 ADRC comparison
+
+Active Disturbance Rejection Control treats mismatch and disturbances as an aggregated disturbance estimated by an extended state observer.
+
+Comparison:
+
+- MRAC adapts parameters tied to a model structure,
+- ADRC estimates a lumped disturbance without identifying physical parameters,
+- $H_\infty$ encodes disturbance attenuation as a norm-bounded worst-case problem.
+
+ADRC can work very well in practice, but it usually does not provide the same explicit uncertainty-class guarantees as a clean robust-control formulation.
+
+## 8. Reinforcement Learning and Agentic Algorithms in Control
+
+### 8.1 RL as approximate dynamic programming
+
+In discrete time, Bellman recursion writes
+
+$$
+V^*(s)=\max_a \left[ r(s,a) + \gamma \sum_{s'} P(s'|s,a)V^*(s') \right].
+$$
+
+RL replaces exact dynamic programming with approximation, sampling, and learned policies. In continuous control, actor-critic methods can be interpreted as approximate HJB solvers:
+
+- the critic approximates the value or cost-to-go,
+- the actor approximates the minimizing control policy.
+
+### 8.2 Role of RL in control systems
+
+RL is useful when:
+
+- the model is incomplete or expensive to derive,
+- the task objective is long-horizon and sequential,
+- large amounts of simulation data are available,
+- a baseline stabilizing controller already exists.
+
+RL is risky when:
+
+- safety constraints are tight,
+- data are scarce,
+- exploration itself is dangerous,
+- worst-case guarantees matter more than average-case performance.
+
+### 8.3 Stability-aware learning
+
+Modern safe-learning strategies often wrap RL around classical control structure:
+
+- Lyapunov-regularized policy optimization,
+- control barrier function or CLF safety filters,
+- robust MPC shields,
+- model-based RL around a stabilizing nominal controller,
+- terminal LQR or backup controllers.
+
+This is where "agentic algorithms" belong in control: not as free-floating agents replacing dynamics, but as planning or learning modules embedded inside a feedback architecture.
+
+### 8.4 Application example
+
+**Application.** In an autonomous vehicle stack, a robust low-level controller keeps the vehicle stable. Above it, an MPC or RL planner chooses speed profiles, lane changes, or interaction policies over a longer horizon. The planner is agentic in the sense that it reasons over future consequences, but it should not be the only thing standing between the plant and instability.
+
+## 9. Comparing Guarantees: Adaptive vs Optimal vs Robust vs RL
+
+Each paradigm answers a different question.
+
+| Paradigm | Main question | Strength | Main weakness |
+|---|---|---|---|
+| Adaptive control | Can the controller adjust to structured uncertainty online? | explicit Lyapunov-style closed-loop guarantees | weak if the uncertainty class is wrong |
+| Optimal control | What is the best control law for the model and cost? | strongest performance interpretation | can be model-sensitive |
+| Robust control | What survives worst-case modeled uncertainty? | strong worst-case guarantees | can be conservative |
+| RL | What can be learned from data and interaction? | flexible for complex tasks and unknown models | guarantees are weaker unless extra safety structure is added |
+
+The most successful real systems are often hybrids:
+
+1. a stabilizing robust or adaptive inner loop,
+2. an optimal or predictive mid-level layer,
+3. a learned or planning-based outer loop for long-horizon decisions.
+
+## 10. Proof Checklist and Application Workflow
+
+When writing or reading advanced-control proofs, use this checklist:
+
+1. State the uncertainty class precisely.
+2. State regularity assumptions precisely.
+3. Define the Lyapunov or value function explicitly.
+4. Differentiate it carefully and isolate the cross terms.
+5. Show how the control or adaptation law removes or bounds those terms.
+6. State clearly whether the conclusion is boundedness, asymptotic tracking, UUB, optimality, or worst-case attenuation.
+7. Say what breaks under noise, saturation, sampling, or model mismatch.
+
+When moving from theory to engineering:
+
+1. write the nominal model,
+2. decide whether uncertainty is better treated as unknown parameters, bounded disturbance, or stochastic process,
+3. choose the design family accordingly,
+4. keep a baseline stabilizer,
+5. add optimization or learning only where it improves the objective without erasing the safety story.
+
+## 11. Minimal Formula Reference
+
+- Lyapunov equation: $A_m^\top P + P A_m = -Q$.
+- MRAC gradient law: $\dot K_x=-\Gamma_x x e^\top P B$, $\dot K_r=-\Gamma_r r e^\top P B$.
+- Persistent excitation: $\int_t^{t+T} \phi \phi^\top d\tau \ge \alpha I$.
+- PMP Hamiltonian: $H=L+\lambda^\top f$.
 - HJB: $-V_t=\min_u\{L+\nabla V^\top f\}$.
+- LQR ARE: $A^\top P + P A - P B R^{-1} B^\top P + Q = 0$.
 
-These formulas are only the endpoints of arguments; the assumptions and Lyapunov/Hamiltonian logic are the substance.
+These formulas are only the endpoints of arguments. The real substance is the chain from assumptions to guarantee.

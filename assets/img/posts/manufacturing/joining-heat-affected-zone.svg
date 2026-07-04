@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Weld heat affected zone</title>
+  <desc id="desc">Cross-section of a welded joint showing weld metal, heat affected zones, base metal, residual stress, and distortion tendency.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#934f34"/></marker>
+  <style>.base{fill:#d8e4ef;stroke:#607c94;stroke-width:3}.haz{fill:#f0d6bf;stroke:#a86442;stroke-width:3}.weld{fill:#d99b63;stroke:#7a442e;stroke-width:3}.arrow{stroke:#934f34;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="120" y="270" width="740" height="95" class="base"/>
+  <path d="M365 270 L430 270 L470 330 L510 270 L575 270 L540 365 L400 365 Z" class="haz"/>
+  <path d="M430 270 C455 205 525 205 550 270 L510 330 L470 330 Z" class="weld"/>
+  <path d="M470 185 C470 215 470 240 470 268" class="arrow"/><path d="M510 185 C510 215 510 240 510 268" class="arrow"/>
+  <text x="420" y="178" class="text">heat input</text><text x="440" y="405" class="small">HAZ: changed microstructure/properties</text>
+  <text x="655" y="330" class="small">base metal</text><text x="435" y="255" class="small">weld metal</text>
+  <path d="M250 250 C350 225 650 225 760 250" stroke="#b45d47" stroke-width="4" fill="none" stroke-dasharray="8 7"/>
+  <text x="335" y="225" class="small">distortion / residual stress tendency</text>
+</svg>

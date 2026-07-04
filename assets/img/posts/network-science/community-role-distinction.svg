@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Community and role distinction</title>
+  <desc id="desc">Two dense communities connected by bridge nodes with role labels.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Communities Are Not the Same as Roles</text>
+    <ellipse cx="260" cy="210" rx="145" ry="100" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <ellipse cx="630" cy="210" rx="145" ry="100" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <g stroke="#4c5854" stroke-width="2">
+      <line x1="210" y1="180" x2="280" y2="150"/><line x1="280" y1="150" x2="330" y2="220"/><line x1="210" y1="180" x2="245" y2="255"/><line x1="245" y1="255" x2="330" y2="220"/><line x1="585" y1="160" x2="660" y2="180"/><line x1="660" y1="180" x2="690" y2="250"/><line x1="585" y1="160" x2="555" y2="245"/><line x1="555" y1="245" x2="690" y2="250"/>
+      <line x1="330" y1="220" x2="555" y2="245" stroke="#8b5849" stroke-width="4"/>
+    </g>
+    <g fill="#4e6f52"><circle cx="210" cy="180" r="15"/><circle cx="280" cy="150" r="15"/><circle cx="330" cy="220" r="15"/><circle cx="245" cy="255" r="15"/></g>
+    <g fill="#426a7a"><circle cx="585" cy="160" r="15"/><circle cx="660" cy="180" r="15"/><circle cx="690" cy="250" r="15"/><circle cx="555" cy="245" r="15"/></g>
+    <text x="395" y="252" font-size="17" fill="#8b5849">bridge role</text>
+    <text x="195" y="332" font-size="15">community A</text><text x="590" y="332" font-size="15">community B</text>
+  </g>
+</svg>

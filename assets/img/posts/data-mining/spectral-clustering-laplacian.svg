@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Spectral clustering with Laplacian eigenvectors</title>
+  <desc id="desc">Graph to Laplacian to eigenvector embedding to clusters.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Spectral Clustering</text>
+    <g stroke="#506a55" stroke-width="2">
+      <line x1="120" y1="155" x2="180" y2="135"/><line x1="180" y1="135" x2="210" y2="195"/><line x1="120" y1="155" x2="210" y2="195"/>
+      <line x1="265" y1="250" x2="330" y2="230"/><line x1="330" y1="230" x2="360" y2="290"/><line x1="265" y1="250" x2="360" y2="290"/>
+      <line x1="210" y1="195" x2="265" y2="250" stroke="#9b5847" stroke-dasharray="6 5"/>
+    </g>
+    <g fill="#d7e4ce"><circle cx="120" cy="155" r="16"/><circle cx="180" cy="135" r="16"/><circle cx="210" cy="195" r="16"/><circle cx="265" cy="250" r="16"/><circle cx="330" cy="230" r="16"/><circle cx="360" cy="290" r="16"/></g>
+    <path d="M405 215 H475" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="500" y="125" width="130" height="160" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="530" y="210" font-size="23">L = D - A</text>
+    <path d="M650 215 H720" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <g>
+      <line x1="740" y1="285" x2="850" y2="285" stroke="#4c5854"/><line x1="750" y1="300" x2="750" y2="145" stroke="#4c5854"/>
+      <circle cx="780" cy="190" r="8" fill="#4e6f52"/><circle cx="800" cy="210" r="8" fill="#4e6f52"/><circle cx="790" cy="170" r="8" fill="#4e6f52"/>
+      <circle cx="830" cy="260" r="8" fill="#8b5849"/><circle cx="810" cy="245" r="8" fill="#8b5849"/><circle cx="845" cy="235" r="8" fill="#8b5849"/>
+    </g>
+    <text x="238" y="348" font-size="15" fill="#5f625c">Eigenvectors turn graph cuts into geometry, where ordinary clustering can be applied.</text>
+  </g>
+</svg>

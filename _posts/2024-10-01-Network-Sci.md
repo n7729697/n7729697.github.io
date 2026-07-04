@@ -6,336 +6,177 @@ color: light
 description: Personal technical notes on propagation, clustering, inference, temporal graphs, and applications to multi-robot systems.
 ---
 
-## Topic Map
+_This note is a personal synthesis of network science, graph mining, epidemic modeling, and multi-agent systems references. I have not attached a specific university course code to this version because the source notes did not identify one._
 
-- Propagation and epidemic thresholds
-- Temporal networks and causal paths
-- Node distances and centrality measures
-- Modularity and Louvain clustering
-- Random graph baselines and detectability limits
-- Bayesian network inference and model selection
-- Roles, positions, and blockmodeling
-- Multi-robot systems applications
+## Central Question
 
----
+Network science asks: **when does the pattern of relationships matter as much as the attributes of the individual objects?**
 
-## 1. Why Networks Instead of Flat Euclidean Features
-
-Classical pipelines focus on vectors $x_i\in\mathbb{R}^d$ and similarity metrics (Euclidean distance, cosine, Pearson correlation). That is sufficient when interaction structure is weak.
-
-In many systems, the object of interest is relational:
-
-- communication links,
-- contact events,
-- influence pathways,
-- team topology.
-
-A graph $G=(V,E)$ with adjacency $A$ captures these relations. The dynamics then live on topology, for example:
+A flat feature table treats objects as independent rows. A network treats relationships as first-class data:
 
 $$
-\dot z_i = f_i(z_i) + \sum_{j=1}^n A_{ij} g_{ij}(z_i,z_j).
+G=(V,E), \qquad A_{ij}=1 \text{ if } i \text{ connects to } j.
 $$
 
-So structure and dynamics are coupled; this is the central reason network science is not just “another clustering method.”
+That shift changes the questions. Instead of only asking what a node is, we ask where it sits, what paths pass through it, which communities constrain it, and how dynamics propagate through topology.
 
----
+{% include figure.html image="/assets/img/posts/network-science/network-layers-map.svg" alt="Network science map linking topology, dynamics, inference, temporal structure, and control applications." caption="Network science connects topology, dynamics, inference, and intervention. The same graph can support ranking, spreading, clustering, and control questions." %}
 
-## 2. Propagation and Epidemic Modeling on Networks
+## 1. Topology and Dynamics Are Coupled
 
-### 2.1 SIS dynamics and threshold condition
-
-For SIS on graph $A$, let $p_i(t)$ be infection probability of node $i$. The NIMFA form is
+For a dynamical process on a graph, node states often evolve as
 
 $$
-\dot p_i = -\delta p_i + \beta (1-p_i)\sum_j A_{ij}p_j.
+\dot z_i=f_i(z_i)+\sum_j A_{ij}g_{ij}(z_i,z_j).
 $$
 
-Linearizing near disease-free state $p=0$:
+The adjacency matrix is therefore not a passive data structure. It controls who can influence whom, how fast information travels, which failures cascade, and where interventions have leverage.
+
+Common structural quantities include degree, paths, components, clustering coefficient, assortativity, centrality, and graph Laplacian eigenvalues. The right metric depends on the process:
+
+- routing cares about shortest paths and betweenness,
+- diffusion cares about spectral radius and communities,
+- consensus cares about Laplacian connectivity,
+- recommendation and ranking care about random walks.
+
+## 2. Propagation and Epidemic Thresholds
+
+For SIS spreading on graph $A$, a mean-field form is
 
 $$
-\dot p \approx (\beta A - \delta I)p.
+\dot p_i=-\delta p_i+\beta(1-p_i)\sum_jA_{ij}p_j.
 $$
 
-Disease-free equilibrium is unstable when
+Linearizing near the disease-free state gives
 
 $$
-\beta\lambda_1(A)-\delta>0
-\quad\Longleftrightarrow\quad
-\tau=\frac{\beta}{\delta}>\frac{1}{\lambda_1(A)}.
+\dot p\approx(\beta A-\delta I)p.
 $$
 
-This spectral criterion explains why hub-heavy networks are vulnerable: large $\lambda_1(A)$ reduces threshold.
-
-![SIS spectral threshold sketch](/files/network/propagation-threshold.svg)
-Source: Author-generated figure.
-
-### 2.2 Structure effects
-
-Given fixed $\beta,\delta$:
-
-- degree heterogeneity usually increases endemic prevalence,
-- modular bottlenecks can delay cross-community outbreaks,
-- assortativity changes where outbreaks concentrate,
-- targeted immunization of high-centrality nodes can shift effective threshold more than random immunization.
-
-A useful control surrogate is spectral radius reduction: design interventions so that $\lambda_1(A_{\text{effective}})$ decreases.
-
-### 2.3 Resource-limited spreading
-
-For information diffusion with bounded attention $b_i$, transmission can be modeled as constrained flow:
+The disease-free state becomes unstable when
 
 $$
-\sum_j u_{ij}(t) \le b_i,
+\frac{\beta}{\delta}>\frac{1}{\lambda_1(A)}.
 $$
 
-where $u_{ij}$ is outgoing transmission effort. This turns diffusion into a coupled dynamics-allocation problem, not pure SI/SIS.
+This explains why hub-heavy networks can be fragile: a large leading eigenvalue lowers the spreading threshold. Interventions that remove random nodes may do little, while targeted reduction of high-leverage nodes or edges can shift the effective spectral radius.
 
----
+{% include figure.html image="/assets/img/posts/network-science/spectral-spreading-threshold.svg" alt="SIS spreading threshold shown as beta over delta crossing one over leading eigenvalue." caption="For simple SIS approximations, topology enters the threshold through the leading eigenvalue of the adjacency matrix." %}
 
-## 3. Temporal Networks
+## 3. Temporal Networks and Causal Paths
 
-A temporal network is an event sequence
-
-$$
-\mathcal{E}=\{(i,j,t_k)\}_{k=1}^M.
-$$
-
-A temporal path $i_0\to i_1\to\cdots\to i_r$ is valid only if times are nondecreasing:
+Static graphs can lie about causality. A temporal network records events:
 
 $$
-t_1 \le t_2 \le \cdots \le t_r.
+\mathcal{E}=\{(i,j,t_k)\}_{k=1}^{M}.
 $$
 
-Hence static shortest-path calculations can be wrong for causality.
-
-Key metrics:
-
-- earliest arrival time,
-- temporal reachability ratio,
-- latency-respecting betweenness.
-
-![Temporal path and causality](/files/network/temporal-network.svg)
-Source: Author-generated figure.
-
-In robotic communication networks, this distinction is critical because links appear/disappear with motion and occlusion.
-
----
-
-## 4. Node Distances and Measures
-
-### 4.1 Distances
-
-Common notions (not interchangeable):
-
-- Geodesic distance $d_G(i,j)$.
-- Effective resistance distance
-$$
-r_{ij}=(e_i-e_j)^\top L^\dagger(e_i-e_j),
-$$
-where $L$ is graph Laplacian.
-- Temporal distance $d_T(i,j)$ (minimum arrival time in event graph).
-
-### 4.2 Centralities
-
-- Degree: $k_i=\sum_j A_{ij}$.
-- Betweenness:
-$$
-C_B(i)=\sum_{s\neq i\neq t}\frac{\sigma_{st}(i)}{\sigma_{st}}.
-$$
-- Eigenvector centrality: $Ax=\lambda_1 x$.
-- PageRank:
-$$
-\pi = \alpha P^\top\pi + (1-\alpha)v.
-$$
-
-Measure selection should match task dynamics (routing, influence, epidemic suppression, etc.).
-
----
-
-## 5. Modularity Clustering and Louvain
-
-### 5.1 Modularity
-
-For partition labels $c_i$,
+A path is valid only if contact times are nondecreasing:
 
 $$
-Q=\frac{1}{2m}\sum_{ij}\left(A_{ij}-\frac{k_i k_j}{2m}\right)\mathbf{1}[c_i=c_j].
+t_1\le t_2\le \cdots \le t_r.
 $$
 
-This compares observed within-community edge mass against configuration-model expectation.
+This matters in mobile robotics, contact tracing, communication systems, and social platforms. Two nodes may be connected in the aggregate graph but unreachable in time-respecting order. Temporal metrics therefore include earliest arrival, latency, temporal reachability, and time-respecting betweenness.
 
-### 5.2 Louvain heuristic
+{% include figure.html image="/assets/img/posts/network-science/temporal-causal-paths.svg" alt="Temporal contacts showing one aggregate path that is invalid because event times occur in the wrong order." caption="Temporal reachability is stricter than static connectivity: edges must appear in a causal order." %}
 
-Louvain iterates:
+## 4. Centrality, Communities, and Roles
 
-1. local node moves maximizing modularity gain $\Delta Q$,
-2. aggregation of communities into supernodes,
-3. repeat on coarsened graph.
-
-One useful local gain expression (node $i$ moved into community $C$) is:
+Centrality is not one concept. Degree counts local exposure. Betweenness measures path brokerage:
 
 $$
-\Delta Q = \frac{k_{i,\text{in}}}{m} - \frac{k_i\,\Sigma_{tot,C}}{2m^2},
+C_B(i)=\sum_{s\ne i\ne t}\frac{\sigma_{st}(i)}{\sigma_{st}}.
 $$
 
-with standard notation for $i$'s links into $C$ and total degree mass in $C$.
-
-![Modularity partition and Louvain aggregation](/files/network/modularity-louvain.svg)
-Source: Author-generated figure.
-
-### 5.3 Resolution limit
-
-Modularity has a known scale bias: small true communities can be merged if global gain is larger. So “high $Q$” is not equivalent to “ground-truth recovery.”
-
----
-
-## 6. Random Graphs and Community Detectability
-
-Community claims should be benchmarked against random graph models.
-
-For symmetric SBM with $q$ groups and average within/between expected degrees $c_{in},c_{out}$, detectability has a Kesten-Stigum-type boundary (tree/large-sparse limit intuition):
+Eigenvector centrality rewards connection to central nodes:
 
 $$
-\frac{(c_{in}-c_{out})^2}{q\left(c_{in}+(q-1)c_{out}\right)} > 1.
+Ax=\lambda_1x.
 $$
 
-Below threshold, no algorithm can recover labels better than chance asymptotically.
-
-![SBM detectability transition sketch](/files/network/sbm-detectability.svg)
-Source: Author-generated figure.
-
-This is the practical meaning of “universal lower bound” for community structure recovery in sparse random graphs.
-
----
-
-## 7. Bayesian Inference in Networks
-
-### 7.1 Posterior and model evidence
-
-For model $\mathcal{M}$ with parameters $\Theta$:
+PageRank adds random restarts:
 
 $$
-p(\Theta\mid G,\mathcal M) \propto p(G\mid\Theta,\mathcal M)p(\Theta\mid\mathcal M),
+\pi=\alpha P^\top\pi+(1-\alpha)v.
 $$
 
-$$
-p(G\mid\mathcal M)=\int p(G\mid\Theta,\mathcal M)p(\Theta\mid\mathcal M)d\Theta.
-$$
-
-Model evidence supports Bayesian model selection, balancing fit and complexity.
-
-### 7.2 Inferential community detection
-
-Instead of maximizing $Q$, infer latent block assignments $z$ in SBM/DC-SBM:
+Communities capture mesoscale structure. Modularity compares within-community edges to a configuration-model baseline:
 
 $$
-p(z,\Theta\mid G) \propto p(G\mid z,\Theta)p(z)p(\Theta).
+Q=\frac{1}{2m}\sum_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\mathbf{1}[c_i=c_j].
 $$
 
-Advantages:
+Louvain-style heuristics greedily improve modularity and then aggregate communities into supernodes. They are fast and useful, but high modularity is not proof of ground truth; modularity has resolution limits.
 
-- uncertainty quantification on assignments,
-- principled comparison of block counts,
-- better behavior with noise and missing edges.
+Roles and positions ask a different question. A bridge node, relay robot, broker, peripheral sensor, or hub can be functionally similar to another node even if they are in different communities.
 
-### 7.3 Inferential link prediction
+{% include figure.html image="/assets/img/posts/network-science/community-role-distinction.svg" alt="Graph showing dense communities and bridge roles that cut across community membership." caption="Communities group nodes by dense connection; roles classify nodes by function in the larger flow or control process." %}
 
-Missing link score is posterior predictive probability:
+## 5. Inference, Random Graphs, and Detectability
 
-$$
-p(A_{ij}=1\mid G_{obs}) = \int p(A_{ij}=1\mid\Theta) p(\Theta\mid G_{obs}) d\Theta.
-$$
-
----
-
-## 8. Roles, Positions, and Blockmodeling
-
-Roles and positions are related but not identical.
-
-- Position: similar adjacency profile.
-- Role: similar function in flow/control processes.
-
-Blockmodeling builds mesoscale interaction matrices.
-
-### 8.1 Indirect blockmodeling
-
-Fit a block pattern by optimizing agreement between observed ties and idealized block image matrix.
-
-### 8.2 Direct blockmodeling
-
-Optimize a criterion directly on observed adjacency under allowed block types (null, dense, regular, etc.).
-
-### 8.3 Generalized blockmodeling
-
-Unifies multiple equivalence notions and block constraints; useful when role definitions are domain-specific.
-
----
-
-## 9. Information-Theoretic Community Detection
-
-Flow-based methods (e.g., map equation perspective) define good communities as those giving short description length for trajectories.
-
-Optimization target is code length $L(\mathcal P)$ for partition $\mathcal P$:
+Network claims need baselines. Random graph models ask whether an observed pattern is surprising under a null mechanism. Stochastic block models provide an inferential alternative to modularity:
 
 $$
-\mathcal P^* = \arg\min_{\mathcal P} L(\mathcal P).
+p(z,\Theta\mid G)\propto p(G\mid z,\Theta)p(z)p(\Theta).
 $$
 
-This differs from modularity:
-
-- modularity is edge-density surprise vs null model,
-- map-equation style methods are trajectory compression objectives.
-
-So they can produce different, complementary partitions.
-
----
-
-## 10. Multi-Robot Systems Mapping
-
-Network science tools map naturally to multi-robot systems.
-
-### 10.1 Communication and resilience
-
-Model communication graph $G_t$ as temporal network. Maintain algebraic connectivity $\lambda_2(L_t)$ above threshold for consensus and robustness.
-
-### 10.2 Failure and misinformation propagation
-
-Use SIS/SIR-type processes over robot interaction network to evaluate containment policies and critical nodes.
-
-### 10.3 Role-aware coordination
-
-Use blockmodeling/community structure to assign:
-
-- relay robots,
-- sensing clusters,
-- bridge agents across subteams.
-
-### 10.4 Partial observability
-
-When each robot sees only local neighborhoods, infer global structure probabilistically and propagate uncertainty into planner/controller decisions.
-
----
-
-## 11. Decision-Based Models
-
-Spreading is not always passive. Agents may act strategically under cost/utility:
+Bayesian evidence
 
 $$
-\max_{a_i\in\mathcal A_i} \; U_i(a_i,a_{-i},G) - \lambda_i\,\text{risk}_i(a_i,G).
+p(G\mid\mathcal{M})=\int p(G\mid\Theta,\mathcal{M})p(\Theta\mid\mathcal{M})d\Theta
 $$
 
-Coupling strategic decisions with network dynamics leads to adaptive graphs and nonstationary diffusion.
+helps compare model classes while penalizing unnecessary complexity.
 
-This is a key bridge to control and RL in networked systems.
+Sparse community detection also has detectability limits. In some regimes, no algorithm can recover labels better than chance asymptotically. That fact is humbling and useful: failure to recover communities may reflect insufficient signal, not a weak algorithm.
 
----
+{% include figure.html image="/assets/img/posts/network-science/inference-detectability-map.svg" alt="Signal-to-noise axis showing random-like region, detectability threshold, and recoverable community region." caption="Community detection is an inference problem: below a signal threshold, structure may be statistically unrecoverable." %}
 
-## 12. Quick Reference Equations
+## 6. Network Science for Multi-Robot and Multi-Agent Systems
 
-- SIS threshold (spectral): $\beta/\delta > 1/\lambda_1(A)$.
-- Modularity: $Q=\frac{1}{2m}\sum_{ij}(A_{ij}-\frac{k_i k_j}{2m})\mathbf{1}[c_i=c_j]$.
-- Resistance distance: $r_{ij}=(e_i-e_j)^\top L^\dagger(e_i-e_j)$.
-- Bayesian evidence: $p(G\mid\mathcal M)=\int p(G\mid\Theta,\mathcal M)p(\Theta\mid\mathcal M)d\Theta$.
-- SBM detectability indicator: $\frac{(c_{in}-c_{out})^2}{q(c_{in}+(q-1)c_{out})}$.
+Multi-robot systems naturally form temporal, spatial, and communication networks. The graph determines what agents can sense, share, coordinate, or corrupt.
 
-These notes are intended as working technical references, not final polished lecture notes.
+Useful mappings include:
+
+- communication resilience through algebraic connectivity $\lambda_2(L)$,
+- misinformation or fault spread through SIS/SIR-like processes,
+- relay selection through centrality and bridge roles,
+- task decomposition through communities or blocks,
+- decentralized planning under partial network observability.
+
+When agents make strategic decisions, the graph becomes adaptive:
+
+$$
+\max_{a_i\in\mathcal{A}_i} U_i(a_i,a_{-i},G)-\lambda_i\operatorname{risk}_i(a_i,G).
+$$
+
+This creates a bridge to game theory, control, and reinforcement learning on networks.
+
+## What This Framework Lets Us Do
+
+Network science gives tools for explaining propagation, ranking, clustering, robustness, temporal causality, and multi-agent coordination from relational structure rather than only individual features.
+
+## Where the Framework Stops Being Reliable
+
+Many graph metrics are model-dependent. Missing edges, temporal aggregation, sampling bias, multiplex relationships, and strategic behavior can change conclusions. A network visualization is not evidence by itself; it needs a generative or mechanistic interpretation.
+
+## Where the Subject Leads Next
+
+The natural next steps are graph representation learning, causal network inference, temporal point processes, epidemic control, distributed control, and network games.
+
+## Technical and Editorial Audit
+
+- Reorganized the original working reference into a causal path: topology, spreading, temporal causality, centrality/community/roles, inference, and multi-agent applications.
+- Replaced old `/files/network/...` image references with local original SVG figures under `assets/img/posts/network-science/`.
+- Kept the core equations for SIS threshold, centrality, PageRank, modularity, Bayesian evidence, and decision-coupled networks.
+- Marked course attribution honestly as personal synthesis because no source course code was present in the file.
+- Claims about detectability and inference are conceptual summaries; detailed thresholds depend on model assumptions.
+
+## Main Sources Used in This Note
+
+- M. E. J. Newman, _Networks_.
+- A.-L. Barabasi, _Network Science_.
+- S. Fortunato, "Community detection in graphs."
+- P. Van Mieghem, _Performance Analysis of Complex Networks and Systems_.
+- R. Olfati-Saber, J. A. Fax, and R. M. Murray, "Consensus and Cooperation in Networked Multi-Agent Systems."

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Electrochemical corrosion cell</title>
+  <desc id="desc">Corrosion cell showing anode, cathode, electrolyte, electron path, and protection strategies by breaking one part of the cell.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.metal{fill:#d8e4ef;stroke:#607c94;stroke-width:3}.water{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="150" y="280" width="680" height="90" class="metal"/><rect x="150" y="170" width="680" height="110" class="water"/>
+  <text x="285" y="335" class="text">anode</text><text x="285" y="360" class="small">metal dissolves</text>
+  <text x="690" y="335" class="text">cathode</text><text x="690" y="360" class="small">reduction</text>
+  <path d="M325 300 C420 230 560 230 650 300" class="arrow"/><text x="490" y="220" class="small">ion path through electrolyte</text>
+  <path d="M660 390 C540 455 420 455 300 390" class="arrow"/><text x="485" y="465" class="small">electron path through metal</text>
+  <text x="490" y="120" class="text">Break anode, cathode, electrolyte, or electron path to slow corrosion.</text>
+</svg>

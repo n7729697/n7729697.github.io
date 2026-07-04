@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Solidification and feeding logic</title>
+  <desc id="desc">Casting section with riser, directional freezing front, hot spot, feeding path, and shrinkage porosity risk when feeding closes early.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#934f34"/></marker>
+  <style>.mold{fill:#e9ddc4;stroke:#5d5142;stroke-width:3}.metal{fill:#d99b63;stroke:#7a442e;stroke-width:3}.front{stroke:#3f6d7a;stroke-width:4;stroke-dasharray:9 7}.arrow{stroke:#934f34;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="100" y="120" width="760" height="290" rx="16" class="mold"/>
+  <path d="M210 275 H460 V210 H610 V275 H760 V340 H210 Z" class="metal"/>
+  <rect x="500" y="95" width="90" height="130" rx="18" class="metal"/>
+  <path d="M295 252 C355 275 400 305 455 330" class="front"/><path d="M700 252 C650 278 610 305 560 330" class="front"/>
+  <path d="M545 130 V220" class="arrow"/><path d="M545 220 C530 250 505 270 485 300" class="arrow"/>
+  <circle cx="470" cy="318" r="18" fill="#6e3c30"/><text x="420" y="372" class="small">hot spot / porosity risk</text>
+  <text x="500" y="72" class="text">riser feeds late-freezing region</text>
+  <text x="135" y="455" class="small">Goal: freeze from thin/remote regions toward a sacrificial reservoir, not toward isolated shrinkage inside the part.</text>
+</svg>

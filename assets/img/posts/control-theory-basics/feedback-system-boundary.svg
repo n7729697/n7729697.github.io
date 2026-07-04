@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Feedback system boundary</title>
+  <desc id="desc">Standard negative feedback control loop showing reference, error, controller, actuator input, plant boundary, disturbance, sensor, measured output, and feedback path.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#3f5663"/>
+    </marker>
+    <style>
+      .box{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .plant{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}
+      .line{stroke:#3f5663;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .thin{stroke:#3f5663;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:21px;fill:#26313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="980" height="520" fill="#f8f4ea"/>
+  <circle cx="180" cy="240" r="26" fill="#fff" stroke="#3f5663" stroke-width="3"/>
+  <text x="180" y="247" class="text">Σ</text>
+  <text x="145" y="210" class="small">+</text>
+  <text x="188" y="282" class="small">-</text>
+  <rect x="270" y="195" width="150" height="90" rx="12" class="box"/>
+  <text x="345" y="232" class="text">controller</text>
+  <text x="345" y="258" class="small">D(s)</text>
+  <rect x="510" y="170" width="230" height="140" rx="16" class="plant"/>
+  <text x="625" y="217" class="text">plant boundary</text>
+  <text x="625" y="246" class="small">states, energy, dynamics</text>
+  <text x="625" y="272" class="small">G(s)</text>
+  <rect x="785" y="345" width="130" height="70" rx="12" class="box"/>
+  <text x="850" y="386" class="text">sensor</text>
+  <path d="M70 240 H154" class="line"/>
+  <text x="72" y="220" class="small">r</text>
+  <path d="M206 240 H270" class="line"/>
+  <text x="240" y="220" class="small">e</text>
+  <path d="M420 240 H510" class="line"/>
+  <text x="465" y="220" class="small">u</text>
+  <path d="M740 240 H910" class="line"/>
+  <text x="825" y="220" class="small">y</text>
+  <path d="M625 95 V170" class="thin"/>
+  <text x="625" y="77" class="small">disturbance d</text>
+  <path d="M850 345 V305 H795" class="thin"/>
+  <path d="M850 415 V455 H180 V266" class="thin"/>
+  <text x="500" y="478" class="small">measured output y_m returns through the feedback path</text>
+</svg>

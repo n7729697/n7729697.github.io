@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Fracture and fatigue map</title>
+  <desc id="desc">Map showing stress intensity increasing with crack size until fracture toughness and cyclic fatigue growth below the fast fracture threshold.</desc>
+  <style>.axis{stroke:#3f5663;stroke-width:4}.curve{stroke:#5f7c57;stroke-width:5;fill:none}.crit{stroke:#b45d47;stroke-width:4;stroke-dasharray:8 7}.fatigue{fill:#fff0ca;opacity:.75}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="115" y1="430" x2="870" y2="430" class="axis"/><line x1="115" y1="430" x2="115" y2="90" class="axis"/>
+  <rect x="115" y="260" width="560" height="170" class="fatigue"/>
+  <path d="M135 405 C280 360 420 300 610 120" class="curve"/>
+  <line x1="115" y1="165" x2="870" y2="165" class="crit"/>
+  <text x="745" y="155" class="small">K_IC fracture toughness</text>
+  <text x="325" y="330" class="small">fatigue crack growth region</text>
+  <text x="650" y="115" class="text">fast fracture</text>
+  <text x="660" y="470" class="small">crack size a</text><text x="25" y="135" class="small">stress intensity K</text>
+</svg>

@@ -6,220 +6,157 @@ color: light
 description: Personal notes synthesized for data mining, graph mining, link analysis, clustering, and latent representations.
 ---
 
-## 1. Course Lens: Mining Large-Scale Data
+_This note is adapted from course materials for **ID2211 Data Mining, Basic Course** at **KTH Royal Institute of Technology**. Instructor: course teaching staff._
 
-The central goal is extracting actionable knowledge from large datasets where scale changes algorithm design.
+## Central Question
 
-Key framing:
+Data mining asks: **how can useful structure be extracted from large, messy data when exact search or exhaustive modeling is too expensive?**
 
-- data mining is not only modeling accuracy, but also computational scalability,
-- relationships between entities often matter more than isolated features,
-- network-based views unify many tasks (recommendation, ranking, misinformation, communities).
+The important word is not only data. It is scale. Once data becomes large, algorithm design changes: representation, indexing, sparsity, approximation, streaming, graph structure, and validation become as important as model accuracy.
 
----
+{% include figure.html image="/assets/img/posts/data-mining/mining-workflow.svg" alt="Data mining workflow from raw data to representation, scalable algorithm, validation, and decision." caption="Data mining is a pipeline discipline: representation choices determine which scalable algorithms and validation tests are meaningful." %}
 
-## 2. Similarity Search at Scale
+## 1. Representation Before Algorithm
 
-### 2.1 Problem statement
+A dataset can be represented as a table, set collection, graph, matrix, text corpus, embedding space, or stream. The same real-world system can support several representations. The choice should follow the task:
 
-Given points/items $x_1,\dots,x_n$ and distance $d(\cdot,\cdot)$, find near pairs:
+- duplicate detection often uses sets and similarity,
+- recommendation often uses sparse user-item matrices,
+- ranking often uses directed graphs,
+- clustering often uses distances or graph cuts,
+- prediction often uses features or embeddings.
 
-$$
-d(x_i,x_j) \le s.
-$$
+Poor representation can make a strong algorithm look weak. Good representation can make a simple algorithm surprisingly effective.
 
-Naive all-pairs is $O(n^2)$ and often infeasible.
+## 2. Similarity Search, MinHash, and LSH
 
-### 2.2 Set similarity and Jaccard
+Near-duplicate detection asks for pairs whose distance is small or similarity is high. All-pairs comparison is $O(n^2)$, so scalable systems need candidate generation.
 
-For sets $A,B$:
+For sets $A$ and $B$, Jaccard similarity is
 
 $$
 J(A,B)=\frac{|A\cap B|}{|A\cup B|}.
 $$
 
-### 2.3 MinHash + LSH
+MinHash gives compact signatures whose collision probability estimates Jaccard similarity. Locality-Sensitive Hashing then places likely-similar items into the same buckets. The workflow is:
 
-Pipeline from slides:
+1. shingle documents or items into sets,
+2. compute MinHash signatures,
+3. use LSH bands to generate candidates,
+4. verify candidates with the exact similarity.
 
-1. shingling -> set representation,
-2. MinHash signatures approximate Jaccard,
-3. LSH buckets likely-similar pairs for subquadratic candidate generation.
+{% include figure.html image="/assets/img/posts/data-mining/minhash-lsh-candidates.svg" alt="MinHash and LSH pipeline from shingled documents to signatures, buckets, candidates, and exact verification." caption="MinHash and LSH trade exhaustive comparison for high-recall candidate generation, then use exact checks only on likely pairs." %}
 
-Main idea: trade exactness for scalable candidate filtering while preserving high-recall nearest-neighbor behavior.
+The tuning parameter is not just accuracy. It is the balance between false negatives, false positives, memory, and verification cost.
 
----
+## 3. Graph Mining and Link Analysis
 
-## 3. Graph Fundamentals for Mining
+Graphs encode relations directly. A graph $G=(V,E)$ can represent webpages, citations, users, roads, dependencies, transactions, or biological interactions.
 
-Represent data as graph $G=(V,E)$ or adjacency matrix $A$.
+Basic graph features such as degree, paths, components, clustering coefficient, and local bridges are not decorative. They become inputs to ranking, community detection, anomaly detection, and recommendation.
 
-Core notions used repeatedly:
-
-- degree, paths, cycles,
-- connected components / giant component,
-- directed strong vs weak connectivity,
-- local bridges and embeddedness.
-
-Why this matters: many downstream metrics (PageRank, HITS, clustering, recommendation signals) are functions of graph structure.
-
----
-
-## 4. Random Graphs and Network Effects
-
-### 4.1 Erdos-Renyi models
-
-- $G(n,m)$: fixed edge count,
-- $G(n,p)$: independent edge probability $p$.
-
-For large $n$, giant-component phase transition appears around $p\approx 1/n$.
-
-### 4.2 Structural signatures
-
-Slides emphasize comparing real networks to random baselines by:
-
-- degree distribution,
-- clustering coefficient,
-- diameter scaling,
-- component-size profile.
-
-These diagnostics distinguish social/information networks from purely random constructions.
-
----
-
-## 5. Random Walks, Expansion, and PageRank
-
-For row-stochastic transition matrix $P$, random walk evolves as:
+Random-walk ranking uses a transition matrix $P$:
 
 $$
-\pi_{t+1}=\pi_t P.
+\pi_{t+1}=\pi_tP.
 $$
 
-For connected, non-bipartite graphs, walk converges to stationary distribution.
-
-### 5.1 Expansion and mixing
-
-Expanders are sparse but highly connected; large spectral gap implies fast mixing.
-
-### 5.2 PageRank
-
-Teleporting walk (Google matrix):
+PageRank adds teleportation:
 
 $$
-\pi = \alpha \pi P + (1-\alpha) v,
+\pi=\alpha \pi P+(1-\alpha)v,
 $$
 
-with damping $\alpha\in(0,1)$ and teleport distribution $v$.
+where $v$ is a restart distribution and $\alpha$ controls how much ranking follows links versus teleporting. Teleportation makes the ranking robust to dangling components and disconnected graph structure.
 
-Interpretation: robust centrality from both link structure and random restart behavior.
-
----
-
-## 6. Beyond PageRank: HITS and Link Analysis
-
-HITS maintains two coupled scores:
-
-- authority score $a$,
-- hub score $h$.
-
-Mutual recursion:
+HITS separates two roles:
 
 $$
-a \propto A^\top h, \qquad h \propto A a.
+a\propto A^\top h, \qquad h\propto Aa.
 $$
 
-So good hubs point to good authorities, and good authorities are pointed to by good hubs.
+Good authorities are pointed to by good hubs, and good hubs point to good authorities. This role asymmetry is useful in directed information networks.
 
-This captures role asymmetry in directed information graphs better than single-score ranking.
+{% include figure.html image="/assets/img/posts/data-mining/link-analysis-random-walks.svg" alt="Directed graph with PageRank teleportation and HITS hub-authority score flow." caption="Link analysis turns graph structure into scores: PageRank uses a teleporting walk, while HITS separates hub and authority roles." %}
 
----
+## 4. Communities, Cuts, and Spectral Methods
 
-## 7. Graph Clustering and Community Detection
+A community is loosely a set of nodes with dense internal connectivity and sparse external connectivity. The difficulty is that this intuition needs an objective.
 
-### 7.1 Community notion
-
-Community = dense internal connectivity, sparse external connectivity.
-
-### 7.2 Conductance and cuts
-
-A common objective is minimizing cut quality metrics such as conductance, balancing boundary size against community volume.
-
-### 7.3 Spectral clustering
-
-Use graph Laplacian variants:
-
-- unnormalized: $L=D-A$,
-- normalized: $L_{sym}=I-D^{-1/2}AD^{-1/2}$.
-
-Typical recipe:
-
-1. compute first $k$ informative eigenvectors,
-2. embed nodes into $\mathbb{R}^k$,
-3. run k-means in eigenspace.
-
-This converts combinatorial partitioning into continuous optimization.
-
-### 7.4 Overlapping communities (BigCLAM)
-
-BigCLAM models node-community affiliation strengths via nonnegative factors, enabling overlapping memberships and scalable inference in large graphs.
-
----
-
-## 8. Dimensionality Reduction and Latent Factors
-
-### 8.1 Low-rank assumption
-
-Data matrix $X\in\mathbb{R}^{n\times d}$ often lies near low-dimensional subspace:
+Conductance measures boundary quality relative to volume. Spectral clustering relaxes hard partitioning into linear algebra using the graph Laplacian:
 
 $$
-X \approx U_k \Sigma_k V_k^\top.
+L=D-A,
 $$
 
-This supports compression, denoising, and latent-structure discovery.
+or the normalized form
 
-### 8.2 Rank as intrinsic dimensionality
+$$
+L_{sym}=I-D^{-1/2}AD^{-1/2}.
+$$
 
-Rank quantifies linear degrees of freedom; low rank implies fewer latent factors can explain most variation.
+A typical recipe is:
 
-### 8.3 Recommender link
+1. build a graph or similarity matrix,
+2. compute informative eigenvectors,
+3. embed nodes into a low-dimensional spectral space,
+4. cluster the embedded points.
 
-User-item matrices are sparse and approximately low-rank; latent factors capture preferences and item semantics used for recommendation.
+This converts a combinatorial graph problem into a continuous approximation. It is powerful, but sensitive to graph construction, edge weights, and the selected number of clusters.
 
----
+{% include figure.html image="/assets/img/posts/data-mining/spectral-clustering-laplacian.svg" alt="Spectral clustering pipeline from graph to Laplacian, eigenvectors, embedded nodes, and clusters." caption="Spectral clustering uses Laplacian eigenvectors to expose graph cuts as geometry in a low-dimensional embedding." %}
 
-## 9. Graph Representation Learning (GRL)
+## 5. Low-Rank Models and Recommendation
 
-Slides introduce shift from hand-crafted graph features to learned node/edge/graph embeddings.
+Large data matrices are often approximately low rank:
 
-General objective:
+$$
+X\approx U_k\Sigma_kV_k^\top.
+$$
 
-- map nodes to vectors $z_v\in\mathbb{R}^k$,
-- preserve structural or task-specific proximity,
-- use embeddings for classification, link prediction, recommendation.
+This approximation supports compression, denoising, latent-factor discovery, and recommendation. In a sparse user-item matrix, rows represent users, columns represent items, and latent factors capture hidden preferences or item attributes.
 
-This unifies classical matrix factorization, random-walk context methods, and modern neural graph models.
+The modeling assumption is not that reality is exactly low-dimensional. It is that the strongest predictive structure can be captured by fewer dimensions than the raw data suggests.
 
----
+Recommender systems must be evaluated carefully because training data is biased by exposure: users rate items they have already seen or chosen. Good offline metrics should be paired with awareness of popularity bias, cold-start behavior, and feedback loops.
 
-## 10. Practical Synthesis
+## 6. Graph Representation Learning
 
-A useful end-to-end workflow inspired by data mining:
+Classical graph mining uses hand-crafted metrics. Representation learning maps nodes, edges, or graphs into vectors:
 
-1. choose representation: tabular vs graph vs set/shingles,
-2. define task objective: similarity, ranking, clustering, prediction,
-3. select scalable algorithm family (LSH, random-walk ranking, spectral methods, latent factors),
-4. compare against simple baselines and random-graph expectations,
-5. validate quality + runtime + memory, not quality alone.
+$$
+v \mapsto z_v\in\mathbb{R}^k.
+$$
 
----
+The embedding should preserve a useful notion of proximity: random-walk context, neighborhood similarity, structural role, label information, or task-specific prediction. This unifies matrix factorization, random-walk embeddings, and graph neural models.
 
-## Compact Formula Sheet
+{% include figure.html image="/assets/img/posts/data-mining/representation-learning-bridge.svg" alt="Bridge from classical features and matrix factorization to graph embeddings and downstream tasks." caption="Representation learning shifts graph mining from hand-crafted features toward learned embeddings, but the embedding objective still encodes a modeling assumption." %}
 
-- Jaccard: $J(A,B)=|A\cap B|/|A\cup B|$.
-- Random walk update: $\pi_{t+1}=\pi_tP$.
-- PageRank: $\pi=\alpha\pi P+(1-\alpha)v$.
-- Laplacian: $L=D-A$.
-- Normalized Laplacian: $L_{sym}=I-D^{-1/2}AD^{-1/2}$.
-- Low-rank model: $X\approx U_k\Sigma_kV_k^\top$.
+Embeddings are not automatically meaningful. They require negative sampling choices, train-test splits that prevent leakage, baseline comparisons, and interpretation of what proximity actually means.
 
-These notes summarize the conceptual bridge from classic scalable data mining to modern graph representation learning.
+## What This Framework Lets Us Do
+
+Data mining provides scalable methods for similarity search, ranking, clustering, recommendation, anomaly detection, and representation discovery. Its engineering value is in making approximate structure usable under real memory, runtime, and data-quality constraints.
+
+## Where the Framework Stops Being Reliable
+
+Data mining can amplify biased samples, leakage, missing-not-at-random behavior, popularity effects, bot activity, and temporal drift. A high score on a static benchmark does not guarantee deployable value if the data-generating process changes.
+
+## Where the Subject Leads Next
+
+The natural next steps are machine learning, graph neural networks, information retrieval, recommender-system evaluation, scalable distributed systems, and causal inference.
+
+## Technical and Editorial Audit
+
+- Reorganized the original compact notes into representation, similarity search, graph mining, communities, low-rank models, and representation learning.
+- Preserved ID2211 course attribution in the body.
+- Added original figures for the mining workflow, MinHash/LSH, link analysis, spectral clustering, and representation learning.
+- Clarified that approximation quality, runtime, memory, and bias are all part of data-mining evaluation.
+- Fast-moving claims about modern graph learning should be verified against current papers before using this as a literature survey.
+
+## Main Sources Used in This Note
+
+- J. Leskovec, A. Rajaraman, and J. D. Ullman, _Mining of Massive Datasets_.
+- M. E. J. Newman, _Networks_.
+- C. M. Bishop, _Pattern Recognition and Machine Learning_.
+- Stanford CS224W course materials on graph mining and representation learning.

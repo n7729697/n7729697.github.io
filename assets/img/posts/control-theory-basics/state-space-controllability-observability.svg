@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">State-space controllability and observability</title>
+  <desc id="desc">State-space diagram showing input through B into state dynamics A, output through C, and the questions of controllability and observability.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/>
+    </marker>
+    <style>
+      .state{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}
+      .node{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .loop{stroke:#5f7c57;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:22px;fill:#26313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="90" y="220" width="130" height="80" rx="12" class="node"/>
+  <text x="155" y="267" class="text">input u</text>
+  <rect x="325" y="190" width="250" height="140" rx="16" class="state"/>
+  <text x="450" y="240" class="text">state x</text>
+  <text x="450" y="270" class="small">internal memory</text>
+  <text x="450" y="296" class="small">A dynamics</text>
+  <rect x="735" y="220" width="150" height="80" rx="12" class="node"/>
+  <text x="810" y="267" class="text">output y</text>
+  <path d="M220 260 H325" class="arrow"/>
+  <text x="270" y="240" class="small">B</text>
+  <path d="M575 260 H735" class="arrow"/>
+  <text x="655" y="240" class="small">C</text>
+  <path d="M450 190 C390 125 510 125 455 188" class="loop"/>
+  <text x="450" y="105" class="small">state coupling through A</text>
+  <text x="250" y="395" class="small">controllability: can input move every important mode?</text>
+  <text x="690" y="395" class="small">observability: can measurement reveal every important mode?</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Cost volume crossover</title>
+  <desc id="desc">Cost versus production volume chart comparing low fixed high variable cost process and high fixed low variable cost process with a crossover point.</desc>
+  <style>.axis{stroke:#3f5663;stroke-width:4}.a{stroke:#5f7c57;stroke-width:5;fill:none}.b{stroke:#b45d47;stroke-width:5;fill:none}.dash{stroke:#3f5663;stroke-width:3;stroke-dasharray:8 7}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="110" y1="430" x2="870" y2="430" class="axis"/><line x1="110" y1="430" x2="110" y2="90" class="axis"/>
+  <path d="M130 170 C300 220 520 310 850 405" class="a"/>
+  <path d="M130 390 C320 330 580 245 850 165" class="b"/>
+  <line x1="475" y1="90" x2="475" y2="430" class="dash"/>
+  <text x="170" y="155" class="small">high fixed / low variable</text>
+  <text x="185" y="390" class="small">low fixed / high variable</text>
+  <text x="490" y="85" class="small">crossover volume</text>
+  <text x="680" y="470" class="small">production quantity N</text>
+  <text x="38" y="130" class="small">unit cost</text>
+</svg>

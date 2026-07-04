@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Hazard exposure harm chain</title>
+  <desc id="desc">Risk chain from hazard source through pathway, exposure, vulnerable target, event, consequence, and controls.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.node{fill:#fff7e8;stroke:#b89057;stroke-width:3}.bad{fill:#f1d8cc;stroke:#b45d47;stroke-width:3}.ctrl{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:20px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style></defs>
+  <rect width="980" height="520" fill="#f8f4ea"/>
+  <rect x="45" y="210" width="130" height="80" rx="12" class="bad"/><text x="110" y="242" class="text">hazard</text><text x="110" y="267" class="small">source</text>
+  <rect x="230" y="210" width="130" height="80" rx="12" class="node"/><text x="295" y="242" class="text">pathway</text><text x="295" y="267" class="small">transport</text>
+  <rect x="415" y="210" width="130" height="80" rx="12" class="node"/><text x="480" y="242" class="text">exposure</text><text x="480" y="267" class="small">contact</text>
+  <rect x="600" y="210" width="130" height="80" rx="12" class="node"/><text x="665" y="242" class="text">event/dose</text><text x="665" y="267" class="small">severity</text>
+  <rect x="785" y="210" width="130" height="80" rx="12" class="bad"/><text x="850" y="242" class="text">harm</text><text x="850" y="267" class="small">consequence</text>
+  <path d="M175 250 H230" class="arrow"/><path d="M360 250 H415" class="arrow"/><path d="M545 250 H600" class="arrow"/><path d="M730 250 H785" class="arrow"/>
+  <rect x="235" y="350" width="490" height="70" rx="12" class="ctrl"/><text x="480" y="378" class="text">controls can interrupt any link</text><text x="480" y="403" class="small">source reduction, barriers, ventilation, procedures, PPE, emergency response</text>
+</svg>

@@ -3,161 +3,122 @@ title: Thermal Dynamics and Thermodynamic Physics
 tags: [thermodynamics, heat transfer, thermofluids, statistical physics, transport phenomena]
 style: fill
 color: light
-description: Master-level notes connecting thermodynamics, heat transfer, statistical physics, phase change, exergy, and continuum transport.
+description: Master-level notes connecting thermodynamic state, energy, entropy, phase change, heat transfer, exergy, and coupled thermal transport.
 ---
 
+_This note is adapted from course materials for **MNE2112 Thermodynamics** and **MNE3121 Heat Transfer** at **City University of Hong Kong**. Instructors: course teaching staff._
 
-## 1. Why Thermal Dynamics Is Really Physics
+## Central Question
 
-Thermal dynamics is not just a bag of steam tables and heat-transfer correlations. It is the part of physics that explains how macroscopic matter stores energy, exchanges it, degrades useful work into disorder, and evolves under transport, phase change, and irreversibility.
+How do energy, entropy, matter, and transport set the limits on machines, materials, buildings, electronics, fluids, and phase-changing systems?
 
-At master level, three descriptions have to coexist:
+Thermodynamics is not a collection of steam tables and correlations. It is the physics of what energy can do, what it cannot do, and how fast thermal states change when gradients, flow, interfaces, and irreversibility are present.
 
-- the **macroscopic thermodynamic** description built from state variables such as $T,p,v,u,h,s$,
-- the **continuum transport** description built from fields such as $T(\mathbf{x},t)$, $\mathbf{u}(\mathbf{x},t)$, and $p(\mathbf{x},t)$,
-- the **microscopic physics** description in which entropy, heat capacity, conductivity, and phase change arise from molecular motion, interactions, and accessible states.
-
-The point of the subject is to move cleanly between these layers.
-
-If mechanics teaches us how forces move matter, thermal physics teaches us how internal energy, entropy, and transport processes determine which motions, transformations, and efficiencies are physically possible.
-
----
-
-## 2. Thermal State, Equilibrium, and the Statistical View
-
-### 2.1 Macrostates, microstates, and the state postulate
-
-A **macrostate** is specified by a small set of measurable variables. A **microstate** is the detailed arrangement of all particles.
-
-For a simple compressible single-component system at equilibrium, the state can often be described by two independent intensive variables. Equivalently, one may write a fundamental relation such as
+The causal spine is:
 
 $$
-U = U(S,V,N).
+\text{system boundary}
+\rightarrow \text{state variables}
+\rightarrow \text{energy balance}
+\rightarrow \text{entropy balance}
+\rightarrow \text{material response}
+\rightarrow \text{phase and transport}
+\rightarrow \text{exergy loss}
+\rightarrow \text{model hierarchy}.
 $$
 
-From that relation,
-
-$$
-T = \left(\frac{\partial U}{\partial S}\right)_{V,N}, \qquad
-p = -\left(\frac{\partial U}{\partial V}\right)_{S,N}, \qquad
-\mu = \left(\frac{\partial U}{\partial N}\right)_{S,V}.
-$$
-
-This is the cleanest physics statement of thermodynamics: temperature, pressure, and chemical potential are not primitive magic variables; they are slopes of the energy landscape.
-
-### 2.2 Thermodynamic equilibrium
-
-Full equilibrium means:
-
-- **thermal equilibrium**: no temperature gradients driving heat flow,
-- **mechanical equilibrium**: no unbalanced pressure or stress gradients driving acceleration,
-- **chemical equilibrium**: no affinity left for composition change or reaction,
-- **phase equilibrium**: competing phases have equal intensive potentials.
-
-Most engineering models assume either global equilibrium or **local equilibrium**. Local equilibrium means each small fluid element is close enough to equilibrium that it still makes sense to define $T$, $p$, and $s$ pointwise even while the whole system is evolving.
-
-This assumption is what allows continuum thermodynamics to exist.
-
-### 2.3 Why entropy needs statistical physics
-
-Macroscopic thermodynamics tells us entropy increases. Statistical physics explains why:
-
-$$
-S = k_B \ln \Omega,
-$$
-
-where $\Omega$ is the number of accessible microstates compatible with the macrostate.
-
-High-entropy states are not morally preferred; they are overwhelmingly more numerous. Irreversibility in macroscopic systems is therefore a statement about probability concentration, not about microscopic equations forgetting how to run backward.
-
-That is why heat naturally flows from hot to cold, mixing proceeds spontaneously, and reversible processes are idealized limits requiring infinitely gentle driving.
+{% include elements/figure.html image="/assets/img/posts/thermal-dynamics/thermo-system-boundaries.svg" caption="Figure 1. Thermal system boundaries. Closed systems exchange heat and work; open systems also exchange mass, carrying enthalpy, kinetic energy, potential energy, and entropy." alt="Thermodynamic system boundary diagram comparing closed system and open control volume with heat work and mass flow" %}
 
 ---
 
-## 3. The First Law: Energy Accounting From Particles to Continua
+## 1. State, Equilibrium, and Microscopic Meaning
 
-The first law is conservation of energy, but in thermal physics the important point is that energy appears in multiple forms:
+A **macrostate** is described by measurable variables such as \(T,p,V,U,H,S\). A **microstate** is the detailed particle arrangement and motion compatible with that macrostate.
 
-- microscopic random motion -> **internal energy** $U$,
-- organized motion -> **kinetic energy** $KE$,
-- position in body forces -> **potential energy** $PE$,
-- boundary and shaft interactions -> **work**,
-- cross-boundary transfer caused by temperature difference -> **heat**.
+For a simple compressible single-component equilibrium system,
 
-### 3.1 Closed systems
+$$
+U=U(S,V,N),
+$$
+
+and
+
+$$
+T=\left(\frac{\partial U}{\partial S}\right)_{V,N},
+\qquad
+p=-\left(\frac{\partial U}{\partial V}\right)_{S,N},
+\qquad
+\mu=\left(\frac{\partial U}{\partial N}\right)_{S,V}.
+$$
+
+Temperature, pressure, and chemical potential are therefore slopes of the energy surface. They are not arbitrary labels.
+
+Entropy has a statistical interpretation:
+
+$$
+S=k_B\ln\Omega,
+$$
+
+where \(\Omega\) is the number of accessible microstates. Entropy increase is not a moral preference for disorder; it is the overwhelming statistical tendency of macroscopic systems to move toward macrostates with many compatible microstates.
+
+Engineering thermodynamics often assumes **local equilibrium**: each small material element is close enough to equilibrium that \(T,p,s\) are meaningful even while the whole field evolves.
+
+---
+
+## 2. First Law: Energy Accounting
+
+Heat and work are not stored. They are boundary transfers. A system stores internal energy, kinetic energy, potential energy, chemical energy, and other state-dependent forms.
 
 For a closed system,
 
 $$
-\Delta U + \Delta KE + \Delta PE = Q - W.
+\Delta U+\Delta KE+\Delta PE=Q-W.
 $$
 
-The key conceptual correction is that **heat is not stored inside the system**. A system contains internal energy, not "heat content". Heat and work are path-dependent modes of energy transfer.
-
-For quasi-equilibrium compression or expansion,
+For quasi-equilibrium boundary work,
 
 $$
-W_b = \int_{V_1}^{V_2} p\,dV.
+W_b=\int_{V_1}^{V_2}p\,dV.
 $$
-
-### 3.2 Open systems and enthalpy
 
 For a steady one-inlet, one-outlet control volume,
 
 $$
-\dot Q - \dot W_s
+\dot Q-\dot W_s
 =
-\dot m \left[(h_2-h_1) + \frac{V_2^2-V_1^2}{2} + g(z_2-z_1)\right].
+\dot m\left[(h_2-h_1)+\frac{V_2^2-V_1^2}{2}+g(z_2-z_1)\right].
 $$
 
-The appearance of enthalpy,
+Enthalpy,
 
 $$
-h = u + pv,
+h=u+pv,
 $$
 
-is not arbitrary. It packages internal energy and flow work into the natural energy variable for flowing matter. That is why turbines, compressors, nozzles, and heat exchangers are usually written in terms of $h$.
+packages internal energy and flow work. That is why turbines, compressors, nozzles, pumps, and heat exchangers are naturally written using \(h\).
 
-### 3.3 Local continuum form of the energy equation
-
-At field level, thermal physics joins continuum mechanics. A representative internal-energy balance is
+At continuum scale, a representative internal-energy equation is
 
 $$
-\rho \frac{De}{Dt}
-=
--\nabla \cdot \mathbf{q}
-- p \nabla \cdot \mathbf{u}
-+ \boldsymbol{\tau} : \nabla \mathbf{u}
-+ \dot q_v,
+\rho\frac{De}{Dt}
+=-\nabla\cdot\mathbf{q}
+-p\nabla\cdot\mathbf{u}
++\boldsymbol{\tau}:\nabla\mathbf{u}
++\dot q_v.
 $$
 
-where:
-
-- $\mathbf{q}$ is conductive heat flux,
-- $-p \nabla \cdot \mathbf{u}$ is compressive work,
-- $\boldsymbol{\tau} : \nabla \mathbf{u}$ is viscous dissipation,
-- $\dot q_v$ is volumetric heating, such as Joule heating or nuclear/chemical release.
-
-This equation is where thermodynamics stops being table lookup and becomes physics of fields.
+The terms are conduction, compressive work, viscous dissipation, and volumetric heating. This is where thermodynamics becomes field physics.
 
 ---
 
-## 4. The Second Law, Entropy, and Irreversibility
+## 3. Second Law, Entropy, and Exergy
 
-The first law tells us energy is conserved. The second law tells us not all energy is equally useful.
-
-### 4.1 Clausius inequality and entropy balance
+The first law says energy is conserved. The second law says energy quality degrades.
 
 For any cycle,
 
 $$
-\oint \frac{\delta Q}{T} \le 0.
-$$
-
-For an internally reversible path,
-
-$$
-ds = \frac{\delta q_{rev}}{T}.
+\oint \frac{\delta Q}{T}\le 0.
 $$
 
 For a control volume,
@@ -165,685 +126,342 @@ For a control volume,
 $$
 \frac{dS_{cv}}{dt}
 =
-\sum \dot m_{in} s_{in}
-- \sum \dot m_{out} s_{out}
-+ \sum \frac{\dot Q_k}{T_k}
-+ \dot S_{gen},
+\sum \dot m_{in}s_{in}
+-\sum \dot m_{out}s_{out}
++\sum\frac{\dot Q_k}{T_k}
++\dot S_{gen},
 \qquad
-\dot S_{gen} \ge 0.
+\dot S_{gen}\ge 0.
 $$
 
-The entropy generation term is the mathematical fingerprint of irreversibility.
+Entropy generation comes from finite-temperature heat transfer, friction, mixing, electrical resistance, chemical reaction away from equilibrium, shocks, and unrestrained expansion.
 
-### 4.2 Where entropy generation comes from
+{% include elements/figure.html image="/assets/img/posts/thermal-dynamics/entropy-exergy-flow.svg" caption="Figure 2. Entropy and exergy. Energy is conserved, but useful work potential is destroyed by entropy generation." alt="Energy flow diagram showing heat work entropy generation exergy destruction and environment temperature" %}
 
-Typical entropy-producing mechanisms are:
-
-- finite temperature difference heat transfer,
-- viscous friction,
-- unrestrained expansion,
-- mixing of species,
-- electrical resistance,
-- chemical reaction away from equilibrium,
-- shock waves and strongly dissipative compressible flow.
-
-Every real device works by paying some entropy-generation penalty.
-
-### 4.3 Physical meaning
-
-Entropy is simultaneously:
-
-- a state variable,
-- a measure of microscopic multiplicity,
-- a bookkeeping variable for irreversibility,
-- a bridge between energy and useful work.
-
-This is why entropy can feel abstract in introductory courses and indispensable in advanced ones.
-
-### 4.4 Free energy and spontaneous direction
-
-At fixed temperature and volume, the relevant potential is the Helmholtz free energy
+Exergy measures maximum useful work relative to an environment. A common specific flow exergy is
 
 $$
-A = U - TS.
+b=(h-h_0)-T_0(s-s_0)+\frac{V^2}{2}+gz.
 $$
 
-At fixed temperature and pressure, the relevant potential is the Gibbs free energy
+The exergy destruction relation is
 
 $$
-G = H - TS.
+\dot X_{dest}=T_0\dot S_{gen}.
 $$
 
-Spontaneous evolution in a closed isothermal-isobaric system tends to lower $G$. That statement explains phase change, chemical equilibrium, dissolution, reaction direction, and much of materials thermodynamics.
+This equation is a design compass: it tells us where useful work potential is being destroyed.
 
 ---
 
-## 5. Thermodynamic Potentials, Maxwell Relations, and Response Functions
+## 4. Thermodynamic Potentials and Material Response
 
-### 5.1 Differential structure
-
-For a simple compressible single-component system,
+For a simple compressible system,
 
 $$
-dU = T\,dS - p\,dV + \mu\,dN.
+dU=T\,dS-p\,dV+\mu\,dN.
 $$
 
-From Legendre transforms we obtain:
+Legendre transforms choose the natural potential for the constraints:
 
 $$
-H = U + pV, \qquad
-A = U - TS, \qquad
-G = U + pV - TS.
+H=U+pV,\qquad A=U-TS,\qquad G=U+pV-TS.
 $$
 
-with differentials
+Their differentials are
 
 $$
-dH = T\,dS + V\,dp + \mu\,dN,
+dH=T\,dS+V\,dp+\mu\,dN,
 $$
 
 $$
-dA = -S\,dT - p\,dV + \mu\,dN,
+dA=-S\,dT-p\,dV+\mu\,dN,
 $$
 
 $$
-dG = -S\,dT + V\,dp + \mu\,dN.
+dG=-S\,dT+V\,dp+\mu\,dN.
 $$
 
-These are not just formal manipulations. They tell us which potential is most natural under which experimental constraints.
+At fixed \(T,p\), spontaneous evolution tends to reduce Gibbs free energy \(G\). This is why \(G\) controls phase equilibrium and many chemical/material processes.
 
-### 5.2 Maxwell relations
-
-Because mixed second derivatives commute, we obtain identities such as
+Response functions include
 
 $$
-\left(\frac{\partial T}{\partial V}\right)_S
-=
--\left(\frac{\partial p}{\partial S}\right)_V,
+c_v=\left(\frac{\partial u}{\partial T}\right)_v,\qquad
+c_p=\left(\frac{\partial h}{\partial T}\right)_p,
 $$
 
 $$
-\left(\frac{\partial S}{\partial V}\right)_T
-=
-\left(\frac{\partial p}{\partial T}\right)_V,
+\alpha=\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p,\qquad
+\kappa_T=-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T.
 $$
 
-$$
-\left(\frac{\partial S}{\partial p}\right)_T
-=
--\left(\frac{\partial V}{\partial T}\right)_p.
-$$
-
-These relations let us convert hard-to-measure entropy derivatives into measurable pressure-volume-temperature data.
-
-### 5.3 Heat capacities, compressibility, and expansion
-
-Important response functions are
+One useful identity is
 
 $$
-c_v = \left(\frac{\partial u}{\partial T}\right)_v, \qquad
-c_p = \left(\frac{\partial h}{\partial T}\right)_p,
+c_p-c_v=\frac{TV\alpha^2}{\kappa_T}.
 $$
 
-$$
-\alpha = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p, \qquad
-\kappa_T = -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T.
-$$
-
-One central identity is
-
-$$
-c_p - c_v = \frac{T V \alpha^2}{\kappa_T}.
-$$
-
-This equation explains why compressibility and thermal expansion are tied to the gap between constant-pressure and constant-volume heating.
-
-### 5.4 Stability conditions
-
-Equilibrium is not enough; it must also be stable. For ordinary stable matter:
-
-- $c_v > 0$,
-- $c_p > 0$,
-- $\kappa_T > 0$.
-
-Negative compressibility or negative heat capacity signals either instability, nonstandard constraints, or exotic long-range systems beyond ordinary engineering thermodynamics.
-
-### 5.5 Microscopic origin of heat capacity and conductivity
-
-Physics enters here directly:
-
-- in an ideal monatomic gas, $u = \frac{3}{2}RT$ per mole because translational degrees of freedom dominate,
-- in polyatomic gases, rotational and vibrational modes activate as temperature rises,
-- in solids, heat capacity reflects lattice vibrations and is described more deeply by phonon models,
-- in metals, thermal conductivity often has strong electron contribution,
-- in dielectrics and ceramics, phonon transport dominates.
-
-So when tables list $c_p(T)$ or $k(T)$, those numbers are compressed statements about microscopic structure.
+It links heat capacity difference to thermal expansion and compressibility. The table value \(c_p\) is therefore not isolated data; it reflects microscopic degrees of freedom and macroscopic response.
 
 ---
 
-## 6. Real Substances, Phase Equilibrium, and Phase Change
+## 5. Real Substances and Phase Change
 
-### 6.1 Beyond the ideal gas
-
-The ideal-gas law
+The ideal gas law
 
 $$
-pv = RT
+pv=RT
 $$
 
-is accurate when intermolecular forces are weak and the density is low enough. Real fluids deviate because finite molecular size and intermolecular attraction matter.
-
-A compressibility factor model writes
+works when density is low and interactions are weak. Real fluids use a compressibility factor:
 
 $$
-pv = ZRT,
+pv=ZRT.
 $$
 
-with $Z=1$ only in the ideal limit.
-
-### 6.2 Phase equilibrium
-
-Two phases can coexist only when the intensive variables that govern exchange are equal:
-
-- equal temperature,
-- equal pressure,
-- equal chemical potential for each species.
-
-This gives the thermodynamic meaning of a saturation curve.
-
-### 6.3 Clapeyron and Clausius-Clapeyron relations
-
-Along a phase boundary,
+Two phases coexist when temperature, pressure, and chemical potential are compatible across the interface. Along a saturation curve,
 
 $$
-\frac{dp_{sat}}{dT} = \frac{h_{fg}}{T(v_g-v_f)}.
+\frac{dp_{sat}}{dT}=\frac{h_{fg}}{T(v_g-v_f)}.
 $$
 
-For vaporization with $v_g \gg v_f$ and near-ideal vapor behavior, this reduces approximately to
+For vaporization with \(v_g\gg v_f\) and near-ideal vapor,
 
 $$
-\frac{d \ln p_{sat}}{dT} \approx \frac{h_{fg}}{R T^2}.
+\frac{d\ln p_{sat}}{dT}\approx\frac{h_{fg}}{RT^2}.
 $$
 
-This relation explains why boiling temperature rises with pressure and why vacuum lowers the boiling point.
+{% include elements/figure.html image="/assets/img/posts/thermal-dynamics/phase-change-interface.svg" caption="Figure 3. Phase-change physics. Equilibrium sets saturation states, while nucleation, wetting, interfacial tension, and transport determine actual boiling or condensation behavior." alt="Phase change diagram showing liquid vapor interface nucleation barrier saturation curve and heat flux" %}
 
-### 6.4 Metastability, nucleation, and interfacial physics
-
-Boiling and condensation are not just equilibrium-property problems. They involve:
-
-- interfacial tension,
-- nucleation barriers,
-- wetting behavior,
-- transient growth and collapse of bubbles or droplets.
-
-This is why real boiling curves contain metastable regions, critical heat flux, and abrupt transitions that simple equilibrium thermodynamics alone cannot predict.
+Phase change is powerful because latent heat is large. It is dangerous because regimes can change abruptly: nucleate boiling can transfer heat efficiently, while film boiling can insulate the surface and trigger overheating after critical heat flux.
 
 ---
 
-## 7. Heat Transfer as Transport Physics
+## 6. Heat Transfer as Transport Physics
 
-Thermodynamics answers **whether** a process is allowed and what the end states look like. Heat transfer answers **how fast** the temperature field changes in space and time.
+Thermodynamics says what states are possible. Heat transfer says how fast temperature fields evolve.
 
-### 7.1 Fourier law and thermal diffusivity
-
-Conduction is modeled by
+Fourier conduction is
 
 $$
-\mathbf{q} = -k \nabla T.
+\mathbf{q}=-k\nabla T.
 $$
-
-For isotropic media, $k$ is a scalar. For crystals, composites, or layered solids, conductivity can be tensorial.
 
 Thermal diffusivity is
 
 $$
-\alpha_{th} = \frac{k}{\rho c}.
+\alpha_{th}=\frac{k}{\rho c}.
 $$
 
-Large $\alpha_{th}$ means temperature disturbances smooth out quickly.
-
-### 7.2 The heat equation
-
-Combining energy conservation with Fourier's law gives, for a stationary medium with constant properties,
+For a stationary medium with constant properties,
 
 $$
-\rho c \frac{\partial T}{\partial t}
-=
-k \nabla^2 T + \dot q_v.
+\rho c\frac{\partial T}{\partial t}
+=k\nabla^2T+\dot q_v,
 $$
 
-Or
+or
 
 $$
 \frac{\partial T}{\partial t}
-=
-\alpha_{th} \nabla^2 T + \frac{\dot q_v}{\rho c}.
+=\alpha_{th}\nabla^2T+\frac{\dot q_v}{\rho c}.
 $$
 
-This PDE is the canonical bridge from thermodynamics to mathematical physics.
+{% include elements/figure.html image="/assets/img/posts/thermal-dynamics/lumped-vs-distributed-thermal.svg" caption="Figure 4. Lumped versus distributed thermal models. Small Biot number supports a uniform-temperature ODE; large Biot number requires spatial temperature fields." alt="Thermal modeling diagram comparing lumped capacitance model and distributed heat equation model using Biot and Fourier numbers" %}
 
-### 7.3 Advection-diffusion form
-
-In moving fluids the energy equation becomes
+The Biot number
 
 $$
-\rho c_p \frac{DT}{Dt}
-=
-\nabla \cdot (k \nabla T) + \Phi + \dot q_v,
+Bi=\frac{hL_c}{k}
 $$
 
-where $\Phi$ denotes viscous dissipation. The material derivative $DT/Dt$ contains advection, which can dominate diffusion in fast flows.
-
-### 7.4 Lumped versus distributed thermal models
-
-The Biot number,
+compares internal conduction resistance to surface convection resistance. If \(Bi\ll1\), a lumped-capacitance ODE may be valid. The Fourier number
 
 $$
-Bi = \frac{hL_c}{k},
+Fo=\frac{\alpha_{th}t}{L_c^2}
 $$
 
-compares internal conduction resistance to surface convection resistance.
-
-If $Bi \ll 1$, the body can be approximated as nearly isothermal, giving a lumped-capacitance model.
-
-The Fourier number,
-
-$$
-Fo = \frac{\alpha_{th} t}{L_c^2},
-$$
-
-measures how far transient diffusion has progressed.
-
-These two dimensionless groups are the quickest way to decide whether a thermal problem is ODE-like or PDE-like.
+measures transient diffusion progress.
 
 ---
 
-## 8. Convection, Boundary Layers, and Dimensionless Structure
+## 7. Convection, Radiation, and Dimensionless Groups
 
-### 8.1 Why convection is hard
-
-Convection combines:
-
-- diffusion of momentum,
-- diffusion of heat,
-- advection by the flow field,
-- geometry-dependent boundary-layer growth,
-- turbulence in most practical systems.
-
-That is why heat-transfer coefficients are rarely fundamental constants and almost always emerge from scaling or experiment.
-
-### 8.2 Core groups
-
-The main dimensionless numbers are
+Convection couples flow and heat transfer. Core dimensionless groups are
 
 $$
-Re = \frac{\rho U L}{\mu}, \qquad
-Pr = \frac{\nu}{\alpha_{th}}, \qquad
-Pe = Re \, Pr,
+Re=\frac{\rho UL}{\mu},\qquad
+Pr=\frac{\nu}{\alpha_{th}},\qquad
+Pe=Re\,Pr,
 $$
 
 $$
-Nu = \frac{hL}{k}, \qquad
-Gr = \frac{g \beta \Delta T L^3}{\nu^2}, \qquad
-Ra = Gr\,Pr.
+Nu=\frac{hL}{k},\qquad
+Gr=\frac{g\beta\Delta T L^3}{\nu^2},\qquad
+Ra=Gr\,Pr.
 $$
 
-Physical interpretation:
+{% include elements/figure.html image="/assets/img/posts/thermal-dynamics/convection-dimensionless-map.svg" caption="Figure 5. Convection dimensionless map. Reynolds, Prandtl, Peclet, Nusselt, Grashof, and Rayleigh numbers compare inertia, viscosity, heat diffusion, advection, and buoyancy." alt="Dimensionless number map for convection linking Reynolds Prandtl Peclet Nusselt Grashof and Rayleigh numbers" %}
 
-- $Re$ compares inertia to viscosity,
-- $Pr$ compares momentum diffusion to thermal diffusion,
-- $Pe$ compares advection to thermal diffusion,
-- $Nu$ measures enhancement beyond pure conduction,
-- $Ra$ controls buoyancy-driven instability and natural convection strength.
+These numbers are regime tests:
 
-### 8.3 Boundary layers
+- \(Re\): inertia versus viscosity;
+- \(Pr\): momentum diffusion versus thermal diffusion;
+- \(Pe\): advection versus thermal diffusion;
+- \(Nu\): convection enhancement over pure conduction;
+- \(Ra\): buoyancy-driven convection tendency.
 
-Near a wall, velocity and temperature adjust in thin layers. Whether the thermal boundary layer is thicker or thinner than the velocity boundary layer depends strongly on $Pr$.
+Thermal radiation obeys the blackbody relation
 
-That single fact explains why liquid metals, air, and oils show radically different convection behavior.
+$$
+E_b=\sigma T^4,
+$$
 
-### 8.4 Natural convection and buoyancy
+and, in a simple gray-surface exchange approximation,
 
-Under the Boussinesq approximation, density variation is neglected everywhere except in the buoyancy term. This captures thermal plumes, room convection, and many heat-exchanger or electronics-cooling flows without needing full compressible dynamics.
+$$
+q=\epsilon\sigma A(T_s^4-T_{sur}^4).
+$$
 
-### 8.5 Heat exchangers as controlled entropy management
-
-Heat exchangers are often taught as LMTD or NTU problems, but their deeper meaning is this:
-
-- they move energy between streams,
-- they must do so with finite temperature difference,
-- therefore they inevitably generate entropy.
-
-The engineering problem is to get the required heat duty with acceptable pressure drop, size, cost, and irreversibility.
+Radiation is nonlinear, spectral, and geometry-dependent. At high temperature it can dominate conduction and convection.
 
 ---
 
-## 9. Radiation, Phase Change, and Interfacial Thermal Physics
+## 8. Cycles, Devices, and Limits
 
-### 9.1 Thermal radiation
+Ideal cycles are skeletons, not real machines. Carnot, Otto, Diesel, Brayton, and Rankine cycles reveal how heat addition, compression, expansion, and rejection are organized. Real devices add friction, pressure loss, finite-rate heat transfer, leakage, material temperature limits, and off-design control.
 
-A blackbody emits
-
-$$
-E_b = \sigma T^4.
-$$
-
-Real surfaces emit less:
+For a heat engine between reservoirs,
 
 $$
-q = \epsilon \sigma A \left(T_s^4 - T_{sur}^4\right)
+\eta \le 1-\frac{T_c}{T_h}.
 $$
-
-in the simplest enclosure approximation.
-
-Radiation is nonlinear, geometry-dependent, and spectral. At high temperatures it often becomes the dominant mode of heat transfer.
-
-### 9.2 View factors and participating media
-
-Radiative exchange depends on geometry through view factors. If the medium itself absorbs, emits, or scatters radiation, one needs the radiative transfer equation rather than a simple surface-balance model.
-
-This matters in furnaces, combustion chambers, atmospheric physics, and reentry heating.
-
-### 9.3 Boiling, condensation, and critical heat flux
-
-Phase-change heat transfer is powerful because latent heat is large, but it is also dangerous because transport can change regime abruptly.
-
-Key ideas:
-
-- nucleate boiling provides very high heat-transfer rates,
-- film boiling insulates the surface,
-- critical heat flux marks the transition beyond which the surface can overheat dramatically,
-- condensation may be filmwise or dropwise, with very different coefficients.
-
-These are classic examples where interfacial physics, hydrodynamics, and thermodynamics all matter simultaneously.
-
----
-
-## 10. Open Systems, Cycles, and Exergy
-
-### 10.1 Ideal cycles are structure, not reality
-
-Carnot, Otto, Diesel, Brayton, and Rankine cycles are best viewed as idealized skeletons. They reveal how compression, expansion, heat addition, and heat rejection are organized, but real devices depart because of:
-
-- friction,
-- finite-rate heat transfer,
-- pressure losses,
-- leakage,
-- nonideal combustion,
-- off-design operation,
-- material temperature limits.
-
-### 10.2 Efficiency limits
-
-For a heat engine between hot and cold reservoirs,
-
-$$
-\eta \le 1 - \frac{T_c}{T_h}.
-$$
-
-This is not a statement about engine cleverness. It is a fundamental limit set by the second law.
 
 For refrigerators and heat pumps,
 
 $$
-COP_R = \frac{Q_L}{W_{in}}, \qquad
-COP_{HP} = \frac{Q_H}{W_{in}}.
-$$
-
-### 10.3 Exergy: the value of energy
-
-Energy is conserved; exergy is not. Exergy measures the maximum useful work relative to a reference environment.
-
-A common specific-flow exergy expression is
-
-$$
-b = (h-h_0) - T_0(s-s_0) + \frac{V^2}{2} + gz.
-$$
-
-For closed systems one often uses
-
-$$
-b = (u-u_0) + p_0(v-v_0) - T_0(s-s_0) + \frac{V^2}{2} + gz.
-$$
-
-The exergy destruction relation
-
-$$
-\dot X_{dest} = T_0 \dot S_{gen}
-$$
-
-is one of the most useful equations in advanced thermal design. It identifies where useful work potential is being destroyed and therefore where redesign effort matters most.
-
-### 10.4 A master-level cycle question
-
-At undergraduate level one asks: "What is the efficiency?"
-
-At master level one asks:
-
-- where is entropy generated,
-- which component dominates exergy destruction,
-- what constraint is active: temperature limit, pressure drop, stress, chemistry, or control,
-- what model fidelity is required to improve the design.
-
----
-
-## 11. Nonequilibrium Thermodynamics and Coupled Transport
-
-Classical equilibrium thermodynamics is not the whole story. Real systems operate with gradients and fluxes.
-
-### 11.1 Entropy production density
-
-A generic local entropy balance can be written as
-
-$$
-\rho \frac{Ds}{Dt} + \nabla \cdot \mathbf{J}_s = \sigma_s,
+COP_R=\frac{Q_L}{W_{in}},
 \qquad
-\sigma_s \ge 0,
+COP_{HP}=\frac{Q_H}{W_{in}}.
 $$
 
-where $\sigma_s$ is the entropy production density.
+{% include elements/figure.html image="/assets/img/posts/thermal-dynamics/cycle-exergy-losses.svg" caption="Figure 6. Thermal cycle losses. Ideal cycle analysis gives a limit; exergy analysis locates component losses from finite temperature differences, pressure drops, friction, and irreversibility." alt="Thermal cycle diagram showing heat source heat sink work output turbine compressor heat exchanger and exergy destruction locations" %}
 
-For coupled transport, $\sigma_s$ is built from products of fluxes and thermodynamic forces.
+The master-level question is not only "what is efficiency?" It is:
 
-### 11.2 Linear irreversible thermodynamics
-
-Near equilibrium, one often writes
-
-$$
-J_i = \sum_j L_{ij} X_j,
-$$
-
-where $J_i$ are fluxes and $X_j$ are driving forces such as gradients of temperature, chemical potential, or electric potential.
-
-Onsager reciprocity states, under suitable symmetry assumptions,
-
-$$
-L_{ij} = L_{ji}.
-$$
-
-This framework explains thermoelectricity, diffusion-heat coupling, and other cross-effects that lie beyond basic heat-transfer courses.
-
-### 11.3 Why this matters in engineering
-
-Many "empirical" couplings are really compressed nonequilibrium thermodynamics:
-
-- thermo-diffusion in mixtures,
-- electrochemical heating in batteries,
-- thermoelastic damping,
-- porous-media heat and mass transport,
-- reacting-flow enthalpy and species coupling.
-
-If a thermal system has gradients of temperature, composition, or electrical potential, nonequilibrium thinking is usually the right language.
+- where is entropy generated?
+- which component destroys the most exergy?
+- what active constraint dominates: material temperature, pressure drop, combustion chemistry, heat-transfer area, control stability, or cost?
 
 ---
 
-## 12. Coupling Thermal Physics to Fluids, Solids, and Materials
+## 9. Coupled and Nonequilibrium Thermal Physics
 
-### 12.1 Fluid mechanics coupling
-
-Thermal gradients change density, viscosity, sound speed, and phase. That is why thermal analysis and fluid analysis cannot usually be separated in:
-
-- natural convection,
-- combustion,
-- atmospheric and ocean flows,
-- turbomachinery,
-- boiling channels,
-- high-speed compressible flow.
-
-The energy equation is as fundamental to fluid mechanics as continuity and momentum.
-
-### 12.2 Solid mechanics coupling
-
-Thermal fields create stress through expansion mismatch. A simple isotropic thermal strain is
+Real systems operate with gradients and coupled fluxes. A local entropy balance can be written as
 
 $$
-\epsilon_{th} = \alpha_T \Delta T.
+\rho\frac{Ds}{Dt}+\nabla\cdot\mathbf{J}_s=\sigma_s,
+\qquad
+\sigma_s\ge0.
 $$
 
-If expansion is constrained, thermal stress develops. This governs:
+Near equilibrium, linear irreversible thermodynamics writes
 
-- thermal shock,
-- warping in manufacturing,
-- residual stress in welding,
-- electronic packaging failure,
-- turbine blade life,
-- brake-disc cracking.
+$$
+J_i=\sum_j L_{ij}X_j,
+$$
 
-### 12.3 Materials physics coupling
+where \(J_i\) are fluxes and \(X_j\) are thermodynamic forces. Under suitable symmetry assumptions,
 
-Material thermal behavior comes from microstructure:
+$$
+L_{ij}=L_{ji}.
+$$
 
-- crystalline order affects conductivity,
-- defects scatter phonons,
-- porosity changes effective diffusivity,
-- phase transformations alter latent heat and expansion,
-- radiation properties depend on surface chemistry and roughness.
+This language explains thermoelectricity, coupled heat/mass diffusion, porous-media transport, electrochemical heating, and reacting-flow coupling.
 
-So advanced thermal design is never independent of materials science.
+Thermal physics also couples directly to:
 
-### 12.4 Chemistry and reacting systems
+- **fluids**: buoyancy, compressibility, turbulence, combustion, boiling;
+- **solids**: thermal stress, shock, residual stress, packaging failure;
+- **materials**: phonon/electron transport, phase transformations, porosity;
+- **chemistry**: reaction enthalpy, kinetics, species diffusion.
 
-Combustion, fuel cells, catalysis, and batteries are thermal systems with chemical work and composition evolution. Their correct models require:
+Constrained thermal strain is
 
-- species balances,
-- reaction kinetics,
-- enthalpy of formation,
-- heat release,
-- diffusion and transport limitations.
+$$
+\epsilon_{th}=\alpha_T\Delta T,
+$$
 
-That is why modern thermal engineering often looks like coupled thermodynamics + fluid mechanics + electrochemistry + materials physics.
+and if that strain cannot relax, thermal stress follows. This is why thermal analysis is inseparable from mechanics in welding, brakes, turbine blades, electronics, and additive manufacturing.
 
 ---
 
-## 13. Modeling Hierarchy: From Simple Balances to Research-Grade Physics
+## 10. Modeling Hierarchy
 
-The right model depends on the dominant physics and the decision you need to make.
+Choose the simplest model that captures the dominant mechanism:
 
-### 13.1 Level 1: Equilibrium thermodynamics
+1. **Equilibrium thermodynamics** for state changes, ideal limits, and property bookkeeping.
+2. **Lumped dynamic models** when spatial gradients are weak and \(Bi\ll1\).
+3. **Distributed transport models** when temperature, velocity, or concentration vary in space.
+4. **Multiphysics models** when phase change, radiation, reaction, deformation, or microstructure dominate.
 
-Use when the goal is state change, ideal performance limit, or cycle bookkeeping.
+The mature question is not "what is the most advanced model?" It is:
 
-Typical tools:
-
-- property relations,
-- phase diagrams,
-- energy and entropy balances,
-- exergy accounting.
-
-### 13.2 Level 2: Lumped dynamic models
-
-Use when spatial gradients are weak or intentionally averaged out.
-
-Typical tools:
-
-- thermal capacitance networks,
-- overall heat-transfer coefficients,
-- reduced-order control-oriented models.
-
-### 13.3 Level 3: Distributed transport models
-
-Use when temperature, velocity, or concentration vary significantly in space.
-
-Typical tools:
-
-- heat equation,
-- advection-diffusion equations,
-- Navier-Stokes + energy,
-- conjugate heat transfer,
-- porous-media models.
-
-### 13.4 Level 4: Multiphysics and multiscale models
-
-Use when phase change, reaction, radiation, deformation, or microstructure matter strongly.
-
-Typical tools:
-
-- CFD with species and radiation,
-- phase-field methods,
-- kinetic or mesoscopic models,
-- thermo-mechanical finite elements,
-- reduced models informed by detailed simulation.
-
-### 13.5 The master-level habit
-
-Do not ask "What is the most advanced model I can write?"
-
-Ask:
-
-- which terms dominate,
-- which constitutive law is uncertain,
-- which approximation sets the error floor,
-- which measurement can falsify the model fastest.
-
-That habit is what separates mathematically dense work from genuinely good physics.
+- which term dominates?
+- which constitutive relation is uncertain?
+- which approximation sets the error floor?
+- which measurement would falsify the model fastest?
 
 ---
 
-## 14. Common Conceptual Traps
+## What This Framework Lets Us Do
 
-1. Treating heat as something stored rather than transferred.
-2. Using entropy only as a formula instead of as an irreversibility measure.
-3. Applying ideal-gas relations in dense, high-pressure, or two-phase regions.
-4. Using $c_p$ and $k$ as constants when temperature dependence is dominant.
-5. Forgetting that "steady state" can still contain strong spatial gradients.
-6. Confusing equilibrium thermodynamics with transport-limited reality.
-7. Ignoring exergy and therefore missing where performance is actually lost.
-8. Using a convection coefficient correlation outside its regime.
-9. Ignoring coupling to stress, chemistry, or flow when the physics is multiphysics.
+This framework lets us connect thermodynamics, heat transfer, fluids, materials, and energy systems:
 
----
+- energy balances say what is conserved;
+- entropy balances say what direction is possible and what work potential is lost;
+- potentials say which state changes are spontaneous under constraints;
+- transport equations say how fast fields evolve;
+- dimensionless groups say which regime we are in;
+- exergy says where redesign effort matters.
 
-## 15. A Master-Level Way to Study Thermal Dynamics
+## Where the Framework Stops Being Reliable
 
-If you want this topic to feel coherent rather than fragmented, study it in the following order:
+It fails when assumptions are violated: non-equilibrium too strong for local \(T,p,s\), correlations used outside range, ideal gas models used in dense or two-phase regions, constant properties used across large temperature spans, radiation geometry ignored, or thermal coupling to stress/chemistry/flow neglected.
 
-1. **Thermodynamic structure**
-   Learn state variables, the first and second laws, entropy, and thermodynamic potentials until differential relations feel natural.
-2. **Statistical interpretation**
-   Connect entropy, free energy, and heat capacity to microscopic states and molecular motion.
-3. **Transport equations**
-   Derive Fourier conduction and the heat equation from conservation laws, then add advection and coupling to flow.
-4. **Real substances and phase change**
-   Study why equations of state fail, why latent heat exists, and how interfaces alter thermal behavior.
-5. **Exergy and irreversibility**
-   Use entropy generation to rank losses in actual devices.
-6. **Multiphysics coupling**
-   Tie thermal analysis to fluids, solids, materials, and chemistry.
+## Where the Subject Leads Next
 
-At that point, thermodynamics stops looking like a disconnected service subject and starts looking like what it really is: the physics of energy, disorder, matter, and limits.
+Thermal dynamics leads to fluid dynamics, combustion, electronics cooling, building physics, heat exchangers, turbomachinery, phase-change systems, batteries, materials processing, and climate/energy systems.
 
 ---
 
-## 16. Compact Recall Map
+## Compact Recall Map
 
-- **State and equilibrium** tell you how to describe matter.
-- **First law** tells you how to account for energy.
-- **Second law** tells you which directions are possible and what useful work is lost.
-- **Potentials and response functions** tell you how materials react to constraints.
-- **Phase equilibrium** tells you where matter changes structure.
-- **Transport equations** tell you how fast thermal fields evolve.
-- **Exergy** tells you where design improvement matters.
-- **Coupled multiphysics** tells you why real thermal systems rarely belong to thermodynamics alone.
+1. Define the system boundary before writing balances.
+2. Heat and work are transfers; internal energy is stored.
+3. Entropy generation marks irreversibility.
+4. Exergy identifies destroyed useful work potential.
+5. Phase equilibrium is thermodynamic; boiling and condensation are interfacial transport.
+6. Heat conduction is diffusion of thermal energy.
+7. Convection is heat transfer coupled to flow.
+8. Radiation is nonlinear and geometry-dependent.
+9. Dimensionless groups determine regime and model validity.
+10. Real thermal systems are usually multiphysics.
 
-This is the level at which thermal dynamics connects back to physics: not as memorized formulas, but as one consistent description of energy, matter, gradients, and irreversible change.
+---
+
+## Technical and Editorial Audit
+
+| Area | Correction or decision |
+|---|---|
+| Central question | Reframed thermal dynamics around state, energy, entropy, transport, exergy, and model hierarchy. |
+| Preserved equations | Kept state derivatives, first-law balances, entropy balance, potentials, response functions, phase relations, heat equation, dimensionless groups, radiation, cycle limits, exergy, entropy production, and thermal strain. |
+| Units and assumptions | Clarified boundary types, local equilibrium, lumped validity, ideal-gas limits, and regime dependence of correlations. |
+| Figures | Added six original SVG diagrams for boundaries, entropy/exergy, phase change, lumped/distributed models, convection groups, and cycle exergy losses. |
+| Editorial correction | Reduced dense theorem-like sequencing and reorganized around engineering questions and model validity. |
+
+## Main Sources Used in This Note
+
+- CityU MNE2112 and MNE3121 course material.
+- Standard references such as Cengel and Boles, _Thermodynamics_, and Incropera et al., _Fundamentals of Heat and Mass Transfer_.

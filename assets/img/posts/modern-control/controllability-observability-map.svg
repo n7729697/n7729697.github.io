@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Controllability and observability geometry</title>
+  <desc id="desc">State space directions, actuator reachability, and sensor visibility.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <g font-family="Georgia, serif" fill="#293331">
+    <text x="50" y="56" font-size="26" font-weight="700">Two Structural Questions</text>
+    <line x1="460" y1="88" x2="460" y2="360" stroke="#b9aa8e" stroke-width="2"/>
+    <text x="110" y="105" font-size="20" font-weight="700">Can actuators reach the mode?</text>
+    <text x="575" y="105" font-size="20" font-weight="700">Can sensors see the mode?</text>
+    <ellipse cx="245" cy="228" rx="150" ry="88" fill="#d5e3ce" stroke="#3d6657" stroke-width="2"/>
+    <path d="M100 228 C155 150 315 150 390 228" fill="none" stroke="#3d6657" stroke-width="3"/>
+    <circle cx="200" cy="210" r="10" fill="#3d6657"/><circle cx="280" cy="240" r="10" fill="#3d6657"/><circle cx="335" cy="205" r="10" fill="#b05a48"/>
+    <text x="132" y="332" font-size="15">rank [B AB ... A^(n-1)B] = n</text>
+    <ellipse cx="680" cy="228" rx="150" ry="88" fill="#d8e8f0" stroke="#426a7e" stroke-width="2"/>
+    <path d="M540 178 L820 278" stroke="#426a7e" stroke-width="3"/>
+    <path d="M540 278 L820 178" stroke="#426a7e" stroke-width="3"/>
+    <circle cx="626" cy="205" r="10" fill="#426a7e"/><circle cx="710" cy="250" r="10" fill="#426a7e"/><circle cx="760" cy="205" r="10" fill="#b05a48"/>
+    <text x="555" y="332" font-size="15">rank [C; CA; ...; CA^(n-1)] = n</text>
+    <text x="70" y="382" font-size="15" fill="#5f625c">Red modes are structurally risky: feedback or estimation cannot repair missing actuation or missing measurement.</text>
+  </g>
+</svg>

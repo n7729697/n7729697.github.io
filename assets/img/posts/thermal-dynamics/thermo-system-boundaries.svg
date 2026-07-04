@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Thermodynamic system boundaries</title>
+  <desc id="desc">Closed system and open control volume showing heat, work, and mass flow carrying enthalpy and entropy.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.box{fill:#fff7e8;stroke:#b89057;stroke-width:3}.cv{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="90" y="160" width="300" height="190" rx="18" class="box"/><text x="240" y="238" class="text">closed system</text><text x="240" y="268" class="small">mass fixed</text>
+  <path d="M60 210 H90" class="arrow"/><text x="55" y="195" class="small">Q</text><path d="M390 300 H435" class="arrow"/><text x="420" y="285" class="small">W</text>
+  <rect x="590" y="160" width="300" height="190" rx="18" class="cv"/><text x="740" y="238" class="text">control volume</text><text x="740" y="268" class="small">mass crosses boundary</text>
+  <path d="M525 250 H590" class="arrow"/><text x="540" y="230" class="small">ṁ,h,s</text><path d="M890 250 H950" class="arrow"/><text x="915" y="230" class="small">ṁ,h,s</text><path d="M625 125 V160" class="arrow"/><text x="625" y="110" class="small">Q</text><path d="M740 350 V400" class="arrow"/><text x="770" y="390" class="small">shaft work</text>
+</svg>

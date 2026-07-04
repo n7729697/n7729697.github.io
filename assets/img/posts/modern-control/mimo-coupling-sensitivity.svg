@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">MIMO coupling and sensitivity</title>
+  <desc id="desc">Matrix plant with multiple inputs and outputs and matrix sensitivity functions.</desc>
+  <rect width="920" height="420" fill="#f7f5ef"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#334c57"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#253238">
+    <text x="50" y="58" font-size="26" font-weight="700">MIMO: Channels Interact</text>
+    <rect x="330" y="130" width="250" height="145" rx="18" fill="#d8e8ec" stroke="#416a76" stroke-width="2"/>
+    <text x="420" y="190" font-size="30">G(s)</text>
+    <text x="377" y="224" font-size="16">matrix plant</text>
+    <g stroke="#334c57" stroke-width="3" marker-end="url(#arrow)">
+      <path d="M100 150 H330"/><path d="M100 205 H330"/><path d="M100 260 H330"/>
+      <path d="M580 150 H820"/><path d="M580 205 H820"/><path d="M580 260 H820"/>
+    </g>
+    <g font-size="17">
+      <text x="61" y="155">u1</text><text x="61" y="210">u2</text><text x="61" y="265">u3</text>
+      <text x="835" y="155">y1</text><text x="835" y="210">y2</text><text x="835" y="265">y3</text>
+      <path d="M355 150 L555 260" stroke="#9a563e" stroke-width="2"/>
+      <path d="M355 260 L555 150" stroke="#9a563e" stroke-width="2"/>
+      <path d="M355 205 L555 205" stroke="#9a563e" stroke-width="2"/>
+      <text x="295" y="326">S(s) = (I + G(s)F_y(s))^-1</text>
+      <text x="322" y="354">T(s) = I - S(s)</text>
+    </g>
+  </g>
+</svg>

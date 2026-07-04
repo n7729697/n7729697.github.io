@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Timing and conversion boundaries</title>
+  <desc id="desc">Digital timing path and ADC sampling boundary.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Boundaries Create Timing Errors</text>
+    <line x1="80" y1="150" x2="820" y2="150" stroke="#4c5854" stroke-width="2"/>
+    <g stroke="#426a7a" stroke-width="3" fill="none">
+      <path d="M110 150 v-45 h70 v45 h70 v-45 h70 v45 h70 v-45 h70 v45"/>
+    </g>
+    <rect x="180" y="185" width="170" height="62" rx="12" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="215" y="223" font-size="16">setup/hold window</text>
+    <rect x="515" y="185" width="190" height="62" rx="12" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="550" y="223" font-size="16">sampling aperture</text>
+    <line x1="265" y1="185" x2="265" y2="106" stroke="#4e6f52" stroke-width="2" stroke-dasharray="6 5"/>
+    <line x1="610" y1="185" x2="610" y2="106" stroke="#8b5849" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="132" y="315" font-size="17">Tclk >= tclk-to-q + tlogic + tsetup + tskew</text>
+    <text x="132" y="348" font-size="15" fill="#5f625c">Digital timing, converter settling, and clock jitter are all time-domain error budgets.</text>
+  </g>
+</svg>

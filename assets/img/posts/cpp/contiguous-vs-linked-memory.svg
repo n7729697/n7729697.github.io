@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Contiguous versus linked memory access</title>
+  <desc id="desc">Comparison of contiguous vector-like memory blocks and scattered linked-list nodes connected by pointers.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/>
+    </marker>
+    <style>
+      .cell{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}
+      .node{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:23px;fill:#26313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="980" height="520" fill="#f8f4ea"/>
+  <text x="245" y="70" class="text">contiguous layout</text>
+  <text x="735" y="70" class="text">linked layout</text>
+  <g transform="translate(90,150)">
+    <rect x="0" y="0" width="70" height="70" class="cell"/>
+    <rect x="70" y="0" width="70" height="70" class="cell"/>
+    <rect x="140" y="0" width="70" height="70" class="cell"/>
+    <rect x="210" y="0" width="70" height="70" class="cell"/>
+    <rect x="280" y="0" width="70" height="70" class="cell"/>
+    <text x="35" y="44" class="small">x0</text>
+    <text x="105" y="44" class="small">x1</text>
+    <text x="175" y="44" class="small">x2</text>
+    <text x="245" y="44" class="small">x3</text>
+    <text x="315" y="44" class="small">x4</text>
+  </g>
+  <path d="M110 265 H420" class="arrow"/>
+  <text x="250" y="315" class="small">predictable sequential access</text>
+  <g>
+    <rect x="600" y="135" width="85" height="58" rx="10" class="node"/>
+    <rect x="780" y="115" width="85" height="58" rx="10" class="node"/>
+    <rect x="700" y="250" width="85" height="58" rx="10" class="node"/>
+    <rect x="565" y="350" width="85" height="58" rx="10" class="node"/>
+    <text x="642" y="170" class="small">n0</text>
+    <text x="822" y="150" class="small">n1</text>
+    <text x="742" y="285" class="small">n2</text>
+    <text x="607" y="385" class="small">n3</text>
+    <path d="M685 165 C725 150 745 145 780 145" class="arrow"/>
+    <path d="M822 173 C810 220 775 245 760 250" class="arrow"/>
+    <path d="M700 292 C660 320 630 340 620 350" class="arrow"/>
+  </g>
+  <text x="735" y="445" class="small">pointer chasing can defeat locality and prefetching</text>
+</svg>

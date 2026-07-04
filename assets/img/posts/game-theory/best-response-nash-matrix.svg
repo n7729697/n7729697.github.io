@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Best response Nash matrix</title>
+  <desc id="desc">Two-by-two payoff matrix with best response arrows and Nash equilibrium highlighted.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Nash = Mutual Best Response</text>
+    <rect x="245" y="105" width="420" height="240" fill="#fffaf0" stroke="#4c5854" stroke-width="2"/>
+    <line x1="455" y1="105" x2="455" y2="345" stroke="#4c5854" stroke-width="2"/><line x1="245" y1="225" x2="665" y2="225" stroke="#4c5854" stroke-width="2"/>
+    <rect x="455" y="225" width="210" height="120" fill="#d7e4ce" opacity=".85"/>
+    <text x="330" y="170" font-size="18">(3,2)</text><text x="535" y="170" font-size="18">(0,0)</text><text x="330" y="290" font-size="18">(0,0)</text><text x="535" y="290" font-size="18">(2,3)</text>
+    <text x="500" y="292" font-size="15">NE</text>
+    <text x="315" y="92" font-size="16">Left</text><text x="520" y="92" font-size="16">Right</text><text x="190" y="170" font-size="16">Top</text><text x="185" y="290" font-size="16">Bottom</text>
+  </g>
+</svg>

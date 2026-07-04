@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Numerical decision map</title>
+  <desc id="desc">Problem structure, conditioning, algorithm choice, stability, and validation connected as a workflow.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Scientific Computing Decision Map</text>
+    <g font-size="16">
+      <rect x="70" y="140" width="145" height="82" rx="14" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="102" y="174">structure</text><text x="96" y="198">SPD, sparse, rank</text>
+      <rect x="270" y="140" width="145" height="82" rx="14" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="300" y="174">conditioning</text><text x="302" y="198">sensitivity</text>
+      <rect x="470" y="140" width="145" height="82" rx="14" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="502" y="174">algorithm</text><text x="501" y="198">cost + stability</text>
+      <rect x="670" y="140" width="145" height="82" rx="14" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="704" y="174">validate</text><text x="699" y="198">residual/error</text>
+    </g>
+    <path d="M215 181 H270" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M415 181 H470" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M615 181 H670" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M742 225 C630 310 260 310 142 225" fill="none" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="195" y="330" font-size="15" fill="#5f625c">Bad residuals or unstable behavior should send us back to scaling, model structure, or algorithm choice.</text>
+  </g>
+</svg>

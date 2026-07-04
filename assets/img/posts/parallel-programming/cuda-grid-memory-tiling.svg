@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">CUDA grid and memory tiling</title>
+  <desc id="desc">CUDA grid of blocks loading global memory tiles into shared memory.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">CUDA: Map Work and Reuse Tiles</text>
+    <rect x="105" y="115" width="300" height="200" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <g stroke="#426a7a"><line x1="205" y1="115" x2="205" y2="315"/><line x1="305" y1="115" x2="305" y2="315"/><line x1="105" y1="181" x2="405" y2="181"/><line x1="105" y1="248" x2="405" y2="248"/></g>
+    <text x="210" y="342" font-size="15">grid of thread blocks</text>
+    <rect x="585" y="130" width="230" height="70" rx="12" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="640" y="172" font-size="17">global memory</text>
+    <rect x="610" y="245" width="180" height="70" rx="12" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="648" y="287" font-size="17">shared tile</text>
+    <path d="M700 200 V245" stroke="#4c5854" stroke-width="3"/>
+    <text x="665" y="230" font-size="14">stage</text>
+  </g>
+</svg>

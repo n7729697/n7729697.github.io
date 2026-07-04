@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Lumped versus distributed thermal models</title>
+  <desc id="desc">Comparison of lumped capacitance model with nearly uniform temperature and distributed heat equation model with internal gradients.</desc>
+  <style>.body{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.grad1{fill:#f1d8cc}.grad2{fill:#d8e4ef}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="105" y="160" width="300" height="190" rx="18" class="body"/><text x="255" y="225" class="text">lumped model</text><text x="255" y="255" class="small">Bi &lt;&lt; 1</text><text x="255" y="285" class="small">T(t) nearly uniform</text>
+  <rect x="575" y="160" width="300" height="190" rx="18" fill="#d8e4ef" stroke="#607c94" stroke-width="3"/>
+  <rect x="575" y="160" width="100" height="190" class="grad1" opacity=".7"/><rect x="775" y="160" width="100" height="190" class="grad2" opacity=".7"/>
+  <text x="725" y="225" class="text">distributed model</text><text x="725" y="255" class="small">Bi not small</text><text x="725" y="285" class="small">T(x,t) field required</text>
+  <text x="490" y="440" class="small">Bi compares internal conduction resistance with surface convection resistance.</text>
+</svg>

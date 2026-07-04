@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Adjoint twist frame map</title>
+  <desc id="desc">Adjoint transforms twist coordinates between frames.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Adjoint Maps Twists Between Frames</text>
+    <rect x="110" y="145" width="220" height="130" rx="18" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="175" y="200" font-size="21">twist in A</text><text x="160" y="230" font-size="16">linear + angular</text>
+    <rect x="590" y="145" width="220" height="130" rx="18" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="655" y="200" font-size="21">twist in B</text><text x="640" y="230" font-size="16">same motion</text>
+    <path d="M330 210 H590" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="405" y="190" font-size="18">Ad(T_AB)</text>
+    <text x="305" y="340" font-size="15" fill="#5f625c">Frame changes are not just rotations for twists; translation couples linear and angular velocity.</text>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Courtyard spatial hierarchy</title>
+  <desc id="desc">Plan diagram of a courtyard compound showing gate, screen wall, side rooms, courtyard, principal hall, and increasing privacy with depth.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#3f6c72"/>
+    </marker>
+    <style>
+      .wall{fill:#efe2c9;stroke:#4d463c;stroke-width:4}
+      .room{fill:#c78b5a;stroke:#4d2f1e;stroke-width:3}
+      .court{fill:#f9f1df;stroke:#b5a079;stroke-width:2;stroke-dasharray:8 8}
+      .path{stroke:#3f6c72;stroke-width:5;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:23px;fill:#24313a}
+      .small{font-family:Georgia,serif;font-size:18px;fill:#3b4750}
+    </style>
+  </defs>
+  <rect width="920" height="520" fill="#f8f4ea"/>
+  <rect x="110" y="55" width="700" height="390" class="wall"/>
+  <rect x="360" y="75" width="200" height="72" class="room"/>
+  <text x="392" y="119" class="text">principal hall</text>
+  <rect x="135" y="185" width="125" height="170" class="room"/>
+  <rect x="660" y="185" width="125" height="170" class="room"/>
+  <text x="154" y="275" class="text">side</text>
+  <text x="687" y="275" class="text">side</text>
+  <rect x="310" y="175" width="300" height="190" class="court"/>
+  <text x="407" y="276" class="text">courtyard</text>
+  <rect x="390" y="388" width="140" height="57" class="room"/>
+  <text x="429" y="424" class="text">gate</text>
+  <rect x="390" y="335" width="140" height="18" fill="#6f5b47"/>
+  <text x="540" y="350" class="small">screen wall</text>
+  <path d="M460 485 V455 M460 388 V360 M460 330 V155" class="path"/>
+  <text x="590" y="485" class="small">public entry</text>
+  <text x="585" y="93" class="small">greater privacy / status</text>
+  <path d="M570 104 H760" class="path"/>
+</svg>

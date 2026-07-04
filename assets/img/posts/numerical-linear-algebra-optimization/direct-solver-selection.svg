@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Direct solver selection</title>
+  <desc id="desc">Selection tree for LU, Cholesky, QR, and SVD based on matrix structure.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Match Solver to Structure</text>
+    <rect x="360" y="92" width="200" height="66" rx="12" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="398" y="132" font-size="18">linear algebra task</text>
+    <rect x="90" y="235" width="150" height="72" rx="12" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="145" y="278" font-size="18">LU</text>
+    <rect x="290" y="235" width="150" height="72" rx="12" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="325" y="278" font-size="18">Cholesky</text>
+    <rect x="490" y="235" width="150" height="72" rx="12" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="555" y="278" font-size="18">QR</text>
+    <rect x="690" y="235" width="150" height="72" rx="12" fill="#e7dff0" stroke="#64527b" stroke-width="2"/><text x="755" y="278" font-size="18">SVD</text>
+    <path d="M450 158 L165 235" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M455 158 L365 235" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M465 158 L565 235" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M470 158 L765 235" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="93" y="335" font-size="14">general square</text><text x="278" y="335" font-size="14">symmetric positive definite</text><text x="492" y="335" font-size="14">least squares</text><text x="690" y="335" font-size="14">rank deficient / low rank</text>
+  </g>
+</svg>

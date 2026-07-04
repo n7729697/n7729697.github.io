@@ -6,425 +6,217 @@ color: light
 description: A merged modern-control note covering state-space modelling, controllability and observability, observers, MIMO systems, LQG and MPC, robust multivariable control, and graph-theoretic multi-agent coordination.
 ---
 
-## 1. Why Modern Control Needs More Than Classical Loops
+_This note is adapted from course materials for **FEL3210 Multivariable Control** and **FEL3330 Networked and Multi-Agent Control Systems** at **KTH Royal Institute of Technology**. Instructors: course teaching staff._
 
-Classical control is strongest when one loop dominates and transfer-function design stays readable. Modern control begins when that picture becomes too narrow:
+## Central Question
 
-- the system has many internal states,
-- several inputs and outputs interact,
-- only part of the state is measured,
-- the controller is implemented digitally,
-- uncertainty and constraints matter,
-- multiple agents must coordinate over a network.
+Modern control asks a different question from classical loop shaping: **what internal state, information pattern, and uncertainty model are needed to make a coupled dynamic system behave well?**
 
-The state-space model is the common language:
+Classical design often begins with one transfer function and one loop. Modern control begins with a state model:
 
 $$
 \dot x = Ax + Bu, \qquad y = Cx + Du.
 $$
 
-It keeps the internal dynamics visible and scales naturally from SISO to MIMO, from single agents to networked teams.
+This representation keeps internal modes visible. It also scales naturally to sampled controllers, MIMO plants, observers, optimal control, robust design, and networked agents.
 
-## 2. State-Space Modelling and Realization
+{% include figure.html image="/assets/img/posts/modern-control/state-space-design-loop.svg" alt="State-space control workflow from model to structure tests, controller, observer, and validation." caption="Modern control is a workflow: model the state, test structural properties, synthesize controller and observer, then validate against uncertainty and implementation limits." %}
 
-### 2.1 What the state means
+## 1. State-Space Models
 
-The state $x(t)$ is the minimal information needed, together with future inputs, to predict future behavior. In the linear time-invariant case:
+The state $x(t)$ is the information needed, together with future inputs, to predict future behavior. In an LTI model:
 
-- $A$ describes the free dynamics,
-- $B$ tells how inputs move the state,
-- $C$ maps the state to measured outputs,
-- $D$ represents direct feedthrough.
-
-### 2.2 From physics to state space
+- $A$ encodes free dynamics and natural modes,
+- $B$ encodes actuator authority,
+- $C$ encodes what sensors reveal,
+- $D$ encodes direct input-output feedthrough.
 
 For a mass-spring-damper system
 
 $$
-m \ddot q + b \dot q + k q = u,
+m\ddot q + b\dot q + kq = u,
 $$
 
-choose
+choosing $x_1=q$, $x_2=\dot q$ gives
 
 $$
-x_1=q, \qquad x_2=\dot q.
+\dot x =
+\begin{bmatrix}
+0 & 1 \\
+-k/m & -b/m
+\end{bmatrix}x+
+\begin{bmatrix}
+0 \\ 1/m
+\end{bmatrix}u.
 $$
 
-Then
+The point is not only algebraic neatness. The state model tells us which physical energy-storage modes exist, how they are coupled, and which ones can be actuated or measured.
+
+## 2. Structural Tests: Can We Control and Observe It?
+
+For $\dot x=Ax$, stability follows from eigenvalues of $A$: continuous-time asymptotic stability requires all eigenvalues in the open left-half plane.
+
+Controllability asks whether inputs can move every state direction:
 
 $$
-\dot x_1=x_2, \qquad
-\dot x_2=-\frac{k}{m}x_1-\frac{b}{m}x_2+\frac{1}{m}u.
+\mathcal{C}=\begin{bmatrix}B & AB & A^2B & \cdots & A^{n-1}B\end{bmatrix}, \qquad
+\operatorname{rank}\mathcal{C}=n.
 $$
 
-The higher-order ODE has become a first-order vector equation. That is the standard modern-control move.
-
-### 2.3 From transfer functions to realization
-
-A transfer function can be realized in many state coordinates. Under zero initial conditions:
-
-$$
-G(s)=C(sI-A)^{-1}B+D.
-$$
-
-So transfer functions do not disappear in modern control; they sit inside the state-space representation.
-
-The important point is structural:
-
-- transfer functions show the input-output map,
-- state-space models show the internal geometry used for feedback, observers, and MIMO design.
-
-## 3. Stability, Controllability, and Observability
-
-### 3.1 Stability from eigenvalues
-
-For
-
-$$
-\dot x=Ax,
-$$
-
-the natural modes are determined by the eigenvalues of $A$, equivalently the roots of
-
-$$
-\det(sI-A)=0.
-$$
-
-All eigenvalues in the left half plane imply asymptotic stability.
-
-### 3.2 Controllability
-
-The controllability matrix is
-
-$$
-\mathcal{C}=\begin{bmatrix}B & AB & A^2B & \cdots & A^{n-1}B\end{bmatrix}.
-$$
-
-If $\operatorname{rank}\mathcal{C}=n$, the pair $(A,B)$ is controllable.
-
-### 3.3 Observability
-
-The observability matrix is
+Observability asks whether outputs reveal every internal mode:
 
 $$
 \mathcal{O}=
 \begin{bmatrix}
-C \\
-CA \\
-\vdots \\
+C\\
+CA\\
+\vdots\\
 CA^{n-1}
-\end{bmatrix}.
+\end{bmatrix}, \qquad
+\operatorname{rank}\mathcal{O}=n.
 $$
 
-If $\operatorname{rank}\mathcal{O}=n$, the pair $(C,A)$ is observable.
+These are design gates. If an unstable mode is uncontrollable, feedback cannot move it. If an important mode is unobservable, an observer cannot reconstruct it from the available measurements.
 
-### 3.4 Why these tests matter
+{% include figure.html image="/assets/img/posts/modern-control/controllability-observability-map.svg" alt="A diagram mapping actuator authority and sensor visibility to controllable and observable state directions." caption="Controllability and observability are geometric questions about which state directions actuators can reach and sensors can distinguish." %}
 
-These are not cosmetic rank conditions. They answer two design questions:
+## 3. Feedback, Observers, and Separation
 
-- can feedback move all unstable or poorly damped modes?
-- can measurements reveal the internal modes the controller needs to know?
-
-If the answer is no, pole placement or observer design is structurally blocked before tuning even starts.
-
-## 4. State Feedback, Observers, and the Separation Principle
-
-### 4.1 Full-state feedback
-
-With
+Full-state feedback uses
 
 $$
 u=-Kx+Nr,
 $$
 
-the closed-loop system becomes
+which yields closed-loop dynamics
 
 $$
 \dot x=(A-BK)x+BNr.
 $$
 
-If $(A,B)$ is controllable, the matrix $K$ can place the closed-loop poles where the design requires.
+If $(A,B)$ is controllable, the closed-loop poles can be assigned through $K$. In practice, pole placement is most useful for intuition and small systems; for larger coupled systems, optimal or robust methods often give better-conditioned designs.
 
-### 4.2 A structural theorem
-
-**Theorem.** If $(A,B)$ is controllable, then state-feedback pole placement is possible for any desired monic characteristic polynomial of degree $n$.
-
-**Proof sketch.** In controllable coordinates, the system can be written in controllable companion form. In that form, the feedback gain enters the last row directly and therefore changes the closed-loop characteristic polynomial coefficients arbitrarily. Similarity transformations preserve eigenvalues, so the pole assignment result holds in the original coordinates as well.
-
-This theorem is the state-space analogue of what root locus hints at in the scalar case.
-
-### 4.3 Observers
-
-A standard Luenberger observer is
+When $x$ is not measured directly, a Luenberger observer estimates it:
 
 $$
 \dot{\hat x}=A\hat x+Bu+L(y-C\hat x).
 $$
 
-The estimation error $\tilde x=x-\hat x$ satisfies
+The estimation error $\tilde x=x-\hat x$ follows
 
 $$
 \dot{\tilde x}=(A-LC)\tilde x.
 $$
 
-If $(C,A)$ is observable, the observer poles can be placed by choosing $L$.
+For LTI systems, the separation principle says controller poles and observer poles can be designed independently when controllability and observability hold. The practical caveat is important: noise, delay, saturation, and model error still couple the designs in implementation.
 
-### 4.4 Separation principle
+## 4. MIMO Control Is Not Many Independent SISO Loops
 
-**Proposition.** For LTI systems, if $(A,B)$ is controllable and $(C,A)$ is observable, state-feedback and observer design can be carried out independently.
-
-**Proof sketch.** In augmented coordinates $(x,\tilde x)$, the combined controller-observer dynamics become block upper triangular. The eigenvalues are therefore the union of the controller poles and observer poles. This triangular structure is the algebraic reason the two designs separate.
-
-In practice, noise, saturation, and model error still couple performance. But structurally, the design split is real and powerful.
-
-## 5. Digital Control and Sampled Systems
-
-Real controllers usually run on processors, so discrete-time models matter:
-
-$$
-x_{k+1}=A_d x_k+B_d u_k, \qquad y_k=C_d x_k+D_d u_k.
-$$
-
-The key shifts are:
-
-- stability moves from the left half plane to the interior of the unit circle,
-- sampling period becomes part of the design,
-- zero-order hold, discretization, and aliasing matter,
-- observer and feedback design can be done directly in discrete time.
-
-This is one reason modern control is inseparable from implementation. The controller is not only a transfer function on paper; it is a real algorithm executed at a real rate.
-
-## 6. MIMO Systems and Multivariable Feedback
-
-The merged multivariable viewpoint starts with the matrix transfer relation
+For a multivariable plant,
 
 $$
 Y(s)=G(s)U(s),
 $$
 
-where $G(s)$ is a transfer-function matrix.
+the entries of $G(s)$ reveal interaction: one actuator can influence several outputs, and one output may need several actuators. Pairing, decoupling, and robustness are therefore structural decisions, not tuning afterthoughts.
 
-### 6.1 Coupling
-
-The main difficulty is interaction:
-
-- one input may move several outputs,
-- one output may depend on several inputs,
-- improving one channel may worsen another,
-- constraints are shared across the full system.
-
-This is why multivariable control is not just "many SISO loops."
-
-### 6.2 Sensitivity in MIMO form
-
-With feedback law described by a matrix controller $F_y(s)$,
+The sensitivity functions generalize to matrices:
 
 $$
-S(s)=\left(I+G(s)F_y(s)\right)^{-1},
+S(s)=\left(I+G(s)F_y(s)\right)^{-1}, \qquad T(s)=I-S(s).
 $$
 
-$$
-T(s)=I-S(s).
-$$
+Good multivariable design balances disturbance rejection, actuator effort, channel interaction, and uncertainty. If decentralized loops are used, the reason should be justified by weak coupling, robust pairing, or implementation constraints rather than convenience.
 
-These matrix-valued functions describe disturbance propagation, model sensitivity, and closed-loop bandwidth just as in SISO design, but now channel interaction matters too.
+{% include figure.html image="/assets/img/posts/modern-control/mimo-coupling-sensitivity.svg" alt="MIMO block diagram showing actuator-output coupling and matrix sensitivity functions." caption="MIMO control treats cross-coupling explicitly; sensitivity is matrix-valued, so improvement in one channel can move risk into another." %}
 
-### 6.3 Pairing and decoupling
+## 5. Optimal and Predictive Control
 
-Important multivariable questions include:
-
-- which actuator should primarily regulate which output,
-- whether decentralized control is enough,
-- whether approximate decoupling is possible,
-- whether the system is square, overactuated, or underactuated.
-
-State space is usually cleaner than pure transfer-matrix algebra once these questions become serious.
-
-## 7. LQR, LQG, and MPC
-
-### 7.1 LQR
-
-For
+Linear Quadratic Regulator design chooses $u=-Kx$ to minimize
 
 $$
-\dot x=Ax+Bu
+J=\int_0^\infty (x^\top Qx+u^\top Ru)\,dt.
 $$
 
-with quadratic cost
+The matrices $Q$ and $R$ encode a design philosophy: which state deviations are expensive, and how costly actuator effort should be. The gain is obtained from an algebraic Riccati equation.
 
-$$
-J=\int_0^\infty (x^\top Qx+u^\top Ru)\,dt,
-$$
+LQG combines LQR with a Kalman filter. The controller handles optimal regulation, while the estimator handles noisy measurements under linear-Gaussian assumptions.
 
-the optimal feedback law is
+Model Predictive Control repeatedly solves a constrained finite-horizon problem:
 
-$$
-u^*=-Kx, \qquad K=R^{-1}B^\top P,
-$$
-
-where $P$ solves the algebraic Riccati equation.
-
-LQR is attractive because:
-
-- state and input penalties are transparent,
-- the resulting controller is multivariable by construction,
-- it produces a principled speed-versus-effort tradeoff.
-
-### 7.2 LQG
-
-LQG adds a Kalman filter to LQR:
-
-- LQR handles control optimality,
-- Kalman filtering handles state estimation under Gaussian stochastic assumptions.
-
-This is the archetypal observer-based optimal controller for linear systems.
-
-### 7.3 MPC
-
-Model Predictive Control repeats the same cycle:
-
-1. predict future behavior over a horizon,
-2. solve a constrained optimization problem,
+1. predict future state trajectories,
+2. optimize inputs subject to constraints,
 3. apply the first input,
 4. measure again and repeat.
 
-MPC is especially natural for MIMO systems because:
+MPC is especially natural for MIMO plants because input bounds, state limits, and coupled dynamics are part of the optimization problem rather than external patches.
 
-- constraints on states and inputs are central,
-- coupled predictions are handled natively,
-- tuning is expressed through horizons and weights rather than only pole locations.
+{% include figure.html image="/assets/img/posts/modern-control/mpc-receding-horizon.svg" alt="Receding-horizon control diagram showing predicted trajectory, constraints, first input application, and horizon shift." caption="MPC turns control into repeated constrained prediction: optimize a horizon, apply the first move, then shift the horizon after measurement." %}
 
-## 8. Robust Multivariable Control: $H_\infty$, $\mu$, and Uncertainty
+## 6. Robustness, Sampling, and Implementation
 
-Real design never uses a perfect model. Robust control asks what the controller guarantees under bounded uncertainty.
+Real controllers run on imperfect models and processors. A continuous controller becomes software or firmware with a sampling period, quantization, computation delay, actuator saturation, and sensor noise.
 
-### 8.1 Uncertainty models
+In discrete time,
 
-Common uncertainty descriptions include:
+$$
+x_{k+1}=A_d x_k+B_d u_k,\qquad y_k=C_d x_k+D_d u_k,
+$$
 
-- additive uncertainty,
-- multiplicative uncertainty,
-- parametric uncertainty,
-- structured block uncertainty.
+stability moves from the left-half $s$-plane to the inside of the unit circle in the $z$-plane. Sampling should be chosen from bandwidth, delay margin, sensor noise, and actuator limits, not by a generic rule alone.
 
-The point is not to model everything exactly. The point is to state clearly which modeling errors are being protected against.
+Robust control formalizes uncertainty. $H_\infty$ design minimizes worst-case amplification from disturbances to performance outputs, while structured singular value ideas track block-structured uncertainty. The engineering lesson is broader than any one method: state what model errors are protected against, and validate performance over that model family.
 
-### 8.2 $H_\infty$ viewpoint
+## 7. Networked and Multi-Agent Control
 
-$H_\infty$ control frames design as a worst-case gain minimization problem:
-
-> make the largest closed-loop amplification from disturbance to performance output as small as possible.
-
-This naturally emphasizes:
-
-- disturbance rejection,
-- robustness margins,
-- weighted sensitivity shaping.
-
-In that sense, $H_\infty$ is a mathematically sharpened version of loop shaping.
-
-### 8.3 $\mu$-synthesis
-
-$\mu$-synthesis extends the robust story to structured uncertainty. The structured singular value $\mu$ measures how close the uncertain closed loop is to instability or poor performance under block-structured perturbations.
-
-High-level interpretation:
-
-- $H_\infty$ treats uncertainty in a more aggregated way,
-- $\mu$-synthesis keeps track of structure,
-- the price is more analytical and computational complexity.
-
-For many engineers, the conceptual takeaway is enough: robust multivariable design is about guaranteeing performance not only for one nominal plant but for a family of plausible plants.
-
-## 9. Graph-Theoretic and Multi-Agent Control
-
-Modern control also applies when many dynamic agents interact over a communication graph.
-
-### 9.1 Graph language
-
-Let the graph have Laplacian $L$. For single-integrator agents
+For single-integrator agents
 
 $$
 \dot x_i=u_i,
 $$
 
-a basic consensus law is
+a basic consensus controller is
 
 $$
-u_i=-\sum_{j \in \mathcal{N}_i} a_{ij}(x_i-x_j).
+u_i=-\sum_{j\in\mathcal{N}_i}a_{ij}(x_i-x_j).
 $$
 
 Stacking all states gives
 
 $$
-\dot x=-(L \otimes I)x.
+\dot x=-(L\otimes I)x,
 $$
 
-### 9.2 Consensus lemma
+where $L$ is the graph Laplacian. For a connected undirected graph, $L$ is positive semidefinite and has one zero eigenvalue corresponding to the consensus direction. All disagreement modes decay, so agents converge to a common value.
 
-**Lemma.** For a connected undirected graph, the Laplacian $L$ is positive semidefinite and has a simple zero eigenvalue associated with the vector of all ones.
+{% include figure.html image="/assets/img/posts/modern-control/consensus-laplacian-modes.svg" alt="Networked agents decomposed into consensus and disagreement modes governed by Laplacian eigenvalues." caption="Consensus separates into an average mode that remains and disagreement modes that decay according to Laplacian eigenvalues." %}
 
-**Proof sketch.** Symmetry gives real eigenvalues. Also
+Leader-follower tracking, formation control, distributed estimation, and cooperative MPC extend this logic by changing the graph, objectives, constraints, or information pattern.
 
-$$
-z^\top L z = \frac{1}{2}\sum_{i,j} a_{ij}(z_i-z_j)^2 \ge 0,
-$$
+## What This Framework Lets Us Do
 
-so $L$ is positive semidefinite. The nullspace consists of vectors constant on each connected component. If the graph is connected, the nullspace is exactly the span of the all-ones vector.
+Modern control lets us design systems where internal state, coupling, constraints, uncertainty, and network structure matter simultaneously. It is the natural bridge from classical feedback to robotics, power systems, process control, autonomous vehicles, and distributed infrastructure.
 
-### 9.3 Consensus theorem
+## Where the Framework Stops Being Reliable
 
-**Theorem.** Under the consensus law above, agents on a connected undirected graph converge to a common state.
+Linear models are local approximations. If saturation, contact, switching, delays, unmodeled resonances, packet loss, or human interaction dominate behavior, state-space methods still help, but the design must be extended with nonlinear analysis, hybrid models, robust validation, or experiments.
 
-**Proof sketch.** Decompose the state into the consensus subspace and disagreement subspace. The disagreement dynamics are governed by strictly positive Laplacian eigenvalues, which create exponential decay. Only the average component remains.
+## Where the Subject Leads Next
 
-This is the core geometric fact behind consensus, formation maintenance, and cooperative estimation.
+For loop shaping, root locus, Nyquist, and classical compensators, see [Control Theory Basics]({% post_url 2019-05-18-control-theory-basics %}). For Lyapunov geometry, backstepping, sliding mode, and nonlinear design, see [Topics in Nonlinear Systems]({% post_url 2023-03-18-topics-in-nonlinear-systems %}). For adaptive, optimal, robust, and learning guarantees, see [Adaptive, Optimal, Robust, and Learning Control]({% post_url 2025-05-10-adaptive-control %}).
 
-### 9.4 Leader-follower, formation, and swarms
+## Technical and Editorial Audit
 
-Once pure consensus is understood, several extensions become natural:
+- Corrected the emphasis from a list of methods to the causal design chain: model, structural tests, synthesis, robustness, implementation.
+- Kept the course attribution in the main body rather than front matter.
+- Preserved internal links to the surrounding control-note sequence.
+- Added original figures for state-space workflow, structural tests, MIMO sensitivity, MPC, and consensus modes.
+- Claims are standard LTI/control facts; exact controller synthesis details require numerical plant data and software verification.
 
-- **leader-follower** control: some agents track a designated leader trajectory,
-- **formation control**: agents stabilize relative positions or distances,
-- **swarm and team coordination**: collective objectives emerge from local rules,
-- **distributed MPC**: optimization is split across agents that exchange predictions.
+## Main Sources Used in This Note
 
-These topics sit naturally beside graph Laplacians because the communication structure is part of the control problem.
-
-## 10. Game-Theoretic Control
-
-Not every multi-agent problem is cooperative. Sometimes each controller optimizes its own objective.
-
-That leads to game-theoretic control ideas:
-
-- Nash equilibria,
-- differential games,
-- dynamic games with coupled costs,
-- cooperative versus non-cooperative resource allocation.
-
-The central conceptual shift is simple:
-
-- in standard optimal control there is one decision-maker,
-- in game-theoretic control there are many,
-- each agent changes the environment seen by the others.
-
-This viewpoint matters in traffic systems, energy systems, autonomous fleets, and adversarial control settings.
-
-## 11. Reading Map Across the Control Series
-
-This note is the bridge between the classical and advanced notes:
-
-- for loop shaping, root locus, Nyquist, and classical compensators, see [Control Theory Basics]({% post_url 2019-05-18-control-theory-basics %}),
-- for Lyapunov geometry, backstepping, sliding mode, and nonlinear design, see [Topics in Nonlinear Systems]({% post_url 2023-03-18-topics-in-nonlinear-systems %}),
-- for adaptive, optimal, robust, and learning guarantees, see [Adaptive, Optimal, Robust, and Learning Control]({% post_url 2025-05-10-adaptive-control %}).
-
-## 12. Compact Recall Map
-
-Modern control can be reduced to one recurring workflow:
-
-1. write a state-space model,
-2. test stability, controllability, and observability,
-3. design state feedback and observers,
-4. move naturally to MIMO, digital, and optimal control,
-5. add uncertainty, constraints, and network structure without changing the core language.
-
-Classical control teaches how to shape one loop well. Modern control teaches how to reason about internal state, coupled channels, uncertainty, and coordinated agents as one system.
+- K. J. Astrom and R. M. Murray, _Feedback Systems_.
+- T. Kailath, _Linear Systems_.
+- S. Skogestad and I. Postlethwaite, _Multivariable Feedback Control_.
+- D. P. Bertsekas, _Dynamic Programming and Optimal Control_.
+- R. Olfati-Saber, J. A. Fax, and R. M. Murray, "Consensus and Cooperation in Networked Multi-Agent Systems."

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Manufacturing quality learning loop</title>
+  <desc id="desc">Closed-loop manufacturing quality system linking feedstock, process, measurement, inspection, field data, corrective action, and design/process updates.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker>
+  <style>.node{fill:#fff7e8;stroke:#b89057;stroke-width:3}.core{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:20px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style></defs>
+  <rect width="980" height="560" fill="#f8f4ea"/>
+  <rect x="390" y="230" width="200" height="90" rx="14" class="core"/><text x="490" y="265" class="text">stable process</text><text x="490" y="292" class="small">capable and measured</text>
+  <rect x="90" y="90" width="180" height="75" rx="12" class="node"/><text x="180" y="122" class="text">feedstock</text><text x="180" y="146" class="small">lot variation</text>
+  <rect x="400" y="70" width="180" height="75" rx="12" class="node"/><text x="490" y="102" class="text">recipe</text><text x="490" y="126" class="small">parameters</text>
+  <rect x="710" y="90" width="180" height="75" rx="12" class="node"/><text x="800" y="122" class="text">measurement</text><text x="800" y="146" class="small">MSA, SPC</text>
+  <rect x="710" y="390" width="180" height="75" rx="12" class="node"/><text x="800" y="422" class="text">field data</text><text x="800" y="446" class="small">returns, failures</text>
+  <rect x="400" y="415" width="180" height="75" rx="12" class="node"/><text x="490" y="447" class="text">corrective action</text><text x="490" y="471" class="small">verify permanence</text>
+  <rect x="90" y="390" width="180" height="75" rx="12" class="node"/><text x="180" y="422" class="text">design rules</text><text x="180" y="446" class="small">update limits</text>
+  <path d="M270 128 C330 150 370 190 410 230" class="arrow"/><path d="M490 145 V225" class="arrow"/><path d="M710 128 C650 150 610 190 570 230" class="arrow"/><path d="M590 305 C650 340 710 370 780 390" class="arrow"/><path d="M710 428 H585" class="arrow"/><path d="M400 452 H270" class="arrow"/><path d="M180 390 C230 330 300 300 390 285" class="arrow"/>
+</svg>

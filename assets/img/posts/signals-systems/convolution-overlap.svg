@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Convolution as overlap</title>
+  <desc id="desc">One signal reversed and shifted over another, with the overlap area forming output.</desc>
+  <rect width="920" height="420" fill="#fbf8f1"/>
+  <g font-family="Georgia, serif" fill="#293331">
+    <text x="50" y="58" font-size="26" font-weight="700">Convolution = Flip, Slide, Accumulate</text>
+    <line x1="80" y1="290" x2="820" y2="290" stroke="#4d5956" stroke-width="2"/>
+    <path d="M150 290 L150 170 L295 170 L295 290" fill="#d7e3cd" stroke="#42644f" stroke-width="3"/>
+    <path d="M430 290 C455 200 520 200 550 290" fill="#ead2c8" stroke="#8b5849" stroke-width="3"/>
+    <path d="M385 290 C405 218 468 218 492 290" fill="#d8e7ef" stroke="#406a7d" stroke-width="3" opacity=".85"/>
+    <text x="190" y="158" font-size="18">x(tau)</text>
+    <text x="512" y="210" font-size="18">h(t - tau)</text>
+    <text x="380" y="328" font-size="16">overlap area becomes y(t)</text>
+    <path d="M590 205 H700" stroke="#4d5956" stroke-width="3" marker-end="url(#arrow)"/>
+    <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#4d5956"/></marker></defs>
+    <rect x="710" y="145" width="110" height="120" rx="12" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="742" y="198" font-size="22">y(t)</text>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Pole-zero stability maps</title>
+  <desc id="desc">Continuous-time and discrete-time stability regions.</desc>
+  <rect width="920" height="420" fill="#f7f4ec"/>
+  <g font-family="Georgia, serif" fill="#25312f">
+    <text x="50" y="56" font-size="26" font-weight="700">Pole-Zero Geometry</text>
+    <text x="185" y="100" font-size="19">s-plane</text><text x="615" y="100" font-size="19">z-plane</text>
+    <rect x="75" y="125" width="330" height="230" fill="#e4eadc" stroke="#69735c" stroke-width="2"/>
+    <line x1="240" y1="135" x2="240" y2="345" stroke="#555" stroke-width="2"/><line x1="85" y1="240" x2="395" y2="240" stroke="#555" stroke-width="2"/>
+    <rect x="75" y="125" width="165" height="230" fill="#b7d1bd" opacity=".55"/>
+    <text x="95" y="147" font-size="14">stable left-half plane</text>
+    <text x="328" y="260" font-size="14">Re</text><text x="250" y="145" font-size="14">Im</text>
+    <text x="150" y="220" font-size="26">x</text><text x="185" y="280" font-size="26">x</text><circle cx="310" cy="205" r="10" fill="none" stroke="#9b5847" stroke-width="3"/>
+    <rect x="515" y="125" width="330" height="230" fill="#e9eef1" stroke="#657985" stroke-width="2"/>
+    <circle cx="680" cy="240" r="82" fill="#bdd5df" opacity=".55" stroke="#426a7a" stroke-width="3"/>
+    <line x1="680" y1="135" x2="680" y2="345" stroke="#555" stroke-width="2"/><line x1="525" y1="240" x2="835" y2="240" stroke="#555" stroke-width="2"/>
+    <text x="555" y="147" font-size="14">stable inside unit circle</text>
+    <text x="805" y="260" font-size="14">Re</text><text x="690" y="145" font-size="14">Im</text>
+    <text x="640" y="220" font-size="26">x</text><text x="718" y="275" font-size="26">x</text><circle cx="775" cy="190" r="10" fill="none" stroke="#9b5847" stroke-width="3"/>
+  </g>
+</svg>

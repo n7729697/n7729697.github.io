@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Entropy and exergy flow</title>
+  <desc id="desc">Energy flow from a source through a device to useful work and rejected heat, with entropy generation destroying exergy.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.hot{fill:#f1d8cc;stroke:#b45d47;stroke-width:3}.dev{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.cold{fill:#d8e4ef;stroke:#607c94;stroke-width:3}.arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}.loss{stroke:#b45d47;stroke-width:5;fill:none;marker-end:url(#arrow);stroke-dasharray:9 7}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="80" y="200" width="170" height="95" rx="14" class="hot"/><text x="165" y="240" class="text">hot source</text><text x="165" y="266" class="small">T_h</text>
+  <rect x="390" y="185" width="200" height="125" rx="16" class="dev"/><text x="490" y="235" class="text">device</text><text x="490" y="262" class="small">irreversible</text>
+  <rect x="735" y="200" width="170" height="95" rx="14" class="cold"/><text x="820" y="240" class="text">environment</text><text x="820" y="266" class="small">T_0</text>
+  <path d="M250 247 H390" class="arrow"/><text x="315" y="225" class="small">heat / energy</text>
+  <path d="M590 230 H735" class="arrow"/><text x="660" y="210" class="small">rejected heat</text>
+  <path d="M490 185 V105" class="arrow"/><text x="515" y="120" class="small">useful work</text>
+  <path d="M490 310 C520 370 595 405 700 420" class="loss"/><text x="520" y="400" class="small">X_dest = T_0 S_gen</text>
+</svg>

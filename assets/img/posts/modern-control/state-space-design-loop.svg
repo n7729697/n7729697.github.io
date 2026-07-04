@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">State-space design loop</title>
+  <desc id="desc">Workflow from physics to model, structural tests, synthesis, implementation, and validation.</desc>
+  <rect width="920" height="420" fill="#f7f4ec"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#365a54"/></marker>
+  </defs>
+  <g font-family="Georgia, serif" fill="#25312f">
+    <text x="52" y="58" font-size="26" font-weight="700">Modern Control as a Design Loop</text>
+    <g font-size="16">
+      <rect x="55" y="118" width="145" height="82" rx="14" fill="#cdd9c5" stroke="#365a54" stroke-width="2"/>
+      <text x="83" y="150">physics and</text><text x="86" y="174">requirements</text>
+      <rect x="250" y="118" width="145" height="82" rx="14" fill="#f0d9a6" stroke="#8d6b28" stroke-width="2"/>
+      <text x="282" y="150">state model</text><text x="284" y="174">A, B, C, D</text>
+      <rect x="445" y="118" width="145" height="82" rx="14" fill="#d4e5ee" stroke="#3c6577" stroke-width="2"/>
+      <text x="472" y="150">structure</text><text x="464" y="174">rank/eigen tests</text>
+      <rect x="640" y="118" width="145" height="82" rx="14" fill="#ead0c8" stroke="#8d5145" stroke-width="2"/>
+      <text x="676" y="150">synthesis</text><text x="662" y="174">K, L, MPC, LQR</text>
+      <rect x="348" y="272" width="180" height="82" rx="14" fill="#e5dfef" stroke="#63537a" stroke-width="2"/>
+      <text x="390" y="304">implement</text><text x="377" y="328">sample, quantize</text>
+      <rect x="590" y="272" width="180" height="82" rx="14" fill="#d9d0bd" stroke="#655840" stroke-width="2"/>
+      <text x="632" y="304">validate</text><text x="620" y="328">uncertainty + tests</text>
+    </g>
+    <path d="M200 159 H250" stroke="#365a54" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M395 159 H445" stroke="#365a54" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M590 159 H640" stroke="#365a54" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M713 200 C707 242 610 286 528 310" stroke="#365a54" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <path d="M528 313 H590" stroke="#365a54" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M590 336 C400 400 150 342 126 200" stroke="#365a54" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+    <text x="68" y="252" font-size="15" fill="#5c625f">Validation failures loop back to the model or requirements, not only to gain tuning.</text>
+  </g>
+</svg>

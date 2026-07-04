@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Northern and southern courtyard climate adaptations</title>
+  <desc id="desc">A schematic comparison of a more enclosed northern courtyard emphasizing sun and wind protection and a more ventilated southern courtyard emphasizing shade and airflow.</desc>
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#2d6f8f"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#c18420"/>
+    </marker>
+    <style>
+      .house{fill:#d4a66f;stroke:#5a3b24;stroke-width:3}
+      .court{fill:#f9f0d8;stroke:#9a845f;stroke-width:2;stroke-dasharray:7 7}
+      .wind{stroke:#2d6f8f;stroke-width:4;fill:none;marker-end:url(#arrowBlue)}
+      .sun{stroke:#c18420;stroke-width:4;fill:none;marker-end:url(#arrowGold)}
+      .text{font-family:Georgia,serif;font-size:24px;fill:#24313a}
+      .small{font-family:Georgia,serif;font-size:18px;fill:#3b4750}
+    </style>
+  </defs>
+  <rect width="920" height="520" fill="#f8f4ea"/>
+  <text x="150" y="55" class="text">northern tendency</text>
+  <text x="584" y="55" class="text">southern tendency</text>
+  <rect x="90" y="95" width="300" height="285" fill="#eee1c8" stroke="#4d463c" stroke-width="4"/>
+  <rect x="130" y="130" width="220" height="55" class="house"/>
+  <rect x="130" y="290" width="220" height="55" class="house"/>
+  <rect x="160" y="200" width="160" height="70" class="court"/>
+  <path d="M240 75 V125" class="sun"/>
+  <path d="M55 230 H95" class="wind"/>
+  <path d="M78 260 H95" class="wind"/>
+  <text x="94" y="415" class="small">enclosure, wind buffering, winter sun</text>
+  <rect x="530" y="95" width="300" height="285" fill="#eee1c8" stroke="#4d463c" stroke-width="4"/>
+  <rect x="570" y="125" width="220" height="50" class="house"/>
+  <rect x="570" y="305" width="220" height="50" class="house"/>
+  <rect x="590" y="195" width="180" height="90" class="court"/>
+  <path d="M500 235 C575 190 665 190 835 230" class="wind"/>
+  <path d="M500 285 C590 330 700 330 845 290" class="wind"/>
+  <path d="M710 75 V123" class="sun"/>
+  <text x="530" y="415" class="small">shade, ventilation, rain management</text>
+  <text x="172" y="475" class="small">Schematic comparison: actual regional traditions are more diverse.</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Construction sequence from platform to roof</title>
+  <desc id="desc">A six-step schematic sequence showing platform, grid and columns, beams, brackets, roof, and enclosure and finish.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#536b47"/>
+    </marker>
+    <style>
+      .box{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .arrow{stroke:#536b47;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:21px;fill:#26313a}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}
+      .draw{stroke:#5d4632;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+  <rect width="920" height="520" fill="#f8f4ea"/>
+  <g transform="translate(50,70)">
+    <rect width="220" height="120" rx="10" class="box"/>
+    <path d="M45 85 H175 M65 65 H155" class="draw"/>
+    <text x="36" y="32" class="text">1 platform</text>
+    <text x="35" y="108" class="small">site, drainage, datum</text>
+  </g>
+  <path d="M285 130 H350" class="arrow"/>
+  <g transform="translate(360,70)">
+    <rect width="220" height="120" rx="10" class="box"/>
+    <path d="M65 90 V45 M155 90 V45 M65 45 H155" class="draw"/>
+    <text x="34" y="32" class="text">2 frame grid</text>
+    <text x="35" y="108" class="small">columns and beams</text>
+  </g>
+  <path d="M595 130 H660" class="arrow"/>
+  <g transform="translate(670,70)">
+    <rect width="220" height="120" rx="10" class="box"/>
+    <path d="M55 82 H165 M75 62 H145 M95 42 H125" class="draw"/>
+    <text x="30" y="32" class="text">3 brackets</text>
+    <text x="35" y="108" class="small">load transition</text>
+  </g>
+  <path d="M780 205 V275" class="arrow"/>
+  <g transform="translate(670,290)">
+    <rect width="220" height="120" rx="10" class="box"/>
+    <path d="M40 65 L110 25 L180 65 M55 67 H165" class="draw"/>
+    <text x="50" y="32" class="text">4 roof</text>
+    <text x="35" y="108" class="small">weather protection</text>
+  </g>
+  <path d="M660 350 H595" class="arrow"/>
+  <g transform="translate(360,290)">
+    <rect width="220" height="120" rx="10" class="box"/>
+    <path d="M70 85 V45 H150 V85 M92 85 V62 H128 V85" class="draw"/>
+    <text x="26" y="32" class="text">5 enclosure</text>
+    <text x="35" y="108" class="small">walls, screens, doors</text>
+  </g>
+  <path d="M350 350 H285" class="arrow"/>
+  <g transform="translate(50,290)">
+    <rect width="220" height="120" rx="10" class="box"/>
+    <path d="M55 80 C90 45 130 45 165 80 M60 90 H160" class="draw"/>
+    <text x="42" y="32" class="text">6 finish</text>
+    <text x="35" y="108" class="small">paint, carving, paving</text>
+  </g>
+</svg>

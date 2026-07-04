@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">C++ compilation and linking pipeline</title>
+  <desc id="desc">Headers and source files pass through preprocessing and compilation into object files, then the linker combines object files and libraries into an executable.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#3c5664"/>
+    </marker>
+    <style>
+      .box{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .obj{fill:#dcebdc;stroke:#607d5b;stroke-width:3}
+      .arrow{stroke:#3c5664;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:22px;fill:#26313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="980" height="500" fill="#f8f4ea"/>
+  <rect x="45" y="95" width="150" height="90" rx="12" class="box"/>
+  <text x="120" y="130" class="text">headers</text>
+  <text x="120" y="158" class="small">declarations</text>
+  <rect x="45" y="245" width="150" height="90" rx="12" class="box"/>
+  <text x="120" y="280" class="text">.cpp files</text>
+  <text x="120" y="308" class="small">definitions</text>
+  <path d="M195 140 H270" class="arrow"/>
+  <path d="M195 290 H270" class="arrow"/>
+  <rect x="275" y="170" width="170" height="90" rx="12" class="box"/>
+  <text x="360" y="205" class="text">preprocess</text>
+  <text x="360" y="233" class="small">include, macros</text>
+  <path d="M445 215 H520" class="arrow"/>
+  <rect x="525" y="170" width="150" height="90" rx="12" class="obj"/>
+  <text x="600" y="205" class="text">compile</text>
+  <text x="600" y="233" class="small">object files</text>
+  <path d="M675 215 H750" class="arrow"/>
+  <rect x="755" y="120" width="170" height="90" rx="12" class="obj"/>
+  <text x="840" y="155" class="text">link</text>
+  <text x="840" y="183" class="small">objects + libs</text>
+  <rect x="755" y="270" width="170" height="90" rx="12" class="box"/>
+  <text x="840" y="305" class="text">executable</text>
+  <text x="840" y="333" class="small">program image</text>
+  <path d="M840 210 V270" class="arrow"/>
+  <text x="490" y="420" class="small">Many errors are phase-specific: syntax errors at compile time, missing definitions at link time, resource errors at runtime.</text>
+</svg>

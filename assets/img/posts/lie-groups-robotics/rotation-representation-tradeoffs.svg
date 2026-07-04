@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Rotation representation tradeoffs</title>
+  <desc id="desc">Rotation matrix, Euler angles, quaternion, and axis-angle representation tradeoffs.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Rotation Representations Are Engineering Choices</text>
+    <rect x="80" y="120" width="170" height="175" rx="16" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="118" y="160" font-size="20">matrix</text><text x="105" y="205" font-size="15">9 numbers</text><text x="105" y="230" font-size="15">constraints</text>
+    <rect x="275" y="120" width="170" height="175" rx="16" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="318" y="160" font-size="20">Euler</text><text x="300" y="205" font-size="15">intuitive</text><text x="300" y="230" font-size="15">singularities</text>
+    <rect x="470" y="120" width="170" height="175" rx="16" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="510" y="160" font-size="20">axis-angle</text><text x="495" y="205" font-size="15">minimal local</text><text x="495" y="230" font-size="15">special angles</text>
+    <rect x="665" y="120" width="170" height="175" rx="16" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="705" y="160" font-size="20">quaternion</text><text x="690" y="205" font-size="15">compact</text><text x="690" y="230" font-size="15">unit constraint</text>
+  </g>
+</svg>

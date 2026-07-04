@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Representation learning bridge</title>
+  <desc id="desc">Bridge from classical graph features and matrix factorization to embeddings and downstream tasks.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">From Features to Embeddings</text>
+    <rect x="80" y="125" width="185" height="165" rx="18" fill="#ead0c8" stroke="#8a594b" stroke-width="2"/>
+    <text x="124" y="165" font-size="18">classical signals</text><text x="112" y="202" font-size="16">degree, cuts, walks</text><text x="112" y="230" font-size="16">low-rank factors</text>
+    <path d="M265 208 H380" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="390" y="125" width="155" height="165" rx="18" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="432" y="175" font-size="19">embedding</text><text x="430" y="210" font-size="16">z_v in R^k</text>
+    <path d="M545 208 H660" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="670" y="125" width="185" height="165" rx="18" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="723" y="165" font-size="18">tasks</text><text x="704" y="202" font-size="16">link prediction</text><text x="704" y="230" font-size="16">classification</text><text x="704" y="258" font-size="16">recommendation</text>
+    <text x="176" y="350" font-size="15" fill="#5f625c">The embedding objective decides what proximity means; vectors are not neutral facts.</text>
+  </g>
+</svg>

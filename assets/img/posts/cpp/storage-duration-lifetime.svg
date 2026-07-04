@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Storage duration and object lifetime in C++</title>
+  <desc id="desc">Comparison of automatic stack storage, dynamic heap storage, static storage, and thread-local storage over time.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/>
+    </marker>
+    <style>
+      .axis{stroke:#45545e;stroke-width:4;marker-end:url(#arrow)}
+      .bar1{fill:#d7e7dc;stroke:#58735f;stroke-width:3}
+      .bar2{fill:#f0d6bf;stroke:#a86442;stroke-width:3}
+      .bar3{fill:#d8e4ef;stroke:#607c94;stroke-width:3}
+      .text{font-family:Georgia,serif;font-size:22px;fill:#26313a}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}
+    </style>
+  </defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="100" y1="445" x2="900" y2="445" class="axis"/>
+  <text x="880" y="480" class="small">time</text>
+  <text x="80" y="105" class="text">static</text>
+  <rect x="220" y="80" width="640" height="42" rx="8" class="bar3"/>
+  <text x="235" y="107" class="small">program lifetime</text>
+  <text x="80" y="185" class="text">thread local</text>
+  <rect x="300" y="160" width="420" height="42" rx="8" class="bar3"/>
+  <text x="315" y="187" class="small">one instance per thread</text>
+  <text x="80" y="265" class="text">automatic</text>
+  <rect x="360" y="240" width="230" height="42" rx="8" class="bar1"/>
+  <text x="375" y="267" class="small">scope-bound object</text>
+  <text x="80" y="345" class="text">dynamic</text>
+  <rect x="430" y="320" width="290" height="42" rx="8" class="bar2"/>
+  <text x="445" y="347" class="small">owned heap object</text>
+  <line x1="360" y1="225" x2="360" y2="292" stroke="#58735f" stroke-width="3"/>
+  <line x1="590" y1="225" x2="590" y2="292" stroke="#58735f" stroke-width="3"/>
+  <text x="330" y="222" class="small">construct</text>
+  <text x="585" y="222" class="small">destroy</text>
+  <text x="120" y="505" class="small">Storage duration is not the same as ownership. A heap object is safe only when some object controls its lifetime.</text>
+</svg>

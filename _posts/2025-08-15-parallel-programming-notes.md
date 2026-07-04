@@ -6,229 +6,148 @@ color: light
 description: Personal notes from a full parallel programming lecture sequence, from performance basics to distributed memory and CUDA.
 ---
 
-## 1. Big Picture
+_This note is adapted from course materials for **1TD070 Parallel and Distributed Programming** at **Uppsala University**. Instructor: course teaching staff._
 
-Parallel performance is constrained by three coupled factors:
+## Central Question
 
-1. **Algorithmic parallelism** (how much work can be done concurrently),
-2. **Data movement** (memory hierarchy and communication cost),
-3. **Synchronization overhead** (dependencies and coordination).
+Parallel programming asks: **where is the time really going, and can work be reorganized so processors spend less time waiting?**
 
-A practical workflow is:
+Performance is shaped by three constraints:
 
-- optimize serial locality first,
-- scale on shared memory (OpenMP),
-- scale across nodes (MPI),
-- offload data-parallel kernels (CUDA/GPU).
+- available parallelism,
+- data movement through memory and networks,
+- synchronization and dependency overhead.
 
----
+Adding threads is rarely the first fix. A good workflow is: make the serial code clear, improve locality, expose parallelism, choose the memory model, then measure scaling.
 
-## 2. Performance Metrics and Limits
+{% include figure.html image="/assets/img/posts/parallel-programming/parallel-performance-triangle.svg" alt="Triangle connecting algorithmic parallelism, data movement, and synchronization overhead." caption="Parallel speed comes from balancing three forces: independent work, data locality, and coordination cost." %}
 
-Let $T_s$ be best serial time and $T_p$ parallel time on $p$ processors:
+## 1. Speedup, Efficiency, and Scaling Limits
 
-$$
-S_p = \frac{T_s}{T_p}, \qquad E_p = \frac{S_p}{p}.
-$$
-
-Amdahl-style bound with serial fraction $f$:
+If $T_s$ is the best serial time and $T_p$ the time on $p$ processing units, then
 
 $$
-S_p \le \frac{1}{f + \frac{1-f}{p}}.
+S_p=\frac{T_s}{T_p},\qquad E_p=\frac{S_p}{p}.
 $$
 
-Implications:
-
-- even small serial sections cap scalability,
-- communication and synchronization often increase effective serial fraction,
-- weak scaling and strong scaling should both be measured.
-
----
-
-## 3. Memory Hierarchy and Locality
-
-Slides emphasize that many programs run far below peak because of memory bottlenecks.
-
-Hierarchy: registers -> L1/L2/L3 cache -> DRAM -> secondary storage.
-
-Optimization principles:
-
-- exploit **temporal locality** (reuse loaded data),
-- exploit **spatial locality** (contiguous access),
-- increase computational intensity (FLOPs per byte moved),
-- use blocking/tiling and loop unrolling where appropriate.
-
-For matrix multiplication, naive loops are often bandwidth-limited. Blocking raises cache reuse and moves performance toward compute-bound behavior.
-
----
-
-## 4. Shared-Memory Parallelism (OpenMP)
-
-### 4.1 Execution model
-
-OpenMP provides directive-based multithreading with shared variables and private thread-local variables.
-
-Core constructs:
-
-- `parallel`, `for`, `single`, `sections`, `task`,
-- synchronization: `critical`, `atomic`, `barrier`,
-- reductions via `reduction(...)` clause.
-
-### 4.2 Scheduling
-
-`for` schedules control iteration distribution:
-
-- `static[,chunk]`: predictable, low runtime overhead,
-- `dynamic[,chunk]`: better for load imbalance, higher scheduling overhead.
-
-### 4.3 Dependency considerations
-
-- instruction-level dependencies,
-- loop-carried dependencies,
-- reduction patterns (sum/min/max),
-- scan/prefix operations (parallel but requires staged synchronization).
-
----
-
-## 5. Distributed-Memory Parallelism (MPI)
-
-### 5.1 Model
-
-Each process has private memory; explicit communication is required.
-
-Design steps:
-
-1. partition data,
-2. assign work,
-3. design communication pattern,
-4. minimize communication volume + synchronization.
-
-### 5.2 Point-to-point and nonblocking
-
-- blocking: `MPI_Send`, `MPI_Recv`,
-- combined exchange: `MPI_Sendrecv`,
-- nonblocking: `MPI_Isend`, `MPI_Irecv` + completion calls.
-
-Nonblocking communication allows overlap of communication and computation when dependencies permit.
-
-### 5.3 Collectives and data movement
-
-Collectives structure frequent communication motifs; derived datatypes reduce manual packing/unpacking for non-contiguous data.
-
----
-
-## 6. Parallel Dense Linear Algebra Case Study: GEPP
-
-Gaussian Elimination with Partial Pivoting (GEPP):
+Amdahl's law shows the strong-scaling ceiling:
 
 $$
-PA = LU.
+S_p\le \frac{1}{f+\frac{1-f}{p}},
 $$
 
-Partial pivoting improves practical numerical stability by selecting large column pivots.
+where $f$ is the serial fraction. In practice, communication, synchronization, cache misses, and load imbalance increase the effective serial fraction.
 
-Performance issue: naive elimination relies heavily on BLAS-1/2 operations; modern hardware favors BLAS-3.
+Strong scaling fixes problem size and increases processors. Weak scaling grows problem size with processor count. Both are needed: strong scaling reveals overhead, while weak scaling reveals whether the method can handle larger problems.
 
-Key optimization from slides:
+## 2. Memory Hierarchy and Locality
 
-- **blocked GEPP** with delayed updates,
-- accumulate rank-1 updates and apply as matrix-matrix operations,
-- choose block size to balance cache fit and BLAS-3 efficiency.
+Most programs do not run near peak floating-point throughput because data movement is the bottleneck. The hierarchy is registers, cache, DRAM, node memory, network, and storage.
 
-This is the recurring HPC theme: reformulate for higher arithmetic intensity.
+Performance improves when code increases:
 
----
+- temporal locality: reuse data soon,
+- spatial locality: access contiguous data,
+- arithmetic intensity: more work per byte moved.
 
-## 7. CUDA Programming Fundamentals
+Matrix multiplication illustrates the principle. The naive algorithm performs $O(n^3)$ arithmetic, but poor loop order and cache reuse can make it memory-bound. Blocking or tiling reuses submatrices and shifts work toward compute-bound behavior.
 
-### 7.1 Host-device model
+{% include figure.html image="/assets/img/posts/parallel-programming/memory-hierarchy-roofline.svg" alt="Memory hierarchy and roofline-like relationship between arithmetic intensity and achievable performance." caption="Locality optimization raises arithmetic intensity, often unlocking more performance than simply adding parallel workers." %}
 
-CUDA applications split into:
+## 3. Shared Memory with OpenMP
 
-- host code (CPU, orchestration + memory management),
-- device kernels (GPU, massive data-parallel execution).
+OpenMP uses directives to express parallel regions over shared memory. Core constructs include `parallel`, `for`, `single`, `sections`, `task`, `critical`, `atomic`, `barrier`, and `reduction`.
 
-Kernel launch:
+Scheduling controls iteration distribution:
+
+- `static` is predictable and low overhead,
+- `dynamic` helps load imbalance but costs more,
+- chunk size trades scheduling overhead against balance.
+
+The key correctness question is dependence. Independent loop iterations parallelize directly. Reductions require structured combination. Prefix scans and loop-carried dependencies require algorithmic restructuring.
+
+{% include figure.html image="/assets/img/posts/parallel-programming/openmp-dependency-scheduling.svg" alt="OpenMP loop scheduling and dependency patterns including independent work, reduction, and loop-carried dependence." caption="OpenMP performance depends on both scheduling and dependence structure; not every loop is parallel just because it has many iterations." %}
+
+## 4. Distributed Memory with MPI
+
+MPI assumes each process has private memory. Communication is explicit, so design begins with data partitioning.
+
+A distributed algorithm should specify:
+
+1. domain decomposition,
+2. local computation,
+3. halo or neighbor exchange,
+4. collective communication,
+5. load-balance strategy.
+
+Point-to-point communication uses send and receive calls. Nonblocking communication can overlap data transfer with useful computation if dependencies allow. Collectives express common patterns such as broadcast, scatter, gather, reduce, and all-reduce.
+
+The central cost model is that communication has latency and bandwidth terms. Fewer, larger messages often beat many tiny messages, but memory pressure and overlap opportunities matter.
+
+{% include figure.html image="/assets/img/posts/parallel-programming/mpi-domain-decomposition.svg" alt="MPI domain decomposition with local subdomains, halo exchange, and collective reduction." caption="MPI scalability comes from decomposing data so most work is local and communication is structured, sparse, and overlappable." %}
+
+## 5. GPU Programming with CUDA
+
+CUDA separates host orchestration from device kernels:
 
 ```cpp
 Kernel<<<numBlocks, blockSize>>>(...);
 ```
 
-### 7.2 Thread organization and SIMT
+Threads form blocks, blocks form a grid, and warps execute in SIMT fashion. GPUs reward regular data-parallel work and punish divergence, irregular memory access, and excessive synchronization.
 
-Threads are grouped into blocks; blocks form a grid. Mapping 1D/2D problems to grid/block geometry is central for performance and correctness.
-
-### 7.3 Memory behavior
-
-Global DRAM bandwidth is often limiting. Performance requires:
+Important patterns include:
 
 - coalesced global memory access,
 - shared-memory tiling,
-- minimizing redundant loads,
-- avoiding unnecessary synchronization/divergence.
+- reductions through tree-style combination,
+- histogram privatization to reduce atomic contention,
+- occupancy balanced against register and shared-memory usage.
 
----
+For matrix multiplication, a tiled kernel loads subblocks into shared memory and reuses them across many multiply-adds. This reduces global memory traffic and is the same locality story as CPU blocking, but expressed in GPU memory hierarchy.
 
-## 8. CUDA Patterns: Reduction, Histogram, Matrix Multiplication
+{% include figure.html image="/assets/img/posts/parallel-programming/cuda-grid-memory-tiling.svg" alt="CUDA grid of thread blocks loading tiles from global memory into shared memory for matrix multiplication." caption="CUDA performance usually comes from mapping data-parallel work onto grids while staging reused data through shared memory." %}
 
-### 8.1 Reduction
+## 6. Case Study: Gaussian Elimination and Dense Linear Algebra
 
-Reduction (sum/max/min) is associative pattern:
+Gaussian elimination with partial pivoting computes
 
-- partition input,
-- local partial reductions,
-- tree-style combine.
+$$
+PA=LU.
+$$
 
-Parallel reduction gives $O(\log n)$ depth with enough threads.
+Naive elimination uses many low-intensity vector operations. Modern dense linear algebra reorganizes work into blocked updates so most time is spent in matrix-matrix operations. This is the BLAS-3 lesson:
 
-### 8.2 Histogram
+- expose large regular kernels,
+- reuse cache-resident panels,
+- delay updates until they can be batched,
+- tune block size to hardware.
 
-Histogram updates can create high contention.
+The same idea appears in neural-network training, where matrix multiplication, elementwise maps, and reductions dominate forward and backward propagation.
 
-Techniques in slides:
+## What This Framework Lets Us Do
 
-- atomic updates (global/shared memory),
-- privatization (per-block local bins + merge),
-- partitioning strategy tradeoffs.
+Parallel programming gives a practical path from multicore CPUs to distributed clusters and GPUs. It turns performance work into an evidence-driven process: dependency analysis, locality improvement, memory-model choice, and scaling measurement.
 
-### 8.3 Matrix multiplication on GPU
+## Where the Framework Stops Being Reliable
 
-Naive kernel performs many global reads and is memory-bound. Tiled shared-memory kernel reuses subblocks and greatly reduces DRAM traffic.
+Benchmarks can mislead if problem size, NUMA placement, I/O, network contention, compiler flags, or warm-up behavior are uncontrolled. Race conditions and nondeterministic reductions can also make "fast" code scientifically wrong.
 
----
+## Where the Subject Leads Next
 
-## 9. Parallelism for ML Workloads
+The next steps are performance modeling, roofline analysis, task runtimes, hybrid MPI+OpenMP, GPU collectives, distributed deep learning, and reproducible high-performance computing.
 
-Final lecture links to feedforward neural networks and logistic regression training.
+## Technical and Editorial Audit
 
-Core kernels:
+- Rewrote the note around performance causality rather than API listing.
+- Preserved the 1TD070 Uppsala University course attribution in the main text.
+- Added original figures for performance limits, memory hierarchy, OpenMP scheduling, MPI decomposition, and CUDA tiling.
+- Kept key formulas for speedup, efficiency, Amdahl's law, and GEPP.
+- Hardware-specific optimization choices should be verified on the target machine with profiling.
 
-- matrix multiplication,
-- elementwise activation,
-- reduction operations in loss/gradient calculations.
+## Main Sources Used in This Note
 
-Training loop relies on forward + backward propagation; GPU/TPU acceleration is effective because these operations are high-throughput linear algebra primitives.
-
----
-
-## 10. Design Checklist (Practical)
-
-1. Start from correctness and dependency graph.
-2. Quantify baseline (`T_s`, bandwidth, cache misses).
-3. Increase locality before increasing thread/process count.
-4. For OpenMP: choose schedule based on load variance.
-5. For MPI: reduce communication frequency/volume and overlap where possible.
-6. For CUDA: coalesce access, use shared memory tiling, minimize atomics contention.
-7. Validate speedup with both runtime and efficiency, not runtime alone.
-
----
-
-## 11. Compact Formula Sheet
-
-- Speedup: $S_p=T_s/T_p$.
-- Efficiency: $E_p=S_p/p$.
-- Amdahl bound: $S_p\le1/(f+(1-f)/p)$.
-- GEPP factorization: $PA=LU$.
-- Typical matrix multiply work: $O(n^3)$ compute, but performance depends on data movement.
-
-These notes are meant as a concise technical map from multicore CPU programming to distributed computing and GPU acceleration.
+- Uppsala University 1TD070 course materials.
+- J. L. Hennessy and D. A. Patterson, _Computer Architecture: A Quantitative Approach_.
+- M. J. Quinn, _Parallel Programming in C with MPI and OpenMP_.
+- D. B. Kirk and W. W. Hwu, _Programming Massively Parallel Processors_.

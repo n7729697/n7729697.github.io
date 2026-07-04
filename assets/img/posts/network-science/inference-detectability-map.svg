@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Inference detectability map</title>
+  <desc id="desc">Signal-to-noise axis with unrecoverable and recoverable community regions separated by detectability threshold.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Community Detection Has Signal Limits</text>
+    <line x1="115" y1="255" x2="805" y2="255" stroke="#4c5854" stroke-width="3"/>
+    <line x1="450" y1="105" x2="450" y2="300" stroke="#8b5849" stroke-width="3" stroke-dasharray="8 7"/>
+    <rect x="115" y="150" width="335" height="105" fill="#ead0c8" opacity=".8"/>
+    <rect x="450" y="150" width="355" height="105" fill="#d7e4ce" opacity=".8"/>
+    <text x="205" y="205" font-size="20">random-like</text>
+    <text x="555" y="205" font-size="20">recoverable signal</text>
+    <text x="395" y="98" font-size="16">threshold</text>
+    <text x="650" y="288" font-size="15">stronger block separation</text>
+    <text x="122" y="288" font-size="15">weaker signal</text>
+  </g>
+</svg>

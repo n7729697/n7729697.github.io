@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">MPC receding horizon</title>
+  <desc id="desc">Predicted trajectory over a constrained horizon, first control action applied, then horizon shifts.</desc>
+  <rect width="920" height="420" fill="#fbf7ef"/>
+  <g font-family="Georgia, serif" fill="#293230">
+    <text x="50" y="56" font-size="26" font-weight="700">Model Predictive Control</text>
+    <line x1="90" y1="315" x2="845" y2="315" stroke="#4c5854" stroke-width="2"/>
+    <line x1="120" y1="85" x2="120" y2="335" stroke="#4c5854" stroke-width="2"/>
+    <path d="M125 260 C200 210 260 185 335 165 C450 132 560 120 760 112" fill="none" stroke="#2f6f75" stroke-width="4"/>
+    <path d="M125 260 C225 250 340 236 470 245 C600 254 700 232 790 205" fill="none" stroke="#b8644c" stroke-width="3" stroke-dasharray="9 7"/>
+    <rect x="122" y="95" width="685" height="190" fill="none" stroke="#8c6d3d" stroke-width="2" stroke-dasharray="8 8"/>
+    <line x1="225" y1="315" x2="225" y2="96" stroke="#8c6d3d" stroke-width="2"/>
+    <text x="145" y="350" font-size="15">apply first input</text>
+    <text x="385" y="350" font-size="15">optimize over prediction horizon</text>
+    <text x="615" y="88" font-size="15">state/input constraints</text>
+    <circle cx="125" cy="260" r="8" fill="#2f6f75"/>
+    <circle cx="225" cy="210" r="8" fill="#2f6f75"/>
+    <text x="65" y="100" font-size="14">state</text><text x="838" y="338" font-size="14">time</text>
+  </g>
+</svg>

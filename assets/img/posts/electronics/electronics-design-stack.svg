@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Electronics design stack</title>
+  <desc id="desc">Stack from devices through circuits, mixed-signal interfaces, PCB, power, EMC, and validation.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="56" font-size="26" font-weight="700">Electronics Is a Coupled Stack</text>
+    <g font-size="17">
+      <rect x="190" y="300" width="540" height="42" rx="10" fill="#d9d0bd" stroke="#655840"/><text x="405" y="327">validation and reliability</text>
+      <rect x="220" y="252" width="480" height="42" rx="10" fill="#ead0c8" stroke="#8b5849"/><text x="394" y="279">EMC and packaging</text>
+      <rect x="250" y="204" width="420" height="42" rx="10" fill="#d8e8ef" stroke="#426a7a"/><text x="386" y="231">PCB and interconnect</text>
+      <rect x="280" y="156" width="360" height="42" rx="10" fill="#e7dff0" stroke="#64527b"/><text x="380" y="183">mixed-signal + power</text>
+      <rect x="310" y="108" width="300" height="42" rx="10" fill="#d7e4ce" stroke="#4e6f52"/><text x="408" y="135">circuits</text>
+      <rect x="340" y="60" width="240" height="42" rx="10" fill="#eee2b7" stroke="#806632"/><text x="413" y="87">devices</text>
+    </g>
+    <text x="192" y="375" font-size="15" fill="#5f625c">A change at one layer often appears as a bug at another layer.</text>
+  </g>
+</svg>

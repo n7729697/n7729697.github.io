@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Data mining workflow</title>
+  <desc id="desc">Workflow from raw data to representation, scalable algorithm, validation, and decision.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="52" y="58" font-size="26" font-weight="700">Mining Starts with Representation</text>
+    <g font-size="16">
+      <rect x="55" y="135" width="145" height="86" rx="15" fill="#e8d5c2" stroke="#8a5d48" stroke-width="2"/><text x="92" y="170">raw data</text><text x="83" y="194">logs, text, graph</text>
+      <rect x="250" y="135" width="145" height="86" rx="15" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="285" y="170">represent</text><text x="276" y="194">sets, matrix, graph</text>
+      <rect x="445" y="135" width="145" height="86" rx="15" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="480" y="170">scale</text><text x="463" y="194">index, sample, relax</text>
+      <rect x="640" y="135" width="145" height="86" rx="15" fill="#e7dff0" stroke="#64527b" stroke-width="2"/><text x="678" y="170">validate</text><text x="662" y="194">quality + bias + cost</text>
+    </g>
+    <path d="M200 178 H250" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M395 178 H445" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M590 178 H640" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M710 225 C620 310 300 312 135 225" fill="none" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="115" y="325" font-size="15" fill="#5f625c">Evaluation should loop back to representation, not only to model hyperparameters.</text>
+  </g>
+</svg>

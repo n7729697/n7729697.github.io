@@ -6,6 +6,8 @@ color: light
 description: A practical, process-first guide to MEMS microfabrication, from wafer to released device — with process physics, worked examples, and design tradeoffs.
 ---
 
+_This note is adapted from course materials for **IH2659 Nanofabrication Technologies** at **KTH Royal Institute of Technology**. Instructor: course teaching staff._
+
 ## Why Micro-Fabrication Matters
 
 Micro-fabrication is the reason MEMS can exist as an industry and not only as a lab curiosity.

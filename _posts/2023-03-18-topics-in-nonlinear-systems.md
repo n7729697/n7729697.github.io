@@ -6,6 +6,8 @@ color: light
 description: A nonlinear-control note centered on Lyapunov geometry, local and global behavior, gain scheduling, dynamic inversion, backstepping, sliding mode, bang-bang control, fuzzy control, and active disturbance rejection.
 ---
 
+_This note is adapted from course materials for **EL2620 Nonlinear Control** at **KTH Royal Institute of Technology**. Instructor: course teaching staff._
+
 ## 1. Why Nonlinear Systems Matter
 
 Linear models are powerful because they are analyzable and often accurate near an operating point. But physical systems are nonlinear by default.

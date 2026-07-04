@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence map for Solar System formation</title>
+  <desc id="desc">Map connecting meteorites, disk observations, craters, small bodies, exoplanets, orbits, and simulations to inferred formation stages.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#47545f"/>
+    </marker>
+    <style>
+      .center{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}
+      .node{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .arrow{stroke:#47545f;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:20px;fill:#24313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="980" height="620" fill="#f8f4ea"/>
+  <rect x="365" y="250" width="250" height="100" rx="14" class="center"/>
+  <text x="490" y="292" class="text">formation model</text>
+  <text x="490" y="320" class="small">constrained reconstruction</text>
+  <rect x="55" y="70" width="190" height="82" rx="12" class="node"/>
+  <text x="150" y="104" class="text">meteorites</text>
+  <text x="150" y="128" class="small">ages, isotopes, CAIs</text>
+  <rect x="395" y="55" width="190" height="82" rx="12" class="node"/>
+  <text x="490" y="89" class="text">disk images</text>
+  <text x="490" y="113" class="small">rings, gaps, dust</text>
+  <rect x="735" y="70" width="190" height="82" rx="12" class="node"/>
+  <text x="830" y="104" class="text">exoplanets</text>
+  <text x="830" y="128" class="small">migration, diversity</text>
+  <rect x="55" y="270" width="190" height="82" rx="12" class="node"/>
+  <text x="150" y="304" class="text">craters</text>
+  <text x="150" y="328" class="small">impact history</text>
+  <rect x="735" y="270" width="190" height="82" rx="12" class="node"/>
+  <text x="830" y="304" class="text">orbits</text>
+  <text x="830" y="328" class="small">resonance, angular momentum</text>
+  <rect x="210" y="470" width="190" height="82" rx="12" class="node"/>
+  <text x="305" y="504" class="text">small bodies</text>
+  <text x="305" y="528" class="small">asteroids, Kuiper belt</text>
+  <rect x="580" y="470" width="190" height="82" rx="12" class="node"/>
+  <text x="675" y="504" class="text">simulations</text>
+  <text x="675" y="528" class="small">test possible histories</text>
+  <path d="M200 152 C260 210 320 245 365 275" class="arrow"/>
+  <path d="M490 137 V240" class="arrow"/>
+  <path d="M780 152 C720 210 660 245 615 275" class="arrow"/>
+  <path d="M245 310 H355" class="arrow"/>
+  <path d="M735 310 H625" class="arrow"/>
+  <path d="M360 470 C390 420 420 380 455 350" class="arrow"/>
+  <path d="M625 470 C595 420 560 380 525 350" class="arrow"/>
+</svg>

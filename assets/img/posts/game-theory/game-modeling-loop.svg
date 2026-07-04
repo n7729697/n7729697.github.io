@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Game theory modeling loop</title>
+  <desc id="desc">Players, actions, utilities, equilibrium, computation, and redesign connected in a loop.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Game Theory Is Incentive Modeling</text>
+    <rect x="90" y="140" width="140" height="80" rx="14" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="122" y="186" font-size="16">players</text>
+    <rect x="285" y="140" width="140" height="80" rx="14" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="321" y="186" font-size="16">actions</text>
+    <rect x="480" y="140" width="140" height="80" rx="14" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="518" y="186" font-size="16">utilities</text>
+    <rect x="675" y="140" width="140" height="80" rx="14" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="708" y="186" font-size="16">equilibrium</text>
+    <path d="M230 180 H285" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M425 180 H480" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M620 180 H675" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M745 220 C620 315 290 315 160 220" fill="none" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+</svg>

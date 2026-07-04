@@ -6,6 +6,8 @@ color: light
 description: A course-level mechanics and mechanical design note linking force analysis, motion, material response, vibration, and machine element selection into one practical workflow.
 ---
 
+_This note is adapted from course materials for **MNE2109 Engineering Mechanics**, **MNE3010 Mechanical Design**, and **MNE4010 Dynamics and Vibrations** at **City University of Hong Kong**. Instructors: Prof. Lawrence Kwok Yan LI, Prof. Yong Yang._
+
 ## 1. Why Mechanics and Design Must Be Learned Together
 
 Many students first see mechanics as separate chapters, where statics, dynamics, strength, and machine design are

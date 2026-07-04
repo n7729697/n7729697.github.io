@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Robust adaptive modifications</title>
+  <desc id="desc">Robust adaptive control modifications surrounding a nominal adaptive law.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Robust Adaptation Changes the Claim</text>
+    <circle cx="460" cy="215" r="78" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="407" y="210" font-size="18">adaptive law</text><text x="430" y="236" font-size="15">theta dot</text>
+    <g font-size="16">
+      <rect x="100" y="125" width="150" height="60" rx="12" fill="#d7e4ce" stroke="#4e6f52"/><text x="145" y="162">leakage</text>
+      <rect x="100" y="255" width="150" height="60" rx="12" fill="#eee2b7" stroke="#806632"/><text x="143" y="292">projection</text>
+      <rect x="670" y="125" width="150" height="60" rx="12" fill="#ead0c8" stroke="#8b5849"/><text x="718" y="162">dead zone</text>
+      <rect x="670" y="255" width="150" height="60" rx="12" fill="#e7dff0" stroke="#64527b"/><text x="710" y="292">composite</text>
+    </g>
+    <text x="265" y="360" font-size="15" fill="#5f625c">Noise, saturation, and unmodeled dynamics often trade asymptotic tracking for boundedness margins.</text>
+  </g>
+</svg>

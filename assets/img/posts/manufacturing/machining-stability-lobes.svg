@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Machining stability lobes</title>
+  <desc id="desc">Schematic stability lobe diagram showing stable and chatter regions as spindle speed and axial depth of cut vary.</desc>
+  <style>.axis{stroke:#3f5663;stroke-width:4}.curve{stroke:#5f7c57;stroke-width:5;fill:none}.fill{fill:#dcebdc;opacity:.65}.bad{fill:#f1d8cc;opacity:.75}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="100" y1="430" x2="880" y2="430" class="axis"/><line x1="100" y1="430" x2="100" y2="95" class="axis"/>
+  <rect x="100" y="95" width="780" height="335" class="bad"/>
+  <path d="M110 380 C180 270 230 360 300 250 C370 145 430 350 520 210 C610 95 660 330 760 190 C815 125 850 160 875 140 L875 430 H110 Z" class="fill"/>
+  <path d="M110 380 C180 270 230 360 300 250 C370 145 430 350 520 210 C610 95 660 330 760 190 C815 125 850 160 875 140" class="curve"/>
+  <text x="400" y="370" class="text">stable cutting</text><text x="650" y="145" class="text">chatter risk</text>
+  <text x="650" y="470" class="small">spindle speed</text><text x="18" y="165" class="small">depth of cut</text>
+</svg>

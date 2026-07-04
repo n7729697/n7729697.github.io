@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Step response metrics</title>
+  <desc id="desc">Step response curve showing rise time, overshoot, settling band, settling time, and steady-state error.</desc>
+  <style>
+    .axis{stroke:#3f5663;stroke-width:4}
+    .line{stroke:#5f7c57;stroke-width:5;fill:none}
+    .ref{stroke:#3f5663;stroke-width:3;stroke-dasharray:9 7}
+    .band{fill:#dcebdc;opacity:.6}
+    .mark{stroke:#b45d47;stroke-width:3;stroke-dasharray:7 6}
+    .text{font-family:Georgia,serif;font-size:21px;fill:#26313a}
+    .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}
+  </style>
+  <rect width="980" height="560" fill="#f8f4ea"/>
+  <line x1="90" y1="455" x2="890" y2="455" class="axis"/>
+  <line x1="90" y1="455" x2="90" y2="85" class="axis"/>
+  <rect x="90" y="190" width="800" height="38" class="band"/>
+  <line x1="90" y1="209" x2="890" y2="209" class="ref"/>
+  <path d="M90 455 C165 435 200 315 255 225 C310 130 390 135 435 190 C490 255 565 236 620 214 C690 190 775 207 890 209" class="line"/>
+  <line x1="255" y1="455" x2="255" y2="225" class="mark"/>
+  <line x1="435" y1="455" x2="435" y2="190" class="mark"/>
+  <line x1="690" y1="455" x2="690" y2="190" class="mark"/>
+  <text x="220" y="492" class="small">rise time</text>
+  <text x="385" y="118" class="small">overshoot</text>
+  <text x="620" y="492" class="small">settling time</text>
+  <text x="720" y="184" class="small">settling band</text>
+  <text x="750" y="250" class="small">steady-state error</text>
+  <text x="838" y="485" class="small">time</text>
+  <text x="35" y="110" class="small">output</text>
+</svg>

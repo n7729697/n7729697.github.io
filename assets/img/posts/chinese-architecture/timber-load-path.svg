@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Timber-frame load path</title>
+  <desc id="desc">A simplified Chinese timber-frame hall showing roof loads transferred through purlins, beams, brackets, columns, platform, and ground while walls act mainly as enclosure.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#b4492d"/>
+    </marker>
+    <style>
+      .line{stroke:#2f3b46;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .thin{stroke:#65717c;stroke-width:2;fill:none}
+      .load{stroke:#b4492d;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:24px;fill:#26313a}
+      .small{font-family:Georgia,serif;font-size:18px;fill:#3b4750}
+      .label{fill:#fff7ec;stroke:#d2a66f;stroke-width:2}
+    </style>
+  </defs>
+  <rect width="920" height="520" fill="#f8f4ea"/>
+  <path d="M120 175 L460 55 L800 175" class="line"/>
+  <path d="M165 175 H755" class="line"/>
+  <path d="M210 210 H710" class="line"/>
+  <path d="M250 175 V385 M670 175 V385" class="line"/>
+  <path d="M250 230 H670" class="thin"/>
+  <path d="M225 265 H695" class="thin"/>
+  <path d="M285 385 H635" class="line"/>
+  <rect x="180" y="385" width="560" height="42" rx="4" fill="#c8b08a" stroke="#5f513e" stroke-width="3"/>
+  <rect x="130" y="427" width="660" height="42" rx="4" fill="#99886f" stroke="#5f513e" stroke-width="3"/>
+  <path d="M310 255 H610 V385 H310 Z" fill="#e6dcc8" stroke="#98866d" stroke-width="3" stroke-dasharray="8 8"/>
+  <text x="350" y="315" class="small">enclosure wall</text>
+  <text x="334" y="340" class="small">mostly not main load path</text>
+  <path d="M460 90 V170" class="load"/>
+  <path d="M370 135 V208" class="load"/>
+  <path d="M550 135 V208" class="load"/>
+  <path d="M250 225 V370" class="load"/>
+  <path d="M670 225 V370" class="load"/>
+  <path d="M250 395 V450" class="load"/>
+  <path d="M670 395 V450" class="load"/>
+  <rect x="28" y="36" width="250" height="74" rx="10" class="label"/>
+  <text x="48" y="67" class="text">gravity load</text>
+  <text x="48" y="94" class="small">roof -> frame -> ground</text>
+  <rect x="624" y="300" width="260" height="100" rx="10" class="label"/>
+  <text x="644" y="332" class="text">key idea</text>
+  <text x="644" y="360" class="small">columns and beams carry</text>
+  <text x="644" y="386" class="small">the primary vertical load</text>
+</svg>

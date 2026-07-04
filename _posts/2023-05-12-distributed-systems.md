@@ -6,6 +6,8 @@ color: light
 description: A dense exam-oriented note connecting threads, processes, many-core architecture, and real-time distributed communication.
 ---
 
+_This note is adapted from course materials for **ID2201 Distributed Systems, Basic Course** at **KTH Royal Institute of Technology**. Instructor: course teaching staff._
+
 ## Table of Contents
 
 1. [Big Picture and Vocabulary](#1-big-picture-and-vocabulary)
@@ -1461,4 +1463,3 @@ Interpretation: own transmission + lower-priority blocking + repeated interferen
 | higher utilization | worse worst-case latency |
 | stronger guarantees | lower average efficiency or more complexity |
 | more adaptivity | harder analysis and deadlock/livelock risk |
-

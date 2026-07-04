@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Steel heat treatment paths</title>
+  <desc id="desc">Heat treatment paths from austenite through slow cooling, quenching, and tempering to pearlite, martensite, and tempered martensite.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.node{fill:#fff7e8;stroke:#b89057;stroke-width:3}.hard{fill:#f1d8cc;stroke:#b45d47;stroke-width:3}.tough{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}.text{font-family:Georgia,serif;font-size:20px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style></defs>
+  <rect width="980" height="560" fill="#f8f4ea"/>
+  <rect x="390" y="70" width="200" height="80" rx="12" class="node"/><text x="490" y="103" class="text">austenite</text><text x="490" y="127" class="small">FCC, carbon dissolved</text>
+  <rect x="110" y="260" width="190" height="80" rx="12" class="tough"/><text x="205" y="293" class="text">pearlite</text><text x="205" y="317" class="small">slow cool</text>
+  <rect x="395" y="260" width="190" height="80" rx="12" class="hard"/><text x="490" y="293" class="text">martensite</text><text x="490" y="317" class="small">quench</text>
+  <rect x="675" y="260" width="190" height="80" rx="12" class="tough"/><text x="770" y="293" class="text">tempered</text><text x="770" y="317" class="small">reheat, relieve stress</text>
+  <path d="M430 150 C340 190 270 225 220 260" class="arrow"/><path d="M490 150 V260" class="arrow"/><path d="M585 300 H675" class="arrow"/>
+  <text x="490" y="440" class="small">Same composition can produce very different structures and properties by changing thermal path.</text>
+</svg>

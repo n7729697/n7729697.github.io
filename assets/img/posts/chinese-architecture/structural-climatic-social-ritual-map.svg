@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="560" viewBox="0 0 920 560" role="img" aria-labelledby="title desc">
+  <title id="title">Structural climatic social ritual causal map</title>
+  <desc id="desc">A causal map connecting material resources, structure, climate response, craft, courtyard organization, social hierarchy, ritual meaning, regional adaptation, and modernization.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#44545f"/>
+    </marker>
+    <style>
+      .node{fill:#fff8ea;stroke:#b89057;stroke-width:3}
+      .core{fill:#d7e7dc;stroke:#55725f;stroke-width:3}
+      .arrow{stroke:#44545f;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:20px;fill:#26313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="920" height="560" fill="#f8f4ea"/>
+  <rect x="350" y="230" width="220" height="92" rx="12" class="core"/>
+  <text x="460" y="265" class="text">courtyard</text>
+  <text x="460" y="292" class="text">compound</text>
+  <rect x="70" y="60" width="210" height="78" rx="12" class="node"/>
+  <text x="175" y="92" class="text">materials</text>
+  <text x="175" y="116" class="small">timber, earth, brick</text>
+  <rect x="355" y="45" width="210" height="78" rx="12" class="node"/>
+  <text x="460" y="77" class="text">structure</text>
+  <text x="460" y="101" class="small">frame, joints, roof</text>
+  <rect x="645" y="60" width="210" height="78" rx="12" class="node"/>
+  <text x="750" y="92" class="text">climate</text>
+  <text x="750" y="116" class="small">sun, rain, wind</text>
+  <rect x="70" y="235" width="210" height="78" rx="12" class="node"/>
+  <text x="175" y="267" class="text">craft process</text>
+  <text x="175" y="291" class="small">grid, sequence, repair</text>
+  <rect x="645" y="235" width="210" height="78" rx="12" class="node"/>
+  <text x="750" y="267" class="text">social order</text>
+  <text x="750" y="291" class="small">rank, privacy, kinship</text>
+  <rect x="70" y="410" width="210" height="78" rx="12" class="node"/>
+  <text x="175" y="442" class="text">ritual meaning</text>
+  <text x="175" y="466" class="small">axis, number, color</text>
+  <rect x="355" y="430" width="210" height="78" rx="12" class="node"/>
+  <text x="460" y="462" class="text">regional variation</text>
+  <text x="460" y="486" class="small">local boundary conditions</text>
+  <rect x="645" y="410" width="210" height="78" rx="12" class="node"/>
+  <text x="750" y="442" class="text">modernization</text>
+  <text x="750" y="466" class="small">conserve or reinterpret</text>
+  <path d="M280 99 C315 115 335 145 380 230" class="arrow"/>
+  <path d="M460 123 V220" class="arrow"/>
+  <path d="M645 100 C600 130 570 170 535 230" class="arrow"/>
+  <path d="M280 274 H340" class="arrow"/>
+  <path d="M570 274 H635" class="arrow"/>
+  <path d="M230 410 C285 350 335 325 390 310" class="arrow"/>
+  <path d="M525 325 C565 365 615 405 645 432" class="arrow"/>
+  <path d="M460 322 V420" class="arrow"/>
+</svg>

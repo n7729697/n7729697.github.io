@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Analog signal chain</title>
+  <desc id="desc">Sensor signal path through protection, biasing, amplification, filtering, ADC drive, and conversion.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Analog Signal Chain</text>
+    <g font-size="15">
+      <rect x="50" y="150" width="115" height="78" rx="12" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="84" y="182">sensor</text><text x="75" y="204">source Z</text>
+      <rect x="205" y="150" width="115" height="78" rx="12" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="232" y="182">protect</text><text x="226" y="204">clamp/filter</text>
+      <rect x="360" y="150" width="115" height="78" rx="12" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="396" y="182">gain</text><text x="386" y="204">noise/CMRR</text>
+      <rect x="515" y="150" width="115" height="78" rx="12" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="545" y="182">filter</text><text x="535" y="204">anti-alias</text>
+      <rect x="670" y="150" width="115" height="78" rx="12" fill="#e7dff0" stroke="#64527b" stroke-width="2"/><text x="696" y="182">ADC drive</text><text x="693" y="204">settling</text>
+    </g>
+    <path d="M165 189 H205" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M320 189 H360" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M475 189 H515" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M630 189 H670" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="150" y="310" font-size="15" fill="#5f625c">Noise, bandwidth, headroom, and impedance are accumulated across the chain, not solved locally.</text>
+  </g>
+</svg>

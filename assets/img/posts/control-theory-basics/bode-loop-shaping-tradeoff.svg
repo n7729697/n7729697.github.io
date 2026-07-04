@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Bode loop shaping tradeoff</title>
+  <desc id="desc">Schematic loop gain magnitude showing high low-frequency gain, crossover and phase margin region, and high-frequency roll-off for noise attenuation.</desc>
+  <style>
+    .axis{stroke:#3f5663;stroke-width:4}
+    .curve{stroke:#5f7c57;stroke-width:6;fill:none}
+    .zero{stroke:#3f5663;stroke-width:2;stroke-dasharray:8 7}
+    .region{fill:#dcebdc;opacity:.55}
+    .noise{fill:#f1d8cc;opacity:.6}
+    .mark{stroke:#b45d47;stroke-width:3;stroke-dasharray:7 6}
+    .text{font-family:Georgia,serif;font-size:21px;fill:#26313a}
+    .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}
+  </style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="100" y1="430" x2="875" y2="430" class="axis"/>
+  <line x1="100" y1="430" x2="100" y2="90" class="axis"/>
+  <line x1="100" y1="300" x2="875" y2="300" class="zero"/>
+  <rect x="105" y="100" width="260" height="320" class="region"/>
+  <rect x="645" y="100" width="230" height="320" class="noise"/>
+  <path d="M120 155 C250 160 340 185 440 270 C535 350 650 405 850 425" class="curve"/>
+  <line x1="460" y1="100" x2="460" y2="430" class="mark"/>
+  <text x="175" y="125" class="small">tracking and disturbance rejection</text>
+  <text x="446" y="86" class="small">crossover</text>
+  <text x="680" y="125" class="small">noise / unmodelled dynamics</text>
+  <text x="800" y="470" class="small">log frequency</text>
+  <text x="32" y="115" class="small">loop gain</text>
+  <text x="375" y="325" class="small">margin lives near crossover</text>
+</svg>

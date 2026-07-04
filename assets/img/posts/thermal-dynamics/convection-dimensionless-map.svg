@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Convection dimensionless map</title>
+  <desc id="desc">Map connecting Reynolds, Prandtl, Peclet, Nusselt, Grashof, and Rayleigh numbers to physical transport comparisons.</desc>
+  <style>.node{fill:#fff7e8;stroke:#b89057;stroke-width:3}.core{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.text{font-family:Georgia,serif;font-size:20px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750;text-anchor:middle}</style>
+  <rect width="980" height="560" fill="#f8f4ea"/>
+  <rect x="390" y="230" width="200" height="90" rx="14" class="core"/><text x="490" y="265" class="text">convection</text><text x="490" y="292" class="small">flow + heat transfer</text>
+  <rect x="90" y="95" width="180" height="75" rx="12" class="node"/><text x="180" y="127" class="text">Re</text><text x="180" y="151" class="small">inertia / viscosity</text>
+  <rect x="400" y="70" width="180" height="75" rx="12" class="node"/><text x="490" y="102" class="text">Pr</text><text x="490" y="126" class="small">momentum / heat diffusion</text>
+  <rect x="710" y="95" width="180" height="75" rx="12" class="node"/><text x="800" y="127" class="text">Nu</text><text x="800" y="151" class="small">convection / conduction</text>
+  <rect x="185" y="390" width="180" height="75" rx="12" class="node"/><text x="275" y="422" class="text">Pe</text><text x="275" y="446" class="small">advection / diffusion</text>
+  <rect x="615" y="390" width="180" height="75" rx="12" class="node"/><text x="705" y="422" class="text">Ra</text><text x="705" y="446" class="small">buoyancy convection</text>
+</svg>

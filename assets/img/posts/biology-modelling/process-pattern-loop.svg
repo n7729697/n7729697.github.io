@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Process pattern modelling loop</title>
+  <desc id="desc">Biological assumptions generate patterns, and patterns revise assumptions.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Process and Pattern Inform Each Other</text>
+    <rect x="120" y="145" width="220" height="110" rx="18" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="185" y="205" font-size="23">process</text>
+    <rect x="580" y="145" width="220" height="110" rx="18" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="645" y="205" font-size="23">pattern</text>
+    <path d="M340 180 H580" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/><path d="M580 225 H340" stroke="#405a58" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="420" y="165" font-size="15">predict</text><text x="420" y="250" font-size="15">infer / revise</text>
+  </g>
+</svg>

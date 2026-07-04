@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Dislocation strengthening mechanisms</title>
+  <desc id="desc">Dislocation line encountering obstacles from grain boundaries, solute atoms, precipitates, and forest dislocations.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.line{stroke:#45545e;stroke-width:5;fill:none;marker-end:url(#arrow)}.gb{stroke:#7f5e3b;stroke-width:8}.obs{fill:#b45d47;stroke:#71382c;stroke-width:3}.text{font-family:Georgia,serif;font-size:20px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <path d="M90 270 C180 220 250 320 340 270 C430 220 510 320 600 270 C690 220 770 300 880 250" class="line"/>
+  <line x1="245" y1="130" x2="245" y2="405" class="gb"/><text x="180" y="120" class="small">grain boundary</text>
+  <circle cx="430" cy="238" r="18" class="obs"/><circle cx="465" cy="305" r="14" class="obs"/><text x="395" y="190" class="small">solute strain fields</text>
+  <rect x="610" y="230" width="42" height="42" rx="8" class="obs"/><rect x="675" y="280" width="42" height="42" rx="8" class="obs"/><text x="610" y="205" class="small">precipitates</text>
+  <path d="M765 190 V360 M735 215 V340 M800 225 V330" stroke="#5f7c57" stroke-width="5"/><text x="735" y="165" class="small">forest dislocations</text>
+  <text x="95" y="465" class="text">Strengthening raises the stress required for dislocation motion.</text>
+</svg>

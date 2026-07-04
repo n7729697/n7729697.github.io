@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Population growth and regulation</title>
+  <desc id="desc">Exponential, logistic, and harvested population trajectories.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Regulation Changes Long-Term Population Behavior</text>
+    <line x1="110" y1="315" x2="805" y2="315" stroke="#4c5854" stroke-width="2"/><line x1="130" y1="335" x2="130" y2="95" stroke="#4c5854" stroke-width="2"/>
+    <path d="M145 300 C260 270 350 220 455 145 C535 90 640 65 780 55" fill="none" stroke="#8b5849" stroke-width="4"/>
+    <path d="M145 300 C250 230 360 170 520 155 C620 150 700 150 780 150" fill="none" stroke="#4e6f52" stroke-width="4"/>
+    <path d="M145 300 C250 250 370 205 520 215 C650 222 720 220 780 220" fill="none" stroke="#426a7a" stroke-width="4"/>
+    <text x="705" y="65" font-size="15">exponential</text><text x="705" y="145" font-size="15">logistic</text><text x="705" y="215" font-size="15">harvested</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Parallel performance triangle</title>
+  <desc id="desc">Algorithmic parallelism, data movement, and synchronization overhead define parallel performance.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Parallel Performance Is a Three-Way Trade</text>
+    <path d="M460 105 L190 315 L730 315 Z" fill="#d8e8ef" stroke="#426a7a" stroke-width="3"/>
+    <circle cx="460" cy="105" r="55" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="420" y="104" font-size="16">parallel</text><text x="426" y="126" font-size="16">work</text>
+    <circle cx="190" cy="315" r="55" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="155" y="315" font-size="16">data</text><text x="145" y="337" font-size="16">movement</text>
+    <circle cx="730" cy="315" r="55" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="685" y="315" font-size="16">sync</text><text x="681" y="337" font-size="16">overhead</text>
+  </g>
+</svg>

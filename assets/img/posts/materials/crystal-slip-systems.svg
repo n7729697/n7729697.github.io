@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Crystal slip systems</title>
+  <desc id="desc">Comparison of FCC, BCC, and HCP slip behavior and ductility implications.</desc>
+  <style>.box{fill:#fff7e8;stroke:#b89057;stroke-width:3}.good{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.warn{fill:#f1d8cc;stroke:#b45d47;stroke-width:3}.text{font-family:Georgia,serif;font-size:22px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}</style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="70" y="105" width="250" height="300" rx="14" class="good"/><text x="195" y="150" class="text">FCC</text><text x="195" y="195" class="small">close-packed {111}</text><text x="195" y="225" class="small">many slip systems</text><text x="195" y="255" class="small">usually ductile</text>
+  <rect x="365" y="105" width="250" height="300" rx="14" class="box"/><text x="490" y="150" class="text">BCC</text><text x="490" y="195" class="small">no true close-packed plane</text><text x="490" y="225" class="small">temperature-sensitive slip</text><text x="490" y="255" class="small">DBTT possible</text>
+  <rect x="660" y="105" width="250" height="300" rx="14" class="warn"/><text x="785" y="150" class="text">HCP</text><text x="785" y="195" class="small">basal slip easy</text><text x="785" y="225" class="small">non-basal slip harder</text><text x="785" y="255" class="small">anisotropic formability</text>
+  <text x="490" y="465" class="small">Slip availability controls ductility, forming limits, and low-temperature reliability.</text>
+</svg>

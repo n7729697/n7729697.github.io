@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Potential game dynamics</title>
+  <desc id="desc">Better-response dynamics climb a potential landscape to equilibrium.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#405a58"/></marker></defs>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Potential Games Turn Incentives into a Landscape</text>
+    <path d="M125 300 C210 240 250 260 330 190 C420 110 520 130 610 205 C690 270 740 230 810 160" fill="none" stroke="#426a7a" stroke-width="5"/>
+    <path d="M170 285 L300 205 L455 145 L610 205" fill="none" stroke="#8b5849" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+    <circle cx="455" cy="145" r="12" fill="#4e6f52"/>
+    <text x="475" y="138" font-size="16">PNE / local maximum</text>
+    <text x="360" y="340" font-size="17">better responses increase Phi</text>
+  </g>
+</svg>

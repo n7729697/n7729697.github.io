@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Protoplanetary disk cross-section with snow line</title>
+  <desc id="desc">Schematic cross-section of a protoplanetary disk showing hot inner refractory region, water snow line, cooler icy region, and decreasing density outward.</desc>
+  <defs>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff7b0"/>
+      <stop offset="55%" stop-color="#f0a12f"/>
+      <stop offset="100%" stop-color="#c85b35"/>
+    </radialGradient>
+    <linearGradient id="disk" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#d9814b" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#ead39b" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#9cc7d4" stop-opacity="0.38"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#44545f"/>
+    </marker>
+    <style>
+      .text{font-family:Georgia,serif;font-size:22px;fill:#24313a}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}
+      .line{stroke:#44545f;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .snow{stroke:#4c8aa0;stroke-width:4;stroke-dasharray:10 8}
+    </style>
+  </defs>
+  <rect width="980" height="560" fill="#f8f4ea"/>
+  <ellipse cx="520" cy="280" rx="410" ry="92" fill="url(#disk)" stroke="#826a4b" stroke-width="3"/>
+  <ellipse cx="520" cy="280" rx="410" ry="28" fill="#a77b54" opacity="0.28"/>
+  <circle cx="190" cy="280" r="52" fill="url(#sun)" stroke="#7f412a" stroke-width="3"/>
+  <line x1="425" y1="170" x2="425" y2="390" class="snow"/>
+  <text x="382" y="150" class="text">snow line</text>
+  <text x="105" y="370" class="small">young Sun</text>
+  <text x="250" y="235" class="text">hot inner disk</text>
+  <text x="250" y="262" class="small">metals and silicates</text>
+  <text x="580" y="235" class="text">cooler outer disk</text>
+  <text x="580" y="262" class="small">ices add solid mass</text>
+  <path d="M735 406 H510" class="line"/>
+  <text x="705" y="435" class="small">density generally decreases outward</text>
+  <path d="M300 120 C420 85 580 85 720 120" stroke="#c85b35" stroke-width="4" fill="none"/>
+  <text x="360" y="75" class="small">temperature generally decreases outward</text>
+</svg>

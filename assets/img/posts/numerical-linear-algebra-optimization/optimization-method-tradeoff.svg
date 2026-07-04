@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Optimization method tradeoff</title>
+  <desc id="desc">Gradient, quasi-Newton, and Newton methods trade cost against curvature information.</desc>
+  <rect width="920" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Optimization: Cost vs Curvature</text>
+    <line x1="110" y1="310" x2="800" y2="310" stroke="#4c5854" stroke-width="2"/>
+    <line x1="130" y1="330" x2="130" y2="100" stroke="#4c5854" stroke-width="2"/>
+    <circle cx="245" cy="260" r="45" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="207" y="266" font-size="17">gradient</text>
+    <circle cx="460" cy="205" r="55" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/><text x="410" y="211" font-size="17">quasi-Newton</text>
+    <circle cx="675" cy="145" r="50" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="646" y="151" font-size="17">Newton</text>
+    <text x="610" y="350" font-size="15">more per-iteration cost</text><text x="25" y="110" font-size="15">more curvature</text>
+  </g>
+</svg>

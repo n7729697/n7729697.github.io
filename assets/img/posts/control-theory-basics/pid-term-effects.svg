@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">PID term effects</title>
+  <desc id="desc">Diagram explaining proportional, integral, and derivative control terms as present error, accumulated error, and error trend, with caveats for windup and noise.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/>
+    </marker>
+    <style>
+      .node{fill:#fff7e8;stroke:#b89057;stroke-width:3}
+      .warn{fill:#f1d8cc;stroke:#b45d47;stroke-width:3}
+      .arrow{stroke:#45545e;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:22px;fill:#26313a;text-anchor:middle}
+      .small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}
+    </style>
+  </defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <rect x="80" y="130" width="230" height="110" rx="14" class="node"/>
+  <text x="195" y="170" class="text">P</text>
+  <text x="195" y="198" class="small">present error</text>
+  <text x="195" y="222" class="small">fast reaction</text>
+  <rect x="375" y="130" width="230" height="110" rx="14" class="node"/>
+  <text x="490" y="170" class="text">I</text>
+  <text x="490" y="198" class="small">accumulated error</text>
+  <text x="490" y="222" class="small">offset removal</text>
+  <rect x="670" y="130" width="230" height="110" rx="14" class="node"/>
+  <text x="785" y="170" class="text">D</text>
+  <text x="785" y="198" class="small">error trend</text>
+  <text x="785" y="222" class="small">damping / prediction</text>
+  <path d="M195 240 V315" class="arrow"/>
+  <path d="M490 240 V315" class="arrow"/>
+  <path d="M785 240 V315" class="arrow"/>
+  <rect x="90" y="320" width="210" height="86" rx="12" class="warn"/>
+  <text x="195" y="355" class="small">too much gain</text>
+  <text x="195" y="380" class="small">can oscillate</text>
+  <rect x="385" y="320" width="210" height="86" rx="12" class="warn"/>
+  <text x="490" y="355" class="small">saturation causes</text>
+  <text x="490" y="380" class="small">windup</text>
+  <rect x="680" y="320" width="210" height="86" rx="12" class="warn"/>
+  <text x="785" y="355" class="small">noise-sensitive;</text>
+  <text x="785" y="380" class="small">must be filtered</text>
+  <text x="490" y="470" class="small">PID works because it combines present, past, and trend information about error.</text>
+</svg>

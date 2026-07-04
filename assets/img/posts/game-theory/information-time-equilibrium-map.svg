@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Information time equilibrium map</title>
+  <desc id="desc">Equilibrium concepts arranged by information and timing structure.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Equilibrium Depends on Information and Time</text>
+    <line x1="120" y1="315" x2="800" y2="315" stroke="#4c5854" stroke-width="2"/><line x1="140" y1="335" x2="140" y2="100" stroke="#4c5854" stroke-width="2"/>
+    <text x="625" y="350" font-size="15">more sequential structure</text><text x="35" y="118" font-size="15">more private information</text>
+    <rect x="210" y="250" width="130" height="55" rx="10" fill="#d7e4ce" stroke="#4e6f52"/><text x="250" y="284" font-size="15">Nash</text>
+    <rect x="390" y="175" width="130" height="55" rx="10" fill="#eee2b7" stroke="#806632"/><text x="415" y="209" font-size="15">Bayesian NE</text>
+    <rect x="570" y="250" width="130" height="55" rx="10" fill="#d8e8ef" stroke="#426a7a"/><text x="602" y="284" font-size="15">SPE</text>
+    <rect x="620" y="135" width="130" height="55" rx="10" fill="#ead0c8" stroke="#8b5849"/><text x="645" y="169" font-size="15">repeated</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Hierarchy of controls</title>
+  <desc id="desc">Inverted pyramid of control effectiveness: elimination, substitution, engineering controls, administrative controls, and PPE.</desc>
+  <style>.text{font-family:Georgia,serif;font-size:22px;fill:#26313a;text-anchor:middle}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750;text-anchor:middle}</style>
+  <rect width="980" height="560" fill="#f8f4ea"/>
+  <polygon points="170,80 810,80 750,160 230,160" fill="#dcebdc" stroke="#5f7c57" stroke-width="3"/><text x="490" y="130" class="text">Elimination</text>
+  <polygon points="230,170 750,170 700,245 280,245" fill="#e5efd9" stroke="#748b50" stroke-width="3"/><text x="490" y="218" class="text">Substitution</text>
+  <polygon points="280,255 700,255 650,330 330,330" fill="#fff0ca" stroke="#b89057" stroke-width="3"/><text x="490" y="303" class="text">Engineering controls</text>
+  <polygon points="330,340 650,340 600,415 380,415" fill="#f0d6bf" stroke="#a86442" stroke-width="3"/><text x="490" y="388" class="text">Administrative controls</text>
+  <polygon points="380,425 600,425 550,500 430,500" fill="#f1d8cc" stroke="#b45d47" stroke-width="3"/><text x="490" y="473" class="text">PPE</text>
+  <text x="490" y="45" class="small">Generally more reliable at the top; more behavior-dependent at the bottom.</text>
+</svg>

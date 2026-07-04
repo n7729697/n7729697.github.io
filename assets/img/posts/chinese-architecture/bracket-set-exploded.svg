@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Exploded dougong bracket set</title>
+  <desc id="desc">A conceptual exploded diagram of bracket blocks and arms stepping outward from a column to support a roof beam and eave.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#7e3f2b"/>
+    </marker>
+    <style>
+      .wood{fill:#b97845;stroke:#5b3524;stroke-width:3}
+      .wood2{fill:#d09a61;stroke:#5b3524;stroke-width:3}
+      .line{stroke:#5b3524;stroke-width:3;fill:none}
+      .arrow{stroke:#7e3f2b;stroke-width:4;fill:none;marker-end:url(#arrow)}
+      .text{font-family:Georgia,serif;font-size:23px;fill:#26313a}
+      .small{font-family:Georgia,serif;font-size:18px;fill:#3b4750}
+    </style>
+  </defs>
+  <rect width="920" height="520" fill="#f8f4ea"/>
+  <rect x="410" y="310" width="100" height="165" class="wood"/>
+  <rect x="335" y="270" width="250" height="42" class="wood2"/>
+  <rect x="375" y="225" width="170" height="38" class="wood"/>
+  <rect x="305" y="185" width="310" height="34" class="wood2"/>
+  <rect x="430" y="145" width="60" height="52" class="wood"/>
+  <rect x="245" y="118" width="430" height="34" class="wood2"/>
+  <rect x="185" y="82" width="550" height="38" class="wood"/>
+  <path d="M460 70 V130" class="arrow"/>
+  <path d="M460 160 V210" class="arrow"/>
+  <path d="M460 235 V285" class="arrow"/>
+  <path d="M460 315 V395" class="arrow"/>
+  <text x="58" y="90" class="text">roof beam / eave load</text>
+  <text x="58" y="143" class="small">stepped arms increase bearing</text>
+  <text x="58" y="168" class="small">area and move support outward</text>
+  <text x="630" y="210" class="text">bracket blocks</text>
+  <path d="M620 205 C575 210 540 220 500 245" class="line"/>
+  <text x="620" y="330" class="text">column</text>
+  <path d="M610 325 C560 330 525 360 505 390" class="line"/>
+  <text x="104" y="430" class="small">Schematic only: real dougong sets vary by period, rank, region, and building type.</text>
+</svg>

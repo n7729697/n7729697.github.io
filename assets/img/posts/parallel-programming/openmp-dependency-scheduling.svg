@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">OpenMP dependency and scheduling</title>
+  <desc id="desc">Independent iterations, reduction, and loop-carried dependence shown with scheduling blocks.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">OpenMP Starts with Dependence Analysis</text>
+    <rect x="90" y="120" width="215" height="180" rx="16" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/><text x="140" y="160" font-size="20">independent</text><text x="120" y="205" font-size="15">parallel for</text><text x="120" y="235" font-size="15">static or dynamic</text>
+    <rect x="355" y="120" width="215" height="180" rx="16" fill="#eee2b7" stroke="#806632" stroke-width="2"/><text x="410" y="160" font-size="20">reduction</text><text x="385" y="205" font-size="15">local partials</text><text x="385" y="235" font-size="15">combine safely</text>
+    <rect x="620" y="120" width="215" height="180" rx="16" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/><text x="658" y="160" font-size="20">carried dependence</text><text x="650" y="205" font-size="15">restructure first</text><text x="650" y="235" font-size="15">scan / pipeline</text>
+  </g>
+</svg>

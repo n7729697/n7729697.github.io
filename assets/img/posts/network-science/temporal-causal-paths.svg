@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Temporal causal paths</title>
+  <desc id="desc">Temporal contacts demonstrate that aggregate connectivity can hide invalid time order.</desc>
+  <rect width="920" height="420" fill="#f8f5ed"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Static Connectivity Is Not Temporal Reachability</text>
+    <line x1="130" y1="120" x2="130" y2="320" stroke="#4c5854"/><line x1="280" y1="120" x2="280" y2="320" stroke="#4c5854"/><line x1="430" y1="120" x2="430" y2="320" stroke="#4c5854"/><line x1="580" y1="120" x2="580" y2="320" stroke="#4c5854"/>
+    <text x="122" y="348" font-size="15">A</text><text x="272" y="348" font-size="15">B</text><text x="422" y="348" font-size="15">C</text><text x="572" y="348" font-size="15">D</text>
+    <path d="M130 270 L280 220 L430 170 L580 145" stroke="#426a7a" stroke-width="4" fill="none"/>
+    <path d="M130 145 L280 185 L430 235" stroke="#8b5849" stroke-width="4" fill="none" stroke-dasharray="8 7"/>
+    <text x="650" y="150" font-size="16" fill="#426a7a">valid: times increase</text>
+    <text x="650" y="238" font-size="16" fill="#8b5849">invalid for a later start</text>
+    <line x1="90" y1="95" x2="645" y2="95" stroke="#4c5854" stroke-width="2"/>
+    <text x="652" y="100" font-size="14">time</text>
+  </g>
+</svg>

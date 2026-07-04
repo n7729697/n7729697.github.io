@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">ASET RSET fire timeline</title>
+  <desc id="desc">Fire safety timeline comparing required safe egress time to available safe egress time before untenable conditions.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 Z" fill="#45545e"/></marker><style>.axis{stroke:#45545e;stroke-width:5;marker-end:url(#arrow)}.rset{fill:#f0d6bf;stroke:#a86442;stroke-width:3}.aset{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.mark{stroke:#b45d47;stroke-width:3;stroke-dasharray:8 7}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:15px;fill:#3b4750}</style></defs>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="90" y1="360" x2="890" y2="360" class="axis"/><text x="845" y="395" class="small">time</text>
+  <rect x="115" y="210" width="540" height="55" rx="10" class="rset"/><text x="335" y="244" class="text">RSET: detect + decide + move + queue + reach safety</text>
+  <rect x="115" y="110" width="690" height="55" rx="10" class="aset"/><text x="355" y="144" class="text">ASET: time until untenable heat, smoke, toxicity, or visibility</text>
+  <line x1="115" y1="95" x2="115" y2="380" class="mark"/><text x="85" y="85" class="small">ignition</text>
+  <line x1="655" y1="190" x2="655" y2="380" class="mark"/><text x="625" y="185" class="small">evacuation complete</text>
+  <line x1="805" y1="95" x2="805" y2="380" class="mark"/><text x="760" y="85" class="small">untenable conditions</text>
+  <text x="380" y="455" class="text">Safety criterion: ASET should exceed RSET with margin.</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">Conditioning versus stability</title>
+  <desc id="desc">Conditioning belongs to the problem and stability belongs to the algorithm.</desc>
+  <rect width="920" height="420" fill="#fbf8f0"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="50" y="58" font-size="26" font-weight="700">Two Different Error Sources</text>
+    <rect x="95" y="120" width="300" height="185" rx="18" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="174" y="160" font-size="23">Conditioning</text><text x="135" y="210" font-size="17">problem sensitivity</text><text x="135" y="240" font-size="17">data perturbation -> solution change</text>
+    <rect x="525" y="120" width="300" height="185" rx="18" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="624" y="160" font-size="23">Stability</text><text x="565" y="210" font-size="17">algorithm behavior</text><text x="565" y="240" font-size="17">roundoff -> nearby problem solved</text>
+    <text x="238" y="355" font-size="16">Final accuracy needs both a well-conditioned problem and a stable method.</text>
+  </g>
+</svg>

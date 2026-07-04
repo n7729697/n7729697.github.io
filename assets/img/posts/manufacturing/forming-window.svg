@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540" role="img" aria-labelledby="title desc">
+  <title id="title">Sheet forming process window</title>
+  <desc id="desc">Process map showing safe forming between wrinkling at low restraint and tearing at high strain or high restraint.</desc>
+  <style>.axis{stroke:#3f5663;stroke-width:4}.safe{fill:#dcebdc;stroke:#5f7c57;stroke-width:3}.bad{fill:#f1d8cc;stroke:#b45d47;stroke-width:3}.text{font-family:Georgia,serif;font-size:21px;fill:#26313a}.small{font-family:Georgia,serif;font-size:16px;fill:#3b4750}</style>
+  <rect width="980" height="540" fill="#f8f4ea"/>
+  <line x1="120" y1="430" x2="860" y2="430" class="axis"/><line x1="120" y1="430" x2="120" y2="90" class="axis"/>
+  <path d="M190 360 C300 260 470 220 710 150 L800 430 H190 Z" class="safe"/>
+  <path d="M120 430 H190 C250 360 270 315 300 270 L120 270 Z" class="bad"/>
+  <path d="M710 150 C760 205 810 310 860 430 L800 430 Z" class="bad"/>
+  <text x="405" y="310" class="text">safe forming window</text>
+  <text x="145" y="240" class="small">wrinkling</text>
+  <text x="745" y="250" class="small">thinning / tearing</text>
+  <text x="625" y="470" class="small">blank-holder force / strain demand</text>
+  <text x="30" y="145" class="small">major strain</text>
+</svg>

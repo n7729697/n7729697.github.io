@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Spatial and body angular velocity conventions</title>
+  <desc id="desc">A diagram showing angular velocity expressed either in the world frame or the body frame around the same rotation matrix.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#273043"/>
+    </marker>
+    <style>
+      .bg{fill:#eef6f3}
+      .card{fill:#fff;stroke:#273043;stroke-width:2}
+      .axis{stroke:#273043;stroke-width:3;marker-end:url(#arrow)}
+      .spinS{fill:none;stroke:#2b7a78;stroke-width:5;marker-end:url(#arrow)}
+      .spinB{fill:none;stroke:#c44536;stroke-width:5;marker-end:url(#arrow)}
+      .txt{font-family:Georgia,serif;fill:#273043;font-size:24px}
+      .small{font-family:Georgia,serif;fill:#273043;font-size:18px}
+      .eq{font-family:Georgia,serif;fill:#273043;font-size:22px;font-style:italic}
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="card" x="60" y="52" width="840" height="308" rx="24"/>
+  <text class="txt" x="96" y="100">Same physical spin, different coordinates</text>
+  <line class="axis" x1="190" y1="270" x2="300" y2="270"/>
+  <line class="axis" x1="190" y1="270" x2="190" y2="160"/>
+  <text class="small" x="160" y="304">world frame</text>
+  <line class="axis" x1="620" y1="270" x2="714" y2="214"/>
+  <line class="axis" x1="620" y1="270" x2="662" y2="166"/>
+  <text class="small" x="598" y="304">body frame</text>
+  <path class="spinS" d="M 330 196 C 270 134, 168 136, 130 207"/>
+  <path class="spinB" d="M 790 196 C 730 134, 628 136, 590 207"/>
+  <text class="eq" x="108" y="340">omega_s^ = Rdot R^T</text>
+  <text class="eq" x="558" y="340">omega_b^ = R^T Rdot</text>
+  <text class="eq" x="330" y="226">omega_s = R omega_b</text>
+  <text class="small" x="358" y="258">R maps body coordinates to world coordinates</text>
+</svg>

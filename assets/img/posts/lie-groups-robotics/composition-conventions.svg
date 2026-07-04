@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Body-frame and world-frame pose update conventions</title>
+  <desc id="desc">A diagram comparing post-multiplication by a body-frame increment with pre-multiplication by a world-frame increment.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#273043"/>
+    </marker>
+    <style>
+      .bg{fill:#f7f3ea}
+      .panel{fill:#fffaf0;stroke:#273043;stroke-width:2}
+      .axis{stroke:#273043;stroke-width:3;marker-end:url(#arrow)}
+      .body{stroke:#c44536;stroke-width:4;marker-end:url(#arrow)}
+      .world{stroke:#2b7a78;stroke-width:4;marker-end:url(#arrow)}
+      .thin{stroke:#8b8f9b;stroke-width:2;stroke-dasharray:6 5}
+      .txt{font-family:Georgia,serif;fill:#273043;font-size:24px}
+      .small{font-family:Georgia,serif;fill:#273043;font-size:18px}
+      .eq{font-family:Georgia,serif;fill:#273043;font-size:22px;font-style:italic}
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="420"/>
+  <rect class="panel" x="40" y="48" width="410" height="310" rx="22"/>
+  <rect class="panel" x="510" y="48" width="410" height="310" rx="22"/>
+  <text class="txt" x="80" y="92">Body/current-frame update</text>
+  <text class="eq" x="112" y="332">T+ = T DeltaT</text>
+  <line class="axis" x1="142" y1="250" x2="245" y2="250"/>
+  <line class="axis" x1="142" y1="250" x2="142" y2="148"/>
+  <line class="body" x1="245" y1="250" x2="328" y2="202"/>
+  <line class="body" x1="245" y1="250" x2="289" y2="320"/>
+  <line class="thin" x1="142" y1="250" x2="245" y2="250"/>
+  <text class="small" x="120" y="282">T</text>
+  <text class="small" x="277" y="190">Delta expressed in body axes</text>
+  <text class="txt" x="550" y="92">World/fixed-frame update</text>
+  <text class="eq" x="592" y="332">T+ = DeltaT T</text>
+  <line class="world" x1="620" y1="250" x2="724" y2="250"/>
+  <line class="world" x1="620" y1="250" x2="620" y2="146"/>
+  <line class="axis" x1="754" y1="248" x2="842" y2="198"/>
+  <line class="axis" x1="754" y1="248" x2="798" y2="318"/>
+  <line class="thin" x1="620" y1="250" x2="754" y2="248"/>
+  <text class="small" x="598" y="282">Delta expressed in world axes</text>
+  <text class="small" x="786" y="188">T</text>
+</svg>

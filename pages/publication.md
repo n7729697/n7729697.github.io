@@ -17,7 +17,7 @@ weight: 1
   <div class="pub-text">
     <h3>PRISM: Policy-shaping via Reward decomposition for Inter-agent Symbiosis in Multi-Robot Cooperation</h3>
     <p><strong>Authors:</strong> <strong>Xuezhi Niu</strong> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p>Under review at <em>The International Journal of Robotics Research (IJRR)</em>, 2026</p>
+    <p>Under review at <em>The International Journal of Robotics Research (IJRR)</em></p>
     <p class="pub-links">
       <span>[Paper coming soon]</span>
       <a href="https://github.com/Cyber-physical-Systems-Lab/PRISM_V2/tree/PRISM_V3">[Code]</a>
@@ -37,7 +37,7 @@ weight: 1
   <div class="pub-text">
     <h3>Miniaturized Multifunctional Valves for Intelligent Pneumatic Systems in Soft Robotics</h3>
     <p><strong>Authors:</strong> <a href="https://linkedin.com/in/jing-xu-4161641ba">Jing Xu</a>, <strong>Xuezhi Niu</strong>, Jakob Andersson, <a href="https://didemgurdur.com/">Didem Gürdür Broo</a> & <a href="https://www.uu.se/kontakt-och-organisation/personal?query=XX3950">Klas Hjort</a></p>
-    <p>Accepted to <em>Advanced Intelligent Systems</em>, 2026</p>
+    <p><em>Advanced Intelligent Systems</em>, 2026</p>
     <p class="pub-links">
       <span>[Paper coming soon]</span>
       <a href="#" class="toggle" data-target="abs-valves">[Abstract]</a>
@@ -108,7 +108,7 @@ weight: 1
   <div class="pub-text">
     <h3>MORPH: Self-Organising Multi-Robot Task Allocation via Neuroplasticity-Inspired Adaptive Topology</h3>
     <p><strong>Authors:</strong> <strong>Xuezhi Niu</strong> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p>Accepted to <em>The 23rd European Conference on Multi-Agent Systems (EUMAS 2026)</em>, Malmö, Sweden</p>
+    <p><em>The 23rd European Conference on Multi-Agent Systems (EUMAS 2026)</em>, Malmö, Sweden</p>
     <p class="pub-links">
       <span>[Paper coming soon]</span>
       <a href="https://github.com/Cyber-physical-Systems-Lab/morph_v2/tree/EUMAS">[Code]</a>
@@ -146,13 +146,26 @@ weight: 1
       <a href="https://doi.org/10.48550/arXiv.2605.06432">[Paper]</a>
       <a href="https://github.com/treebranch8600/TouchDrive">[Code]</a>
       <a href="#" class="toggle" data-target="abs-icra2026">[Abstract]</a>
-      <!-- <a href="#" class="toggle" data-target="bib-icra2026">[BibTeX]</a> -->
     </p>
     <div class="pub-toggle-container">
 			<div id="abs-icra2026" class="toggle-target" hidden>
         <div class="pub-abs-body">
           TouchDrive is an electronics-free tactile interface designed to help users control assistive robotic grasping. Contact forces operate a pneumatic valve, producing pressure signals and haptic feedback within a passive mechanical loop. A normally closed valve, compressed-air tank, sensing element, and feedback actuator provide the interface without electronic sensing or digital processing. The resulting tactile cues help users adjust grasp force when manipulating delicate or compliant objects. Experiments across several robotic platforms and up to 20 everyday objects demonstrate the interface’s practical use for assistive grasping.
         </div>
+        <div id="bib-robotac" class="toggle-target" hidden>
+        <div class="pub-bib-body">
+          <button class="copy-bib" data-copy="#bib-text-robotac" aria-label="Copy BibTeX">📋</button>
+          <pre><code id="bib-text-robotac">@misc{xu2026touchdriveelectronicsfreetactilesensing,
+      title={TouchDrive: Electronics-Free Tactile Sensing Interface for Assistive Grasping}, 
+      author={Jing Xu and Xuezhi Niu and Didem Gurdur Broo and Klas Hjort},
+      year={2026},
+      eprint={2605.06432},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2605.06432}, 
+}</code></pre>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -189,7 +202,6 @@ weight: 1
 }</code></pre>
         </div>
       </div>
-
 			<div id="abs-chi" class="toggle-target" hidden>
         <div class="pub-abs-body">
           Robot malfunctions are unavoidable in human–robot collaboration and oftentimes detrimental. Yet humans are rarely instructed on how to respond in such moments, leaving ample room for spontaneity and unpredictability. We studied 65 participants working alongside a collaborative robot under both normal operation and deliberate malfunction conditions. We analyzed unscripted vocal and action responses regarding situational awareness (SA)—whether malfunctions were noticed—and task-oriented response appropriateness—whether responses advanced or undermined the collaboration. During malfunctions, SA was nearly universal, as was frustration and confusion, yet appropriateness diverged sharply: 22 participants responded only productively, 7 only unproductively or counterproductively, 15 did both, while 20 attempted nothing whatsoever. Unscripted responses ranged from clarifying questions and corrective actions to sarcasm, comedic gestures, and erroneous markings. Our findings reveal a fragile link between SA and collaboration quality, highlighting the need for robot transparency, explainability and adaptability, so collaborators are actively supported when things fail.

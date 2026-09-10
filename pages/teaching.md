@@ -16,7 +16,7 @@ weight: 3
 * Jonathan Näslund, [A Centralized Autonomous Vehicle Platform for Indoor Navigation Using ArUco Markers](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-564141), Bachelor Thesis, 2025
 
 ### Courses Taught (Graduate Level)
-* [Fall 2025] TA, [1DT059 Model-Based Design of Embedded Software](https://www.uu.se/en/study/course?query=1DT059), Uppsala University
+* [Fall 2025, 2026] TA, [1DT059 Model-Based Design of Embedded Software](https://www.uu.se/en/study/course?query=1DT059), Uppsala University
 * [Fall 2024, 2025] TA, [1DT104 Project in Computer Systems](https://www.uu.se/en/study/course?query=1DT104), Uppsala University
 * [Fall 2024] TA, [1RT495 Automatic Control II](https://www.uu.se/en/study/course?query=1RT495), Uppsala University
 * [Fall 2024] TA, [1DT054 Project CS](https://www.uu.se/en/study/course?query=1DT054), Uppsala University

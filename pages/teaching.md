@@ -9,7 +9,10 @@ weight: 3
 **Please feel free to contact me if you want to discuss pedagogy with me**
 
 ### Thesis Supervision
-* Ibrahim Bala, [Building modular Open-SourceAutonomous Vehicle ResearchPlatform](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-562947), Master Thesis, 2025
+* Darius Loga, [Design of a Research Platform for Mini Autonomous Cars](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-596231), Master Thesis, 2026
+* Rohit Joseph Mamutil, [Heterogeneous Multi-Robot Collaboration Using Language Models](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-596299), Master Thesis, 2026
+* Liu Yang, [Adaptive Symbiotic Information-Sharing Framework Using LLMs for Heterogeneous Multi-Robot Collaboration](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-590526), Master Thesis, 2026
+* Ibrahim Bala, [Building Modular Open-Source Autonomous Vehicle Research Platform](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-562947), Master Thesis, 2025
 * Jonathan Näslund, [A Centralized Autonomous Vehicle Platform for Indoor Navigation Using ArUco Markers](https://urn.kb.se/resolve?urn=urn:nbn:se:uu:diva-564141), Bachelor Thesis, 2025
 
 ### Courses Taught (Graduate Level)

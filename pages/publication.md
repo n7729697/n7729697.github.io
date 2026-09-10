@@ -10,7 +10,7 @@ weight: 1
 
 **Please feel free to contact me if you are interested in any of the following works.**
 
-### Manuscripts Under Review
+### Journal Publications
 
 <div class="pub-entry" id="prism">
   <img src="../files/prism-symbiosis.png" alt="Biological symbiotic relationships inspire relationship-aware cooperation among heterogeneous robots." class="pub-thumb">
@@ -32,14 +32,12 @@ weight: 1
   </div>
 </div>
 
-### Journal Publications
-
 <div class="pub-entry" id="valves">
   <img src="../files/NC_WP.gif" alt="Animated demonstration of a miniaturized pneumatic valve." class="pub-thumb">
   <div class="pub-text">
     <h3>Miniaturized Multifunctional Valves for Intelligent Pneumatic Systems in Soft Robotics</h3>
     <p><strong>Authors:</strong> <a href="https://linkedin.com/in/jing-xu-4161641ba">Jing Xu</a>, <strong>Xuezhi Niu</strong>, Jakob Andersson, <a href="https://didemgurdur.com/">Didem Gürdür Broo</a> & <a href="https://www.uu.se/kontakt-och-organisation/personal?query=XX3950">Klas Hjort</a></p>
-    <p>Accepted to <em>Advanced Intelligent Systems</em>, 2 September 2026</p>
+    <p>Accepted to <em>Advanced Intelligent Systems</em>, 2026</p>
     <p class="pub-links">
       <span>[Paper coming soon]</span>
       <a href="#" class="toggle" data-target="abs-valves">[Abstract]</a>
@@ -110,7 +108,7 @@ weight: 1
   <div class="pub-text">
     <h3>MORPH: Self-Organising Multi-Robot Task Allocation via Neuroplasticity-Inspired Adaptive Topology</h3>
     <p><strong>Authors:</strong> <strong>Xuezhi Niu</strong> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p>Accepted to <em>EUMAS 2026</em>, 6 July 2026</p>
+    <p>Accepted to <em>The 23rd European Conference on Multi-Agent Systems (EUMAS 2026)</em>, Malmö, Sweden</p>
     <p class="pub-links">
       <span>[Paper coming soon]</span>
       <a href="https://github.com/Cyber-physical-Systems-Lab/morph_v2/tree/EUMAS">[Code]</a>
@@ -127,7 +125,8 @@ weight: 1
           <pre><code id="bib-text-morph">@inproceedings{niu2026morph,
   title = {MORPH: Self-Organising Multi-Robot Task Allocation via Neuroplasticity-Inspired Adaptive Topology},
   author = {Niu, Xuezhi and Gürdür Broo, Didem},
-  booktitle = {EUMAS 2026},
+  booktitle = {The 23rd European Conference on Multi-Agent Systems (EUMAS)},
+  address = {Malmö, Sweden},
   year = {2026},
   note = {Accepted for publication}
 }</code></pre>
@@ -142,7 +141,7 @@ weight: 1
   <div class="pub-text">
     <h3>TouchDrive: Electronics-Free Tactile Sensing Interface for Assistive Grasping</h3>
     <p><strong>Authors:</strong> <a href="https://linkedin.com/in/jing-xu-4161641ba">Jing Xu</a>, <strong>Xuezhi Niu </strong>, <a href="https://didemgurdur.com/">Didem Gürdür Broo</a> & <a href="https://www.uu.se/kontakt-och-organisation/personal?query=XX3950">Klas Hjort</a></p>
-    <p>Presented at the <a href="https://www.robotac.eu/robotac-2026v2">RoboTac workshop</a>, <em>IEEE International Conference on Robotics and Automation (ICRA 2026)</em>, 5 June 2026</p>
+    <p>Presented at the <a href="https://www.robotac.eu/robotac-2026v2">RoboTac workshop</a>, <em>IEEE International Conference on Robotics and Automation (ICRA 2026)</em>, Vienna, Austria</p>
     <p class="pub-links">
       <a href="https://doi.org/10.48550/arXiv.2605.06432">[Paper]</a>
       <a href="https://github.com/treebranch8600/TouchDrive">[Code]</a>
@@ -164,7 +163,7 @@ weight: 1
   <div class="pub-text">
     <h3>"What do I do now?": Spontaneous Human Responses to Robot Effectiveness and Efficiency Malfunctions in Collaborative Robotics</h3>
     <p><strong>Authors:</strong> <a href="https://linkedin.com/in/alexandros-rouchitsas">Alexandros Rouchitsas</a>, <strong>Xuezhi Niu </strong>, Ginevra Castellano & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p>Accepted to <em>The ACM Conference on Human Factors in Computing Systems (CHI2026)</em></p>
+    <p>Accepted to <em>The ACM Conference on Human Factors in Computing Systems (CHI 2026)</em>, Barcelona, Spain</p>
     <p class="pub-links">
       <a href="https://doi.org/10.1145/3772318.3793419">[Paper]</a>
       <!-- <a href="https://github.com/Cyber-physical-Systems-Lab/RewMARL">[Code]</a> -->
@@ -180,6 +179,7 @@ weight: 1
   author = {Rouchitsas, Alexandros and Niu, Xuezhi and Castellano, Ginevra and Gürdür Broo, Didem},
   booktitle = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},
   series = {CHI &#x27;26},
+  address = {Barcelona, Spain},
   publisher = {ACM},
   year = {2026},
   month = apr,
@@ -204,7 +204,7 @@ weight: 1
   <div class="pub-text">
     <h3>Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping</h3>
     <p><strong>Authors: Xuezhi Niu </strong> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p><em>2025 9th International Conference on Robotics and Automation Sciences (ICRAS)</em></p>
+    <p><em>2025 9th International Conference on Robotics and Automation Sciences (ICRAS)</em>, Osaka, Japan</p>
     <p class="pub-links">
       <a href="https://doi.org/10.1109/ICRAS65818.2025.11108729">[Paper]</a>
       <a href="https://github.com/Cyber-physical-Systems-Lab/RewMARL">[Code]</a>
@@ -222,7 +222,8 @@ weight: 1
             <button class="copy-bib" data-copy="#bib-text-icras" aria-label="Copy BibTeX">📋</button>
             <pre><code id="bib-text-icras">@INPROCEEDINGS{11108729,
   author={Niu, Xuezhi and Broo, Didem Gürdür},
-  booktitle={2025 9th International Conference on Robotics and Automation Sciences (ICRAS)}, 
+  booktitle={2025 9th International Conference on Robotics and Automation Sciences (ICRAS)},
+  address={Osaka, Japan},
   title={Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping}, 
   year={2025},
   pages={112-117},
@@ -239,7 +240,7 @@ weight: 1
   <div class="pub-text">
     <h3>Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning</h3>
     <p><strong>Authors: Xuezhi Niu</strong>, <a href="https://linkedin.com/in/natycalvob">Natalia Calvo Barajas</a> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p><em>2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)</em></p>
+    <p><em>2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)</em>, Emden, Germany</p>
     <p class="pub-links">
       <a href="https://doi.org/10.1109/ICPS65515.2025.11087893">[Paper]</a>
       <!-- <a href="https://file.notion.so/f/f/5545e1f6-49ca-45ca-b96d-957713429775/51f981db-9e0a-402b-ae08-2314a84f12b7/ICPS.pdf?table=block&id=24cff393-81aa-80dc-848a-ff435141c55d&spaceId=5545e1f6-49ca-45ca-b96d-957713429775&expirationTimestamp=1755540000000&signature=yOne_zcBiqppKVPdnj_dP1wxnOnG-oeT3kPHgNMmM9I&downloadName=ICPS.pdf">[Slides]</a> -->
@@ -257,7 +258,8 @@ weight: 1
             <button class="copy-bib" data-copy="#bib-text-icps2025" aria-label="Copy BibTeX">📋</button>
             <pre><code id="bib-text-icps2025">@INPROCEEDINGS{niu2025enabling,
   author={Niu, Xuezhi and Barajas, Natalia Calvo and Broo, Didem Gürdür},
-  booktitle={2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)}, 
+  booktitle={2025 IEEE 8th International Conference on Industrial Cyber-Physical Systems (ICPS)},
+  address={Emden, Germany},
   title={Enabling Symbiosis in Multi-Robot Systems Through Multi-Agent Reinforcement Learning}, 
   year={2025},
   pages={1-7},
@@ -274,7 +276,7 @@ weight: 1
   <div class="pub-text">
     <h3>Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning</h3>
     <p><strong>Authors: Xuezhi Niu*</strong>, <a href="https://kaigetan.github.io/">Kaige Tan</a>*, <a href="https://didemgurdur.com/">Didem Gürdür Broo</a> & <a href="https://www.kth.se/profile/lfeng">Lei Feng</a></p>
-    <p><em>2025 IEEE International Conference on Robotics and Automation (ICRA)</em></p>
+    <p><em>2025 IEEE International Conference on Robotics and Automation (ICRA)</em>, Atlanta, USA</p>
     <p class="pub-links">
       <a href="https://doi.org/10.1109/ICRA55743.2025.11128611">[PDF]</a>
       <a href="https://github.com/n7729697/KTH-MasterThesis">[Code]</a>
@@ -293,7 +295,8 @@ weight: 1
             <pre><code id="bib-text-softq">@inproceedings{niu2025optimal,
 	title     = {Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning},
 	author    = {Niu, Xuezhi and Tan, Kaige and G{\"u}rd{\"u}r Broo, Didem and Feng, Lei},
-	booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)}, 
+	booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)},
+	address = {Atlanta, USA},
 	year      = {2025},
   pages     = {9287-9293},
 	doi       = {10.1109/ICRA55743.2025.11128611},

@@ -176,7 +176,7 @@ weight: 1
   <div class="pub-text">
     <h3>"What do I do now?": Spontaneous Human Responses to Robot Effectiveness and Efficiency Malfunctions in Collaborative Robotics</h3>
     <p><strong>Authors:</strong> <a href="https://linkedin.com/in/alexandros-rouchitsas">Alexandros Rouchitsas</a>, <strong>Xuezhi Niu </strong>, Ginevra Castellano & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
-    <p>Accepted to <em>The ACM Conference on Human Factors in Computing Systems (CHI 2026)</em>, Barcelona, Spain</p>
+    <p><em>The 2026 CHI Conference on Human Factors in Computing Systems</em>, Barcelona, Spain</p>
     <p class="pub-links">
       <a href="https://doi.org/10.1145/3772318.3793419">[Paper]</a>
       <!-- <a href="https://github.com/Cyber-physical-Systems-Lab/RewMARL">[Code]</a> -->
@@ -329,6 +329,20 @@ weight: 1
 * [Electronically Vacuum Regulated Shut-off Valve for Milking System](https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-324226)<br>
 Carl Egenäs\*, Felix Ekman\*, Chenqi Ma\*, Tim Naser\*, **Xuezhi Niu\***, Axel Sernelin\*, Samuel Stenow\*, Benjamin StrÖm\* <br>
 *H.K. Project, KTH Royal Institute of Technology, Stockholm, Sweden,* 2023<br>
+
+### Talks
+* [Half-Time Seminar 2026](../files/Half-time-seminar-20260826.pdf), Uppsala University, 26 Aug 2026<br>
+*Enhancing Cooperation in Heterogeneous Multi-Robot Systems: Symbiosis-Inspired Interaction of Cooperation.* Chair: Dr. Per Mattsson
+* EUMAS 2026, Malmö, Sweden (upcoming)<br>
+*MORPH: Self-Organising Multi-Robot Task Allocation via Neuroplasticity-Inspired Adaptive Topology.*
+* [SysCon@ITUU invited seminar 2025](../files/SysCon_Seminar250326.pdf), Uppsala University, 26 Mar 2025<br>
+*Reinforcement Learning for Robotic Control.* RL to robot control, with quadruped gait learning (model-free and model-based) as the running example. Thanks to Dr. Anh Tung Nguyen for the invitation.
+* ICPS 2025, Emden, Germany<br>
+*Enabling Symbiosis in Multi-Robot Systems through Multi-Agent Reinforcement Learning.*
+* ICRAS 2025, Osaka, Japan<br>
+*Investigating Symbiosis in Robotic Ecosystems: A Case Study for Multi-Robot Reinforcement Learning Reward Shaping.*
+* ICRA 2025, Atlanta, USA<br>
+*Optimal Gait Control for a Tendon-driven Soft Quadruped Robot by Model-based Reinforcement Learning.*
 
 ### Reviewer
 

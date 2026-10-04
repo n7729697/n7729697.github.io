@@ -212,7 +212,7 @@ A separate board set built filters for a microcontroller ADC designed for $f_s=8
 
 {% include figure.html image="/files/motor-control/lab4-current-sensor-schematic.svg" alt="Schematic of the shunt current sensor with INA126 and LM358." caption="Current sensor (lab4v2.1), values as built: 0.1 Ω shunt, RC input filter, INA126 with RG = 5.6 kΩ (gain 19.3) and REF on ground, LM358 stage ×10, ±12 V supplies. R1/R2 values were never recorded." %}
 
-{% include figure.html image="/files/motor-control/lab4-current-sensor-pcb.png" alt="PCB layout of the current sensor board." caption="PCB layout: shunt and input filter on the left (R1/R2 still labelled "some ohm"), INA126 in the middle, LM358 stage and the ±12 V / output pads on the right." %}
+{% include figure.html image="/files/motor-control/lab4-current-sensor-pcb.png" alt="PCB layout of the current sensor board." caption="PCB layout: shunt and input filter on the left (R1/R2 still labelled ‘some ohm’), INA126 in the middle, LM358 stage and the ±12 V / output pads on the right." %}
 
 {% include figure.html image="/assets/img/posts/actuation-drives/current-sensor-chain.svg" alt="Signal chain of the current sensor with gains and design issues." caption="The current sensor as drawn: 19.3 V/A in total, no offset for negative currents." %}
 

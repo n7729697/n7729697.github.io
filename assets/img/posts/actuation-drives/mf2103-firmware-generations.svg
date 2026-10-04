@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+  <title id="title">Three firmware generations of the MF2103 speed controller</title>
+  <desc id="desc">Task 1 super-loop polling the millisecond tick; task 2 CMSIS-RTOS RTX with virtual timers signalling a control thread and a reference thread; task 3 distributed over TCP with a client handling sensor and actuator and a server computing the PI control.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1000" height="500" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Same PI loop, three execution models (MF2103)</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>what changes is who decides when the loop runs, and what can delay it</tspan></text>
+    <rect x="30" y="90" width="305" height="370" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="182" y="118" font-size="13" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">1 · super-loop (bare metal)</text>
+    <text x="44" y="148" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">main(): HAL init, Application_Setup()</text>
+    <text x="44" y="178" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">while(1) Application_Loop():</text>
+    <text x="44" y="208" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  ms = HAL_GetTick()</text>
+    <text x="44" y="238" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  if (ms % PERIOD_CTRL == 0):</text>
+    <text x="44" y="268" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">    enc = TIM1-&gt;CNT</text>
+    <text x="44" y="298" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">    v = CalculateVelocity(enc, ms)</text>
+    <text x="44" y="328" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">    u = PIController(ref, v, ms)</text>
+    <text x="44" y="358" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">    ActuateMotor(u)  → TIM3-&gt;CCR1/2</text>
+    <text x="44" y="388" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">    if (ms % 4000 == 0) flip ref</text>
+    <text x="44" y="418" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">    busy-wait until ms changes</text>
+    <rect x="355" y="90" width="305" height="370" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="507" y="118" font-size="13" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">2 · RTOS (Keil RTX, CMSIS-RTOS v1)</text>
+    <text x="369" y="148" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">osTimer 50 ms → callback:</text>
+    <text x="369" y="178" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  osSignalSet(Thread1, 0x02)</text>
+    <text x="369" y="208" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">osTimer 4 s → callback:</text>
+    <text x="369" y="238" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  osSignalSet(Thread2, 0x03)</text>
+    <text x="369" y="268" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">Thread1 (AboveNormal):</text>
+    <text x="369" y="298" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  osSignalWait(0x02) → sample,</text>
+    <text x="369" y="328" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  PI, write CCR</text>
+    <text x="369" y="358" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">Thread2 (Normal):</text>
+    <text x="369" y="388" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  osSignalWait(0x03) → flip ref</text>
+    <text x="369" y="418" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">main thread: osSignalWait forever</text>
+    <rect x="680" y="90" width="305" height="370" rx="8" fill="#e2d9ea" stroke="#6b4f7a" stroke-width="2"/>
+    <text x="832" y="118" font-size="13" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">3 · distributed (TCP over W5500)</text>
+    <text x="694" y="148" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">client (sensor/actuator):</text>
+    <text x="694" y="178" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  timer 10 ms → T1: read enc, v</text>
+    <text x="694" y="208" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  T1 → signal T2: send(v)</text>
+    <text x="694" y="238" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  T2: recv(u) → signal T1</text>
+    <text x="694" y="268" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  T1: actuate u  (or 0 on failure)</text>
+    <text x="694" y="298" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">server (controller):</text>
+    <text x="694" y="328" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  main: listen; on data → T1</text>
+    <text x="694" y="358" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  T1: recv(v) → PI → send(u)</text>
+    <text x="694" y="388" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">  T2 (timer 4 s): flip ref, reset</text>
+    <text x="694" y="418" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">→ network delay inside the loop</text>
+  </g>
+</svg>

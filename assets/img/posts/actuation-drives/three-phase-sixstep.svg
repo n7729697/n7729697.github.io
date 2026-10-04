@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" role="img" aria-labelledby="title desc">
+  <title id="title">Three-phase inverter and six-step commutation</title>
+  <desc id="desc">Three half-bridge legs feed a star-connected motor; the table lists the six commutation steps of trapezoidal BLDC control: one high-side and one low-side switch conduct, the third phase floats.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1000" height="470" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Three-phase inverter and six-step commutation</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>each step energizes two phases; the floating phase is where sensorless control reads back-EMF</tspan></text>
+    <line x1="60" y1="110" x2="440" y2="110" stroke="#263230" stroke-width="2.5"/>
+    <line x1="60" y1="360" x2="440" y2="360" stroke="#263230" stroke-width="2.5"/>
+    <text x="30" y="115" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>+V</tspan></text>
+    <text x="30" y="365" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>0</tspan></text>
+    <rect x="86" y="130" width="48" height="46" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="110.0" y="157.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>A+</tspan></text>
+    <rect x="86" y="294" width="48" height="46" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="110.0" y="321.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>A−</tspan></text>
+    <line x1="110" y1="110" x2="110" y2="130" stroke="#263230" stroke-width="2"/>
+    <line x1="110" y1="176" x2="110" y2="294" stroke="#263230" stroke-width="2"/>
+    <line x1="110" y1="340" x2="110" y2="360" stroke="#263230" stroke-width="2"/>
+    <line x1="110" y1="235" x2="140" y2="235" stroke="#263230" stroke-width="2"/>
+    <text x="144" y="239" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <rect x="216" y="130" width="48" height="46" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="240.0" y="157.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>B+</tspan></text>
+    <rect x="216" y="294" width="48" height="46" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="240.0" y="321.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>B−</tspan></text>
+    <line x1="240" y1="110" x2="240" y2="130" stroke="#263230" stroke-width="2"/>
+    <line x1="240" y1="176" x2="240" y2="294" stroke="#263230" stroke-width="2"/>
+    <line x1="240" y1="340" x2="240" y2="360" stroke="#263230" stroke-width="2"/>
+    <line x1="240" y1="235" x2="270" y2="235" stroke="#263230" stroke-width="2"/>
+    <text x="274" y="239" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <rect x="346" y="130" width="48" height="46" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="370.0" y="157.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>C+</tspan></text>
+    <rect x="346" y="294" width="48" height="46" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="370.0" y="321.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>C−</tspan></text>
+    <line x1="370" y1="110" x2="370" y2="130" stroke="#263230" stroke-width="2"/>
+    <line x1="370" y1="176" x2="370" y2="294" stroke="#263230" stroke-width="2"/>
+    <line x1="370" y1="340" x2="370" y2="360" stroke="#263230" stroke-width="2"/>
+    <line x1="370" y1="235" x2="400" y2="235" stroke="#263230" stroke-width="2"/>
+    <text x="404" y="239" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C</tspan></text>
+    <circle cx="600" cy="235" r="70" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="600" y="292" font-size="11" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>star point</tspan></text>
+    <line x1="600" y1="235" x2="564.0" y2="217.0" stroke="#263230" stroke-width="2"/>
+    <line x1="600" y1="235" x2="636.0" y2="217.0" stroke="#263230" stroke-width="2"/>
+    <line x1="600" y1="235" x2="600.0" y2="274.0" stroke="#263230" stroke-width="2"/>
+    <text x="600" y="330" font-size="11" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>datasheets give line-to-line R, L</tspan></text>
+    <path d="M 140 235 C 200 235, 524 217, 564 217" stroke="#6f6a5f" stroke-width="1.4" fill="none"/>
+    <path d="M 270 235 C 330 235, 596 217, 636 217" stroke="#6f6a5f" stroke-width="1.4" fill="none"/>
+    <path d="M 400 235 C 460 235, 560 274, 600 274" stroke="#6f6a5f" stroke-width="1.4" fill="none"/>
+    <rect x="660" y="95" width="320" height="300" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="1.5"/>
+    <text x="680" y="120" font-size="13" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>step   sector   high side   low side   floating</tspan></text>
+    <text x="690" y="150" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>1</tspan></text>
+    <text x="745" y="150" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>1</tspan></text>
+    <text x="815" y="150" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A+</tspan></text>
+    <text x="900" y="150" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B−</tspan></text>
+    <text x="972" y="150" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C</tspan></text>
+    <text x="690" y="180" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>2</tspan></text>
+    <text x="745" y="180" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>2</tspan></text>
+    <text x="815" y="180" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A+</tspan></text>
+    <text x="900" y="180" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C−</tspan></text>
+    <text x="972" y="180" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <text x="690" y="210" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>3</tspan></text>
+    <text x="745" y="210" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>3</tspan></text>
+    <text x="815" y="210" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B+</tspan></text>
+    <text x="900" y="210" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C−</tspan></text>
+    <text x="972" y="210" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <text x="690" y="240" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>4</tspan></text>
+    <text x="745" y="240" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>4</tspan></text>
+    <text x="815" y="240" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B+</tspan></text>
+    <text x="900" y="240" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A−</tspan></text>
+    <text x="972" y="240" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C</tspan></text>
+    <text x="690" y="270" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>5</tspan></text>
+    <text x="745" y="270" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>5</tspan></text>
+    <text x="815" y="270" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C+</tspan></text>
+    <text x="900" y="270" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A−</tspan></text>
+    <text x="972" y="270" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <text x="690" y="300" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>6</tspan></text>
+    <text x="745" y="300" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>6</tspan></text>
+    <text x="815" y="300" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>C+</tspan></text>
+    <text x="900" y="300" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B−</tspan></text>
+    <text x="972" y="300" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <text x="680" y="345" font-size="12" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>60° electrical per step;  sector order depends on</tspan></text>
+    <text x="680" y="363" font-size="12" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>Hall placement — read it from the motor datasheet</tspan></text>
+  </g>
+</svg>

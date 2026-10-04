@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+  <title id="title">The motor feedback loop and where my coursework sits in it</title>
+  <desc id="desc">Block diagram of a motor feedback loop: reference, controller, PWM or DAC, power stage, motor, load, sensors, signal conditioning, ADC or encoder interface, estimator. Each block is tagged with the KTH course that implemented it on hardware (MF2007, MF2103, MF2043) or in simulation (MF2030).</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1200" height="640" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>The motor feedback loop, and where my coursework sits in it</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>theory in the post · simulations and real implementations on the project page</tspan></text>
+    <rect x="28" y="100" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="113.0" y="124" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Reference</tspan></text>
+    <text x="113.0" y="146" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>trajectory,</tspan></text>
+    <text x="113.0" y="162" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>set-point</tspan></text>
+    <rect x="36" y="182" width="50" height="18" rx="9" fill="#d8e8ef" stroke="#426a7a" stroke-width="1.5"/>
+    <text x="61" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007</tspan></text>
+    <rect x="89" y="182" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="114" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="222" y="100" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="307.0" y="124" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Controller</tspan></text>
+    <text x="307.0" y="146" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>PI, RST, LQR,</tspan></text>
+    <text x="307.0" y="162" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>anti-windup</tspan></text>
+    <rect x="230" y="182" width="50" height="18" rx="9" fill="#d8e8ef" stroke="#426a7a" stroke-width="1.5"/>
+    <text x="255" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007</tspan></text>
+    <rect x="283" y="182" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="308" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="416" y="100" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="501.0" y="124" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>PWM / DAC</tspan></text>
+    <text x="501.0" y="146" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>number → volts,</tspan></text>
+    <text x="501.0" y="162" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>zero-order hold</tspan></text>
+    <rect x="424" y="182" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="449" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="477" y="182" width="50" height="18" rx="9" fill="#eee2b7" stroke="#806632" stroke-width="1.5"/>
+    <text x="502" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2043</tspan></text>
+    <rect x="610" y="100" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="695.0" y="124" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Power stage</tspan></text>
+    <text x="695.0" y="146" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>H-bridge,</tspan></text>
+    <text x="695.0" y="162" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>inverter</tspan></text>
+    <rect x="618" y="182" width="50" height="18" rx="9" fill="#eee2b7" stroke="#806632" stroke-width="1.5"/>
+    <text x="643" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2043</tspan></text>
+    <rect x="671" y="182" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="696" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="804" y="100" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="889.0" y="124" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Motor</tspan></text>
+    <text x="889.0" y="146" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>current → torque,</tspan></text>
+    <text x="889.0" y="162" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>back-EMF</tspan></text>
+    <rect x="812" y="182" width="50" height="18" rx="9" fill="#d8e8ef" stroke="#426a7a" stroke-width="1.5"/>
+    <text x="837" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007</tspan></text>
+    <rect x="865" y="182" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="890" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="918" y="182" width="50" height="18" rx="9" fill="#e2d9ea" stroke="#6b4f7a" stroke-width="1.5"/>
+    <text x="943" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2030</tspan></text>
+    <rect x="998" y="100" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="1083.0" y="124" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Load</tspan></text>
+    <text x="1083.0" y="146" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>inertia, friction,</tspan></text>
+    <text x="1083.0" y="162" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>gearbox, joint</tspan></text>
+    <rect x="1006" y="182" width="50" height="18" rx="9" fill="#d8e8ef" stroke="#426a7a" stroke-width="1.5"/>
+    <text x="1031" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007</tspan></text>
+    <rect x="1059" y="182" width="50" height="18" rx="9" fill="#e2d9ea" stroke="#6b4f7a" stroke-width="1.5"/>
+    <text x="1084" y="195" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2030</tspan></text>
+    <line x1="198" y1="154.0" x2="222" y2="154.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="392" y1="154.0" x2="416" y2="154.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="586" y1="154.0" x2="610" y2="154.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="780" y1="154.0" x2="804" y2="154.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="974" y1="154.0" x2="998" y2="154.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="998" y="300" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="1083.0" y="324" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Sensors</tspan></text>
+    <text x="1083.0" y="346" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>encoder, Hall,</tspan></text>
+    <text x="1083.0" y="362" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>shunt, torque</tspan></text>
+    <rect x="1006" y="382" width="50" height="18" rx="9" fill="#d8e8ef" stroke="#426a7a" stroke-width="1.5"/>
+    <text x="1031" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007</tspan></text>
+    <rect x="1059" y="382" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="1084" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="1112" y="382" width="50" height="18" rx="9" fill="#eee2b7" stroke="#806632" stroke-width="1.5"/>
+    <text x="1137" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2043</tspan></text>
+    <rect x="764" y="300" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="849.0" y="324" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Conditioning</tspan></text>
+    <text x="849.0" y="346" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>amplifier, offset,</tspan></text>
+    <text x="849.0" y="362" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>anti-alias filter</tspan></text>
+    <rect x="772" y="382" width="50" height="18" rx="9" fill="#eee2b7" stroke="#806632" stroke-width="1.5"/>
+    <text x="797" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2043</tspan></text>
+    <rect x="530" y="300" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="615.0" y="324" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>ADC / timer</tspan></text>
+    <text x="615.0" y="346" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>sampling, quantization,</tspan></text>
+    <text x="615.0" y="362" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>encoder counter</tspan></text>
+    <rect x="538" y="382" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="563" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <rect x="591" y="382" width="50" height="18" rx="9" fill="#eee2b7" stroke="#806632" stroke-width="1.5"/>
+    <text x="616" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2043</tspan></text>
+    <rect x="222" y="300" width="170" height="108" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="307.0" y="324" font-size="15" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Estimator</tspan></text>
+    <text x="307.0" y="346" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>speed estimate,</tspan></text>
+    <text x="307.0" y="362" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>observer, Kalman</tspan></text>
+    <rect x="230" y="382" width="50" height="18" rx="9" fill="#d8e8ef" stroke="#426a7a" stroke-width="1.5"/>
+    <text x="255" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007</tspan></text>
+    <rect x="283" y="382" width="50" height="18" rx="9" fill="#d7e4ce" stroke="#4e6f52" stroke-width="1.5"/>
+    <text x="308" y="395" font-size="10" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103</tspan></text>
+    <line x1="1083.0" y1="208" x2="1083.0" y2="300" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="1095.0" y="254.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>y</tspan></text>
+    <line x1="998" y1="354.0" x2="934" y2="354.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="764" y1="354.0" x2="700" y2="354.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="530" y1="354.0" x2="392" y2="354.0" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="307.0" y1="300" x2="307.0" y2="208" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="321.0" y="254.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>x̂</tspan></text>
+    <line x1="1180" y1="62" x2="1138" y2="100" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="1175" y="54" font-size="12" text-anchor="end" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>load torque</tspan></text>
+    <line x1="988" y1="442" x2="1018" y2="408" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="984" y="448" font-size="12" text-anchor="end" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>noise</tspan></text>
+    <text x="30" y="452" font-size="13" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>Rates in a typical drive:  PWM 20 kHz · current loop 10 kHz · speed loop 1 kHz · position 100 Hz · communication and logging asynchronous</tspan></text>
+    <rect x="28" y="476" width="278" height="148" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="42" y="502" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2007 Motion Control</tspan></text>
+    <text x="42" y="528.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>DC motor on a TI C2000:</tspan></text>
+    <text x="42" y="544.5" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>identification, speed PI,</tspan></text>
+    <text x="42" y="561.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>position RST, trajectory and</tspan></text>
+    <text x="42" y="577.5" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>feedforward, robustness</tspan></text>
+    <text x="42" y="610.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#426a7a" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>measured on hardware</tspan></text>
+    <rect x="318" y="476" width="278" height="148" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="332" y="502" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2103 Embedded Systems</tspan></text>
+    <text x="332" y="528.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>coreless DC motor + STM32L476:</tspan></text>
+    <text x="332" y="544.5" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>timer PWM, encoder, PI in C,</tspan></text>
+    <text x="332" y="561.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>RTOS threads, control over TCP</tspan></text>
+    <text x="332" y="610.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#4e6f52" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>built and run on hardware</tspan></text>
+    <rect x="608" y="476" width="278" height="148" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="622" y="502" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2043 Electronics</tspan></text>
+    <text x="622" y="528.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>my PCBs: 24 → 12/5 V supply,</tspan></text>
+    <text x="622" y="544.5" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A4973 H-bridge, anti-alias</tspan></text>
+    <text x="622" y="561.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>filters, shunt current sensor</tspan></text>
+    <text x="622" y="610.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#806632" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>built boards</tspan></text>
+    <rect x="898" y="476" width="278" height="148" rx="8" fill="#e2d9ea" stroke="#6b4f7a" stroke-width="2"/>
+    <text x="912" y="502" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MF2030 Mechatronics</tspan></text>
+    <text x="912" y="528.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>brushless motor, planetary gear</tspan></text>
+    <text x="912" y="544.5" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>and bolted joint of a nutrunner:</tspan></text>
+    <text x="912" y="561.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>model, PI control, energy</tspan></text>
+    <text x="912" y="610.0" font-size="12.5" text-anchor="start" font-weight="normal" fill="#6b4f7a" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>simulation only</tspan></text>
+  </g>
+</svg>

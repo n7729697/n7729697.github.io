@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="470" viewBox="0 0 980 470" role="img" aria-labelledby="title desc">
+  <title id="title">Space-vector PWM hexagon</title>
+  <desc id="desc">The six active inverter states form a hexagon of voltage vectors with two zero vectors at the center; a reference vector in a sector is synthesized by time-averaging the two adjacent active vectors and the zero vectors.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="980" height="470" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>SVPWM: synthesizing any voltage vector inside the hexagon</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>eight switch states (abc): six active vectors of length 2V</tspan><tspan dy="3.9" font-size="10">dc</tspan><tspan dy="-3.9">/3, two zero vectors (000, 111)</tspan></text>
+    <polygon points="470.0,270.0 385.0,122.8 215.0,122.8 130.0,270.0 215.0,417.2 385.0,417.2" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <circle cx="300" cy="270" r="147.2" fill="none" stroke="#4e6f52" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <circle cx="300" cy="270" r="127.5" fill="none" stroke="#806632" stroke-width="1.4" stroke-dasharray="2 4"/>
+    <line x1="300" y1="270" x2="470.0" y2="270.0" stroke="#263230" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="500.6" y="275.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V1 (100)</tspan></text>
+    <line x1="300" y1="270" x2="385.0" y2="122.77568135664544" stroke="#263230" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="400.3" y="101.27530400084163" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V2 (110)</tspan></text>
+    <line x1="300" y1="270" x2="215.00000000000006" y2="122.7756813566454" stroke="#263230" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="199.70000000000007" y="101.2753040008416" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V3 (010)</tspan></text>
+    <line x1="300" y1="270" x2="130.0" y2="270.0" stroke="#263230" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="99.4" y="275.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V4 (011)</tspan></text>
+    <line x1="300" y1="270" x2="214.99999999999994" y2="417.22431864335454" stroke="#263230" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="199.69999999999993" y="448.72469599915837" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V5 (001)</tspan></text>
+    <line x1="300" y1="270" x2="385.0" y2="417.22431864335454" stroke="#263230" stroke-width="1.6" marker-end="url(#ah)"/>
+    <text x="400.3" y="448.72469599915837" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V6 (101)</tspan></text>
+    <text x="300" y="288" font-size="11" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>V0, V7</tspan></text>
+    <line x1="300" y1="270" x2="415.89798182084843" y2="223.174175823011" stroke="#b5462f" stroke-width="3" marker-end="url(#ahr)"/>
+    <text x="421.89798182084843" y="217.174175823011" font-size="15" text-anchor="start" font-weight="normal" fill="#b5462f" xml:space="preserve" style="white-space:pre"><tspan>v*</tspan></text>
+    <text x="340" y="258" font-size="12" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>sector I</tspan></text>
+    <rect x="560" y="110" width="400" height="300" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="580" y="140" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Dwell times in sector I (0 ≤ θ &lt; 60°):</tspan></text>
+    <text x="580" y="168" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>T</tspan><tspan dy="3.9" font-size="10">1</tspan><tspan dy="-3.9"> = √3 T</tspan><tspan dy="3.9" font-size="10">s</tspan><tspan dy="-3.9"> |v*|/V</tspan><tspan dy="3.9" font-size="10">dc</tspan><tspan dy="-3.9"> · sin(60° − θ)</tspan></text>
+    <text x="580" y="193" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>T</tspan><tspan dy="3.9" font-size="10">2</tspan><tspan dy="-3.9"> = √3 T</tspan><tspan dy="3.9" font-size="10">s</tspan><tspan dy="-3.9"> |v*|/V</tspan><tspan dy="3.9" font-size="10">dc</tspan><tspan dy="-3.9"> · sin θ</tspan></text>
+    <text x="580" y="218" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>T</tspan><tspan dy="3.9" font-size="10">0</tspan><tspan dy="-3.9"> = T</tspan><tspan dy="3.9" font-size="10">s</tspan><tspan dy="-3.9"> − T</tspan><tspan dy="3.9" font-size="10">1</tspan><tspan dy="-3.9"> − T</tspan><tspan dy="3.9" font-size="10">2</tspan><tspan dy="-3.9">  (split between 000 and 111)</tspan></text>
+    <text x="580" y="255" font-size="14" text-anchor="start" font-weight="normal" fill="#4e6f52" xml:space="preserve" style="white-space:pre"><tspan>Linear range: |v*| ≤ V</tspan><tspan dy="3.9" font-size="10">dc</tspan><tspan dy="-3.9">/√3  (green circle)</tspan></text>
+    <text x="580" y="280" font-size="14" text-anchor="start" font-weight="normal" fill="#806632" xml:space="preserve" style="white-space:pre"><tspan>Sine PWM: |v*| ≤ V</tspan><tspan dy="3.9" font-size="10">dc</tspan><tspan dy="-3.9">/2  (gold circle)</tspan></text>
+    <text x="580" y="305" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>→ 2/√3 = 15.5 % more voltage</tspan></text>
+    <text x="580" y="340" font-size="13" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>Equivalent: sine PWM plus common-mode</tspan></text>
+    <text x="580" y="360" font-size="13" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>injection −(max + min)/2 of the three</tspan></text>
+    <text x="580" y="380" font-size="13" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>references (&quot;min-max&quot; SVPWM)</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="500" viewBox="0 0 980 500" role="img" aria-labelledby="title desc">
+  <title id="title">Actuator energy conversion chains</title>
+  <desc id="desc">Energy chains for hydraulic, pneumatic and electric actuation from source to load, with the modulating element and the main losses.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="980" height="500" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Every actuator is an energy chain</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>source → modulator → converter → transmission → load; the modulator is where control enters</tspan></text>
+    <text x="30" y="143" font-size="17" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Hydraulic</tspan></text>
+    <rect x="140" y="95" width="170" height="82" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="225.0" y="132.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>pump + accumulator</tspan></text>
+    <text x="225.0" y="149.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(p ≈ 100–300 bar)</tspan></text>
+    <rect x="330" y="95" width="170" height="82" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="415.0" y="132.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>servo / prop. valve</tspan></text>
+    <text x="415.0" y="149.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(Q = C</tspan><tspan dy="3.6" font-size="9">d</tspan><tspan dy="-3.6"> A √(2Δp/ρ))</tspan></text>
+    <rect x="520" y="95" width="170" height="82" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="605.0" y="132.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>cylinder / motor</tspan></text>
+    <text x="605.0" y="149.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(F = pA)</tspan></text>
+    <rect x="710" y="95" width="170" height="82" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="795.0" y="140.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>rod, linkage</tspan></text>
+    <line x1="310" y1="136" x2="330" y2="136" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="500" y1="136" x2="520" y2="136" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="690" y1="136" x2="710" y2="136" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="880" y1="136" x2="915" y2="136" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="925" y="141" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>load</tspan></text>
+    <text x="605" y="199" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>losses: throttling, leakage, fluid friction</tspan></text>
+    <text x="30" y="273" font-size="17" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Pneumatic</tspan></text>
+    <rect x="140" y="225" width="170" height="82" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="225.0" y="262.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>compressor + tank</tspan></text>
+    <text x="225.0" y="279.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(p ≈ 6–8 bar)</tspan></text>
+    <rect x="330" y="225" width="170" height="82" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="415.0" y="262.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>on/off, PWM or</tspan></text>
+    <text x="415.0" y="279.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>proportional valve</tspan></text>
+    <rect x="520" y="225" width="170" height="82" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="605.0" y="262.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>cylinder / bellows</tspan></text>
+    <text x="605.0" y="279.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(F = pA, compressible)</tspan></text>
+    <rect x="710" y="225" width="170" height="82" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="795.0" y="270.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>rod, linkage</tspan></text>
+    <line x1="310" y1="266" x2="330" y2="266" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="500" y1="266" x2="520" y2="266" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="690" y1="266" x2="710" y2="266" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="880" y1="266" x2="915" y2="266" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="925" y="271" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>load</tspan></text>
+    <text x="605" y="329" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>losses: throttling, expansion, seal friction</tspan></text>
+    <text x="30" y="403" font-size="17" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Electric</tspan></text>
+    <rect x="140" y="355" width="170" height="82" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="225.0" y="392.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>battery / DC bus</tspan></text>
+    <text x="225.0" y="409.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(V, I)</tspan></text>
+    <rect x="330" y="355" width="170" height="82" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="415.0" y="392.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>H-bridge / inverter</tspan></text>
+    <text x="415.0" y="409.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(PWM duty)</tspan></text>
+    <rect x="520" y="355" width="170" height="82" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="605.0" y="392.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>motor</tspan></text>
+    <text x="605.0" y="409.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>(T = k</tspan><tspan dy="3.6" font-size="9">t</tspan><tspan dy="-3.6"> i)</tspan></text>
+    <rect x="710" y="355" width="170" height="82" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="795.0" y="400.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>gearbox, screw</tspan></text>
+    <line x1="310" y1="396" x2="330" y2="396" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="500" y1="396" x2="520" y2="396" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="690" y1="396" x2="710" y2="396" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="880" y1="396" x2="915" y2="396" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="925" y="401" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>load</tspan></text>
+    <text x="605" y="459" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>losses: I²R, iron, switching, gear friction</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="360" viewBox="0 0 980 360" role="img" aria-labelledby="title desc">
+  <title id="title">Cascaded position, speed and current loops</title>
+  <desc id="desc">Position controller produces a speed reference, the speed controller produces a current reference, the current controller produces a voltage that the PWM bridge applies to the motor; each loop runs faster than the one outside it.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="980" height="360" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Cascade: each inner loop makes the next plant simpler</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>typical rates for a small servo; the bandwidth ratio between loops ≈ 5–10</tspan></text>
+    <text x="30" y="175" font-size="15" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>θ*</tspan></text>
+    <rect x="90" y="130" width="140" height="80" rx="8" fill="#e2d9ea" stroke="#6b4f7a" stroke-width="2"/>
+    <text x="160.0" y="157.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>position</tspan></text>
+    <text x="160.0" y="174.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>P / PD</tspan></text>
+    <text x="160.0" y="191.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>100 Hz–1 kHz</tspan></text>
+    <rect x="265" y="130" width="140" height="80" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="335.0" y="157.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>speed</tspan></text>
+    <text x="335.0" y="174.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>PI</tspan></text>
+    <text x="335.0" y="191.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>1–5 kHz</tspan></text>
+    <rect x="440" y="130" width="140" height="80" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="510.0" y="157.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>current</tspan></text>
+    <text x="510.0" y="174.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>PI</tspan></text>
+    <text x="510.0" y="191.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>10–20 kHz</tspan></text>
+    <rect x="615" y="130" width="140" height="80" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="685.0" y="166.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>PWM + bridge</tspan></text>
+    <text x="685.0" y="183.05" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>20 kHz</tspan></text>
+    <rect x="790" y="130" width="140" height="80" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="860.0" y="174.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>motor + load</tspan></text>
+    <line x1="230" y1="170" x2="265" y2="170" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="247.5" y="160.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>ω*</tspan></text>
+    <line x1="405" y1="170" x2="440" y2="170" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="422.5" y="160.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>i*</tspan></text>
+    <line x1="580" y1="170" x2="615" y2="170" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="597.5" y="160.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>v*</tspan></text>
+    <line x1="755" y1="170" x2="790" y2="170" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="772.5" y="160.0" font-size="12" text-anchor="middle" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>v</tspan></text>
+    <line x1="50" y1="170" x2="90" y2="170" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <path d="M 860 210 L 860 250 L 510 250 L 510 210" stroke="#426a7a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <text x="520" y="244" font-size="12" text-anchor="start" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>i  (shunt + ADC)</tspan></text>
+    <path d="M 860 210 L 860 285 L 335 285 L 335 210" stroke="#426a7a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <text x="345" y="279" font-size="12" text-anchor="start" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>ω  (encoder Δcount / Δt)</tspan></text>
+    <path d="M 860 210 L 860 320 L 160 320 L 160 210" stroke="#426a7a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <text x="170" y="314" font-size="12" text-anchor="start" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>θ  (encoder count)</tspan></text>
+  </g>
+</svg>

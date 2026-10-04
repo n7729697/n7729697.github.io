@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="980" viewBox="0 0 1000 980" role="img" aria-labelledby="title desc">
+  <title id="title">From desired position to feedback: the integrated chain</title>
+  <desc id="desc">Forward path from position reference through controllers, PWM, gate driver, bridge, winding, torque, rotor, gearbox and nut; return path through encoder and current sensor, ADC and timer interfaces, and the software state estimate back into the controllers; each block coloured by domain.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1000" height="980" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>The whole chain: equation → firmware → silicon → copper → steel</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>left: forward path; right: measurement path; colours: software (blue), electronics (yellow), physics (green)</tspan></text>
+    <rect x="40" y="85" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="110.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>desired angle θ*</tspan><tspan dy="3.6" font-size="9">out</tspan><tspan dy="-3.6"> [rad]</tspan></text>
+    <rect x="40" y="143" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="168.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>trajectory: θ*, ω*, α* (limits)</tspan></text>
+    <line x1="240" y1="127" x2="240" y2="143" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="201" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="226.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>position loop → ω*</tspan><tspan dy="3.6" font-size="9">m</tspan><tspan dy="-3.6"> = n ω*</tspan><tspan dy="3.6" font-size="9">out</tspan></text>
+    <line x1="240" y1="185" x2="240" y2="201" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="259" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="284.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>speed loop → τ*</tspan><tspan dy="3.6" font-size="9">m</tspan><tspan dy="-3.6"> [N·m]</tspan></text>
+    <line x1="240" y1="243" x2="240" y2="259" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="317" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="342.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>i* = τ*</tspan><tspan dy="3.6" font-size="9">m</tspan><tspan dy="-3.6"> / k</tspan><tspan dy="3.6" font-size="9">t</tspan><tspan dy="-3.6"> [A]</tspan></text>
+    <line x1="240" y1="301" x2="240" y2="317" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="375" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="400.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>current loop → v* [V]</tspan></text>
+    <line x1="240" y1="359" x2="240" y2="375" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="433" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="240.0" y="458.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>duty d = v*/V</tspan><tspan dy="3.6" font-size="9">bus</tspan><tspan dy="-3.6"> → CCR (int)</tspan></text>
+    <line x1="240" y1="417" x2="240" y2="433" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="491" width="400" height="42" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="240.0" y="516.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>timer compare → PWM [logic]</tspan></text>
+    <line x1="240" y1="475" x2="240" y2="491" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="549" width="400" height="42" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="240.0" y="574.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>gate driver → V</tspan><tspan dy="3.6" font-size="9">GS</tspan><tspan dy="-3.6"> [V]</tspan></text>
+    <line x1="240" y1="533" x2="240" y2="549" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="607" width="400" height="42" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="240.0" y="632.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>MOSFET bridge → v</tspan><tspan dy="3.6" font-size="9">AB</tspan><tspan dy="-3.6"> [V, avg]</tspan></text>
+    <line x1="240" y1="591" x2="240" y2="607" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="665" width="400" height="42" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="240.0" y="690.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>winding: L di/dt = v − R i − k</tspan><tspan dy="3.6" font-size="9">e</tspan><tspan dy="-3.6"> ω</tspan></text>
+    <line x1="240" y1="649" x2="240" y2="665" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="723" width="400" height="42" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="240.0" y="748.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>torque τ</tspan><tspan dy="3.6" font-size="9">m</tspan><tspan dy="-3.6"> = k</tspan><tspan dy="3.6" font-size="9">t</tspan><tspan dy="-3.6"> i</tspan></text>
+    <line x1="240" y1="707" x2="240" y2="723" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="781" width="400" height="42" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="240.0" y="806.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>rotor: J ω̇ = τ</tspan><tspan dy="3.6" font-size="9">m</tspan><tspan dy="-3.6"> − τ</tspan><tspan dy="3.6" font-size="9">load</tspan><tspan dy="-3.6">/(η n)</tspan></text>
+    <line x1="240" y1="765" x2="240" y2="781" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="839" width="400" height="42" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="240.0" y="864.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>gearbox: ω</tspan><tspan dy="3.6" font-size="9">out</tspan><tspan dy="-3.6"> = ω</tspan><tspan dy="3.6" font-size="9">m</tspan><tspan dy="-3.6">/n, τ</tspan><tspan dy="3.6" font-size="9">out</tspan><tspan dy="-3.6"> ≈ η n τ</tspan><tspan dy="3.6" font-size="9">m</tspan></text>
+    <line x1="240" y1="823" x2="240" y2="839" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="40" y="897" width="400" height="42" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="240.0" y="922.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>nut + joint: τ</tspan><tspan dy="3.6" font-size="9">out</tspan><tspan dy="-3.6"> ↔ preload F</tspan></text>
+    <line x1="240" y1="881" x2="240" y2="897" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="897" width="400" height="42" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="760.0" y="922.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>joint torque / angle (product sensor)</tspan></text>
+    <rect x="560" y="839" width="400" height="42" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="760.0" y="864.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>encoder lines → A/B edges</tspan></text>
+    <line x1="760" y1="897" x2="760" y2="881" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="781" width="400" height="42" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="760.0" y="806.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>timer encoder counter (16 bit)</tspan></text>
+    <line x1="760" y1="839" x2="760" y2="823" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="723" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="760.0" y="748.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>Δcount/Δt → ω̂, θ̂ (fixed-point)</tspan></text>
+    <line x1="760" y1="781" x2="760" y2="765" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="665" width="400" height="42" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="760.0" y="690.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>shunt → amplifier → ADC code</tspan></text>
+    <line x1="760" y1="723" x2="760" y2="707" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="607" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="760.0" y="632.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ADC code → î [A] (offset, gain)</tspan></text>
+    <line x1="760" y1="665" x2="760" y2="649" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="549" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="760.0" y="574.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>observer / filter (optional)</tspan></text>
+    <line x1="760" y1="607" x2="760" y2="591" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="560" y="491" width="400" height="42" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="760.0" y="516.55" font-size="13" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>feedback into the three loops</tspan></text>
+    <line x1="760" y1="549" x2="760" y2="533" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <path d="M 440 919 L 500 919 L 500 911 L 560 911" stroke="#263230" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <path d="M 560 512 L 500 512 L 500 222 L 440 222" stroke="#426a7a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <path d="M 500 280 L 440 280" stroke="#426a7a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <path d="M 500 396 L 440 396" stroke="#426a7a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+    <text x="505" y="210" font-size="13" text-anchor="start" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>θ̂</tspan></text>
+    <text x="505" y="272" font-size="13" text-anchor="start" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>ω̂</tspan></text>
+    <text x="505" y="388" font-size="13" text-anchor="start" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>î</tspan></text>
+  </g>
+</svg>

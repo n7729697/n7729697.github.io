@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420" role="img" aria-labelledby="title desc">
+  <title id="title">Magnetic circuit with air gap</title>
+  <desc id="desc">An N-turn coil on an iron core drives flux around a loop containing an air gap; the gap reluctance dominates, setting inductance and force.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="980" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Magnetic circuit: MMF, reluctance, flux</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>the air gap stores most of the energy, so it sets inductance, saturation margin and force</tspan></text>
+    <path d="M 120 110 L 420 110 L 420 330 L 290 330 M 270 330 L 120 330 Z" fill="none" stroke="#6f6a5f" stroke-width="34" stroke-linejoin="miter"/>
+    <rect x="268" y="312" width="24" height="36" fill="#f8f4ec"/>
+    <text x="280" y="375" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>air gap g</tspan></text>
+    <ellipse cx="120" cy="160" rx="30" ry="9" fill="none" stroke="#b5462f" stroke-width="3"/>
+    <ellipse cx="120" cy="182" rx="30" ry="9" fill="none" stroke="#b5462f" stroke-width="3"/>
+    <ellipse cx="120" cy="204" rx="30" ry="9" fill="none" stroke="#b5462f" stroke-width="3"/>
+    <ellipse cx="120" cy="226" rx="30" ry="9" fill="none" stroke="#b5462f" stroke-width="3"/>
+    <ellipse cx="120" cy="248" rx="30" ry="9" fill="none" stroke="#b5462f" stroke-width="3"/>
+    <ellipse cx="120" cy="270" rx="30" ry="9" fill="none" stroke="#b5462f" stroke-width="3"/>
+    <text x="60" y="235" font-size="13" text-anchor="end" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>N turns</tspan></text>
+    <text x="60" y="252" font-size="13" text-anchor="end" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>current i</tspan></text>
+    <path d="M 160 135 L 390 135 L 390 300" stroke="#426a7a" stroke-width="2.5" fill="none" stroke-dasharray="6 4" marker-end="url(#ah)"/>
+    <text x="275" y="128" font-size="14" text-anchor="middle" font-weight="normal" fill="#426a7a" xml:space="preserve" style="white-space:pre"><tspan>flux Φ</tspan></text>
+    <rect x="500" y="100" width="440" height="230" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="520" y="130" font-size="15" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Circuit analogy</tspan></text>
+    <text x="520" y="160" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>MMF = N i   (like a voltage source)</tspan></text>
+    <text x="520" y="185" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>reluctance R</tspan><tspan dy="3.9" font-size="10">m</tspan><tspan dy="-3.9"> = l / (μ A)   (like a resistance)</tspan></text>
+    <text x="520" y="210" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>flux Φ = N i / (R</tspan><tspan dy="3.9" font-size="10">m,core</tspan><tspan dy="-3.9"> + R</tspan><tspan dy="3.9" font-size="10">m,gap</tspan><tspan dy="-3.9">)</tspan></text>
+    <text x="520" y="235" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>R</tspan><tspan dy="3.9" font-size="10">m,gap</tspan><tspan dy="-3.9"> = g/(μ</tspan><tspan dy="3.9" font-size="10">0</tspan><tspan dy="-3.9"> A)  &gt;&gt;  R</tspan><tspan dy="3.9" font-size="10">m,core</tspan><tspan dy="-3.9"> = l/(μ</tspan><tspan dy="3.9" font-size="10">r</tspan><tspan dy="-3.9"> μ</tspan><tspan dy="3.9" font-size="10">0</tspan><tspan dy="-3.9"> A)</tspan></text>
+    <text x="520" y="260" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>flux linkage λ = N Φ,   inductance L = N</tspan><tspan dy="-5.3" font-size="10">2</tspan><tspan dy="5.3"> / R</tspan><tspan dy="3.9" font-size="10">m</tspan></text>
+    <text x="520" y="285" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>co-energy force F = ½ i</tspan><tspan dy="-5.3" font-size="10">2</tspan><tspan dy="5.3"> dL/dx   (pulls the gap shut)</tspan></text>
+    <text x="520" y="310" font-size="14" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Faraday: e = dλ/dt = L di/dt + i (dL/dx) ẋ</tspan></text>
+  </g>
+</svg>

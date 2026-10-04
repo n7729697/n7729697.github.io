@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title desc">
+  <title id="title">H-bridge current paths</title>
+  <desc id="desc">Four switching states of an H-bridge with the winding current path drawn in red: forward drive, slow decay through the low-side switches, fast decay through the body diodes back to the supply, and reverse drive.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1000" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>H-bridge: where the current actually flows</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>the winding current cannot jump: when a switch opens, the inductance forces it through another path</tspan></text>
+    <text x="135" y="90" font-size="14" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>forward drive</tspan></text>
+    <line x1="60" y1="120" x2="210" y2="120" stroke="#263230" stroke-width="2.5"/>
+    <line x1="60" y1="340" x2="210" y2="340" stroke="#263230" stroke-width="2.5"/>
+    <text x="135" y="112" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>+V</tspan><tspan dy="3.4" font-size="8">bus</tspan></text>
+    <text x="135" y="358" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>GND</tspan></text>
+    <rect x="38" y="140" width="44" height="50" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="60.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S1</tspan></text>
+    <text x="60.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ON</tspan></text>
+    <path d="M 88 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="81" y1="166" x2="95" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="38" y="250" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="60.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S2</tspan></text>
+    <text x="60.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 88 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="81" y1="276" x2="95" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="188" y="140" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="210.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S3</tspan></text>
+    <text x="210.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 238 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="231" y1="166" x2="245" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="188" y="250" width="44" height="50" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="210.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S4</tspan></text>
+    <text x="210.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ON</tspan></text>
+    <path d="M 238 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="231" y1="276" x2="245" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <line x1="60" y1="120" x2="60" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="60" y1="190" x2="60" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="60" y1="300" x2="60" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="210" y1="120" x2="210" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="210" y1="190" x2="210" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="210" y1="300" x2="210" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="60" y1="220" x2="115" y2="220" stroke="#263230" stroke-width="2"/>
+    <line x1="155" y1="220" x2="210" y2="220" stroke="#263230" stroke-width="2"/>
+    <circle cx="135" cy="220" r="20" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="135" y="224.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>M</tspan></text>
+    <text x="46" y="224" font-size="12" text-anchor="end" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <text x="224" y="224" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <path d="M 66 128 L 66 212 L 117 212 M 153 212 L 204 212 L 204 335" stroke="#b5462f" stroke-width="3" fill="none" stroke-opacity="0.85" marker-end="url(#ahr)"/>
+    <text x="135" y="382" font-size="11" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>v</tspan><tspan dy="3.1" font-size="7">AB</tspan><tspan dy="-3.1"> = +V</tspan><tspan dy="3.1" font-size="7">bus</tspan><tspan dy="-3.1">, current rises</tspan></text>
+    <text x="380" y="90" font-size="14" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>slow decay (S1 off)</tspan></text>
+    <line x1="305" y1="120" x2="455" y2="120" stroke="#263230" stroke-width="2.5"/>
+    <line x1="305" y1="340" x2="455" y2="340" stroke="#263230" stroke-width="2.5"/>
+    <text x="380" y="112" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>+V</tspan><tspan dy="3.4" font-size="8">bus</tspan></text>
+    <text x="380" y="358" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>GND</tspan></text>
+    <rect x="283" y="140" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="305.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S1</tspan></text>
+    <text x="305.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 333 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="326" y1="166" x2="340" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="283" y="250" width="44" height="50" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="305.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S2</tspan></text>
+    <text x="305.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ON</tspan></text>
+    <path d="M 333 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="326" y1="276" x2="340" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="433" y="140" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="455.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S3</tspan></text>
+    <text x="455.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 483 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="476" y1="166" x2="490" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="433" y="250" width="44" height="50" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="455.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S4</tspan></text>
+    <text x="455.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ON</tspan></text>
+    <path d="M 483 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="476" y1="276" x2="490" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <line x1="305" y1="120" x2="305" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="305" y1="190" x2="305" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="305" y1="300" x2="305" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="455" y1="120" x2="455" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="455" y1="190" x2="455" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="455" y1="300" x2="455" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="305" y1="220" x2="360" y2="220" stroke="#263230" stroke-width="2"/>
+    <line x1="400" y1="220" x2="455" y2="220" stroke="#263230" stroke-width="2"/>
+    <circle cx="380" cy="220" r="20" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="380" y="224.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>M</tspan></text>
+    <text x="291" y="224" font-size="12" text-anchor="end" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <text x="469" y="224" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <path d="M 311 335 L 311 212 L 362 212 M 398 212 L 449 212 L 449 332 L 311 332" stroke="#b5462f" stroke-width="3" fill="none" stroke-opacity="0.85" marker-end="url(#ahr)"/>
+    <text x="380" y="382" font-size="11" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>v</tspan><tspan dy="3.1" font-size="7">AB</tspan><tspan dy="-3.1"> ≈ 0, current decays slowly</tspan></text>
+    <text x="625" y="90" font-size="14" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>fast decay (all off)</tspan></text>
+    <line x1="550" y1="120" x2="700" y2="120" stroke="#263230" stroke-width="2.5"/>
+    <line x1="550" y1="340" x2="700" y2="340" stroke="#263230" stroke-width="2.5"/>
+    <text x="625" y="112" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>+V</tspan><tspan dy="3.4" font-size="8">bus</tspan></text>
+    <text x="625" y="358" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>GND</tspan></text>
+    <rect x="528" y="140" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="550.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S1</tspan></text>
+    <text x="550.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 578 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="571" y1="166" x2="585" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="528" y="250" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="550.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S2</tspan></text>
+    <text x="550.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 578 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="571" y1="276" x2="585" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="678" y="140" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="700.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S3</tspan></text>
+    <text x="700.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 728 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="721" y1="166" x2="735" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="678" y="250" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="700.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S4</tspan></text>
+    <text x="700.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 728 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="721" y1="276" x2="735" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <line x1="550" y1="120" x2="550" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="550" y1="190" x2="550" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="550" y1="300" x2="550" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="700" y1="120" x2="700" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="700" y1="190" x2="700" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="700" y1="300" x2="700" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="550" y1="220" x2="605" y2="220" stroke="#263230" stroke-width="2"/>
+    <line x1="645" y1="220" x2="700" y2="220" stroke="#263230" stroke-width="2"/>
+    <circle cx="625" cy="220" r="20" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="625" y="224.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>M</tspan></text>
+    <text x="536" y="224" font-size="12" text-anchor="end" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <text x="714" y="224" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <path d="M 582 335 L 582 212 L 607 212 M 643 212 L 732 212 L 732 128" stroke="#b5462f" stroke-width="3" fill="none" stroke-opacity="0.85" marker-end="url(#ahr)"/>
+    <text x="625" y="382" font-size="11" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>diodes: v</tspan><tspan dy="3.1" font-size="7">AB</tspan><tspan dy="-3.1"> = −V</tspan><tspan dy="3.1" font-size="7">bus</tspan><tspan dy="-3.1">, energy to bus</tspan></text>
+    <text x="870" y="90" font-size="14" text-anchor="middle" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>reverse drive</tspan></text>
+    <line x1="795" y1="120" x2="945" y2="120" stroke="#263230" stroke-width="2.5"/>
+    <line x1="795" y1="340" x2="945" y2="340" stroke="#263230" stroke-width="2.5"/>
+    <text x="870" y="112" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>+V</tspan><tspan dy="3.4" font-size="8">bus</tspan></text>
+    <text x="870" y="358" font-size="12" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>GND</tspan></text>
+    <rect x="773" y="140" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="795.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S1</tspan></text>
+    <text x="795.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 823 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="816" y1="166" x2="830" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="773" y="250" width="44" height="50" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="795.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S2</tspan></text>
+    <text x="795.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ON</tspan></text>
+    <path d="M 823 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="816" y1="276" x2="830" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="923" y="140" width="44" height="50" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="945.0" y="161.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S3</tspan></text>
+    <text x="945.0" y="177.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>ON</tspan></text>
+    <path d="M 973 178 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="966" y1="166" x2="980" y2="166" stroke="#6f6a5f" stroke-width="1.2"/>
+    <rect x="923" y="250" width="44" height="50" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="945.0" y="271.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>S4</tspan></text>
+    <text x="945.0" y="287.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>off</tspan></text>
+    <path d="M 973 288 l 7 -12 l -14 0 z" stroke="#6f6a5f" stroke-width="1.2" fill="none"/>
+    <line x1="966" y1="276" x2="980" y2="276" stroke="#6f6a5f" stroke-width="1.2"/>
+    <line x1="795" y1="120" x2="795" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="795" y1="190" x2="795" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="795" y1="300" x2="795" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="945" y1="120" x2="945" y2="140" stroke="#263230" stroke-width="2"/>
+    <line x1="945" y1="190" x2="945" y2="250" stroke="#263230" stroke-width="2"/>
+    <line x1="945" y1="300" x2="945" y2="340" stroke="#263230" stroke-width="2"/>
+    <line x1="795" y1="220" x2="850" y2="220" stroke="#263230" stroke-width="2"/>
+    <line x1="890" y1="220" x2="945" y2="220" stroke="#263230" stroke-width="2"/>
+    <circle cx="870" cy="220" r="20" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="870" y="224.55" font-size="13" text-anchor="middle" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>M</tspan></text>
+    <text x="781" y="224" font-size="12" text-anchor="end" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A</tspan></text>
+    <text x="959" y="224" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>B</tspan></text>
+    <path d="M 939 128 L 939 212 L 888 212 M 852 212 L 801 212 L 801 335" stroke="#b5462f" stroke-width="3" fill="none" stroke-opacity="0.85" marker-end="url(#ahr)"/>
+    <text x="870" y="382" font-size="11" text-anchor="middle" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>v</tspan><tspan dy="3.1" font-size="7">AB</tspan><tspan dy="-3.1"> = −V</tspan><tspan dy="3.1" font-size="7">bus</tspan><tspan dy="-3.1">, current reverses</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-labelledby="title desc">
+  <title id="title">Zephyr motor-control execution architecture</title>
+  <desc id="desc">Layered assignment of motor-control functions to timer and ADC hardware, a zero-latency PWM-synchronous interrupt for the current loop, a high-priority thread for the speed loop, a medium thread for position and trajectory, and low-priority threads for communication and logging, with the kernel objects that connect them.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1000" height="540" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>A Zephyr architecture for the drive</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>put each function at the lowest layer that can meet its deadline</tspan></text>
+    <rect x="30" y="90" width="940" height="72" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="48" y="116" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">Hardware peripherals (no CPU)</text>
+    <text x="48" y="142" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">TIM1 centre-aligned PWM 20 kHz + complementary outputs + dead time + break input · ADC injected conversion triggered by TIM1 · encoder timer / QDEC</text>
+    <rect x="30" y="176" width="940" height="72" rx="8" fill="#ead0c8" stroke="#8b5849" stroke-width="2"/>
+    <text x="48" y="202" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">ISR context — 10 kHz, highest priority (zero-latency IRQ)</text>
+    <text x="48" y="228" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">read ADC → current PI (i_d, i_q or i) → limits → write CCR (preload) · every 10th: k_sem_give(&amp;speed_sem) · fault: disable outputs</text>
+    <rect x="30" y="262" width="940" height="72" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="48" y="288" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">High-priority thread — 1 kHz (preemptive, prio −2 / 0)</text>
+    <text x="48" y="314" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">k_sem_take(&amp;speed_sem) → read encoder snapshot → speed PI + anti-windup → i* via atomic double buffer</text>
+    <rect x="30" y="348" width="940" height="72" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="48" y="374" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">Medium-priority thread — 100 Hz</text>
+    <text x="48" y="400" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">k_timer → trajectory generator (S-curve) + position loop → ω* · tightening state machine (rundown → clamp → stop)</text>
+    <rect x="30" y="434" width="940" height="72" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="48" y="460" font-size="14" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre">Low-priority threads — asynchronous</text>
+    <text x="48" y="486" font-size="12" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre">k_msgq: commands from UART/CAN/Ethernet · LOG_DEFERRED logging · shell · thread analyzer (stack usage)</text>
+    <line x1="500" y1="162" x2="500" y2="174" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="500" y1="248" x2="500" y2="260" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="500" y1="334" x2="500" y2="346" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <line x1="500" y1="420" x2="500" y2="432" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="30" y="525" font-size="12" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre">Rule: nothing in the ISR may block, allocate or log; threads never write PWM registers; data crosses layers through atomics, semaphores and queues.</text>
+  </g>
+</svg>

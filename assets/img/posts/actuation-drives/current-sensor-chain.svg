@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title desc">
+  <title id="title">Current-sensor signal chain from the lab-4 board</title>
+  <desc id="desc">Motor current through a 0.1 ohm shunt, an RC input filter, an INA126 instrumentation amplifier with gain about 19.3, and an LM358 non-inverting stage with gain 10, giving about 19.3 volts per ampere before the ADC.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#263230"/></marker><marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5462f"/></marker></defs>
+  <rect width="1000" height="420" fill="#f8f4ec"/>
+  <g font-family="Georgia, serif" fill="#263230">
+    <text x="30" y="40" font-size="22" text-anchor="start" font-weight="700" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Shunt current sensing as drawn on my lab-4 board (Eagle v2.1)</tspan></text>
+    <text x="30" y="64" font-size="14" text-anchor="start" font-weight="normal" fill="#5d6a66" font-style="italic" xml:space="preserve" style="white-space:pre"><tspan>gain chain and the two design issues the netlist reveals</tspan></text>
+    <rect x="25" y="110" width="120" height="90" rx="8" fill="#d7e4ce" stroke="#4e6f52" stroke-width="2"/>
+    <text x="85.0" y="151.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>motor</tspan></text>
+    <text x="85.0" y="167.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>current i</tspan></text>
+    <rect x="165" y="110" width="120" height="90" rx="8" fill="#eee2b7" stroke="#806632" stroke-width="2"/>
+    <text x="225.0" y="151.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>R</tspan><tspan dy="3.4" font-size="8">S</tspan><tspan dy="-3.4"> = 0.1 Ω</tspan></text>
+    <text x="225.0" y="167.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>0.1 V/A</tspan></text>
+    <line x1="145" y1="155" x2="165" y2="155" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="305" y="110" width="120" height="90" rx="8" fill="#fbf9f4" stroke="#4c5854" stroke-width="2"/>
+    <text x="365.0" y="143.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>RC filter</tspan></text>
+    <text x="365.0" y="159.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>R1, R2 + 1 nF CM</tspan></text>
+    <text x="365.0" y="175.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>10 nF diff.</tspan></text>
+    <line x1="285" y1="155" x2="305" y2="155" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="445" y="110" width="120" height="90" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="505.0" y="143.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>INA126</tspan></text>
+    <text x="505.0" y="159.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>G = 5 + 80k/R</tspan><tspan dy="3.4" font-size="8">G</tspan></text>
+    <text x="505.0" y="175.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>R</tspan><tspan dy="3.4" font-size="8">G</tspan><tspan dy="-3.4"> = 5.6k → 19.3</tspan></text>
+    <line x1="425" y1="155" x2="445" y2="155" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="585" y="110" width="120" height="90" rx="8" fill="#d8e8ef" stroke="#426a7a" stroke-width="2"/>
+    <text x="645.0" y="151.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>LM358 ×10</tspan></text>
+    <text x="645.0" y="167.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>1 + 29.7k/3.3k</tspan></text>
+    <line x1="565" y1="155" x2="585" y2="155" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="725" y="110" width="120" height="90" rx="8" fill="#e2d9ea" stroke="#6b4f7a" stroke-width="2"/>
+    <text x="785.0" y="151.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>V</tspan><tspan dy="3.4" font-size="8">out</tspan></text>
+    <text x="785.0" y="167.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>≈ 19.3 V/A</tspan></text>
+    <line x1="705" y1="155" x2="725" y2="155" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <rect x="865" y="110" width="120" height="90" rx="8" fill="#e6e1d6" stroke="#6f6a5f" stroke-width="2"/>
+    <text x="925.0" y="151.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>MCU ADC</tspan></text>
+    <text x="925.0" y="167.2" font-size="12" text-anchor="middle" font-weight="normal" xml:space="preserve" style="white-space:pre"><tspan>0–3.3 V</tspan></text>
+    <line x1="845" y1="155" x2="865" y2="155" stroke="#263230" stroke-width="2" marker-end="url(#ah)"/>
+    <text x="40" y="250" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Issue 1 — range: 19.3 V/A with ±12 V rails saturates near ±0.55 A (LM358 swing ≈ +10.5 V) and the 0–3.3 V ADC window</tspan></text>
+    <text x="40" y="272" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>covers only 0–0.17 A. Fix: R</tspan><tspan dy="3.6" font-size="9">S</tspan><tspan dy="-3.6"> and gain so that full-scale motor current maps to ±1.5 V around a 1.65 V offset.</tspan></text>
+    <text x="40" y="305" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Issue 2 — offset: INA126 REF is tied to GND, so negative current gives a negative output the ADC cannot read.</tspan></text>
+    <text x="40" y="327" font-size="13" text-anchor="start" font-weight="normal" fill="#263230" xml:space="preserve" style="white-space:pre"><tspan>Fix: drive REF from a buffered mid-supply (1.65 V) reference, or use a single-supply current-sense amplifier.</tspan></text>
+    <text x="40" y="362" font-size="13" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>Also: in-line shunts see the full PWM common-mode swing (0 ↔ V</tspan><tspan dy="3.6" font-size="9">bus</tspan><tspan dy="-3.6"> at 20 kHz); a ±12 V INA126 cannot follow a 24 V swing.</tspan></text>
+    <text x="40" y="384" font-size="13" text-anchor="start" font-weight="normal" fill="#5d6a66" xml:space="preserve" style="white-space:pre"><tspan>Low-side placement (shunt to ground) keeps common mode near 0 V at the cost of not seeing recirculating current.</tspan></text>
+  </g>
+</svg>

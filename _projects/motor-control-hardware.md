@@ -1,13 +1,13 @@
 ---
 name: Motor Control from Model to Hardware — Sensors, Controllers and Embedded Firmware (KTH, 2021–2022)
 tools: [MATLAB, Simulink, TI C2000, STM32, C, Keil RTX, Eagle, Python]
-image: /files/motor-control/motor-feedback-loop.svg
+image: /files/motor-control/servo-simulation-simulink-cover.png
 description: A complete motor feedback loop built and analysed piece by piece. It covers DC-motor identification, speed, position and servo control on a TI C2000, and speed-control firmware on an STM32 (super-loop, RTOS and distributed over TCP). Around them sit my own boards for supply, H-bridge, anti-alias filtering and current sensing, two designed DRV8323S brushless shields (six-step velocity control and FOC torque control), and a simulated brushless drive for a bolt-tightening tool. Every parameter is traced to its source, the models and the firmware are re-executed in Python, and the errors found are documented.
 ---
 
 # **Motor Control from Model to Hardware**
 
-<i class="fas fa-book"></i> Theory: <a href="{% post_url 2026-10-03-actuation-electric-drives-embedded-control %}">Motors in the Loop: Actuators, Sensors, Models, Controllers and Sensor Fusion</a> &nbsp;·&nbsp; <i class="fas fa-university"></i> KTH Royal Institute of Technology &nbsp;·&nbsp; <i class="far fa-calendar"></i> September 2021 – March 2022
+<i class="fas fa-book"></i> Theory: <a href="{% post_url 2023-10-03-actuation-electric-drives-embedded-control %}">Motors in the Loop: Actuators, Sensors, Models, Controllers and Sensor Fusion</a> &nbsp;·&nbsp; <i class="fas fa-university"></i> KTH Royal Institute of Technology &nbsp;·&nbsp; <i class="far fa-calendar"></i> September 2021 – March 2022
 
 **Goal:** close a feedback loop around an electric motor and understand every link of it, from the control equation, through firmware, PWM, bridge and winding, to torque, and back through the encoder and the current sensor. The theory is in the companion post; this page is the engineering record: what was built, measured and simulated, what worked, and what turned out to be wrong.
 
@@ -36,16 +36,10 @@ The project used two hardware rigs, a set of custom boards and one simulation mo
 | **BLDC shields** | Nucleo shields with DRV8323S, BSC028N06NS bridge, 5 mΩ shunts, Hall and encoder inputs | three-phase power stage, current sensing, Hall/encoder interface for velocity and torque control | designed (schematic + PCB) |
 | **Application model** | MATLAB/Simulink | brushless motor + planetary gearbox + bolted joint of an Atlas Copco nutrunner | simulation |
 
-{% include figure.html image="/assets/img/posts/actuation-drives/mf2103-platform.svg" alt="Block diagram of the STM32 platform with pins and peripherals." caption="Rig B, wired from the CubeMX configuration and the peripherals module." %}
-
-<div class="row" markdown="1">
-<div class="col-md-6" markdown="1">
 {% include figure.html image="/files/motor-control/nucleo-l476rg.jpg" alt="STM32 Nucleo-L476RG development board." caption="Nucleo-L476RG, the MCU of Rig B. Image: Zephyr Project documentation (Apache-2.0)." %}
 </div>
 <div class="col-md-6" markdown="1">
 {% include figure.html image="/files/motor-control/ti-launchpad-c2000-setup.jpg" alt="A TI C2000 LaunchPad bench set-up." caption="A C2000 LaunchPad set-up like Rig A (not our bench). Photo: Brihaspati, CC BY-SA 4.0, via Wikimedia Commons." %}
-</div>
-</div>
 
 ---
 
@@ -54,6 +48,8 @@ The project used two hardware rigs, a set of custom boards and one simulation mo
 ### 2.1 Identifying the DC motor (Rig A)
 
 Step responses at 7, 12 and 18 V and sine inputs at 0.5 rad/s were fitted to the DC-motor model. The fit gave $J=2.6\cdot10^{-5}$ kg·m² and $d_m=2.15\cdot10^{-5}$ N·m·s/rad, and adding Coulomb friction $F_c=1.35\cdot10^{-3}$ N·m removed the steady-state mismatch at low voltage. The electrical time constant (0.1 ms) is far below everything else, so the voltage-to-speed plant is
+
+{% include figure.html image="/files/motor-control/friction-block-simulink.png" alt="Simulink friction subsystem: viscous term dm times velocity plus a saturated static friction branch selected by a velocity dead-band switch." caption="Friction block of the motor model. Viscous friction is $d_m\omega$. Above the velocity dead band $d_v$ the static branch gives $\operatorname{sign}(\omega)$ limited to $\pm F_c$ (Coulomb friction); below it the applied torque is limited to $\pm F_c$, so friction holds the rotor at standstill." %}
 
 $$
 G_v(s)=\frac{23.94}{s+2.495}\qquad(\text{time constant }0.40\text{ s}),
@@ -72,20 +68,11 @@ The tool's Faulhaber 3268 BX4 brushless motor was modelled as a DC-equivalent ma
 | Angular acceleration | 120·10³ rad/s² | 113.7·10³ rad/s² | 113.7·10³ rad/s² |
 | Mechanical time constant | 4.6 ms | 4.54 ms | 4.6 ms |
 
-{% include figure.html image="/assets/img/posts/actuation-drives/faulhaber-step-response.svg" alt="Simulated speed and current of the BX4 model for a 24 V step." caption="BX4 DC-equivalent model, 24 V step: the 4.6 ms mechanical time constant and a current inrush limited only by the winding." %}
-
 ### 2.3 Drive train with gearbox and joint
 
 The drive-train model has four states (motor and nut angles and speeds), coupled by the gearbox stiffness (739 N·m/rad) and damping. A 1 V step gives 19.56 rad/s at the motor and 0.2415 rad/s at the nut. The gearbox mode turns out to be very stiff and overdamped, so for control the drive train behaves almost as one rigid inertia.
 
-<div class="row" markdown="1">
-<div class="col-md-6" markdown="1">
-{% include figure.html image="/assets/img/posts/actuation-drives/nutrunner-model.svg" alt="Drive-train model of motor, gearbox, output shaft, nut and joint." caption="Drive-train model." %}
-</div>
-<div class="col-md-6" markdown="1">
-{% include figure.html image="/assets/img/posts/actuation-drives/nutrunner-rundown-step.svg" alt="Rundown model step response: motor speed and nut speed times 81." caption="1 V step response (re-simulated)." %}
-</div>
-</div>
+{% include figure.html image="/files/motor-control/nutrunner-pi-simulink.png" alt="Simulink model of the nutrunner drive train with a PID controller, state-space plant and torque output." caption="The nutrunner drive-train model in Simulink (MF2030): acceleration reference integrated to a velocity reference, PID controller, state-space motor and gearbox, joint stiffness and damping giving the torque." %}
 
 **Two unit errors found by re-running the model.**
 
@@ -186,8 +173,6 @@ At 2000 rpm and 50 ms about 3413 counts pass, and one count is worth 0.59 rpm. A
 
 **Simulated improvement.** A Kalman filter that fuses the counts with the motor current and model removes the quantization without filter lag, and it estimates the load torque. Here it is compared with the alternatives on the Rig B motor model:
 
-{% include figure.html image="/assets/img/posts/actuation-drives/speed-estimation-methods.svg" alt="Speed estimates from encoder counts on the Rig B motor model with four methods." caption="Same 2048-count encoder data at 1 kHz: M-method (29.3 rpm steps), 20 Hz low-pass (lags a ramp by 19 rpm), T-method (best at 20 rpm, stale through zero speed), and a Kalman filter using counts + current + model (no ramp lag, load torque identified within 1 %)." %}
-
 ### 4.2 Anti-alias filters and sampling
 
 A separate board set built filters for a microcontroller ADC designed for $f_s=8$ kHz. Test signals at $f_c/3$, $f_c$ and $3f_c$ were sampled on an mbed LPC11U24 and streamed to MATLAB, and digital 200 Hz low-pass and 600 Hz high-pass filters were implemented.
@@ -200,11 +185,7 @@ A separate board set built filters for a microcontroller ADC designed for $f_s=8
 
 {% include figure.html image="/files/motor-control/lab3-filters-schematic.svg" alt="Schematics of the three anti-alias filters: active low-pass, passive RC low-pass and passive band-pass." caption="The three filter boards on one sheet, values as built: (a) active OP462 low-pass with input and op-amp supply on the same net and V− open, (b) passive RC with a 10 kΩ trimmer and 100 µF, (c) passive band-pass." %}
 
-<div class="row" markdown="1">
-<div class="col-md-6" markdown="1">
 {% include figure.html image="/files/motor-control/lab3-active-lowpass-pcb.png" alt="PCB layout of the active low-pass filter board." caption="Active low-pass PCB: OP462 (SOIC-14), 10 kΩ input resistor, 100 kΩ ∥ 10 nF feedback." %}
-</div>
-</div>
 
 **Three sampling frequencies.** The filter specification uses 8 kHz, the sampling program 20 kHz (one byte per sample at 921 600 baud) and the MATLAB plotter 80 kHz. Used together unchanged, every plotted frequency reads four times too high. Lesson: define $f_s$ once and store it with the data.
 
@@ -213,8 +194,6 @@ A separate board set built filters for a microcontroller ADC designed for $f_s=8
 {% include figure.html image="/files/motor-control/lab4-current-sensor-schematic.svg" alt="Schematic of the shunt current sensor with INA126 and LM358." caption="Current sensor (lab4v2.1), values as built: 0.1 Ω shunt, RC input filter, INA126 with RG = 5.6 kΩ (gain 19.3) and REF on ground, LM358 stage ×10, ±12 V supplies. R1/R2 values were never recorded." %}
 
 {% include figure.html image="/files/motor-control/lab4-current-sensor-pcb.png" alt="PCB layout of the current sensor board." caption="PCB layout: shunt and input filter on the left (R1/R2 still labelled ‘some ohm’), INA126 in the middle, LM358 stage and the ±12 V / output pads on the right." %}
-
-{% include figure.html image="/assets/img/posts/actuation-drives/current-sensor-chain.svg" alt="Signal chain of the current sensor with gains and design issues." caption="The current sensor as drawn: 19.3 V/A in total, no offset for negative currents." %}
 
 **Signal chain.**
 
@@ -233,8 +212,6 @@ A separate board set built filters for a microcontroller ADC designed for $f_s=8
 - In-line placement exposes the amplifier to the full PWM common-mode swing. Low-side placement or a PWM-rejecting current-sense amplifier avoids that.
 
 **PWM ripple and the sampling instant.** Whichever sensor is used, the current must be sampled synchronously with the PWM, at the point where the ripple crosses its average:
-
-{% include figure.html image="/assets/img/posts/actuation-drives/aliasing-pwm-ripple.svg" alt="Winding current with PWM ripple sampled synchronously at two instants and free-running." caption="Rig B motor at stall (simulated), 20 kHz PWM, ADC at 10 kHz. Synchronous samples at the pulse centre read the average within 2 %; a wrong instant reads 15 % low; a free-running ADC at 9.9 kHz invents a 200 Hz oscillation." %}
 
 ---
 
@@ -274,22 +251,13 @@ $$
 
 A trapezoidal trajectory planner (500 rad/s², 210 rad/s, chosen from the identified model so that the voltage never saturates) and a model-following feedforward made 10 rad and 100 rad moves with about 0.5 s rise time. The real motor tracked as well as the simulation.
 
-### 5.4 Sampling, delay and saturation (re-simulated)
+{% include figure.html image="/files/motor-control/servo-simulation-simulink.png" alt="Simulink servo simulation model with reference trajectory, model-following feedforward, discrete feedback and two DC-motor models with friction." caption="The servo-control simulation model (MF2007 workshop B), ungrouped. The reference trajectory feeds a model-following feedforward and a discrete two-degree-of-freedom feedback around a physical DC-motor model (1/R, km, 1/J, ke, two integrators and a friction block). The upper motor is a second copy driven by a MATLAB-function controller (fcn) for comparison." %}
 
-<div class="row" markdown="1">
-<div class="col-md-6" markdown="1">
-{% include figure.html image="/assets/img/posts/actuation-drives/discretization-sampling-delay.svg" alt="Emulated PI step responses at different sampling periods with and without computation delay." caption="The speed PI at 2, 20 and 50 ms: a one-sample delay at 50 ms gives 54 % overshoot." %}
-</div>
-<div class="col-md-6" markdown="1">
-{% include figure.html image="/assets/img/posts/actuation-drives/antiwindup-comparison.svg" alt="Speed controller with rotor held, four anti-windup variants." caption="Rotor held 0.5 s: no anti-windup overshoots to 196 rad/s; the anti-windup variants stay within 0-4 %." %}
-</div>
-</div>
+### 5.4 Sampling, delay and saturation (re-simulated)
 
 ### 5.5 Robustness
 
 The sensitivity $S$ and complementary sensitivity $T$ were compared for different observer polynomials. The same method was applied to a velocity controller for a valve-controlled hydraulic cylinder, tested against an external force, a change of load mass and sensor noise.
-
-{% include figure.html image="/assets/img/posts/actuation-drives/sensitivity-tradeoff.svg" alt="Magnitude of S and T for the position controller with two observer bandwidths." caption="A faster observer (120 versus 30 rad/s) lowers the peak sensitivity from 1.44 to 1.30 but passes about ten times more sensor noise at 1000 rad/s." %}
 
 ---
 
@@ -298,8 +266,6 @@ The sensitivity $S$ and complementary sensitivity $T$ were compared for differen
 ### 6.1 Firmware architecture
 
 The firmware has four modules with fixed header files (core, peripherals, controller, application), written as if by four teams in parallel. The same PI law was run in three execution models:
-
-{% include figure.html image="/assets/img/posts/actuation-drives/mf2103-firmware-generations.svg" alt="Super-loop, RTOS and distributed firmware structures." caption="Three generations of the same controller." %}
 
 1. **Super-loop.** The loop polls `HAL_GetTick()` and runs the controller when `millisec % PERIOD_CTRL == 0`; the reference toggles between ±2000 rpm every 4 s. The PI is an incremental Tustin form that receives the elapsed time, so it works at both 10 and 50 ms.
 2. **RTOS.** Keil RTX (CMSIS-RTOS v1) virtual timers (50 ms and 4 s) signal a control thread and a reference thread. The HAL's SysTick, SVC and PendSV handlers had to be removed to avoid clashing with the kernel's.
@@ -310,10 +276,6 @@ The firmware has four modules with fixed header files (core, peripherals, contro
 ### 6.2 Re-executing the firmware
 
 `controller.c` and `peripherals.c` were replayed in Python with exact C integer semantics (32-bit wrap, truncating division, the original signed/unsigned conversions) against a model of the motor. The replay assumes a 12 V supply, sign-magnitude drive, 2048 counts/rev and rotor inertia only.
-
-{% include figure.html image="/assets/img/posts/actuation-drives/mf2103-code-replay.svg" alt="Replay of the final controller at 10 and 50 ms periods against the motor model." caption="The final controller tracks ±2000 rpm at both periods (about 12 % overshoot after reversals at 50 ms). Steady duty 20.6 % (CCR ≈ 412), consistent with 2000 rpm / 839 rpm/V + IR ≈ 2.47 V on 12 V." %}
-
-{% include figure.html image="/assets/img/posts/actuation-drives/mf2103-task2-overflow.svg" alt="Replay of the RTOS-version controller with the rotor held, showing overflow events." caption="RTOS-version controller with the rotor held from 2 to 3 s: 77 signed-overflow events; the duty jumps between extremes after release." %}
 
 **Two overflow mechanisms.**
 
@@ -360,11 +322,7 @@ The loop was then scaled to an application: the drive of an **Atlas Copco Tensor
 
 **The specified motor cannot meet both requirements.**
 
-{% include figure.html image="/assets/img/posts/actuation-drives/faulhaber-torque-speed-duty.svg" alt="BX4 torque-speed limits with the tightening requirement curve and gear-ratio points." caption="The requirement curve and the free-speed line do not meet inside the motor's torque-speed envelope." %}
-
 **Joint model.** Without friction the model predicts 2.82 GPa bolt stress, far above the 640 MPa yield. With thread and under-head friction ($\mu=0.2$), 25 N·m gives 11.7 kN of preload and 321 MPa, reached about 44° after snug.
-
-{% include figure.html image="/assets/img/posts/actuation-drives/screw-joint-torque-tension.svg" alt="Torque versus nut angle and bolt stress versus torque for three joint models." caption="Without friction, the stress is overestimated by an order of magnitude." %}
 
 **Stopping at the target.** If the drive keeps commanding the clamp torque and lets the joint stop the rotor, the rotor's 0.18 J of kinetic energy winds the joint a further 0.11 rad: **3.5 N·m (14 %) overshoot**. Cutting the current exactly at the target gives about 0.2 N·m, but then every millisecond of torque-measurement delay adds 0.1 N·m. Slowing to 0.5 rad/s before the target brings the torque-limited overshoot down to 0.6 N·m, which is why production tools tighten in two steps.
 
@@ -426,6 +384,41 @@ They differ in how the motor is commutated and in what is measured. That makes t
 3. **Battery voltage.** The SMBJ33A's 33 V stand-off suits a 24 V supply but is marginal for a fully charged battery pack above 33 V.
 4. **SPI clock and the LED.** SPI1 uses D11-D13; D13 (PA5) also drives LED LD2, which will flicker with the SPI clock. That is harmless.
 5. **Velocity shield routing.** Its PCB still needs the remaining connections routed and a design-rule check.
+
+### 8.4 Reference Simulink models of both drives
+
+Before any firmware for the shields, both drive types were simulated in Simulink with the BX4 constants of the application study, the 20 kHz control period of the STM32 firmware and the same speed loop, so they can be compared like for like. The model files are not published here; only the structure and the results are.
+
+| Quantity | Value | Source |
+|---|---|---|
+| Supply, current limit | 24 V, 7.9 A | clamp point of section 7 |
+| Pole pairs, inertia | 2, 6·10⁻⁶ kg·m² | project data, $b=0$ |
+| Terminal resistance, inductance | 1.45 Ω, 110 µH | project data |
+| Torque constant | 43.5 mN·m/A | project data |
+| PMSM equivalent | $R_s=R_{ll}/2$, $L_d=L_q=L_{ll}/2$, $\lambda=k_t/(1.5p)$ | so that $T_e=1.5p\lambda i_q=k_ti_q$ |
+| Control period | 50 µs (20 kHz), one sample of computation delay | firmware of section 8 |
+| Current loop | PI by pole-zero cancellation, 1 kHz | $k_p=\omega_cL$, $k_i=\omega_cR$ |
+| Speed loop | PI, 60 Hz, output limited to 7.9 A with clamping anti-windup | $k_p=J\omega_c/k_t$, $k_i=k_p\omega_c/5$ |
+
+**PMSM with field-oriented control (simulated structure).** The speed PI sets $i_q^*$ ($i_d^*=0$). Two current PIs work in the rotating frame with the cross-coupling and back-EMF feed-forward terms $-\omega_eL_qi_q$ and $\omega_e(L_di_d+\lambda)$. The voltage vector is scaled back onto the circle $V_{dc}/\sqrt3$ (the linear SVPWM limit), delayed one sample and rotated back to the stator frame. The plant is the dq model; $i_a$ and $i_b$ are rebuilt from it and pass through Clarke and Park again, as a three-shunt measurement would.
+
+**BLDC with six-step commutation (simulated structure).** The speed PI sets the bridge current reference and a current PI sets the signed duty. The rotor angle is converted to degrees and shifted, wrapped with a `mod` block and compared with 180° to give the three Hall bits (edges at 30° + k·60°). A Combinatorial Logic block holds the six-step truth table (Hall code in, six gate signals AH, AL, BH, BL, CH, CL out). In parallel, three lookup tables give the trapezoidal back-EMF shapes $f_a,f_b,f_c$ of the three phases, and the gate signals select the conducting pair: $s=\tfrac12\sum_x(H_x-L_x)f_x$. The plant is the lumped model of the two conducting phases: $L_{ll}\,di/dt=v-R_{ll}i-k_es\omega$ and $T_e=k_ts\,i$. In the flat part of the trapezoid $s=1$; the ramps of the shapes appear only around the commutation instants.
+
+**Simulated response.** A 300 rad/s step at 10 ms and a 0.1 N·m load step at 100 ms (the plots end at 200 ms):
+
+| | PMSM, FOC | BLDC, six-step |
+|---|---|---|
+| 90 % rise time | 6.0 ms | 6.2 ms |
+| Overshoot | 5.7 % | 5.8 % |
+| Settling to 2 % | 27.9 ms | 28.6 ms |
+| Speed dip at the load step | 34 rad/s | 34 rad/s |
+| Recovery to 2 % | 26.5 ms | 26.6 ms |
+| Peak current | 8.6 A ($i_q$) | 8.5 A |
+| Steady-state current at 0.1 N·m | 2.30 A, $i_d\approx0$ | 2.30 A |
+
+{% include figure.html image="/files/motor-control/bldc-pmsm-response.png" alt="Speed and current of the PMSM and BLDC models for a speed step and a load step; the curves almost coincide." caption="Response of both models. The curves almost coincide: with the same plant constants, the same speed loop and ideal inverters, the speed loop sees the same torque source. The current overshoots the 7.9 A limit by about 9 % at the start of the step because only the speed PI output is limited, not the current-loop transient." %}
+
+**What these models do not contain.** Both use an average-value inverter, so there is no PWM ripple, dead time, MOSFET drop or bus-voltage sag, and no sensor noise or quantisation. The rotor angle and speed are the plant states, not the Hall-edge T-method estimate of section 8.1. Friction is $b=0$, as in the project data. The PMSM flux linkage is derived from the torque constant by assuming a sinusoidal machine, which the BX4 only approximates. The BLDC model lumps the two conducting phases and ignores the freewheeling phase, so torque ripple at commutation is understated. None of this has been checked against the shields, which are not built.
 
 ## 9. Results and lessons
 

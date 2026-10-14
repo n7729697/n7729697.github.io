@@ -39,7 +39,7 @@ weight: 1
     <p><strong>Authors:</strong> <a href="https://linkedin.com/in/jing-xu-4161641ba">Jing Xu</a>, <strong>Xuezhi Niu</strong>, Jakob Andersson, <a href="https://didemgurdur.com/">Didem Gürdür Broo</a> & <a href="https://www.uu.se/kontakt-och-organisation/personal?query=XX3950">Klas Hjort</a></p>
     <p><em>Advanced Intelligent Systems</em>, 2026</p>
     <p class="pub-links">
-      <span>[Paper coming soon]</span>
+      <a href="https://doi.org/10.1002/aisy.70550">[Paper]</a>
       <a href="#" class="toggle" data-target="abs-valves">[Abstract]</a>
       <a href="#" class="toggle" data-target="bib-valves">[BibTeX]</a>
     </p>
@@ -55,7 +55,8 @@ weight: 1
   author = {Xu, Jing and Niu, Xuezhi and Andersson, Jakob and Gürdür Broo, Didem and Hjort, Klas},
   journal = {Advanced Intelligent Systems},
   year = {2026},
-  note = {Accepted for publication}
+  doi = {10.1002/aisy.70550},
+  url = {https://doi.org/10.1002/aisy.70550}
 }</code></pre>
         </div>
       </div>
@@ -110,7 +111,7 @@ weight: 1
     <p><strong>Authors:</strong> <strong>Xuezhi Niu</strong> & <a href="https://didemgurdur.com/">Didem Gürdür Broo</a></p>
     <p><em>The 23rd European Conference on Multi-Agent Systems (EUMAS 2026)</em>, Malmö, Sweden</p>
     <p class="pub-links">
-      <span>[Paper coming soon]</span>
+      <a href="https://doi.org/10.1007/978-3-032-39395-1_31">[Paper]</a>
       <a href="https://github.com/Cyber-physical-Systems-Lab/morph_v2/tree/EUMAS">[Code]</a>
       <a href="#" class="toggle" data-target="abs-morph">[Abstract]</a>
       <a href="#" class="toggle" data-target="bib-morph">[BibTeX]</a>
@@ -127,8 +128,10 @@ weight: 1
   author = {Niu, Xuezhi and Gürdür Broo, Didem},
   booktitle = {The 23rd European Conference on Multi-Agent Systems (EUMAS)},
   address = {Malmö, Sweden},
+  publisher = {Springer},
   year = {2026},
-  note = {Accepted for publication}
+  doi = {10.1007/978-3-032-39395-1_31},
+  url = {https://doi.org/10.1007/978-3-032-39395-1_31}
 }</code></pre>
         </div>
       </div>

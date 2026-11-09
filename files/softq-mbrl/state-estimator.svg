@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#333"/></marker>
+  </defs>
+  <rect width="1200" height="620" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" font-size="22" font-weight="bold" fill="#222">Velocity estimate: a model corrected by reality, as an optimiser</text>
+
+  <!-- Model -->
+  <rect x="30" y="60" width="330" height="250" rx="10" fill="#eef3fb" stroke="#1f5fa8" stroke-width="2.5"/>
+  <text x="195" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#1f5fa8">Model: physics</text>
+  <text x="50" y="118" font-size="13">state  x = [position p, velocity v]</text>
+  <text x="50" y="146" font-size="13">input  u = acceleration a   (IMU, BNO055)</text>
+  <text x="50" y="180" font-size="14" font-weight="bold">predict</text>
+  <text x="50" y="204" font-size="14">x_pred = F x + B u,   F = [[1, Ts], [0, 1]]</text>
+  <text x="50" y="228" font-size="14">B = [Ts^2 / 2, Ts]</text>
+  <text x="50" y="252" font-size="14">P_pred = F P F^T + Q</text>
+  <text x="50" y="284" font-size="12" fill="#555">cheap and smooth, but drifts: a bias b in a gives v error b t</text>
+
+  <!-- Reality -->
+  <rect x="840" y="60" width="330" height="250" rx="10" fill="#eef6ee" stroke="#3b7d3b" stroke-width="2.5"/>
+  <text x="1005" y="90" text-anchor="middle" font-size="17" font-weight="bold" fill="#3b7d3b">Reality: sensors</text>
+  <text x="860" y="118" font-size="13">ToF distance to the surroundings, z = d</text>
+  <text x="860" y="140" font-size="13">(thesis diagram feeds the change in distance)</text>
+  <text x="860" y="176" font-size="14" font-weight="bold">measure</text>
+  <text x="860" y="200" font-size="14">z = H x + noise,   H = [1, 0]   (for d)</text>
+  <text x="860" y="224" font-size="14">noise covariance R = sigma_d^2</text>
+  <text x="860" y="284" font-size="12" fill="#555">unbiased, but noisy: differencing it gives sqrt(2) sigma_d / Ts</text>
+
+  <!-- Correction -->
+  <rect x="430" y="110" width="340" height="200" rx="10" fill="#fdf3e7" stroke="#b5452a" stroke-width="2.5"/>
+  <text x="600" y="140" text-anchor="middle" font-size="17" font-weight="bold" fill="#b5452a">Compare and correct</text>
+  <text x="450" y="170" font-size="14">innovation  y = z - H x_pred</text>
+  <text x="450" y="198" font-size="14">gain  K = P_pred H^T (H P_pred H^T + R)^-1</text>
+  <text x="450" y="226" font-size="14">update  x = x_pred + K y</text>
+  <text x="450" y="254" font-size="14">P = (I - K H) P_pred</text>
+  <text x="450" y="288" font-size="12" fill="#555">large R: trust the model.  Large Q: trust the sensor.</text>
+
+  <path d="M360 190 L430 190" stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+  <path d="M840 190 L770 190" stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+  <path d="M600 310 L600 350" stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+
+  <!-- Output -->
+  <rect x="430" y="350" width="340" height="70" rx="10" fill="#fff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="378" text-anchor="middle" font-size="16" font-weight="bold">estimate  (p, v)  every Ts = 50 ms</text>
+  <text x="600" y="402" text-anchor="middle" font-size="13" fill="#555">v goes into the policy observation</text>
+  <path d="M430 385 L195 385 L195 312" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ah)"/>
+  <text x="312" y="377" text-anchor="middle" font-size="12" fill="#555">becomes the next x</text>
+
+  <!-- Optimiser view -->
+  <rect x="30" y="450" width="1140" height="150" rx="10" fill="#f6f6f6" stroke="#999" stroke-width="1.5"/>
+  <text x="50" y="480" font-size="16" font-weight="bold">The same update as an optimisation problem (weighted least squares, equivalently a MAP estimate)</text>
+  <text x="50" y="512" font-size="15">x = argmin over x of   (x - x_pred)^T P_pred^-1 (x - x_pred)   +   (z - H x)^T R^-1 (z - H x)</text>
+  <text x="50" y="540" font-size="13">first term: how far the estimate strays from what physics predicts (weighted by the model uncertainty);</text>
+  <text x="50" y="560" font-size="13">second term: how far it strays from what the sensors report (weighted by the sensor uncertainty).</text>
+  <text x="50" y="584" font-size="13">The Kalman gain K is the closed-form minimiser, so each step is a tiny optimisation that is solved exactly and recursively.</text>
+</svg>

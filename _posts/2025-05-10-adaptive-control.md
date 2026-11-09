@@ -549,6 +549,70 @@ Projection deserves a remark: it modifies the update only when the estimate is o
 
 When only $y=Cx$ is measured, adaptation must be combined with state estimation. For known linear dynamics the observer of section 7 suffices, but in adaptive and nonlinear settings the estimation and parameter errors couple, and the clean separation of LQG does not hold. The Lyapunov function must include the observer error, and the proof handles all three errors together.
 
+### 6.5 Practitioner Cautions: What Adaptive Control Is and Is Not
+
+Four clarifications keep the theory honest. First, a general warning: **adaptation does not by itself guarantee closed-loop stability.** Every stability statement in this chapter is conditional on assumptions (a known plant structure with linear-in-parameters uncertainty, matching conditions, a known sign of the input gain, bounded references, and a Lyapunov-based adaptive law), and the conclusion is usually boundedness and asymptotic error convergence, not parameter convergence, robustness, or good transients. Break an assumption (unmodelled dynamics, disturbances, saturation, noise, delay, sampling) and the guarantee can vanish, as section 6.1 shows. They echo the practitioner's view in [Control Theory Basics]({% post_url 2019-05-18-control-theory-basics %}).
+
+**(a) Adaptive is not the same as scheduled.** If a parameter changes with an _independently measured_ variable (EPS assist versus vehicle speed, for example), that is gain scheduling. Adaptive control adjusts parameters from the plant's own input-output signals. The distinction matters because scheduling has a measured schedule and no estimator to destabilize.
+
+**(b) An adaptive controller is a fixed nonlinear controller of higher order.** The adaptation law has fixed gains $\Gamma$; the parameter estimates are extra states. Nothing "learns" beyond what these dynamics encode. Seen this way, a large adaptation gain behaves like high-gain feedback that covers a wide parameter range, with the usual price: noise amplification, saturation, and sensitivity to unmodelled fast dynamics.
+
+**(c) Certainty equivalence can fail, with an explicit counterexample.** Consider
+
+$$
+\dot x=\theta x^2+u,\qquad u=-x-\hat\theta x^2,\qquad\tilde\theta=\theta-\hat\theta .
+$$
+
+Substituting gives $\dot x=-x+\tilde\theta x^2$. **Assumption (stated explicitly):** to isolate the effect, impose a "textbook-good" estimator error $\tilde\theta(t)=\tilde\theta_0e^{-t}$ from outside. This is a prescribed signal, not the output of a real update law driven by $x$; a real estimator would have its own dynamics, and the point is that exponential convergence of the estimate alone is not enough. With $\tilde\theta=0$ the loop $\dot x=-x$ is exponentially stable, yet
+
+$$
+\dot x=-x+\tilde\theta_0e^{-t}x^2 .
+$$
+
+Substituting $z=1/x$ gives $\dot z=z-\tilde\theta_0e^{-t}$, so
+
+$$
+z(t)=e^{t}\Big(\tfrac{1}{x_0}-\tfrac{\tilde\theta_0}{2}\big(1-e^{-2t}\big)\Big).
+$$
+
+Equivalently, $w=e^{t}x$ obeys $\dot w=\tilde\theta_0e^{-2t}w^2$, which has the same blow-up time because $e^{t}$ is finite. (This is the form with an $e^{-2t}$ factor; it describes $w=e^{t}x$, not $x$ itself.) The three cases are:
+
+- $x_0\tilde\theta_0>2$: $z$ reaches zero at the finite time $t^\ast=-\tfrac12\ln\big(1-\tfrac{2}{x_0\tilde\theta_0}\big)$ and $x$ escapes in finite time. The estimate converges, but the state escapes first.
+- $x_0\tilde\theta_0=2$ (boundary): no finite escape, but $x(t)=(2/\tilde\theta_0)e^{t}$ grows without bound.
+- $x_0\tilde\theta_0<2$: $z>0$ for all time and $x\to0$.
+
+**General estimator rate.** If the prescribed parameter error decays as $\tilde\theta(t)=\tilde\theta_0e^{-\lambda t}$, the same substitution gives $\dot z=z-\tilde\theta_0e^{-\lambda t}$ and
+
+$$
+z(t)=e^{t}\Big(\tfrac{1}{x_0}-\tfrac{\tilde\theta_0}{1+\lambda}\big(1-e^{-(1+\lambda)t}\big)\Big),
+$$
+
+so finite escape occurs exactly when $x_0\tilde\theta_0>1+\lambda$, at $t^\ast=-\tfrac{1}{1+\lambda}\ln\big(1-\tfrac{1+\lambda}{x_0\tilde\theta_0}\big)$. For $\lambda=1$ the threshold is 2 (above); for a faster estimator with $\tilde\theta(t)=\tilde\theta_0e^{-2t}$ it is 3, so a faster estimator enlarges the safe set of initial conditions but never removes the escape. Under the earlier assumption $\tilde\theta_0e^{-2t}$ applied to the plant $\dot x=-x+\tilde\theta x^2$, the threshold is therefore $x_0\tilde\theta_0>3$, not 2.
+
+Numerical check (adaptive-step integration, relative tolerance $10^{-12}$, event at $|x|=10^{8}$): with $\lambda=1$, $x_0=1$, $\tilde\theta_0=3$ the state passes $10^{8}$ at $t=0.549306$, matching $t^\ast$; $\tilde\theta_0=2.5$ and $2.1$ give $t=0.80472$ and $1.52226$, also matching, while $\tilde\theta_0=1.9$ and $1.5$ decay. With $\lambda=2$, $x_0=1$: $\tilde\theta_0=3.5$ and $3.1$ escape at $0.64864$ and $1.14466$ (predicted $0.648637$, $1.144662$), while $2.9$ and $2.5$ decay. The closed form $x=1/z$ agrees with the integrated trajectory to a relative error below $10^{-11}$ in both cases. Caveat: this checks the algebra of the example, with the estimator error prescribed. It does not show what a real update law does, which depends on $x$ itself.
+
+The lesson: convergence of the estimator plus stability of the nominal loop do not imply stability of the combination. Lyapunov-based adaptive designs (sections 4 and 5) avoid this by analyzing the joint $(x,\tilde\theta)$ system, and adaptive backstepping uses nonlinear-damping-type terms to dominate the cross term $\tilde\theta x^2$.
+
+**Three architectures, side by side.** Gain scheduling, self-tuning (indirect), and model-reference (direct) adaptive control differ in where the information for the parameter change comes from:
+
+```
+ Gain scheduling              Self-tuning regulator (STR)             MRAC (direct)
+ --------------               ---------------------------             -------------
+ scheduling variable v        r -> [controller(theta^)] -> [plant] -> y       r -> [controller(theta)] -> [plant] -> y
+        |                               ^                        |                    ^   (theta adapted)      |
+        v                               |                        |                    |                        |
+ r -> [C(v)] -> [plant] -> y     [design: theta^ -> gains]       |             [adaptation law] <---- e = y - y_m
+                                         ^                       |                    ^
+                                         |                       v              [reference model] <- r -> y_m
+                                  [estimator: theta^ from u, y] <+
+```
+
+In scheduling the parameter change is a **known function of a measured variable**; there is no estimator, so no estimator-controller coupling, but the design is only as good as the scheduling variable. In the self-tuning regulator the plant parameters are estimated and the controller is recomputed from them (certainty equivalence), so the quality of the closed loop depends on the estimate and its excitation. In MRAC the controller parameters are adjusted directly to drive the model error $e=y-y_m$ to zero, and the adaptation law is chosen from a Lyapunov function so the cross terms cancel (section 4.2); this removes the design step but needs structure assumptions (relative degree, minimum phase, sign of the high-frequency gain).
+
+**(d) Persistent excitation conflicts with regulation.** A closed loop that regulates well drives $x\to0$, so the regressor $\phi$ shrinks and parameters stop being excited. How much excitation is needed depends on the regressor structure: for a linear-in-parameters model $z=\theta^\top\phi$, the requirement is that $\int_t^{t+T}\phi\phi^\top d\tau\succeq\alpha I$ for some $\alpha,T>0$. When $\phi$ is built by passing a reference through LTI filters, one sinusoid contributes at most two independent directions, so for $n$ parameters a _rule of thumb_ is on the order of $n/2$ distinct frequencies; this is **not** universal. Nonlinear regressors, repeated structure, or extra measured signals change the count, and some parameters can be identified from a single rich signal while others need more. This is why recursive least squares in closed loop can show parameter drift or a _line_ of equivalent estimates (several $(\hat a,\hat b)$ pairs giving the same closed loop), and why "the controller adapted" does not imply "the model was identified". For classical STR the other failure modes are: pole placement based on an inaccurate estimate, near pole-zero cancellations that make the design fragile, and, for direct MRAS, the need for a minimum-phase plant so that the controller can be parameterized.
+
+Finally, adaptation fixes _stability under parametric uncertainty_; it does not by itself guarantee _good transients_. Transient quality must be designed (reference model, adaptation gain, projection bounds), and when the plant structure is unknown, no adaptive law substitutes for structural knowledge. This is the control-theory form of the no-free-lunch principle.
+
 ### What to Remember
 
 - Ideal adaptive laws drift under disturbances; the gain grows and robustness is lost.
@@ -596,6 +660,21 @@ $$
 $$
 
 The gain $K_k$ balances trust in the model ($P^-$) against trust in the measurement ($V$). For nonlinear systems, the extended Kalman filter linearizes around the current estimate (see the [Lie group note]({% post_url 2025-08-12-liegroup-liealgebra %}) for the version used in robot state estimation).
+
+![Block diagram of the Kalman filter algorithm](https://commons.wikimedia.org/wiki/Special:FilePath/Kalman-filter_en.svg)
+Figure 1. The Kalman filter as a loop of two steps, prediction and innovation (update), starting from an initial state $x_0$ and covariance $P_0$; inputs are orange, outputs blue. Source: [File:Kalman-filter en.svg](https://commons.wikimedia.org/wiki/File:Kalman-filter_en.svg). License: CC BY-SA 4.0.
+
+The figure contains the same recursion as above: the prediction step propagates the state and covariance through the model, and the innovation step corrects them with the gain $K_k$ in proportion to the measurement residual $z_k-Hx_k^-$. The covariances $W$ and $V$ are the only tuning knobs, and the gain they produce settles to a constant in steady state, so for a fixed linear model the filter is an ordinary fixed linear system whose frequency response should be checked.
+
+### 7.3 Practical Cautions: Estimator and Controller Are One Loop
+
+- **An observer is a feedback design.** With $u=-K\hat x$, the controller seen from the plant is the dynamic compensator $D(s)=K(sI-A+BK+LC)^{-1}L$ (for $D=0$ feedthrough), the loop gain is $D(s)G(s)$, and its margins are what matter. Fast $L$ shortens estimation transients but amplifies sensor noise and can erode phase margin near crossover.
+- **Separation holds for eigenvalues, not for margins.** The classical LQR margins (gain margin $[1/2,\infty)$, phase margin $\ge60^\circ$) hold only under these assumptions: continuous time; an LTI plant with $(A,B)$ stabilizable and $(A,Q^{1/2})$ detectable; $Q\succeq0$, $R\succ0$; the **infinite-horizon optimal** gain $K=R^{-1}B^\top P$; **exact full-state feedback** (no observer); and the loop broken at the plant input. They follow from Kalman's return-difference inequality $\big(I+K(j\omega I-A)^{-1}B\big)^{\mathsf H}R\big(I+K(j\omega I-A)^{-1}B\big)\succeq R$. The margins are stated for a single input, or per channel for a multi-input plant with diagonal $R$. They do not carry over to discrete time, finite-horizon LQR, MPC with constraints, delays, saturation, or unmodelled dynamics. The Kalman filter has the dual guarantee at the plant output under dual assumptions. Once the estimate replaces the true state, the combined LQG loop has no general margin guarantee (Doyle 1978); see section 8.7. Loop transfer recovery (LTR) restores LQR margins asymptotically by making the observer fast, and it requires a minimum-phase plant.
+- **Check the combined loop.** A correctly modelled closed-loop simulation _can_ reveal a sensitivity peak, provided it includes the plant, estimator, and controller together at realistic frequency content. The real concern is model uncertainty and neglected dynamics: a nominal simulation can look fine while a perturbed model, a delay, or an unmodelled mode shows a large $\lVert S\rVert_\infty$. Complement time simulation with frequency-domain checks (Bode and Nyquist of the loop, $S$ and $T$ peaks, singular-value plots) on perturbed models.
+- **Separate tunings.** When estimator and controller are tuned independently, closely spaced poles can combine into a sharp sensitivity peak; verify the combined loop rather than each half.
+- **Estimators in series add lag.** Each additional filter adds phase lag in the loop; use one deliberately designed estimator where possible.
+- **Duality, not identity.** The filter and regulator Riccati equations are mathematically dual: $(A,C,W,V)$ for estimation maps to $(A^\top,B,Q,R)$-type terms for control. This duality makes results transfer between the problems, but they are not literally the same optimization: one minimizes error covariance under stochastic assumptions, the other a cost functional over trajectories.
+- $Q$, $R$, $W$, $V$ are often tuning weights rather than measured covariances; treat them as loop-shaping knobs and check frequency-domain behavior.
 
 ### What to Remember
 

@@ -120,6 +120,53 @@ Forging and extrusion can close porosity and align grain flow, improving fatigue
 ![Deep drawing process schematic](https://commons.wikimedia.org/wiki/Special:FilePath/Deep_Drawing.svg)
 Figure 6. Deep drawing concept showing punch, die, blank, and material-flow constraints. Source: [File:Deep_Drawing.svg](https://commons.wikimedia.org/wiki/File:Deep_Drawing.svg). License: Public domain.
 
+### 3.1 Bulk Deformation: Flow Stress, Strain, and Load
+
+Bulk processes (rolling, forging, extrusion, drawing) are organized by one constitutive idea. A metal's resistance to plastic flow rises with strain through work hardening, commonly written as
+
+$$
+\sigma = K\varepsilon^{n},\qquad \varepsilon=\ln\frac{h_0}{h_1},
+$$
+
+where $\varepsilon$ is true strain, $K$ is the strength coefficient, and $n$ is the strain-hardening exponent (annealed copper is roughly $K\approx 315$ MPa, $n\approx 0.54$). At constant volume the average flow stress over a deformation from zero to $\varepsilon$ is $\bar Y_f=K\varepsilon^{n}/(1+n)$. Hot working lowers $K$ and removes most work hardening, which is why large reductions are done hot, while cold working buys dimensional accuracy, surface finish, and strength at the price of higher load.
+
+Worked example: upsetting annealed copper by 70%.  The true strain is $\varepsilon=\ln(1/0.3)=1.20$, the final flow stress is $315\times1.20^{0.54}\approx 348$ MPa, and the average is about $226$ MPa. That average stress, not the yield stress, is what sets the press load.
+
+Typical load estimates:
+
+| Process | Estimate | What it says |
+| --- | --- | --- |
+| Open-die upsetting | $F\approx \bar Y_f A\left(1+\dfrac{\mu d}{3h}\right)$ | friction adds load and causes barreling; load grows as the part flattens ($d/h$ increases) |
+| Closed-die forging | $F = k\,Y_f A$ | $A$ is projected area including flash; $k$ is about 3 for simple flashless shapes and rises toward 8 or more for complex shapes with flash |
+| Flat rolling | $F\approx L\,w\,\bar Y_f,\; L\approx\sqrt{R\,\Delta h}$ | contact length and strip width set the force; large rolls and big drafts raise load |
+| Flat rolling draft limit | $\Delta h_{max}=\mu^{2}R$ | friction must drag the strip into the gap; with $\mu=0.25$, $R=200$ mm the maximum draft is $12.5$ mm per pass |
+
+Reading the table as defects and controls: friction both drives rolling and ruins forging, so lubrication is chosen differently for the two. In flat rolling, edge cracks, zipper cracks, wavy edges, and residual-stress reversals appear when reduction is uneven across the width or when roll deflection is not compensated (crowned rolls, back tension). In forging, flash is not waste only: the thin flash land builds the pressure that fills the cavity, which is why complex shapes need a higher $k$. External and internal draft angles on forgings and castings are there so the part leaves the die.
+
+### 3.2 Sheet Bending: Moment-Curvature and Springback
+
+Bending is simple to run and subtle to predict. Treat the sheet as a beam bent to curvature $K=1/r$ by the tool. The through-thickness strain is $\varepsilon(y)=Ky$, and the moment is the integral of stress times moment arm, $M=\int_{-h/2}^{h/2}\sigma(y)\,y\,b\,dy$.
+
+For an elastic, perfectly plastic material:
+
+- while $Kh/2<\varepsilon_Y$ everything is elastic and $M=EIK$, with $I=bh^{3}/12$;
+- the yield curvature is $K_Y=2\varepsilon_Y/h$, with $M_Y=EIK_Y$;
+- beyond that, $M=\tfrac{3}{2}M_Y\left[1-\tfrac13\left(K_Y/K\right)^{2}\right]$, approaching $\tfrac32 M_Y$ as the section goes fully plastic.
+
+On unloading the sheet recovers elastically along a line of slope $EI$, so
+
+$$
+\Delta K=\frac{M_{max}}{EI},\qquad K_{part}=K_{tool}-\Delta K .
+$$
+
+Worked example (steel, $h=1$ mm, $\sigma_Y=250$ MPa, $E=200$ GPa): $K_Y=2\sigma_Y/(Eh)=2.5\ \text{m}^{-1}$. A tool of radius $50$ mm ($K=20\ \text{m}^{-1}$) gives $M/M_Y\approx1.49$ and $\Delta K\approx3.7\ \text{m}^{-1}$, so the part springs back to $r\approx61$ mm: 23% larger than the tool. A tighter $10$ mm radius springs back only about 4%. Raising yield strength by 10% moves the part radius to about $63$ mm. Three lessons follow:
+
+1. springback depends on the ratio of yield curvature to tool curvature, so tight radii and low yield strength spring back less;
+2. stiffness enters as $EI\propto h^{3}$, so thickness variation (rolling-mill quality) changes the result strongly;
+3. material variation (yield stress, strain hardening, chemistry, working history) is a major accuracy lever, which motivates overbending, restriking, adding stretch to push the section plastic through the thickness, and in-process angle measurement.
+
+Sheet processes also divide by shape-change mechanism: removal (shearing, punching, laser or waterjet cutting), simple bending along a line, bending plus stretch (airplane skins), and fully three-dimensional draw forming (car bodies). Progressive dies chain cutting and bending in one strip, which is why high-volume connectors are cheap per part and expensive to change.
+
 ---
 
 ## 4. Machining, Surface Integrity, and Dynamic Stability
@@ -150,6 +197,45 @@ Surface integrity includes:
 - contamination from tool or coolant.
 
 Grinding, honing, and lapping are therefore functional operations for sealing, bearing, fatigue, optics, and tribology, not merely cosmetic finishing.
+
+### 4.1 Cutting Mechanics: Motion, Force, Energy
+
+The simplest useful model is orthogonal (two-dimensional) cutting by a perfectly sharp tool at constant speed and uncut chip thickness $t_0$, producing a continuous chip. Three angles matter: rake angle $\alpha$, shear angle $\phi$, and relief angle. Material is removed by controlled failure: it shears continuously along the shear plane, and the chip thickness $t_c$ exceeds $t_0$.
+
+The shear strain in the primary zone is
+
+$$
+\gamma=\cot\phi+\tan(\phi-\alpha),
+$$
+
+so a smaller shear angle or smaller rake angle means larger strain, typically $\gamma\approx2$ to $4$, far beyond a tensile test. Merchant's relation estimates the shear angle by assuming the material selects $\phi$ to minimize cutting energy:
+
+$$
+\phi=\frac{\pi}{4}-\frac{\beta}{2}+\frac{\alpha}{2},\qquad \mu=\tan\beta,
+$$
+
+where $\beta$ is the tool-chip friction angle. For $\alpha=10^\circ$ and $\mu=0.5$ this gives $\phi\approx37^\circ$ and $\gamma\approx1.8$; with $\alpha=-5^\circ$ it gives $\phi\approx29^\circ$ and $\gamma\approx2.5$. Lower rake or higher friction therefore means a thicker chip, more shear work, more heat, and a hotter tool. The relation assumes slow orthogonal cutting, constant properties with temperature, simple sliding friction, and no strain hardening, so treat it as a trend, not a prediction.
+
+Turning has simple kinematics. With workpiece diameter $D$, spindle speed $N$, feed per revolution $f$, and depth of cut $d$:
+
+$$
+V_c=\pi D N,\qquad MRR=V_c\,f\,d .
+$$
+
+Worked example. A 304 stainless rod, $D=20$ mm, is turned to $19$ mm in one pass, so $d=0.5$ mm, at $N=300$ rpm with a feed rate of $200$ mm/min ($f\approx0.67$ mm/rev). Then $V_c\approx18.8$ m/min and $MRR\approx6.3\ \text{cm}^3/\text{min}$. At $N=400$ rpm ($f=0.5$ mm/rev, $V_c\approx25.1$ m/min), $MRR\approx105\ \text{mm}^3/\text{s}$. With a specific cutting energy $u_t=4.0$ W s/mm³ the cutting power is $P=u_t\,MRR\approx420$ W, which is about $0.6$ kW at drive efficiency 0.7, and the cutting force is $F_c=P/V_c\approx1$ kN.
+
+Force scales with chip cross-section and material strength, roughly $F_c\sim b\,t_0\,S$ (depth of cut times feed times shear strength, about half the ultimate tensile strength), and is strongly dependent on feed but nearly independent of cutting speed. Power splits into shear power ($F_sV_s$) and friction power ($F_fV_c$). The specific energy (power per unit removal rate) is a material property used for sizing spindles.
+
+### 4.2 Tools, Wear, Chips, and Milling
+
+- **Heat and temperature.** Mean tool temperature scales as $V^{a}f^{b}$, with constants that depend on tool and workpiece; speed is usually the stronger lever on heating. At very high speed more of the heat leaves with the chip, which is why high-speed machining can be gentler on the part.
+- **Wear.** Flank wear (rubbing on the cut surface) and crater wear (on the rake face) are examined together. Tool life follows $VT^{n}=C$; economic optimization balances machining time, tool-change time, non-productive time, machine cost per hour, and tool cost.
+- **Chip types.** Continuous chips occur in ductile materials at high speed; they tangle, so use chip breakers. A continuous chip with a built-up edge harms finish and tool wear. Discontinuous chips occur in brittle materials or at very low or very high speed.
+- **Tool materials and coatings.** Coatings of 2 to 20 micrometres (TiN for low friction, TiCN for wear resistance, $Al_2O_3$ for thermal stability) sit on a carbide substrate (hardness and toughness). Improving tool materials has raised allowable cutting speed by roughly 5% per year over a century.
+- **Milling.** The tool rotates with $n$ teeth, so feed per tooth is $f_z=v/(nN)$. Climb milling and conventional milling differ in how the tooth enters the cut and in the direction of force and finish. Pocket toolpaths are contour-parallel (offsets of the boundary, good finish) or direction-parallel (zig or zig-zag, fewer retractions), with finishing passes at features. Five-axis machining lets the tool orientation vary for complex surfaces and fewer setups.
+- **Design for machining.** Use standard dimensions, give tool access, avoid long narrow holes and thin sections that vibrate, make parts easy to fixture, and choose internal pocket radii the tools can cut (sharp internal corners are impossible with a rotating cutter). Minimize tool changes without sacrificing total machining time, and know the limits of available tooling.
+
+Performance summary: machining has low-to-medium rate, good quality, wide-ranging cost depending on design, material, and volume, and high flexibility within machine constraints.
 
 ---
 
@@ -272,6 +358,14 @@ Automation should be understood as variation control and throughput stabilizatio
 
 CNC performance depends on toolpath design, workholding, machine dynamics, look-ahead, jerk limits, thermal stability, and cutting data governance. Robots depend on end-effector design, part presentation, sensing, calibration, and cell-level safety. A robotized cell with unstable upstream variation may perform worse than a disciplined manual cell.
 
+Industrial robots (a manipulator programmable in three or more axes, per the International Federation of Robotics) are chosen for quality consistency, safety, rate, flexibility, waste, and floor space, but these benefits are coupled and rarely all true at once. The common architectures trade reach, speed, and stiffness:
+
+- **Articulated arms** (waist, shoulder, elbow, spherical wrist) have the most dexterity in the working volume and decouple end-effector orientation from position, but errors accumulate along the serial chain; reaches run from about 0.5 m to over 3.5 m and payloads from a few kilograms to over a tonne.
+- **SCARA arms** are compliant in the horizontal plane and stiff vertically, suited to fast pick-and-place and assembly.
+- **Delta arms** use parallel links for very high speed and light payloads.
+
+Robots are generally poor at operations needing both high force and high accuracy (such as machining), and programming plus path calibration take time. The end-effector (gripper, vacuum, tool changer) often decides success more than the arm.
+
 Digital manufacturing threads connect CAD, CAM, MES, quality databases, maintenance systems, and supplier data. The goal is not dashboards; the goal is faster, more reliable decisions:
 
 - which recipe changed?
@@ -297,6 +391,16 @@ $$
 where \(C_F\) is fixed investment, \(N\) is production quantity, and \(C_V\) is variable cost per unit. High-tooling processes often win at high volume; flexible low-tooling processes often win during prototyping or uncertain demand.
 
 {% include elements/figure.html image="/assets/img/posts/manufacturing/cost-volume-crossover.svg" caption="Figure 15. Cost-volume crossover. High fixed-cost processes can become cheaper at scale, while flexible low-tooling routes are attractive at low volume or high uncertainty." alt="Cost versus volume chart comparing low fixed high variable process and high fixed low variable process with crossover point" %}
+
+### 10.1 Process Planning and the Four Performance Attributes
+
+Process planning means selecting and sequencing the operations needed to make a product, often across several processes and locations. A simple product (an inflatable air-cushion pack) is a chain: raw-material extraction, plastic pellets, film extrusion or blowing, printing, sealing, inflation and cutting. A complex product (a low-cost tablet) is a tree: a glass-and-polarizer LCD display, case, battery, board and speaker, grouped into modules and sub-assemblies before final assembly. Planning questions are: what are the key features and attributes, which can be standard and which customized, what materials and processes are needed, what sequences make sense, and whether operations should share a location. For complex products add customer preference, standard versus custom parts, supply chain and supplier quality, shipping, seasonality, and inventory.
+
+Process performance is judged by four attributes: **rate** (what limits throughput), **quality** (what makes dimensions, shape, and properties deviate from specification; modelled with a normal distribution, with defect probability from the z-score $z=(x-\bar x)/s$), **cost** (material, machine, and labor, with cost per part falling with volume), and **flexibility** (ease of product changeover, with additive manufacturing at the flexible extreme).
+
+Cost modelling splits into fixed and variable parts. For dedicated tooling with cost $C_t$ per set that makes $n_t$ parts before wearing out, a forecast volume $N$ needs $\lceil N/n_t\rceil$ sets, so tooling cost is $C_1=C_t\,\lceil N/n_t\rceil$. Injection-mold quality classes (Society of the Plastics Industry) tie mold cost to life: class 105 (up to 500 cycles, prototype), 104 (up to 100,000), 103 (up to 500,000, most common), 102 (up to 1,000,000), and 101 (over 1,000,000, hardened tool steel). Mold cost grows slowly with part size (a power law with exponent about 0.17 in one cost estimator) but strongly with tolerance, surface finish, and complexity. Equipment cost is straight-line depreciation: if one machine makes $\dot n$ parts per year, costs $C_m$, has load factor $L$, and is written off over $t_{wo}$ years, the cost per part is about $C_m/(L\,t_{wo}\,\dot n)$; dedicated equipment must be bought in whole machines regardless of utilization.
+
+### 10.2 Sustainability
 
 Sustainability is now an engineering constraint, not a marketing label. Energy intensity, material yield, coolant use, emissions, scrap recovery, repairability, remanufacturing, and recyclability all affect process selection. Near-net shape, durable tooling, closed-loop material recovery, and design-for-disassembly can reduce environmental and economic cost together.
 
@@ -355,9 +459,12 @@ Manufacturing connects naturally to:
 | Figures | Preserved useful existing external process figures and added seven original SVG decision/mechanism diagrams. |
 | Defects | Reorganized defects by mechanism rather than process-name lists. |
 | Practical limits | Emphasized pilot evidence, measurement-system validity, process capability, and chain-level cost. |
+| Course-material pass | Added bulk-deformation loads, sheet-bending moment-curvature and springback, cutting mechanics with worked examples, robot architectures, process planning, and tooling and equipment cost models from the lecture and 2.008x materials; worked numbers were recomputed. |
 | Internal links | Recommended future links to materials, CAD/CAM/FEM/CFD, operations management, robotics/automation, and quality-related notes. |
 
 ## Main Sources Used in This Note
 
-- CityU MNE3119 course material.
+- CityU MNE3119 course material: lecture slides (introduction, casting, rolling, forging, extrusion and drawing, sheet metal forming, machining fundamentals, turning, milling, plastics processing) and the course notebook. The notebook is mostly slide printouts; its handwritten annotations and the scanned exam file could not be extracted as text.
+- MIT 2.008x (Prof. John Hart): machining, process planning and performance, cost, variation, additive manufacturing, robotics, and injection-molding slides; MIT 2.008 Fall 2016 sheet-metal-forming handout (Prof. David Hardt).
+- S. Kalpakjian and S. Schmid, _Manufacturing Engineering and Technology_; M. F. Ashby, _Materials Selection in Mechanical Design_ (cost model).
 - Existing Wikimedia Commons figures cited inline with their file pages and licenses.

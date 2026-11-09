@@ -6,7 +6,7 @@ color: light
 description: Consolidated notes on fluid mechanics and aerodynamics, organized around conservation laws, regimes, boundary layers, pipes, lift, compressibility, shocks, nozzles, and validation.
 ---
 
-_This note is adapted from course materials for **MNE3122 Fluid Mechanics** and **MNE4201 Aerodynamics** at **City University of Hong Kong**. Instructors: course teaching staff._
+_This note is adapted from course materials for **MNE3122 Fluid Mechanics**, **MNE3106 Advanced Thermofluids**, and **MNE4201 Aerodynamics** at **City University of Hong Kong**. Instructors: Prof. Chin Pan (MNE3106) and course teaching staff._
 
 ## Central Question
 

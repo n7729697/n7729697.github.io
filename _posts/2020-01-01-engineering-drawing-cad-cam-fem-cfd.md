@@ -6,7 +6,7 @@ color: light
 description: A practical guide to the engineering geometry pipeline from drawing and CAD to CAM, FEM, CFD, validation, and design iteration.
 ---
 
-_This note is adapted from course materials for **MNE2116 Engineering Graphics**, **MNE3007 CAD/CAM**, and **MNE4005 Finite Element Analysis** at **City University of Hong Kong**. Instructors: Prof. Weiyin MA and course teaching staff._
+_This note is adapted from course materials for **MNE2116 Engineering Graphics**, **MNE3007 CAD/CAM**, and **MNE4005 Finite Element Analysis** at **City University of Hong Kong**. Instructors: Dr. Hon Yuen Tam (MNE2116), Prof. Weiyin MA, and course teaching staff._
 
 ## Central Question
 

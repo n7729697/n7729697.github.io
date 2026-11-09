@@ -6,7 +6,7 @@ color: light
 description: A practical, process-first guide to MEMS microfabrication, from wafer to released device — with process physics, worked examples, and design tradeoffs.
 ---
 
-_This note is adapted from course materials for **IH2659 Nanofabrication Technologies** at **KTH Royal Institute of Technology**. Instructor: course teaching staff._
+_This note is adapted from course materials for **IH2659 Nanofabrication Technologies** at **KTH Royal Institute of Technology**, with supplementary material from **EK2360 Hands-On MEMS Engineering** (KTH), **MNE3115 Microelectromechanical Systems** (City University of Hong Kong), and **ME3281 Microsystems Design and Applications** (National University of Singapore). Instructor: course teaching staff._
 
 ## Why Micro-Fabrication Matters
 
@@ -559,6 +559,78 @@ Function depends on second-order effects:
 2. Then ensure **functionality** by coupled physics + process margin checks.
 3. Then ensure **robustness** by Monte Carlo across process corners.
 
+### Worked rule set: a 30 µm SOI MEMS process (KTH EK2360)
+
+The generic table above becomes concrete in a teaching process built on a silicon-on-insulator (SOI) wafer: a 30 µm silicon device layer, a 2 µm oxide sacrificial layer, and a 500 µm handle wafer. Moving structures are made by deep plasma etching the device layer and then undercutting the oxide in wet HF. The recommended rules are:
+
+| Rule | Value | Reason |
+| --- | --- | --- |
+| Minimum beam width | 4 µm | the remaining silicon must survive etch and handling; 30 µm / 4 µm is a 7.5:1 standing aspect ratio |
+| Minimum gap width | 3 µm | the etched trench aspect ratio is 30 µm / 3 µm = 10:1, well inside what deep etching can do (110:1 has been demonstrated) |
+| Total etched area | below about 10% of the chip | plasma etch is best controlled for small open areas |
+| Large unused regions (over 50 µm) | fill with dummy geometry | avoids loading effects, but the fill must be anchored or it floats off after release |
+| Free-standing features | under 15 µm (better 10 µm) in at least one direction | time-controlled lateral undercut of at least 10 µm from every edge frees them |
+| Anchors | over 100 µm in every direction | anything narrower is undercut and floats away |
+| Vertical stiffness of a suspended structure | above about 25 N/m | resists stiction to the substrate after release |
+
+Masks are drawn in a layout tool (KLayout in the course) and delivered as GDSII or OASIS. Violating a rule can break off parts that damage distant structures on the wafer, which is why a rule violation is a hard stop, not a warning.
+
+## Device Physics Behind the Process: Springs, Electrostatics, Sensing, and Fluids
+
+Fabrication is only half of a MEMS design; each mask is drawn to deliver a spring, a gap, or a channel with a target value. The relations below connect the geometry the process controls to device behavior.
+
+### Suspension springs from beams
+
+Conventional coil springs cannot be fabricated, so micro-suspensions are beams. Small-deflection beam theory is $EI\,w^{(4)}=p(x)$, with $I=wt^3/12$ for a rectangular section of width $w$ and thickness $t$. Two useful stiffnesses:
+
+- cantilever loaded at the tip: $k=3EI/L^3=Ewt^3/(4L^3)$;
+- fixed-guided beam (both ends held parallel, as in a folded or guided suspension): $k=12EI/L^3=Ewt^3/L^3$.
+
+Stiffness scales with thickness cubed and length to the inverse cube, so a 10% error in thickness changes stiffness by about 33%, while a 10% error in width changes it by 10%. Process thickness control therefore dominates spring tolerance.
+
+### Electrostatic actuation and pull-in
+
+Two plates with area $A$ and gap $g$ have capacitance $C=\varepsilon A/g$. With the voltage held fixed, the force is the derivative of the co-energy $\tfrac12CV^2$:
+
+$$
+F_e=\frac{\varepsilon A V^2}{2\,(g-z)^2},
+$$
+
+attractive and strongly gap-dependent. With charge held fixed instead, $F_e=Q^2/(2\varepsilon A)$, independent of gap, but controlling sub-picofarad charge is hard, so MEMS are driven with voltage. Equilibrium against a suspension of stiffness $k$ requires $kz=F_e$. The restoring force is linear while the electrostatic force grows faster than linear, so beyond a critical point there is no equilibrium. That point is at $z=g/3$, with pull-in voltage
+
+$$
+V_{PI}=\sqrt{\frac{8\,k\,g^3}{27\,\varepsilon A}} .
+$$
+
+The one-third limit is independent of geometry, dielectric, and voltage, so analog parallel-plate actuators can use only about a third of the gap (a tuning ratio of about 1.5:1 for a variable capacitor).
+
+Worked example. Four polysilicon beams ($E=165$ GPa, $L=86$ µm, $w=8$ µm, $t=2$ µm), guided at the plate end, hold a plate 2 µm above a $164\times72$ µm² electrode. The suspension stiffness is $k=4Ewt^3/L^3\approx66.4$ N/m. At $30$ V the equilibrium solves to $z\approx0.225$ µm. The pull-in voltage is $V_{PI}\approx38.8$ V at $z=g/3\approx0.67$ µm, so a 40 V drive has no equilibrium and the plate collapses and shorts. I checked these numbers by solving the force balance numerically.
+
+Practical consequences:
+
+- **Digital mode.** Switches deliberately pull in; the release voltage is lower than the pull-in voltage, giving hysteresis that makes the state robust to voltage ripple. Stoppers or an isolation layer prevent a short, trading dielectric charging against contact force.
+- **Voltage limit.** Gas breakdown follows the Paschen curve; keep the operating voltage below roughly 200 V for micron-scale gaps in air.
+- **Parallel plate versus comb drive.** Parallel plates move out of plane, give large force per area, and travel only a few micrometres. Comb drives move in plane with travel of tens of micrometres and small force per area, which suits bulk and SOI processes.
+- **Electrostatic versus electrothermal.** Electrostatic: small displacement (under about 5 µm), very fast (µs), largest force at maximum displacement, very low power, high voltage (20 to 100 V). Electrothermal: large displacement, slow (ms), largest force at zero displacement, high power and low efficiency, low voltage (1 to 2 V) with high current. Piezoelectric actuation needs a deposited active film and sits between the two in stroke.
+
+Simulation note. When extracting force from a finite-element model, differentiating the stored electric energy with respect to gap, $F=-\Delta W_e/\Delta s$ multiplied by device thickness, is more robust than integrating Maxwell's surface stress, which depends strongly on mesh density and symmetry. For a 300 µm long, 10 µm gap, 30 µm thick parallel-plate actuator, energies per unit depth of $5.4101\times10^{-7}$ J/m (10.0 µm gap) and $5.362\times10^{-7}$ J/m (10.1 µm gap) give $F\approx1.44$ µN.
+
+### Sensing: piezoresistive and capacitive
+
+For a resistor $R=\rho l/(wt)$, strain $\varepsilon_l$ changes resistance by
+
+$$
+\frac{\Delta R}{R}=GF\,\varepsilon_l,\qquad GF=1+2\nu+\frac{1}{\varepsilon_l}\frac{\Delta\rho}{\rho},
+$$
+
+where the first two terms are geometric and the last is the piezoresistive effect. Metal foil has $GF\approx2$ to $5$; single-crystal silicon spans roughly $-125$ to $+200$, depending on orientation, doping, and concentration, with a high temperature coefficient; polysilicon spans about $-30$ to $+30$. The large silicon gauge factor is why piezoresistive pressure sensors use diffused or implanted resistors on a diaphragm. For a cantilever of length $L$ loaded by a tip force $F$, the surface strain at the root is $6FL/(Ewt^2)$; a gauge spanning the whole length averages half of that, $3FL/(Ewt^2)$, so $\Delta R/R=GF\cdot3FL/(Ewt^2)$. A Wheatstone bridge reads the change: one active arm gives $V_{out}\approx\tfrac14(\Delta R/R)V_s$ with some nonlinearity, while two arms increasing and two decreasing give $V_{out}=(\Delta R/R)V_s$, which is linear and four times larger.
+
+Capacitive sensing has simple fabrication, CMOS integration, good sensitivity, and excellent temperature stability, at the cost of tiny signals, parasitics, and unwanted electrostatic actuation by the read-out voltage. For a plate of $400\times400$ µm² at a 1 µm gap, $C\approx1.4$ pF and the sensitivity is about $-1.4$ pF/µm, but the response is nonlinear and approaches pull-in.
+
+### Microfluidic scaling
+
+At micro scale, viscous forces dominate. With hydraulic diameter $D_h=4A/P$, the Reynolds number is $Re=\rho vD_h/\eta$. Water at $0.17$ m/s in a 100 µm square channel (about 100 µL/min) has $Re\approx19$, far below the 2300 laminar limit, so microchannel flow is almost always laminar, with a parabolic profile and no slip at the wall. Entrance length is about $0.06\,Re\,D$, which can exceed the channel length. Hydraulic networks map to circuits (pressure as voltage, flow rate as current): fluidic resistance is $R=\Delta P/Q$, equal to $8\eta L/(\pi r^4)$ for a circular channel and $12\eta L/(wh^3)$ for a wide rectangle ($w\gg h$). Compliant walls and bubbles add fluidic capacitance, while inertance is negligible. Other driving mechanisms are electroosmosis (a mobile ion layer drags the bulk) and electrophoretic separation by ion mobility. For surface tension, the capillary rise height is $h=2\gamma\cos\theta/(\rho g r)$, and bubbles adhere to walls when their buoyancy is below the surface-tension force, so bubbles accumulate in dead volumes and add large fluidic capacitance.
+
 ---
 
 ## Process Integration Mindset
@@ -700,3 +772,11 @@ A 5% error in thickness $t$ produces a 5% shift in resonant frequency — this c
 | **Test** | Electromechanical coupling | Specification non-compliance |
 
 Every stage feeds the next, and errors compound. The engineer who understands the *entire* flow — not just their own module — is the one who achieves first-silicon success.
+
+---
+
+## Sources
+
+- KTH IH2659 Nanofabrication Technologies and EK2360 Hands-On MEMS Engineering course material (technology introduction, design rules, fabrication, electrostatic actuator and finite-element force notes).
+- CityU MNE3115 Microelectromechanical Systems lecture slides and lab material.
+- NUS ME3281 Microsystems Design and Applications lecture slides (beams and diaphragms, microactuators, microsensors, microfluidics).
